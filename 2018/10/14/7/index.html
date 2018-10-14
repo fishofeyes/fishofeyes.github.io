@@ -1,0 +1,440 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head>
+	<title>Gvoice 实时语音接入</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="目生鱼">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>当前文章&nbsp;:&nbsp;《Gvoice 实时语音接入》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		10/14/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/10/14/7/" itemprop="url">		
+			Gvoice 实时语音接入		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/10/14/7/" itemprop="url">
+	<time datetime="2018-10-14T08:19:16.399Z" itemprop="datePublished">
+  		2018-10-14
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p> 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。<br>接入流程请参照官网<a href="http://gcloud.qq.com/document/59268d64ff93679a05ef8271" target="_blank" rel="noopener">http://gcloud.qq.com/document/59268d64ff93679a05ef8271</a><br> 其实GVoice接入很简单把官方的demo下载，然后把APPID（gameID） 和 APPkey 替换，代码直接搬过来用就行了。<br>在这里值得一说的是，在接入语音遇到的问题</p>
+<ul>
+<li>测试时候语音有回音，只需要把两台设备离远点就没有了。</li>
+<li>在GVoice开启Mic的时候可能导致程序崩溃,是因为设备没有开启权限。解决办法直接做一个mic的权限判断，如果没有开启权限就不要去调用开启mic的方法。</li>
+<li>在实力化GVoice的时候需要传入一个openID，最开始我是用的登录的token，然后发现在加入房间的时候会报错，我估计是因为token的字符太长了，然后我换成用户ID就好了。</li>
+<li>注意设置服务器[[GVGCloudVoice sharedInstance] setServerInfo:GVoice_server];<br>###代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">#import &quot;GVoice.h&quot;</span><br><span class="line">@interface GVoiceManager : UIViewController</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (GVoiceManager *) shareManger;</span><br><span class="line"></span><br><span class="line">/** 第三方初始化 必须初始化*/</span><br><span class="line">- (void) GVoiceinite;</span><br><span class="line"></span><br><span class="line">/** 加入房间*/</span><br><span class="line">- (void) joinRoom:(NSString *)roomID;</span><br><span class="line"></span><br><span class="line">/** 开始发语音，结束发语音*/</span><br><span class="line">- (void) openMic:(BOOL)isopen;</span><br><span class="line"></span><br><span class="line">/** 开启声音，关闭声音*/</span><br><span class="line">- (void) openSpeaker:(BOOL) isopen;</span><br><span class="line"></span><br><span class="line">/** 退出房间 */</span><br><span class="line">- (void) quitRoom;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现:"></a>实现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;GVoiceManager.h&quot;</span><br><span class="line">#import &quot;Tool.h&quot;</span><br><span class="line">#import &quot;FaceAlertTool.h&quot;</span><br><span class="line">#import &quot;UserInfoManager.h&quot;</span><br><span class="line">#import &lt;AVFoundation/AVFoundation.h&gt;</span><br><span class="line">@interface GVoiceManager ()&lt;GVGCloudVoiceDelegate&gt;</span><br><span class="line">@property (strong, nonatomic) NSTimer *pollTimer;</span><br><span class="line">@property (nonatomic,strong) NSString *roomID;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation GVoiceManager</span><br><span class="line"></span><br><span class="line">+ (GVoiceManager *) shareManger&#123;</span><br><span class="line">    static GVoiceManager *instance;</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        instance = [[GVoiceManager alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    return instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) GVoiceinite&#123;</span><br><span class="line">//    NSString *openID = [[NSUserDefaults standardUserDefaults] valueForKey:@&quot;access_token&quot;];</span><br><span class="line">    [[GVGCloudVoice sharedInstance] setAppInfo:GVoice_appid withKey:GVoice_secert andOpenID:[[UserInfoManager managerUserInfo].userID cStringUsingEncoding:NSUTF8StringEncoding]];</span><br><span class="line">    [[GVGCloudVoice sharedInstance] initEngine];</span><br><span class="line">    [[GVGCloudVoice sharedInstance] setServerInfo:GVoice_server];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 加入房间*/</span><br><span class="line">- (void) joinRoom:(NSString *)roomID&#123;</span><br><span class="line">    self.roomID = roomID;</span><br><span class="line">    [GVGCloudVoice sharedInstance].delegate = self;</span><br><span class="line">    [[GVGCloudVoice sharedInstance] setMode:RealTime];</span><br><span class="line">    [[NSUserDefaults standardUserDefaults] setValue:roomID forKey:GVoice_roomID];</span><br><span class="line">    [[NSUserDefaults standardUserDefaults] synchronize];</span><br><span class="line">    enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] joinTeamRoom:[roomID cStringUsingEncoding:NSUTF8StringEncoding] timeout:18000];</span><br><span class="line">//    enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] joinNationalRoom:[roomID cStringUsingEncoding:NSUTF8StringEncoding] role:Anchor timeout:18000];</span><br><span class="line">    NSLog(@&quot;Voice加入房间res == %@&quot;,@(err));</span><br><span class="line">    _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.000/15 repeats:YES block:^(NSTimer * _Nonnull timer) &#123;</span><br><span class="line">        [[GVGCloudVoice sharedInstance] poll];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 开始发语音，结束发语音*/</span><br><span class="line">- (void) openMic:(BOOL)isopen&#123;</span><br><span class="line">    </span><br><span class="line">    NSInteger flag = [self checkMic];</span><br><span class="line">    if(flag != 2)&#123;</span><br><span class="line">        [self authoMic];</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isopen) &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] openMic];</span><br><span class="line">        NSLog(@&quot;GVoice 开启Mic res == %@&quot;,@(err));</span><br><span class="line">        </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] closeMic];</span><br><span class="line">        NSLog(@&quot;GVoice 关闭Mic res == %@&quot;,@(err));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 开启声音，关闭声音*/</span><br><span class="line">- (void) openSpeaker:(BOOL) isopen&#123;</span><br><span class="line">    </span><br><span class="line">    //首先的判断mic有没有权限</span><br><span class="line">    [self openMic:isopen];</span><br><span class="line">    if (isopen) &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] openSpeaker];</span><br><span class="line">        NSLog(@&quot;GVoice 开启Speaker res == %@&quot;,@(err));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] closeSpeaker];</span><br><span class="line">        </span><br><span class="line">        NSLog(@&quot;GVoice 关闭Speaker res == %@&quot;,@(err));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 退出房间 */</span><br><span class="line">- (void) quitRoom&#123;</span><br><span class="line">    [[GVGCloudVoice sharedInstance] quitRoom:[[[NSUserDefaults standardUserDefaults] valueForKey:GVoice_roomID] cStringUsingEncoding:NSUTF8StringEncoding] timeout:18000];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//MARK:--------------------提示-------------//</span><br><span class="line">#pragma mark delegate</span><br><span class="line"></span><br><span class="line">- (void) onJoinRoom:(enum GCloudVoiceCompleteCode) code withRoomName: (const char * _Nullable)roomName andMemberID:(int) memberID &#123;</span><br><span class="line">    NSString *msg;</span><br><span class="line">    if (GV_ON_JOINROOM_SUCC == code) &#123;//加入房间回调可自己实现</span><br><span class="line">        if(self.callbackGetInRoom)self.callbackGetInRoom(YES);</span><br><span class="line">        msg = [NSString stringWithFormat:@&quot;Join Room Success&quot;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if(self.callbackGetInRoom)self.callbackGetInRoom(NO);</span><br><span class="line">        msg = [NSString stringWithFormat:@&quot;加入语音房间失败 with code: %d&quot;, code];</span><br><span class="line">        [FaceAlertTool svpShowInfo:msg];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onStatusUpdate:(enum GCloudVoiceCompleteCode) status withRoomName: (const char * _Nullable)roomName andMemberID:(int) memberID &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onQuitRoom:(enum GCloudVoiceCompleteCode) code withRoomName: (const char * _Nullable)roomName &#123;</span><br><span class="line">    [_pollTimer invalidate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onMemberVoice:	(const unsigned int * _Nullable)members withCount: (int) count &#123;</span><br><span class="line">    for (int i=0; i&lt;count; i++) &#123;</span><br><span class="line">        NSLog(@&quot;Member %d status %d&quot;, *((int*)members+2*i), *((int *)members+2*i+1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onUploadFile: (enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID  &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onDownloadFile: (enum GCloudVoiceCompleteCode) code  withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onPlayRecordedFile:(enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onApplyMessageKey:(enum GCloudVoiceCompleteCode) code &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onSpeechToText:(enum GCloudVoiceCompleteCode) code withFileID:(const char * _Nullable)fileID andResult:( const char * _Nullable)result &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onRecording:(const unsigned char* _Nullable) pAudioData withLength: (unsigned int) nDataLength &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void) onStreamSpeechToText:(enum GCloudVoiceCompleteCode) code withError:(int) error andResult:(const char *_Nullable)result &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//MARK:-------------------判断mic权限-------------//</span><br><span class="line">- (NSInteger) checkMic&#123;</span><br><span class="line">    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];</span><br><span class="line">    NSInteger flag=0;</span><br><span class="line">    switch (authStatus) &#123;</span><br><span class="line">        case AVAuthorizationStatusNotDetermined:</span><br><span class="line">            //没有询问是否开启麦克风</span><br><span class="line">            flag = 1;</span><br><span class="line">            break;</span><br><span class="line">        case AVAuthorizationStatusRestricted:</span><br><span class="line">            //未授权，家长限制</span><br><span class="line">            flag = 0;</span><br><span class="line">            break;</span><br><span class="line">        case AVAuthorizationStatusDenied:</span><br><span class="line">            //玩家未授权</span><br><span class="line">            flag = 0;</span><br><span class="line">            break;</span><br><span class="line">        case AVAuthorizationStatusAuthorized:</span><br><span class="line">            //玩家授权</span><br><span class="line">            flag = 2;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    return flag;</span><br><span class="line">&#125;</span><br><span class="line">//MARK:--------------------打开micphone权限-------------//</span><br><span class="line">- (void) authoMic&#123;</span><br><span class="line">    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) &#123;</span><br><span class="line">        </span><br><span class="line">        if (granted)&#123;// 用户同意授权</span><br><span class="line">            </span><br><span class="line">        &#125;else &#123;// 用户拒绝授权</span><br><span class="line">            [FaceAlertTool svpShowInfo:@&quot;请前往设置-&gt;ubaby设置麦克风权限&quot;];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2018/10/14/6/" title="ARDemo">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment valine -->
+			<!-- show valine comment -->
+<div id="valineComment" class="comment"></div>
+
+<!-- valine`s js & css -->
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/valine.min.js"></script>
+<link rel="stylesheet" href="/css/comment.css">
+
+<script>
+	var checkExistComment = setInterval(function() {
+		if( $('#valineComment').length ) {
+			new Valine({
+				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+				av: AV,
+				//使用id寻找div元素（使用class可能找不到）
+				el: '#valineComment',
+				emoticon_url: 'https://cloud.panjunwen.com/alu',
+				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
+				app_id: "3333....", //获取APP ID
+				app_key: "3333......", //获取APP KEY
+				placeholder: "no any!", //评论框占位提示文字        			
+			});
+			clearInterval(checkExistComment);
+		}
+	}, 100);
+</script>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现"><span class="post-toc-text">实现:</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by 目生鱼. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

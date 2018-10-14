@@ -1,0 +1,439 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head>
+	<title>swift 做一个答题的功能</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="目生鱼">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>当前文章&nbsp;:&nbsp;《swift 做一个答题的功能》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		10/14/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/10/14/first/" itemprop="url">		
+			swift 做一个答题的功能		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/10/14/first/" itemprop="url">
+	<time datetime="2018-10-14T07:36:19.946Z" itemprop="datePublished">
+  		2018-10-14
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<h3 id="实现的效果是："><a href="#实现的效果是：" class="headerlink" title="实现的效果是："></a>实现的效果是：</h3><h4 id="1-点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。"><a href="#1-点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。" class="headerlink" title="1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。"></a>1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。</h4><h4 id="2-可以查看上一题的答题情况。"><a href="#2-可以查看上一题的答题情况。" class="headerlink" title="2.可以查看上一题的答题情况。"></a>2.可以查看上一题的答题情况。</h4><p>看下效果图吧</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/1/24/16127e2f3ef161eb?w=281&amp;h=500&amp;f=gif&amp;s=1077680" alt=""></p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><h4 id="1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"><a href="#1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。" class="headerlink" title="1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"></a>1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OnlineTestDetailModel</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** 题的ID */</span></span><br><span class="line">    <span class="keyword">var</span> id:<span class="type">String</span>?</span><br><span class="line">    <span class="comment">/** 问题 */</span></span><br><span class="line">    <span class="keyword">var</span> question:<span class="type">String</span>?</span><br><span class="line">    <span class="comment">/** 答案选项 */</span></span><br><span class="line">    <span class="keyword">var</span> answers:[<span class="type">String</span>]?</span><br><span class="line">    <span class="comment">//正确答案索引</span></span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">right</span>:<span class="type">String</span>?</span><br><span class="line">    <span class="comment">/** 当前选择的答案 */</span></span><br><span class="line">    <span class="keyword">var</span> choose_answer:<span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"><a href="#2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。" class="headerlink" title="2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"></a>2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。</h4><p>数据返回两组一组显示题和答案，一组显示上一题和下一题。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------注册cell-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">registCell</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 问题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineTestDetailCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell"</span>)</span><br><span class="line">        <span class="comment">/** 上一题和下一题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"LastAndNextCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell2"</span>)</span><br><span class="line">        <span class="comment">/** 答案选项cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineAnswerCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell3"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> section == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">                <span class="keyword">let</span> <span class="built_in">count</span> = model.answers?.<span class="built_in">count</span> ?? <span class="number">0</span></span><br><span class="line">                <span class="comment">//这里+1是加了题目的数量</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">count</span> + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//否则就返回上一题和下一题的cell数量</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-用户点击答案cell的时候就判断是否正确然后改变按钮的image"><a href="#3-用户点击答案cell的时候就判断是否正确然后改变按钮的image" class="headerlink" title="3.用户点击答案cell的时候就判断是否正确然后改变按钮的image"></a>3.用户点击答案cell的时候就判断是否正确然后改变按钮的image</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, didSelectRowAt indexPath: IndexPath)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/** 如果用户已经选择过答案了 */</span></span><br><span class="line">      <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">      <span class="keyword">if</span> model.choose_answer != <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">      <span class="comment">/** 如果用户没有选择答案 */</span></span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">let</span> cell = tableView.cellForRow(at: indexPath) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span>&#123;</span><br><span class="line">          <span class="keyword">self</span>.choose_answer = indexPath.row</span><br><span class="line">          <span class="comment">/** current_cell 是用来判断用户是否选择了答案如果没有选择答案，就为nil */</span></span><br><span class="line">          <span class="keyword">self</span>.current_cell = cell</span><br><span class="line">          check_answer()</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">self</span>.current_cell = <span class="literal">nil</span></span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-检查答案是否正确"><a href="#4-检查答案是否正确" class="headerlink" title="4.检查答案是否正确"></a>4.检查答案是否正确</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------判断用户选择是否正确-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">check_answer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 判断用户是否选择了答案 */</span></span><br><span class="line">        <span class="keyword">if</span> current_cell == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="comment">/** 记录用户选择的答案 */</span></span><br><span class="line">        model.choose_answer = choose_answer</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">right</span> = <span class="type">Int</span>(model.<span class="keyword">right</span> ?? <span class="string">"0"</span>)!</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer == <span class="keyword">right</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了对的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了错误的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"错"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">            <span class="keyword">let</span> cell2 = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: <span class="keyword">right</span>, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell2?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果选择到了最后一道题就显示交卷按钮</span></span><br><span class="line">        finish_changeBtn()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"><a href="#5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。" class="headerlink" title="5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"></a>5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------下一题-------------//</span></span><br><span class="line">   <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_next_action</span><span class="params">(sender:UIButton)</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">//交卷</span></span><br><span class="line">       <span class="keyword">if</span> sender.titleLabel?.text == <span class="string">"完成交卷"</span> &#123; request_submit_finish();<span class="keyword">return</span> &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">/** 如果没有选择答案就不做处理 */</span></span><br><span class="line">       <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">       <span class="keyword">if</span> model.choose_answer == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> answerIndex + <span class="number">1</span> &gt;= <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">       answerIndex = answerIndex + <span class="number">1</span></span><br><span class="line">       <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//MARK:-----------上一题-------------//</span></span><br><span class="line">   <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_last_action</span><span class="params">()</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> answerIndex - <span class="number">1</span> &lt; <span class="number">0</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">       answerIndex = answerIndex - <span class="number">1</span></span><br><span class="line">       <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="全部代码"><a href="#全部代码" class="headerlink" title="全部代码"></a>全部代码</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OnlineTestDetailVC</span>: <span class="title">CommentTableViewVC</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> currentAnwserCell:<span class="type">OnlineTestDetailCell</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> arrayData:[<span class="type">OnlineTestDetailModel</span>] = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 判断是第几道题的 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> answerIndex:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 选择的是第几道题 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> choose_answer:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 当前选择的cell */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> current_cell:<span class="type">OnlineAnswerCell</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 答题分类的id */</span></span><br><span class="line">    <span class="keyword">var</span> questionID:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.navigationItem.title = <span class="string">"在线测试"</span></span><br><span class="line">        tableView.delegate = <span class="keyword">self</span></span><br><span class="line">        tableView.dataSource = <span class="keyword">self</span></span><br><span class="line">        tableView.mj_header = <span class="literal">nil</span></span><br><span class="line">        <span class="comment">//MARK:-----------注册cell-------------//</span></span><br><span class="line">        registCell()</span><br><span class="line">        <span class="comment">//请求每一道题</span></span><br><span class="line">        request_question_list()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------请求每一道题-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request_question_list</span><span class="params">()</span></span>&#123;</span><br><span class="line">        showStaus(<span class="string">"正在请求..."</span>)</span><br><span class="line">        <span class="type">NetworkTool</span>.requestData(urlString: api_start_testing,params: [<span class="string">"classify"</span>:questionID], method: .post) &#123; (res) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> model = <span class="type">OnlineTestArrayDetailModel</span>.deserialize(from: res)&#123;</span><br><span class="line">                <span class="keyword">guard</span> <span class="keyword">let</span> array = model.data <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">                <span class="keyword">self</span>.arrayData = array</span><br><span class="line">                <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------注册cell-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">registCell</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 问题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineTestDetailCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell"</span>)</span><br><span class="line">        <span class="comment">/** 上一题和下一题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"LastAndNextCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell2"</span>)</span><br><span class="line">        <span class="comment">/** 答案选项cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineAnswerCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell3"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------交卷请求-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request_submit_finish</span><span class="params">()</span></span>&#123;</span><br><span class="line">        showStaus(<span class="string">"请稍后..."</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> qIDs = <span class="keyword">self</span>.arrayData.flatMap&#123; $<span class="number">0</span>.id &#125;</span><br><span class="line">        <span class="keyword">let</span> answers = <span class="keyword">self</span>.arrayData.flatMap&#123; $<span class="number">0</span>.choose_answer &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">NetworkTool</span>.requestData(urlString: api_submit_an_answer,params: [<span class="string">"uid"</span>:<span class="type">UserMananager</span>.manager.uid ?? <span class="string">""</span>,<span class="string">"question"</span>:qIDs,<span class="string">"answer"</span>:answers,<span class="string">"classify"</span>:questionID], method: .post) &#123; (res) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> code = res[<span class="string">"code"</span>] <span class="keyword">as</span>? <span class="type">Int</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> code == <span class="number">200</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">let</span> model = <span class="type">OnlineTestRecordModel</span>.deserialize(from: res[<span class="string">"info"</span>] <span class="keyword">as</span>? [<span class="type">String</span>:<span class="type">Any</span>])&#123;</span><br><span class="line">                        <span class="keyword">let</span> vc = <span class="type">OnlineTestRecordDetailVC</span>()</span><br><span class="line">                        vc.answerModel = model</span><br><span class="line">                        vc.arrayQuestionData = <span class="keyword">self</span>.arrayData</span><br><span class="line">                        <span class="keyword">self</span>.push_vc(sender: vc)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------下一题-------------//</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_next_action</span><span class="params">(sender:UIButton)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//交卷</span></span><br><span class="line">        <span class="keyword">if</span> sender.titleLabel?.text == <span class="string">"完成交卷"</span> &#123; request_submit_finish();<span class="keyword">return</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/** 如果没有选择答案就不做处理 */</span></span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> answerIndex + <span class="number">1</span> &gt;= <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        answerIndex = answerIndex + <span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//MARK:-----------上一题-------------//</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_last_action</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> answerIndex - <span class="number">1</span> &lt; <span class="number">0</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        answerIndex = answerIndex - <span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------判断用户选择是否正确-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">check_answer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 判断用户是否选择了答案 */</span></span><br><span class="line">        <span class="keyword">if</span> current_cell == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="comment">/** 记录用户选择的答案 */</span></span><br><span class="line">        model.choose_answer = choose_answer</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">right</span> = <span class="type">Int</span>(model.<span class="keyword">right</span> ?? <span class="string">"0"</span>)!</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer == <span class="keyword">right</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了对的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了错误的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"错"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">            <span class="keyword">let</span> cell2 = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: <span class="keyword">right</span>, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell2?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果选择到了最后一道题就显示交卷按钮</span></span><br><span class="line">        finish_changeBtn()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------完成交卷-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">finish_changeBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//MARK:-----------如果用户做到了最后一题，就显示提交试卷-------------//</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: <span class="number">0</span>, section: <span class="number">1</span>)) <span class="keyword">as</span>? <span class="type">LastAndNextCell</span>, answerIndex + <span class="number">1</span> &gt;= <span class="keyword">self</span>.arrayData.<span class="built_in">count</span>&#123;</span><br><span class="line">            cell.btnlast.isHidden = <span class="literal">true</span></span><br><span class="line">            cell.btnNext.snp.remakeConstraints(&#123; (make) <span class="keyword">in</span></span><br><span class="line">                make.width.equalTo(<span class="number">150</span>)</span><br><span class="line">                make.height.equalTo(<span class="number">50</span>)</span><br><span class="line">                make.top.equalTo(<span class="number">50</span>)</span><br><span class="line">                make.centerX.equalToSuperview()</span><br><span class="line">            &#125;)</span><br><span class="line">            cell.btnNext.setTitle(<span class="string">"完成交卷"</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">OnlineTestDetailVC</span>:<span class="title">UITableViewDelegate</span>,<span class="title">UITableViewDataSource</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> section == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">                <span class="keyword">let</span> <span class="built_in">count</span> = model.answers?.<span class="built_in">count</span> ?? <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">count</span> + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, heightForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> indexPath.section == <span class="number">1</span> &#123; <span class="keyword">return</span> <span class="number">300</span> &#125;</span><br><span class="line">        <span class="keyword">if</span> indexPath.row == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">            <span class="keyword">let</span> text = model.question ?? <span class="string">""</span></span><br><span class="line">            <span class="keyword">return</span> text.get_heightForComment(fontSize: fontMid, width: <span class="type">SCREEN_WIDTH</span> - <span class="number">40</span>) + <span class="number">80</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">60</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> indexPath.section == <span class="number">1</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell2"</span>) <span class="keyword">as</span>? <span class="type">LastAndNextCell</span></span><br><span class="line">            cell?.btnlast.addTarget(<span class="keyword">self</span>, action: #selector(btn_last_action), <span class="keyword">for</span>: .touchUpInside)</span><br><span class="line">            cell?.btnNext.addTarget(<span class="keyword">self</span>, action: #selector(btn_next_action(sender:)), <span class="keyword">for</span>: .touchUpInside)</span><br><span class="line">            <span class="keyword">return</span> cell!</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//MARK:-----------问题模型-------------//</span></span><br><span class="line">            <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">            <span class="keyword">if</span> indexPath.row == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell"</span>) <span class="keyword">as</span>? <span class="type">OnlineTestDetailCell</span></span><br><span class="line">                cell?.model = model</span><br><span class="line">                <span class="comment">/** 第几道题 */</span></span><br><span class="line">                cell?.labelIndex.text = <span class="string">"第<span class="subst">\(answerIndex+<span class="number">1</span>)</span>题"</span></span><br><span class="line">                <span class="keyword">return</span> cell!</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//MARK:-----------答案记录-------------//</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell3"</span>) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setTitle(<span class="string">" <span class="subst">\(model.answers![indexPath.row - <span class="number">1</span>])</span>"</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">            <span class="comment">//MARK:-----------如果用户点击上一题，或者下一题需要刷新选择的题-------------//</span></span><br><span class="line">            <span class="keyword">if</span> model.choose_answer == <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="comment">/** 如果其他题没有选择就隐藏对错的图片 */</span></span><br><span class="line">                cell?.labelAnswer.setImage(<span class="literal">nil</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">/** 获取正确的答案 */</span></span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">right</span> = <span class="type">Int</span>(model.<span class="keyword">right</span> ?? <span class="string">"0"</span>)!</span><br><span class="line">                <span class="keyword">if</span> indexPath.row == <span class="keyword">right</span>&#123;</span><br><span class="line">                    <span class="comment">/** 如果选择了对的答案 */</span></span><br><span class="line">                    cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> indexPath.row == model.choose_answer&#123;</span><br><span class="line">                    cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"错"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    cell?.labelAnswer.setImage(<span class="literal">nil</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> cell!</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, didSelectRowAt indexPath: IndexPath)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** 如果用户已经选择过答案了 */</span></span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer != <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="comment">/** 如果用户没有选择答案 */</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> cell = tableView.cellForRow(at: indexPath) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span>&#123;</span><br><span class="line">            <span class="keyword">self</span>.choose_answer = indexPath.row</span><br><span class="line">            <span class="comment">/** current_cell 是用来判断用户是否选择了答案如果没有选择答案，就为nil */</span></span><br><span class="line">            <span class="keyword">self</span>.current_cell = cell</span><br><span class="line">            check_answer()</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">self</span>.current_cell = <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2018/10/14/2/" title="Alamofire上传文件">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment valine -->
+			<!-- show valine comment -->
+<div id="valineComment" class="comment"></div>
+
+<!-- valine`s js & css -->
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/valine.min.js"></script>
+<link rel="stylesheet" href="/css/comment.css">
+
+<script>
+	var checkExistComment = setInterval(function() {
+		if( $('#valineComment').length ) {
+			new Valine({
+				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+				av: AV,
+				//使用id寻找div元素（使用class可能找不到）
+				el: '#valineComment',
+				emoticon_url: 'https://cloud.panjunwen.com/alu',
+				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
+				app_id: "3333....", //获取APP ID
+				app_key: "3333......", //获取APP KEY
+				placeholder: "no any!", //评论框占位提示文字        			
+			});
+			clearInterval(checkExistComment);
+		}
+	}, 100);
+</script>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现的效果是："><span class="post-toc-text">实现的效果是：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。"><span class="post-toc-text">1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-可以查看上一题的答题情况。"><span class="post-toc-text">2.可以查看上一题的答题情况。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路："><span class="post-toc-text">思路：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"><span class="post-toc-text">1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"><span class="post-toc-text">2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-用户点击答案cell的时候就判断是否正确然后改变按钮的image"><span class="post-toc-text">3.用户点击答案cell的时候就判断是否正确然后改变按钮的image</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-检查答案是否正确"><span class="post-toc-text">4.检查答案是否正确</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"><span class="post-toc-text">5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全部代码"><span class="post-toc-text">全部代码</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by 目生鱼. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

@@ -1,0 +1,442 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head>
+	<title>UICollectionView header 使用</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="目生鱼">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>当前文章&nbsp;:&nbsp;《UICollectionView header 使用》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		10/14/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/10/14/3/" itemprop="url">		
+			UICollectionView header 使用		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/10/14/3/" itemprop="url">
+	<time datetime="2018-10-14T08:02:34.482Z" itemprop="datePublished">
+  		2018-10-14
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<blockquote>
+<p>在项目中看到有使用多种collectionViewCell，和header的情况，感觉用起来还是比较方便。之前遇到类似的界面，都没有想到😂.<br>看下效果图吧：<br><img src="http://upload-images.jianshu.io/upload_images/5077173-98f54d2fc0c962ff.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tu.gif"><br>先说下思路，这整个一块是一个collectionView，然后分为3组<br>第一组：十点便宜图片是图+一个label为headerA，然后cellA的个数返回0<br>第二组：详细信息的label为headerB，然后cellB返回10个。<br>第三组：推荐为headerC，然后cellC返回50个。<br>当然其中的透视图和cell都是自定义的，这里我用的xib比较快可以达到我想要的效果。</p>
+</blockquote>
+<h3 id="1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"><a href="#1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。" class="headerlink" title="1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"></a>1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">let flow:UICollectionViewFlowLayout = &#123;</span><br><span class="line">        let flow = UICollectionViewFlowLayout()</span><br><span class="line">        flow.itemSize = CGSize(width: 50, height: 50)</span><br><span class="line">        flow.minimumLineSpacing = 1;</span><br><span class="line">        flow.minimumInteritemSpacing = 1;</span><br><span class="line">        flow.scrollDirection = .vertical;</span><br><span class="line">        return flow</span><br><span class="line">    &#125;()</span><br><span class="line">    var collection:UICollectionView!</span><br><span class="line">    </span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line">        view.backgroundColor = UIColor.white</span><br><span class="line">        //初始化</span><br><span class="line">        collection = UICollectionView(frame: view.bounds, collectionViewLayout: flow)</span><br><span class="line">        collection.dataSource = self;</span><br><span class="line">        collection.delegate = self;</span><br><span class="line">        collection.backgroundColor = UIColor.white</span><br><span class="line">        view.addSubview(collection)</span><br><span class="line">        </span><br><span class="line">        //MARK:-----------注册cell-------------//</span><br><span class="line">        collection.register(UINib(nibName: &quot;CellA&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellA&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;CellB&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellB&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;CellC&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellC&quot;)</span><br><span class="line">        </span><br><span class="line">        //MARK:-----------注册Header-------------//</span><br><span class="line">        collection.register(UINib(nibName: &quot;HeaderA&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headA&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;HeaderB&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headB&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;HeaderC&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headC&quot;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-再到我们的拓展里面来实现代理，这里要注意的是要遵守"><a href="#2-再到我们的拓展里面来实现代理，这里要注意的是要遵守" class="headerlink" title="2.再到我们的拓展里面来实现代理，这里要注意的是要遵守"></a>2.再到我们的拓展里面来实现代理，这里要注意的是要遵守</h3><h4 id="UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"><a href="#UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。" class="headerlink" title="UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"></a>UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout&#123;</span><br><span class="line">    </span><br><span class="line">    //布局的代理</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize &#123;</span><br><span class="line">        switch indexPath.section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            return CGSize.zero</span><br><span class="line">        case 1:</span><br><span class="line">            return CGSize(width: 100, height: 50)</span><br><span class="line">        case 2:</span><br><span class="line">            return CGSize(width: (UIScreen.main.bounds.width-30) / 2.0, height: 100)</span><br><span class="line">        default:</span><br><span class="line">            return CGSize.zero</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -&gt; UIEdgeInsets &#123;</span><br><span class="line">        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)</span><br><span class="line">    &#125;</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -&gt; CGSize &#123;</span><br><span class="line">        switch section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.0)</span><br><span class="line">        case 1:</span><br><span class="line">            return CGSize(width: UIScreen.main.bounds.width, height: 50)</span><br><span class="line">        case 2:</span><br><span class="line">            return CGSize(width: UIScreen.main.bounds.width, height: 100)</span><br><span class="line">        default:</span><br><span class="line">            return CGSize.zero</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //自定义头头</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -&gt; UICollectionReusableView &#123;</span><br><span class="line">        switch indexPath.section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            let headA = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headA&quot;, for: indexPath)</span><br><span class="line">            headA.backgroundColor = UIColor.cyan</span><br><span class="line">            return headA;</span><br><span class="line">        case 1:</span><br><span class="line">            let headB = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headB&quot;, for: indexPath)</span><br><span class="line">            headB.backgroundColor = UIColor.gray</span><br><span class="line">            return headB;</span><br><span class="line">        default:</span><br><span class="line">            let headC = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headC&quot;, for: indexPath)</span><br><span class="line">            headC.backgroundColor = UIColor.brown</span><br><span class="line">            return headC;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell &#123;</span><br><span class="line">        </span><br><span class="line">        switch indexPath.section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellA&quot;, for: indexPath)</span><br><span class="line">            return cell</span><br><span class="line">        case 1:</span><br><span class="line">            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellB&quot;, for: indexPath)</span><br><span class="line">            return cell</span><br><span class="line">        default:</span><br><span class="line">            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellC&quot;, for: indexPath)</span><br><span class="line">            return cell</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        if section == 0 &#123; return 0 &#125;</span><br><span class="line">        if section == 1 &#123; return 10 &#125;</span><br><span class="line">        return 20</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func numberOfSections(in collectionView: UICollectionView) -&gt; Int &#123;</span><br><span class="line">        return 3</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2018/10/14/4/" title="Python 管理批量文件">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2018/10/14/2/" title="Alamofire上传文件">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment valine -->
+			<!-- show valine comment -->
+<div id="valineComment" class="comment"></div>
+
+<!-- valine`s js & css -->
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/valine.min.js"></script>
+<link rel="stylesheet" href="/css/comment.css">
+
+<script>
+	var checkExistComment = setInterval(function() {
+		if( $('#valineComment').length ) {
+			new Valine({
+				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+				av: AV,
+				//使用id寻找div元素（使用class可能找不到）
+				el: '#valineComment',
+				emoticon_url: 'https://cloud.panjunwen.com/alu',
+				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
+				app_id: "3333....", //获取APP ID
+				app_key: "3333......", //获取APP KEY
+				placeholder: "no any!", //评论框占位提示文字        			
+			});
+			clearInterval(checkExistComment);
+		}
+	}, 100);
+</script>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"><span class="post-toc-text">1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-再到我们的拓展里面来实现代理，这里要注意的是要遵守"><span class="post-toc-text">2.再到我们的拓展里面来实现代理，这里要注意的是要遵守</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"><span class="post-toc-text">UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。</span></a></li></ol></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by 目生鱼. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+
