@@ -4,375 +4,925 @@
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
 
-
 	<!DOCTYPE html>
-	<html>
+	<html class="scrollbar">
 		
 
 <head>
-	<title>ARDemo</title>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="author" content="目生鱼">
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-   	<!-- css -->
-	<link rel="stylesheet" href="/css/style.css">
-
+  <title>
+    
+      ARDemo | 目生鱼博客
+    
+  </title>
+  <meta name="author" content="目生鱼">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
 	<!-- favicon -->
-	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
-	
-	<!-- font-awesome -->
-	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
-	<body>	
-		<!--Preloader-->
-<div id="preloader">
-	<div id="status">
-		<img alt="PRELOADER" src="/img/logo.png">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
 	</div>
-</div>
-<!--Preloader end-->
+
 
 <!-- header -->
-
-	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
-
-	
-		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
-	
-	
-	<!-- motto or description -->
-		
- 		<p class="motto"></p>
-	
-	
-	<!-- current page name or title -->
-	
-		
-		
-			
-			<p class=page-name>当前文章&nbsp;:&nbsp;《ARDemo》</p>
-			
-		
-	
-	
-	<!-- others: such as change-bg, time... -->
-	<p class="page-name-other">
-		1/5/2019 
-		<style type="text/css">
-	header:after {
-		content: '';
-		position: relative;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		background: #222222;
-		opacity: .5;
-		z-index: -1;
-	}
-	
-	.change-header-bg{
-		font-style: normal;
-	}
-	.change-header-bg i{
-		text-align: center;
-		cursor: pointer;
-		pointer-events: bounding-box;
-	}
-	@media(max-width:512px) {
-		.change-header-bg {
-			display: none;
-			visibility: hidden;
-		}
-	}
-	
-</style>
-
-<script type="text/javascript">
-	function changeHeaderBg(){
-		var random_bg = Math.floor(Math.random() * 109 + 1);
-		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
-		$("#header-bg-2").css("background-image", bg);
-	}
-</script>
-
-<span class="change-header-bg">
-	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
-</span>
-	</p>		
-</header>
-
-<!-- nav -->
-<div id="cd-nav">
-	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
-
-	<nav id="cd-main-nav">
-		<ul>
-			
-      		<li class="fa fa-/">
-           		<a href="/" title="主页">主页</a>	
-      		</li>
-    		
-      		<li class="fa fa-/archives">
-           		<a href="/archives" title="归档">归档</a>	
-      		</li>
-    		
-      		<li class="fa fa-/categories">
-           		<a href="/categories" title="分类">分类</a>	
-      		</li>
-    		
-      		<li class="fa fa-/tags">
-           		<a href="/tags" title="标签">标签</a>	
-      		</li>
-    		
-      		<li class="fa fa-/about">
-           		<a href="/about" title="关于">关于</a>	
-      		</li>
-    		
-      		<li class="fa fa-/gallery">
-           		<a href="/gallery" title="相册">相册</a>	
-      		</li>
-    		
-    		
-        	
-		</ul>
-	</nav>
-</div>
-
-		<!--main-->
-		<main> 
-		<div class="page-container">
-		<!-- content srart -->
-<div class="am-g am-g-fixed blog-fixed blog-content">
-	<div class="am-u-md-8 am-u-sm-12">
-
-		<article class="am-article blog-article-p">
-
-			<div class="am-article-hd">
+<header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
 				
-
-
-				<h1 class="am-article-title blog-text-center">
-					
-					
-	
-		<a href="/2018/10/14/6/" itemprop="url">		
-			ARDemo		
-		</a>
-	
-
-				</h1>
-
-				<p class="am-article-meta blog-text-center">
-					<span>
-						<i class="fa fa-clock-o"></i> 
-						<a href="/2018/10/14/6/" itemprop="url">
-	<time datetime="2018-10-14T08:16:51.879Z" itemprop="datePublished">
-  		2018-10-14
-  </time>
-</a>    
-&nbsp;
-					</span>
-					
-					<span>						
-						
-					</span>
-				</p>
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
 			</div>
-
-			<div class="am-article-bd">
-				<div class="content" id="post-content">
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
 					
-						<p>#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。</p>
-<p>#####注：demo借鉴的<a href="https://boxueio.com" target="_blank" rel="noopener">泊学</a>上的</p>
-<p>#####<a href="https://github.com/eyesoffish/ARFind" target="_blank" rel="noopener">github地址</a></p>
-<p>2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - ARSKViewDelegate</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">view</span><span class="params">(<span class="number">_</span> view: ARSKView, nodeFor anchor: ARAnchor)</span></span> -&gt; <span class="type">SKNode</span>? &#123;</span><br><span class="line">        <span class="comment">// Create and configure a node for the anchor added to the view's session.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="type">SKSpriteNode</span>(imageNamed: <span class="string">"money.png"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.有关AR逻辑和交互的处理是放在scene.swift里面的。所以剩下的代码写在scene.swift里面就行了。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">let</span> labelTitleNode = <span class="type">SKLabelNode</span>()<span class="comment">//用于显示当前有多少node存在</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> createNodeCount = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> currentNodeCount = <span class="number">0</span>&#123;</span><br><span class="line">        <span class="keyword">didSet</span>&#123;</span><br><span class="line">            labelTitleNode.text = <span class="string">"<span class="subst">\(currentNodeCount)</span> in your room"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> myTimer:<span class="type">Timer</span>?<span class="comment">//定时器，定时创建node</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//属性初始化</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didMove</span><span class="params">(to view: SKView)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Setup your scene here</span></span><br><span class="line">        </span><br><span class="line">        labelTitleNode.fontSize = <span class="number">25</span></span><br><span class="line">        labelTitleNode.color = .white</span><br><span class="line">        labelTitleNode.position = <span class="type">CGPoint</span>(x: <span class="number">0</span>, y: view.frame.midY - <span class="number">50</span>)</span><br><span class="line">        addChild(labelTitleNode)</span><br><span class="line">        currentNodeCount = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        myTimer = <span class="type">Timer</span>.scheduledTimer(withTimeInterval: <span class="number">1</span>, repeats: <span class="literal">true</span>, block: &#123; timer <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.createNode()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>4.创建node<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定时生成对象</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">createNode</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> currentNodeCount == <span class="number">10</span>&#123;</span><br><span class="line">            myTimer?.invalidate()</span><br><span class="line">            myTimer = <span class="literal">nil</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        currentNodeCount += <span class="number">1</span></span><br><span class="line">        createNodeCount += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//----------生成对象</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> sceneView = <span class="keyword">self</span>.view <span class="keyword">as</span>? <span class="type">ARSKView</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="comment">//生成随机位置</span></span><br><span class="line">        <span class="keyword">let</span> randNumber = <span class="type">GKRandomSource</span>.sharedRandom()</span><br><span class="line">        <span class="comment">//生成x轴的旋转矩阵</span></span><br><span class="line">        <span class="keyword">let</span> xRotation = simd_float4x4(<span class="type">SCNMatrix4MakeRotation</span>(randNumber.nextUniform() * <span class="type">Float</span>.pi * <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">let</span> yRotation = simd_float4x4(<span class="type">SCNMatrix4MakeRotation</span>(randNumber.nextUniform() * <span class="type">Float</span>.pi * <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="comment">//合成坐标</span></span><br><span class="line">        <span class="keyword">let</span> rotation = simd_mul(xRotation, yRotation)</span><br><span class="line">        <span class="keyword">var</span> translation = matrix_identity_float4x4</span><br><span class="line">        translation.columns.<span class="number">3</span>.z = -<span class="number">1</span><span class="comment">//摄像头前面一米</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> transform = simd_mul(rotation, translation)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> anchor = <span class="type">ARAnchor</span>(transform: transform)</span><br><span class="line">        sceneView.session.add(anchor: anchor)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>5.处理node交互<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">   //AR场景交互</span><br><span class="line">    override func touchesBegan(_ touches: Set&lt;UITouch&gt;, with event: UIEvent?) &#123;</span><br><span class="line">//        guard let sceneView = self.view as? ARSKView else &#123;</span><br><span class="line">//            return</span><br><span class="line">//        &#125;</span><br><span class="line">//        // Create anchor using the camera&apos;s current position</span><br><span class="line">//        if let currentFrame = sceneView.session.currentFrame &#123;</span><br><span class="line">//</span><br><span class="line">//            // Create a transform with a translation of 0.2 meters in front of the camera</span><br><span class="line">//            var translation = matrix_identity_float4x4</span><br><span class="line">//            translation.columns.3.z = -0.2//在距离镜头墙两厘米位置设置了一个对象</span><br><span class="line">//            let transform = simd_mul(currentFrame.camera.transform, translation)</span><br><span class="line">//</span><br><span class="line">//            // Add a new anchor to the session</span><br><span class="line">//            let anchor = ARAnchor(transform: transform)</span><br><span class="line">//            sceneView.session.add(anchor: anchor)</span><br><span class="line">//        &#125;</span><br><span class="line">        </span><br><span class="line">        //ar交互</span><br><span class="line">        guard let touch = touches.first else &#123; return &#125;</span><br><span class="line">        let location = touch.location(in: self)</span><br><span class="line">        let currentNodes = nodes(at: location)</span><br><span class="line">        if let node = currentNodes.first&#123;</span><br><span class="line">            currentNodeCount -= 1</span><br><span class="line">            //放大渐变消失</span><br><span class="line">            let scaleOut = SKAction.scale(by: 2, duration: 0.2)</span><br><span class="line">            let fadeOut = SKAction.fadeOut(withDuration: 0.2)</span><br><span class="line">            let group = SKAction.group([scaleOut, fadeOut])</span><br><span class="line">            let sequence = SKAction.sequence([group, SKAction.removeFromParent()])</span><br><span class="line">            </span><br><span class="line">            node.run(sequence)</span><br><span class="line">            </span><br><span class="line">            if currentNodeCount == 0, createNodeCount == 10&#123;</span><br><span class="line">                labelTitleNode.removeFromParent()</span><br><span class="line">                self.addChild(SKSpriteNode(imageNamed: &quot;game_over&quot;))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
 
 					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《ARDemo》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
 				</div>
 			</div>
-		</article>
-
-		<ul class="am-pagination">
-    
-    	<li class="am-pagination-prev">
-   		<a class="pull-left" href="/2018/10/14/7/" title="Gvoice 实时语音接入">
-      		&laquo; 上一篇
-		</a>
-		</li>
-	
-	
-		<li class="am-pagination-next">
-		<a class="pull-right" href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用">
-			下一篇 &raquo;
-		</a>
-		</li>
-	 
- </ul>
-        
-
-		<div class="theme-annie-comment-button-container">
-	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
-		加载评论
-		<!--加载评论-->
-	</button>
-</div>
-
-<div id="annie-comment-container" class="theme-annie-comment-main-container">
-
-	
+		</div>
 		
-			<!-- comment valine -->
-			<!-- show valine comment -->
-<div id="valineComment" class="comment"></div>
-
-<!-- valine`s js & css -->
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
 <script>
-	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
-</script>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="/js/valine.min.js"></script>
-<link rel="stylesheet" href="/css/comment.css">
-
-<script>
-	var checkExistComment = setInterval(function() {
-		if( $('#valineComment').length ) {
-			new Valine({
-				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
-				av: AV,
-				//使用id寻找div元素（使用class可能找不到）
-				el: '#valineComment',
-				emoticon_url: 'https://cloud.panjunwen.com/alu',
-				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
-				app_id: "3333....", //获取APP ID
-				app_key: "3333......", //获取APP KEY
-				placeholder: "no any!", //评论框占位提示文字        			
-			});
-			clearInterval(checkExistComment);
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
 		}
-	}, 100);
+	});
 </script>
+</header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
 		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2018/10/14/6/" itemprop="url">
+		ARDemo
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2018/10/14/6/" itemprop="url">
+		<time datetime="2018-10-14T08:16:51.879Z" itemprop="datePublished">
+	  		2018-10-14
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2018/10/14/6/" itemprop="url">
+		<time datetime="2018-10-14T08:16:51.879Z" itemprop="dateUpdated">
+	  		2018-10-14
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2018/10/14/6/_visitors" data-url="/2018/10/14/6/" data-title="ARDemo">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/10/14/6/_likes" data-url="/2018/10/14/6/" data-title="ARDemo" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p>#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。</p>
+<p>#####注：demo借鉴的<a href="https://boxueio.com" target="_blank" rel="noopener">泊学</a>上的</p>
+<p>#####<a href="https://github.com/eyesoffish/ARFind" target="_blank" rel="noopener">github地址</a></p>
+<p>2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。</p>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">// MARK: - ARSKViewDelegate</span>
+
+    <span class="token keyword">func</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token number">_</span> view<span class="token punctuation">:</span> <span class="token builtin">ARSKView</span><span class="token punctuation">,</span> nodeFor anchor<span class="token punctuation">:</span> <span class="token builtin">ARAnchor</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">SKNode</span><span class="token operator">?</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Create and configure a node for the anchor added to the view's session.</span>
+        <span class="token keyword">return</span> <span class="token function">SKSpriteNode</span><span class="token punctuation">(</span>imageNamed<span class="token punctuation">:</span> <span class="token string">"money.png"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>3.有关AR逻辑和交互的处理是放在scene.swift里面的。所以剩下的代码写在scene.swift里面就行了。</p>
+<pre class="line-numbers language-swift"><code class="language-swift">    <span class="token keyword">let</span> labelTitleNode <span class="token operator">=</span> <span class="token function">SKLabelNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//用于显示当前有多少node存在</span>
+
+    <span class="token keyword">var</span> createNodeCount <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">var</span> currentNodeCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">{</span>
+        <span class="token keyword">didSet</span><span class="token punctuation">{</span>
+            labelTitleNode<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>currentNodeCount<span class="token delimiter variable">)</span></span> in your room"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">var</span> myTimer<span class="token punctuation">:</span><span class="token builtin">Timer</span><span class="token operator">?</span><span class="token comment" spellcheck="true">//定时器，定时创建node</span>
+
+<span class="token comment" spellcheck="true">//属性初始化</span>
+    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">didMove</span><span class="token punctuation">(</span>to view<span class="token punctuation">:</span> <span class="token builtin">SKView</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Setup your scene here</span>
+
+        labelTitleNode<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token number">25</span>
+        labelTitleNode<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token punctuation">.</span>white
+        labelTitleNode<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token function">CGPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> view<span class="token punctuation">.</span>frame<span class="token punctuation">.</span>midY <span class="token operator">-</span> <span class="token number">50</span><span class="token punctuation">)</span>
+        <span class="token function">addChild</span><span class="token punctuation">(</span>labelTitleNode<span class="token punctuation">)</span>
+        currentNodeCount <span class="token operator">=</span> <span class="token number">0</span>
+
+        myTimer <span class="token operator">=</span> <span class="token builtin">Timer</span><span class="token punctuation">.</span><span class="token function">scheduledTimer</span><span class="token punctuation">(</span>withTimeInterval<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> repeats<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> block<span class="token punctuation">:</span> <span class="token punctuation">{</span> timer <span class="token keyword">in</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">createNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>4.创建node</p>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//定时生成对象</span>
+    <span class="token keyword">func</span> <span class="token function">createNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> currentNodeCount <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">{</span>
+            myTimer<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">invalidate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            myTimer <span class="token operator">=</span> <span class="token constant">nil</span>
+            <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+
+        currentNodeCount <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
+        createNodeCount <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
+
+        <span class="token comment" spellcheck="true">//----------生成对象</span>
+        <span class="token keyword">guard</span> <span class="token keyword">let</span> sceneView <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>view <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">ARSKView</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//生成随机位置</span>
+        <span class="token keyword">let</span> randNumber <span class="token operator">=</span> <span class="token builtin">GKRandomSource</span><span class="token punctuation">.</span><span class="token function">sharedRandom</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//生成x轴的旋转矩阵</span>
+        <span class="token keyword">let</span> xRotation <span class="token operator">=</span> <span class="token function">simd_float4x4</span><span class="token punctuation">(</span><span class="token function">SCNMatrix4MakeRotation</span><span class="token punctuation">(</span>randNumber<span class="token punctuation">.</span><span class="token function">nextUniform</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token builtin">Float</span><span class="token punctuation">.</span>pi <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> yRotation <span class="token operator">=</span> <span class="token function">simd_float4x4</span><span class="token punctuation">(</span><span class="token function">SCNMatrix4MakeRotation</span><span class="token punctuation">(</span>randNumber<span class="token punctuation">.</span><span class="token function">nextUniform</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token builtin">Float</span><span class="token punctuation">.</span>pi <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//合成坐标</span>
+        <span class="token keyword">let</span> rotation <span class="token operator">=</span> <span class="token function">simd_mul</span><span class="token punctuation">(</span>xRotation<span class="token punctuation">,</span> yRotation<span class="token punctuation">)</span>
+        <span class="token keyword">var</span> translation <span class="token operator">=</span> matrix_identity_float4x4
+        translation<span class="token punctuation">.</span>columns<span class="token punctuation">.</span><span class="token number">3</span><span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token comment" spellcheck="true">//摄像头前面一米</span>
+
+        <span class="token keyword">let</span> transform <span class="token operator">=</span> <span class="token function">simd_mul</span><span class="token punctuation">(</span>rotation<span class="token punctuation">,</span> translation<span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> anchor <span class="token operator">=</span> <span class="token function">ARAnchor</span><span class="token punctuation">(</span>transform<span class="token punctuation">:</span> transform<span class="token punctuation">)</span>
+        sceneView<span class="token punctuation">.</span>session<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>anchor<span class="token punctuation">:</span> anchor<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>5.处理node交互</p>
+<pre><code>   //AR场景交互
+    override func touchesBegan(_ touches: Set&lt;UITouch&gt;, with event: UIEvent?) {
+//        guard let sceneView = self.view as? ARSKView else {
+//            return
+//        }
+//        // Create anchor using the camera&#39;s current position
+//        if let currentFrame = sceneView.session.currentFrame {
+//
+//            // Create a transform with a translation of 0.2 meters in front of the camera
+//            var translation = matrix_identity_float4x4
+//            translation.columns.3.z = -0.2//在距离镜头墙两厘米位置设置了一个对象
+//            let transform = simd_mul(currentFrame.camera.transform, translation)
+//
+//            // Add a new anchor to the session
+//            let anchor = ARAnchor(transform: transform)
+//            sceneView.session.add(anchor: anchor)
+//        }
+
+        //ar交互
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let currentNodes = nodes(at: location)
+        if let node = currentNodes.first{
+            currentNodeCount -= 1
+            //放大渐变消失
+            let scaleOut = SKAction.scale(by: 2, duration: 0.2)
+            let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+            let group = SKAction.group([scaleOut, fadeOut])
+            let sequence = SKAction.sequence([group, SKAction.removeFromParent()])
+
+            node.run(sequence)
+
+            if currentNodeCount == 0, createNodeCount == 10{
+                labelTitleNode.removeFromParent()
+                self.addChild(SKSpriteNode(imageNamed: &quot;game_over&quot;))
+            }
+        }
+    }
+</code></pre>	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/2018/10/14/7/" title="Gvoice 实时语音接入" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/01/05/publish_html/" title="Docker Nginx 静态资源部署">
+							Docker Nginx 静态资源部署
+						</a>
+						<p>
+							1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
+这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
+...
+						</p>
+					</div>
+
+					<a href="/2019/01/05/publish_html/" title="Docker Nginx 静态资源部署">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
+							音频剪切、合成、淡入淡出
+						</a>
+						<p>
+							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件...
+						</p>
+					</div>
+
+					<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="音频剪切、合成、淡入淡出">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/29/first/" title="swift 做一个答题的功能">
+							swift 做一个答题的功能
+						</a>
+						<p>
+							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
+
+思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+...
+						</p>
+					</div>
+
+					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="swift 做一个答题的功能">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+							iOS原生调用ReatNative
+						</a>
+						<p>
+							
+有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
+
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+						</p>
+					</div>
+
+					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="iOS原生调用ReatNative">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">
+							Gvoice 实时语音接入
+						</a>
+						<p>
+							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Gvoice 实时语音接入">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用">
+							Charts（swift） 饼状图、柱状图使用
+						</a>
+						<p>
+							最近项目当中需要用到图标，然后在上查了下，找到了这个，感觉应该比较好用。github地址
+
+饼图1.倒入Charts,然后实历化饼状图的类PieChartViewimport Charts
+class WorkManagerHeade...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Charts（swift） 饼状图、柱状图使用">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/4/" title="Python 管理批量文件">
+							Python 管理批量文件
+						</a>
+						<p>
+							
+事情还得从用Python写爬虫开始说起，当时在freebuf看了几篇爬虫得文章    然后又遇到项目中要用很多图片，就现学现用在网上爬了很多图片下来。因为当时爬下来的都是表情的图片，所以前几天的时候本来想把爬下来的所有的表情图片添加...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/4/" title="Python 管理批量文件">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Python 管理批量文件">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/3/" title="UICollectionView header 使用">
+							UICollectionView header 使用
+						</a>
+						<p>
+							
+在项目中看到有使用多种collectionViewCell，和header的情况，感觉用起来还是比较方便。之前遇到类似的界面，都没有想到😂.看下效果图吧：先说下思路，这整个一块是一个collectionView，然后分为3组第一组...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/3/" title="UICollectionView header 使用">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="UICollectionView header 使用">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/2/" title="Alamofire上传文件">
+							Alamofire上传文件
+						</a>
+						<p>
+							请求的接口
+一般用户修改头像都是修改的头像的连接，这里我们后台是直接上传的文件，所以我就基于Alamofire封装了一个带有文件参数的网络请求方法
+//MARK:-----------file请求-------------//
+   ...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/2/" title="Alamofire上传文件">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Alamofire上传文件">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
 	
 
-</div>
+		
+
+			<!-- comment gitalk -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <script type="text/javascript">
-	/* Show Comment */
-	var Annie_Comment = function() {
-		function Show_Hidden(obj) {
-			obj.style.display = 'block';
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
 		}
-		
-		//var obutton = $('#annie-comment-button');
-		//var obutton = $('#annie-comment-container');
-		var obutton = document.getElementById("annie-comment-button" || "0");
-		var odiv = document.getElementById("annie-comment-container");
-		if( 'obutton' ) {
-			obutton.onclick = function() {
-				Show_Hidden(odiv);
-				$("#annie-comment-button").css("display", 'none');
-				return false;
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
 			}
 		}
 	};
 
-	(function Annie_Init() {
-		Annie_Comment();
-	})();
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: '47712093a2b95c0b5bf5',
+		clientSecret: 'ea0d8e7e5eac1f09ca7e8600150db27c9509d44c',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'eyesoffish.github.io',
+		owner: 'eyesoffish.github.io',
+		admin: 'eyesoffish.github.io',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
 </script>
-		
-		<!--
-	时间：2018-09-24
-	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
--->
 
+		
+		
 	
 
+</div>
+			</div>
+		</div>	
 	</div>
 </div>
-		</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
+            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+<script>
+	//Refer to https://xinyo.org/archives/66226, thanks xinyo!
+	function codeCopy() {
+		var copyContainerId = 'copy-nav';
+						
+		$("pre").before(" <nav class=' " + copyContainerId + " '><i class='code-language'></i></nav> ");
+		
+		$('.' + copyContainerId).append("<i class='fa fa-clipboard copy-btn' aria-hidden='true'></i>");
+		
+		$('#article-content').find('pre').each( function () {
+			var language = $(this).children('code').attr('class').substr(9);//why 9? Need to check language?
+			$(this).prev().find('.code-language').text( language );	
+		});
+				
+		//为复制按钮添加click事件
+		$('.copy-btn').on("click", function() {
+			//初始化
+			$("textarea").remove("#targetId");
+			
+			//获取对应的代码
+			var codePre = $(this).parent().next(),
+				codeText = codePre[0].textContent,
+				target = document.createElement("textarea");
+			target.style.position = "absolute";
+			target.style.left = "-9999px";
+			target.style.top = "0";
+			target.id = "targetId";
+			codePre.append(target);
+			target.textContent = codeText;
+
+			//选中textarea内的代码
+			target.focus();
+			target.setSelectionRange(0, target.value.length);
+
+			// 复制选中的内容
+			document.execCommand("copy");
+			
+			//删除添加的节点
+			$("textarea").remove("#targetId");
+			
+			var thisCopied = $(this);
+			thisCopied.addClass('copy-status');	
+			setTimeout( function() {
+				thisCopied.removeClass('copy-status');
+			}, 2000)
+		});	
+	}
+	
+	if( $('.layout-post').length )	{
+		codeCopy();
+	}
+</script>
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	
 		</main>
 		
 		<!--footer-->
 		<footer>
-	<div class="blog-text-center">
-		<div class="theme-annie-social">
-				
-				
-					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
-				
-				
-					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
-						
-				
-		</div>
-	</div>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
 
-	<div  class="blog-text-center">
-		<div class="theme-annie-copyright">
-			
-				&copy; 2017 - 2019, content by 目生鱼. All Rights Reserved.			       	
-			
-		</div>
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
 	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+			
+			
+			
 
-	<div class="blog-text-center">
-		<div class="theme-annie-copyright">
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
-		</div>
-	</div>
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
 </footer>
-		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
-
-<script>
-	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
-</script>
-
-<style>
-	.motto {
-		color: #000000;
-		font-size: 20px;
-		margin: 100px 25% 0;
-		width: 50%;
-		line-height: 1.4;
-		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-		text-align: center;
-	}
-	@media(max-width: 890px) {
-		.motto {	
-			margin: 100px 10% 0;
-			width: 80%;
-		}
-	}
-	@media(max-width: 890px) {
-		.motto {
-			margin: 100px 5% 0;
-			width: 90%;
-		}
-	}
-</style>
-
+		
+    <!-- set '1' to show motto in all pages! -->
 
 	<script src="/js/motto.js"></script>
 	<script type="text/javascript">
-		$(".motto").html(getMingYanContent());
+		$(".motto").html( getMingYanContent() );
 	</script>	
 
 
@@ -380,53 +930,25 @@
 
 
 
-
-	<script type="text/javascript" src="/js/toc.js"></script>
-
-
-<script type="text/javascript" src="/js/main.js"></script>
-
-<script type="text/javascript">
-	//generate a random img that pre_name 'from 0 to 110'
-	var random_bg = Math.floor(Math.random() * 109 + 1);
-
-	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
-	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
-
-	$("#header-bg-2").css("background-image", bg);
-</script>
-		
-		<!--back to top-->
-        <style type="text/css">
-	#totop {
-		background: white;
-		border-radius: 50%;
-		position: fixed;
-		right: 5.4%;
-		bottom: 80px;
-		cursor: pointer;
-	}
-	
-	#totop a {
-		color: #474747;
-		background-color: transparent;
-		padding: 10px;
-		text-decoration: none;
-	}
-	
-	@media(max-width:512px) {
-		#totop {
-			display: none;
-			visibility: hidden;
-		}
-	}
-</style>
+    <script src="/js/love.js"></script>
 
 
+<!--back to top-->
+
+    
 	<div id="totop">
-  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
+	<div id="tobuttom">
+		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
+	</div>
+ 
 
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
 	</body>
 	</html>
-

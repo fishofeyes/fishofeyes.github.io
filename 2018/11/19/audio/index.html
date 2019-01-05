@@ -4,383 +4,978 @@
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
 
-
 	<!DOCTYPE html>
-	<html>
+	<html class="scrollbar">
 		
 
 <head>
-	<title>音频剪切、合成、淡入淡出</title>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="author" content="目生鱼">
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-   	<!-- css -->
-	<link rel="stylesheet" href="/css/style.css">
-
+  <title>
+    
+      音频剪切、合成、淡入淡出 | 目生鱼博客
+    
+  </title>
+  <meta name="author" content="目生鱼">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
 	<!-- favicon -->
-	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
-	
-	<!-- font-awesome -->
-	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
-	<body>	
-		<!--Preloader-->
-<div id="preloader">
-	<div id="status">
-		<img alt="PRELOADER" src="/img/logo.png">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
 	</div>
-</div>
-<!--Preloader end-->
+
 
 <!-- header -->
-
-	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
-
-	
-		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
-	
-	
-	<!-- motto or description -->
-		
- 		<p class="motto"></p>
-	
-	
-	<!-- current page name or title -->
-	
-		
-		
-			
-			<p class=page-name>当前文章&nbsp;:&nbsp;《音频剪切、合成、淡入淡出》</p>
-			
-		
-	
-	
-	<!-- others: such as change-bg, time... -->
-	<p class="page-name-other">
-		1/5/2019 
-		<style type="text/css">
-	header:after {
-		content: '';
-		position: relative;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		background: #222222;
-		opacity: .5;
-		z-index: -1;
-	}
-	
-	.change-header-bg{
-		font-style: normal;
-	}
-	.change-header-bg i{
-		text-align: center;
-		cursor: pointer;
-		pointer-events: bounding-box;
-	}
-	@media(max-width:512px) {
-		.change-header-bg {
-			display: none;
-			visibility: hidden;
-		}
-	}
-	
-</style>
-
-<script type="text/javascript">
-	function changeHeaderBg(){
-		var random_bg = Math.floor(Math.random() * 109 + 1);
-		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
-		$("#header-bg-2").css("background-image", bg);
-	}
-</script>
-
-<span class="change-header-bg">
-	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
-</span>
-	</p>		
-</header>
-
-<!-- nav -->
-<div id="cd-nav">
-	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
-
-	<nav id="cd-main-nav">
-		<ul>
-			
-      		<li class="fa fa-/">
-           		<a href="/" title="主页">主页</a>	
-      		</li>
-    		
-      		<li class="fa fa-/archives">
-           		<a href="/archives" title="归档">归档</a>	
-      		</li>
-    		
-      		<li class="fa fa-/categories">
-           		<a href="/categories" title="分类">分类</a>	
-      		</li>
-    		
-      		<li class="fa fa-/tags">
-           		<a href="/tags" title="标签">标签</a>	
-      		</li>
-    		
-      		<li class="fa fa-/about">
-           		<a href="/about" title="关于">关于</a>	
-      		</li>
-    		
-      		<li class="fa fa-/gallery">
-           		<a href="/gallery" title="相册">相册</a>	
-      		</li>
-    		
-    		
-        	
-		</ul>
-	</nav>
-</div>
-
-		<!--main-->
-		<main> 
-		<div class="page-container">
-		<!-- content srart -->
-<div class="am-g am-g-fixed blog-fixed blog-content">
-	<div class="am-u-md-8 am-u-sm-12">
-
-		<article class="am-article blog-article-p">
-
-			<div class="am-article-hd">
+<header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
 				
-
-
-				<h1 class="am-article-title blog-text-center">
-					
-					
-	
-		<a href="/2018/11/19/audio/" itemprop="url">		
-			音频剪切、合成、淡入淡出		
-		</a>
-	
-
-				</h1>
-
-				<p class="am-article-meta blog-text-center">
-					<span>
-						<i class="fa fa-clock-o"></i> 
-						<a href="/2018/11/19/audio/" itemprop="url">
-	<time datetime="2018-11-19T14:54:14.342Z" itemprop="datePublished">
-  		2018-11-19
-  </time>
-</a>    
-&nbsp;
-					</span>
-					
-					<span>						
-						
-					</span>
-				</p>
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
 			</div>
-
-			<div class="am-article-bd">
-				<div class="content" id="post-content">
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
 					
-						<h2 id="音频剪切"><a href="#音频剪切" class="headerlink" title="音频剪切"></a>音频剪切</h2><h4 id="1-音频剪切比较简单传入音频文件和剪切的时间段就可以了"><a href="#1-音频剪切比较简单传入音频文件和剪切的时间段就可以了" class="headerlink" title="1.音频剪切比较简单传入音频文件和剪切的时间段就可以了"></a>1.音频剪切比较简单传入音频文件和剪切的时间段就可以了</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 初始化输出文件路径 */</span></span><br><span class="line">    <span class="built_in">NSString</span> *url = <span class="string">"音频源文件路径"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *outPutPath = <span class="string">"音频前切完成输出文件路径"</span>;</span><br><span class="line">    <span class="built_in">NSURL</span> *audioFileOutput = [<span class="built_in">NSURL</span> fileURLWithPath:outPutPath];</span><br><span class="line">    [[<span class="built_in">NSFileManager</span> defaultManager] removeItemAtURL:audioFileOutput error:<span class="literal">NULL</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 初始化要剪切的音频文件 */</span></span><br><span class="line">    <span class="built_in">AVAsset</span> *asset = [<span class="built_in">AVAsset</span> assetWithURL:url];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">AVAssetExportSession</span> *exportSession = [<span class="built_in">AVAssetExportSession</span> exportSessionWithAsset:asset</span><br><span class="line">                                                                            presetName:<span class="built_in">AVAssetExportPresetAppleM4A</span>];</span><br><span class="line">    <span class="comment">/** 剪切的时间段 */</span></span><br><span class="line">    <span class="built_in">CMTimeRange</span> exportTimeRange = <span class="built_in">CMTimeRangeFromTimeToTime</span>(startTime, endTime);</span><br><span class="line"></span><br><span class="line">    exportSession.outputURL = audioFileOutput;</span><br><span class="line">    exportSession.outputFileType = <span class="built_in">AVFileTypeAppleM4A</span>;</span><br><span class="line">    exportSession.timeRange = exportTimeRange;</span><br><span class="line">    </span><br><span class="line">    [exportSession exportAsynchronouslyWithCompletionHandler:^&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">AVAssetExportSessionStatusCompleted</span> == exportSession.status) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@" FlyElephant \n %@"</span>, outPutPath);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">AVAssetExportSessionStatusFailed</span> == exportSession.status) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"FlyElephant error: %@"</span>, exportSession.error.localizedDescription);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
-<h2 id="音频的合成"><a href="#音频的合成" class="headerlink" title="音频的合成"></a>音频的合成</h2><h4 id="1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"><a href="#1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。" class="headerlink" title="1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"></a>1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *exportPath = <span class="string">@"导出文件路径"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *url = <span class="string">@"音频源文件路径"</span>;</span><br><span class="line"><span class="comment">//音频来源路径</span></span><br><span class="line"><span class="built_in">NSURL</span> *audioUrl = [<span class="built_in">NSURL</span> fileURLWithPath:url];</span><br><span class="line"><span class="built_in">NSURL</span> *backPathUrl = [<span class="built_in">NSURL</span> fileURLWithPath:backPath];</span><br><span class="line"><span class="comment">//导出路径</span></span><br><span class="line"><span class="built_in">NSURL</span> *exporAudiotPath = [<span class="built_in">NSURL</span> fileURLWithPath:exportPath];</span><br><span class="line"><span class="comment">//删除相同导出路径的文件</span></span><br><span class="line">unlink([exportPath UTF8String]);</span><br><span class="line"><span class="comment">//创建可变的音频视频组合</span></span><br><span class="line"><span class="built_in">AVMutableComposition</span> *mixComposition = [<span class="built_in">AVMutableComposition</span> composition];</span><br><span class="line"><span class="comment">/** 初始化音频 */</span></span><br><span class="line"><span class="built_in">AVURLAsset</span> *audioAsset = [[<span class="built_in">AVURLAsset</span> alloc] initWithURL:audioUrl options:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">AVURLAsset</span> *audioBack = [[<span class="built_in">AVURLAsset</span> alloc] initWithURL:backPathUrl options:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 音乐的时间 */</span></span><br><span class="line"><span class="built_in">CMTimeRange</span> audio_timeRange = <span class="built_in">CMTimeRangeMake</span>(kCMTimeZero,audioAsset.duration);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取视频或者音频中的音频轨道</span></span><br><span class="line"><span class="built_in">AVAssetTrack</span> *audioTrack = [[audioAsset tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="built_in">AVAssetTrack</span> *audioBackTrack = [[audioBack tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">//可变音视频轨道添加一个 音频通道</span></span><br><span class="line"><span class="built_in">AVMutableCompositionTrack</span> *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:<span class="built_in">AVMediaTypeAudio</span> preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line"><span class="built_in">AVMutableCompositionTrack</span> *audioCompositionBackTrack = [mixComposition addMutableTrackWithMediaType:<span class="built_in">AVMediaTypeAudio</span> preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line"><span class="comment">//插入音频到容器</span></span><br><span class="line">[audioCompositionTrack insertTimeRange:audio_timeRange ofTrack:audioTrack atTime:kCMTimeZero error:<span class="literal">nil</span>];</span><br><span class="line">[audioCompositionBackTrack insertTimeRange:audio_timeRange ofTrack:audioBackTrack atTime:kCMTimeZero error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化音频混合器</span></span><br><span class="line"><span class="built_in">AVMutableAudioMix</span> *exportAudioMix = [<span class="built_in">AVMutableAudioMix</span> audioMix];</span><br><span class="line"><span class="comment">//获取到第二条音轨并且设置他的音量大小</span></span><br><span class="line"><span class="built_in">AVAssetTrack</span> *mixCompositionTrack = [[mixComposition tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">1</span>];</span><br><span class="line"><span class="comment">//初始化音频混合器导出配置参数</span></span><br><span class="line"><span class="built_in">AVMutableAudioMixInputParameters</span> *exportAudioMixInputParameters = [<span class="built_in">AVMutableAudioMixInputParameters</span> audioMixInputParametersWithTrack:mixCompositionTrack];</span><br><span class="line"><span class="comment">/** 设置第二条音轨的背景音效声音大小 */</span></span><br><span class="line">[exportAudioMixInputParameters setVolumeRampFromStartVolume:<span class="number">0</span> toEndVolume:[<span class="built_in">AVAudioSession</span> sharedInstance].outputVolume * <span class="number">0.6</span> timeRange:audio_timeRange];</span><br><span class="line"><span class="built_in">NSArray</span> *audioMixParameters = @[exportAudioMixInputParameters];</span><br><span class="line">exportAudioMix.inputParameters = audioMixParameters;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个输出</span></span><br><span class="line"><span class="built_in">AVAssetExportSession</span>* assetExport = [[<span class="built_in">AVAssetExportSession</span> alloc] initWithAsset:mixComposition presetName:<span class="built_in">AVAssetExportPresetAppleM4A</span>];</span><br><span class="line"><span class="comment">/** 导出文件的地址 */</span></span><br><span class="line">assetExport.outputURL = exporAudiotPath;</span><br><span class="line"><span class="comment">/** 导出文件的格式 */</span></span><br><span class="line">assetExport.outputFileType = <span class="string">@"com.apple.m4a-audio"</span>;</span><br><span class="line"><span class="comment">/** 网络优化 */</span></span><br><span class="line">assetExport.shouldOptimizeForNetworkUse = <span class="literal">YES</span>;</span><br><span class="line">assetExport.audioMix = exportAudioMix;</span><br><span class="line">[assetExport exportAsynchronouslyWithCompletionHandler:</span><br><span class="line"> ^(<span class="keyword">void</span> ) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"$$$"</span>);</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"完成！输出路径==%@"</span>,exportPath);</span><br><span class="line">     <span class="keyword">if</span>(completion)completion(exportPath);</span><br><span class="line"> &#125;];</span><br></pre></td></tr></table></figure>
-<h2 id="音频的淡入淡出"><a href="#音频的淡入淡出" class="headerlink" title="音频的淡入淡出"></a>音频的淡入淡出</h2><h4 id="1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"><a href="#1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。" class="headerlink" title="1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"></a>1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *exportPath = <span class="string">@"音频导出文件路径"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *exportPath = <span class="string">@"音频源文件路径"</span>;</span><br><span class="line"><span class="comment">//淡入时间</span></span><br><span class="line"><span class="built_in">NSInteger</span> fadeInTime = <span class="number">5</span>;</span><br><span class="line"><span class="comment">//淡出时间</span></span><br><span class="line"><span class="built_in">NSInteger</span> fadeOutTime = <span class="number">5</span>;</span><br><span class="line"><span class="comment">//音频来源路径</span></span><br><span class="line"><span class="built_in">NSURL</span> *audioUrl = [<span class="built_in">NSURL</span> fileURLWithPath:url];</span><br><span class="line"><span class="comment">//导出路径</span></span><br><span class="line"><span class="built_in">NSURL</span> *exporAudiotPath = [<span class="built_in">NSURL</span> fileURLWithPath:exportPath];</span><br><span class="line"><span class="comment">//删除相同导出路径的文件</span></span><br><span class="line">unlink([exportPath UTF8String]);</span><br><span class="line"><span class="comment">//初始化开始时间</span></span><br><span class="line"><span class="built_in">CMTime</span> nextClipStartTime = kCMTimeZero;</span><br><span class="line"><span class="comment">//创建可变的音频视频组合</span></span><br><span class="line"><span class="built_in">AVMutableComposition</span> *mixComposition = [<span class="built_in">AVMutableComposition</span> composition];</span><br><span class="line"><span class="comment">//初始化音频文件</span></span><br><span class="line"><span class="built_in">AVURLAsset</span>  *audioAsset = [[<span class="built_in">AVURLAsset</span> alloc] initWithURL:audioUrl options:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">/** 获取音频时长 */</span></span><br><span class="line"><span class="built_in">CMTimeRange</span> audioTimeRange = <span class="built_in">CMTimeRangeMake</span>(kCMTimeZero,audioAsset.duration);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个输出</span></span><br><span class="line"><span class="built_in">AVAssetExportSession</span>* assetExport = [[<span class="built_in">AVAssetExportSession</span> alloc] initWithAsset:mixComposition presetName:<span class="built_in">AVAssetExportPresetAppleM4A</span>];</span><br><span class="line">assetExport.outputURL = exporAudiotPath;</span><br><span class="line">assetExport.outputFileType = <span class="string">@"com.apple.m4a-audio"</span>;</span><br><span class="line">assetExport.shouldOptimizeForNetworkUse = <span class="literal">YES</span>;</span><br><span class="line"><span class="comment">//获取音频文件中的音频轨道</span></span><br><span class="line"><span class="built_in">AVAssetTrack</span> *audioTrack = [[audioAsset tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">//初始化一个音频容器</span></span><br><span class="line"><span class="built_in">AVMutableCompositionTrack</span> *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:<span class="built_in">AVMediaTypeAudio</span> preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line"><span class="comment">//插入音频到容器</span></span><br><span class="line">[audioCompositionTrack insertTimeRange:audioTimeRange ofTrack:audioTrack atTime:nextClipStartTime error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化音频混合器</span></span><br><span class="line"><span class="built_in">AVMutableAudioMix</span> *exportAudioMix = [<span class="built_in">AVMutableAudioMix</span> audioMix];</span><br><span class="line"><span class="comment">//获取混合后的音轨</span></span><br><span class="line"><span class="built_in">AVAssetTrack</span> *mixCompositionTrack = [[mixComposition tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">//初始化音频混合器导出配置参数</span></span><br><span class="line"><span class="built_in">AVMutableAudioMixInputParameters</span> *exportAudioMixInputParameters = [<span class="built_in">AVMutableAudioMixInputParameters</span> audioMixInputParametersWithTrack:mixCompositionTrack];</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化淡入淡出持续时间  这个可以根据项目需求来设置这里前5秒淡入音量从0到1.0，最后5秒淡出音量从1.0到0 大家可以根据自己需求修改</span></span><br><span class="line"><span class="comment">/** 获取当前的音频 */</span></span><br><span class="line"><span class="built_in">CGFloat</span> volume = [<span class="built_in">AVAudioSession</span> sharedInstance].outputVolume;</span><br><span class="line"><span class="keyword">if</span>(fadeInTime &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//        设置前5秒音乐淡入</span></span><br><span class="line">    <span class="built_in">CMTime</span> continueFadeInTime = <span class="built_in">CMTimeMakeWithSeconds</span>(fadeInTime, <span class="number">1</span>);</span><br><span class="line">    [exportAudioMixInputParameters setVolumeRampFromStartVolume:<span class="number">0</span> toEndVolume:volume timeRange:<span class="built_in">CMTimeRangeMake</span>(<span class="built_in">CMTimeMakeWithSeconds</span>(<span class="number">0</span>, <span class="number">1</span>), continueFadeInTime)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(fadeOutTime &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//        计算开始淡出的时间</span></span><br><span class="line">    <span class="built_in">CMTime</span> continueFadeOutTime = <span class="built_in">CMTimeMakeWithSeconds</span>(fadeOutTime, <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">CMTime</span> fadeOutStartTime = <span class="built_in">CMTimeSubtract</span>(audioAsset.duration, continueFadeOutTime);</span><br><span class="line">    <span class="comment">//        设置最后5秒音乐淡出</span></span><br><span class="line">    [exportAudioMixInputParameters setVolumeRampFromStartVolume:volume toEndVolume:<span class="number">0</span> timeRange:<span class="built_in">CMTimeRangeMake</span>(fadeOutStartTime, continueFadeOutTime)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//        设置音频混合器参数</span></span><br><span class="line"><span class="built_in">NSArray</span> *audioMixParameters = @[exportAudioMixInputParameters];</span><br><span class="line">exportAudioMix.inputParameters = audioMixParameters;</span><br><span class="line"><span class="comment">//添加到导出配置中</span></span><br><span class="line">assetExport.audioMix = exportAudioMix;</span><br><span class="line"><span class="comment">//开始导出</span></span><br><span class="line">[assetExport exportAsynchronouslyWithCompletionHandler:</span><br><span class="line"> ^(<span class="keyword">void</span> ) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"$$$"</span>);</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"完成！输出路径==%@"</span>,exportPath);</span><br><span class="line">     <span class="keyword">if</span>(completion)completion(exportPath);</span><br><span class="line"> &#125;];</span><br></pre></td></tr></table></figure>
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
 
 					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《音频剪切、合成、淡入淡出》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
 				</div>
 			</div>
-		</article>
-
-		<ul class="am-pagination">
-    
-    	<li class="am-pagination-prev">
-   		<a class="pull-left" href="/2019/01/05/publish_html/" title="Docker Nginx 静态资源部署">
-      		&laquo; 上一篇
-		</a>
-		</li>
-	
-	
-		<li class="am-pagination-next">
-		<a class="pull-right" href="/2018/10/29/first/" title="swift 做一个答题的功能">
-			下一篇 &raquo;
-		</a>
-		</li>
-	 
- </ul>
-        
-
-		<div class="theme-annie-comment-button-container">
-	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
-		加载评论
-		<!--加载评论-->
-	</button>
-</div>
-
-<div id="annie-comment-container" class="theme-annie-comment-main-container">
-
-	
+		</div>
 		
-			<!-- comment valine -->
-			<!-- show valine comment -->
-<div id="valineComment" class="comment"></div>
-
-<!-- valine`s js & css -->
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
 <script>
-	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
-</script>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="/js/valine.min.js"></script>
-<link rel="stylesheet" href="/css/comment.css">
-
-<script>
-	var checkExistComment = setInterval(function() {
-		if( $('#valineComment').length ) {
-			new Valine({
-				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
-				av: AV,
-				//使用id寻找div元素（使用class可能找不到）
-				el: '#valineComment',
-				emoticon_url: 'https://cloud.panjunwen.com/alu',
-				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
-				app_id: "3333....", //获取APP ID
-				app_key: "3333......", //获取APP KEY
-				placeholder: "no any!", //评论框占位提示文字        			
-			});
-			clearInterval(checkExistComment);
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
 		}
-	}, 100);
+	});
 </script>
+</header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
 		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2018/11/19/audio/" itemprop="url">
+		音频剪切、合成、淡入淡出
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2018/11/19/audio/" itemprop="url">
+		<time datetime="2018-11-19T14:54:14.342Z" itemprop="datePublished">
+	  		2018-11-19
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2018/11/19/audio/" itemprop="url">
+		<time datetime="2018-11-19T14:54:14.342Z" itemprop="dateUpdated">
+	  		2018-11-19
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2018/11/19/audio/_visitors" data-url="/2018/11/19/audio/" data-title="音频剪切、合成、淡入淡出">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/11/19/audio/_likes" data-url="/2018/11/19/audio/" data-title="音频剪切、合成、淡入淡出" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h2 id="音频剪切"><a href="#音频剪切" class="headerlink" title="音频剪切"></a>音频剪切</h2><h4 id="1-音频剪切比较简单传入音频文件和剪切的时间段就可以了"><a href="#1-音频剪切比较简单传入音频文件和剪切的时间段就可以了" class="headerlink" title="1.音频剪切比较简单传入音频文件和剪切的时间段就可以了"></a>1.音频剪切比较简单传入音频文件和剪切的时间段就可以了</h4><pre class="line-numbers language-objc"><code class="language-objc">/** 初始化输出文件路径 */
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件路径";
+    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];
+    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error:NULL];
+
+    /** 初始化要剪切的音频文件 */
+    AVAsset *asset = [AVAsset assetWithURL:url];
+
+    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:asset
+                                                                            presetName:AVAssetExportPresetAppleM4A];
+    /** 剪切的时间段 */
+    CMTimeRange exportTimeRange = CMTimeRangeFromTimeToTime(startTime, endTime);
+
+    exportSession.outputURL = audioFileOutput;
+    exportSession.outputFileType = AVFileTypeAppleM4A;
+    exportSession.timeRange = exportTimeRange;
+
+    [exportSession exportAsynchronouslyWithCompletionHandler:^{
+        if (AVAssetExportSessionStatusCompleted == exportSession.status) {
+            NSLog(@" FlyElephant \n %@", outPutPath);
+        } else if (AVAssetExportSessionStatusFailed == exportSession.status) {
+            NSLog(@"FlyElephant error: %@", exportSession.error.localizedDescription);
+        }
+    }];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="音频的合成"><a href="#音频的合成" class="headerlink" title="音频的合成"></a>音频的合成</h2><h4 id="1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"><a href="#1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。" class="headerlink" title="1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"></a>1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。</h4><pre class="line-numbers language-objc"><code class="language-objc">    NSString *exportPath = @"导出文件路径";
+    NSString *url = @"音频源文件路径";
+    //音频来源路径
+    NSURL *audioUrl = [NSURL fileURLWithPath:url];
+    NSURL *backPathUrl = [NSURL fileURLWithPath:backPath];
+    //导出路径
+    NSURL *exporAudiotPath = [NSURL fileURLWithPath:exportPath];
+    //删除相同导出路径的文件
+    unlink([exportPath UTF8String]);
+    //创建可变的音频视频组合
+    AVMutableComposition *mixComposition = [AVMutableComposition composition];
+    /** 初始化音频 */
+    AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:audioUrl options:nil];
+    AVURLAsset *audioBack = [[AVURLAsset alloc] initWithURL:backPathUrl options:nil];
+
+    /** 音乐的时间 */
+    CMTimeRange audio_timeRange = CMTimeRangeMake(kCMTimeZero,audioAsset.duration);
+
+    //获取视频或者音频中的音频轨道
+    AVAssetTrack *audioTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+    AVAssetTrack *audioBackTrack = [[audioBack tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+    //可变音视频轨道添加一个 音频通道
+    AVMutableCompositionTrack *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    AVMutableCompositionTrack *audioCompositionBackTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    //插入音频到容器
+    [audioCompositionTrack insertTimeRange:audio_timeRange ofTrack:audioTrack atTime:kCMTimeZero error:nil];
+    [audioCompositionBackTrack insertTimeRange:audio_timeRange ofTrack:audioBackTrack atTime:kCMTimeZero error:nil];
+
+
+    //初始化音频混合器
+    AVMutableAudioMix *exportAudioMix = [AVMutableAudioMix audioMix];
+    //获取到第二条音轨并且设置他的音量大小
+    AVAssetTrack *mixCompositionTrack = [[mixComposition tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:1];
+    //初始化音频混合器导出配置参数
+    AVMutableAudioMixInputParameters *exportAudioMixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mixCompositionTrack];
+    /** 设置第二条音轨的背景音效声音大小 */
+    [exportAudioMixInputParameters setVolumeRampFromStartVolume:0 toEndVolume:[AVAudioSession sharedInstance].outputVolume * 0.6 timeRange:audio_timeRange];
+    NSArray *audioMixParameters = @[exportAudioMixInputParameters];
+    exportAudioMix.inputParameters = audioMixParameters;
+
+
+    //创建一个输出
+    AVAssetExportSession* assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];
+    /** 导出文件的地址 */
+    assetExport.outputURL = exporAudiotPath;
+    /** 导出文件的格式 */
+    assetExport.outputFileType = @"com.apple.m4a-audio";
+    /** 网络优化 */
+    assetExport.shouldOptimizeForNetworkUse = YES;
+    assetExport.audioMix = exportAudioMix;
+    [assetExport exportAsynchronouslyWithCompletionHandler:
+     ^(void ) {
+         NSLog(@"$$$");
+         NSLog(@"完成！输出路径==%@",exportPath);
+         if(completion)completion(exportPath);
+     }];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="音频的淡入淡出"><a href="#音频的淡入淡出" class="headerlink" title="音频的淡入淡出"></a>音频的淡入淡出</h2><h4 id="1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"><a href="#1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。" class="headerlink" title="1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"></a>1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。</h4><pre class="line-numbers language-objc"><code class="language-objc">    NSString *exportPath = @"音频导出文件路径";
+    NSString *exportPath = @"音频源文件路径";
+    //淡入时间
+    NSInteger fadeInTime = 5;
+    //淡出时间
+    NSInteger fadeOutTime = 5;
+    //音频来源路径
+    NSURL *audioUrl = [NSURL fileURLWithPath:url];
+    //导出路径
+    NSURL *exporAudiotPath = [NSURL fileURLWithPath:exportPath];
+    //删除相同导出路径的文件
+    unlink([exportPath UTF8String]);
+    //初始化开始时间
+    CMTime nextClipStartTime = kCMTimeZero;
+    //创建可变的音频视频组合
+    AVMutableComposition *mixComposition = [AVMutableComposition composition];
+    //初始化音频文件
+    AVURLAsset  *audioAsset = [[AVURLAsset alloc] initWithURL:audioUrl options:nil];
+    /** 获取音频时长 */
+    CMTimeRange audioTimeRange = CMTimeRangeMake(kCMTimeZero,audioAsset.duration);
+
+    //创建一个输出
+    AVAssetExportSession* assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];
+    assetExport.outputURL = exporAudiotPath;
+    assetExport.outputFileType = @"com.apple.m4a-audio";
+    assetExport.shouldOptimizeForNetworkUse = YES;
+    //获取音频文件中的音频轨道
+    AVAssetTrack *audioTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+    //初始化一个音频容器
+    AVMutableCompositionTrack *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    //插入音频到容器
+    [audioCompositionTrack insertTimeRange:audioTimeRange ofTrack:audioTrack atTime:nextClipStartTime error:nil];
+
+    //初始化音频混合器
+    AVMutableAudioMix *exportAudioMix = [AVMutableAudioMix audioMix];
+    //获取混合后的音轨
+    AVAssetTrack *mixCompositionTrack = [[mixComposition tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+    //初始化音频混合器导出配置参数
+    AVMutableAudioMixInputParameters *exportAudioMixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mixCompositionTrack];
+
+    //初始化淡入淡出持续时间  这个可以根据项目需求来设置这里前5秒淡入音量从0到1.0，最后5秒淡出音量从1.0到0 大家可以根据自己需求修改
+    /** 获取当前的音频 */
+    CGFloat volume = [AVAudioSession sharedInstance].outputVolume;
+    if(fadeInTime > 0){
+        //        设置前5秒音乐淡入
+        CMTime continueFadeInTime = CMTimeMakeWithSeconds(fadeInTime, 1);
+        [exportAudioMixInputParameters setVolumeRampFromStartVolume:0 toEndVolume:volume timeRange:CMTimeRangeMake(CMTimeMakeWithSeconds(0, 1), continueFadeInTime)];
+    }
+    if(fadeOutTime > 0){
+        //        计算开始淡出的时间
+        CMTime continueFadeOutTime = CMTimeMakeWithSeconds(fadeOutTime, 1);
+        CMTime fadeOutStartTime = CMTimeSubtract(audioAsset.duration, continueFadeOutTime);
+        //        设置最后5秒音乐淡出
+        [exportAudioMixInputParameters setVolumeRampFromStartVolume:volume toEndVolume:0 timeRange:CMTimeRangeMake(fadeOutStartTime, continueFadeOutTime)];
+    }
+    //        设置音频混合器参数
+    NSArray *audioMixParameters = @[exportAudioMixInputParameters];
+    exportAudioMix.inputParameters = audioMixParameters;
+    //添加到导出配置中
+    assetExport.audioMix = exportAudioMix;
+    //开始导出
+    [assetExport exportAsynchronouslyWithCompletionHandler:
+     ^(void ) {
+         NSLog(@"$$$");
+         NSLog(@"完成！输出路径==%@",exportPath);
+         if(completion)completion(exportPath);
+     }];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/2019/01/05/publish_html/" title="Docker Nginx 静态资源部署" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2018/10/29/first/" title="swift 做一个答题的功能" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/01/05/publish_html/" title="Docker Nginx 静态资源部署">
+							Docker Nginx 静态资源部署
+						</a>
+						<p>
+							1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
+这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
+...
+						</p>
+					</div>
+
+					<a href="/2019/01/05/publish_html/" title="Docker Nginx 静态资源部署">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/29/first/" title="swift 做一个答题的功能">
+							swift 做一个答题的功能
+						</a>
+						<p>
+							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
+
+思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+...
+						</p>
+					</div>
+
+					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="swift 做一个答题的功能">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+							iOS原生调用ReatNative
+						</a>
+						<p>
+							
+有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
+
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+						</p>
+					</div>
+
+					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="iOS原生调用ReatNative">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">
+							Gvoice 实时语音接入
+						</a>
+						<p>
+							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Gvoice 实时语音接入">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/6/" title="ARDemo">
+							ARDemo
+						</a>
+						<p>
+							#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
+#####注：demo借鉴的泊学上的
+#####github地址
+2.项目创建成功之后进入到ViewController.swif...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/6/" title="ARDemo">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="ARDemo">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用">
+							Charts（swift） 饼状图、柱状图使用
+						</a>
+						<p>
+							最近项目当中需要用到图标，然后在上查了下，找到了这个，感觉应该比较好用。github地址
+
+饼图1.倒入Charts,然后实历化饼状图的类PieChartViewimport Charts
+class WorkManagerHeade...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Charts（swift） 饼状图、柱状图使用">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/4/" title="Python 管理批量文件">
+							Python 管理批量文件
+						</a>
+						<p>
+							
+事情还得从用Python写爬虫开始说起，当时在freebuf看了几篇爬虫得文章    然后又遇到项目中要用很多图片，就现学现用在网上爬了很多图片下来。因为当时爬下来的都是表情的图片，所以前几天的时候本来想把爬下来的所有的表情图片添加...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/4/" title="Python 管理批量文件">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Python 管理批量文件">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/3/" title="UICollectionView header 使用">
+							UICollectionView header 使用
+						</a>
+						<p>
+							
+在项目中看到有使用多种collectionViewCell，和header的情况，感觉用起来还是比较方便。之前遇到类似的界面，都没有想到😂.看下效果图吧：先说下思路，这整个一块是一个collectionView，然后分为3组第一组...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/3/" title="UICollectionView header 使用">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="UICollectionView header 使用">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/2/" title="Alamofire上传文件">
+							Alamofire上传文件
+						</a>
+						<p>
+							请求的接口
+一般用户修改头像都是修改的头像的连接，这里我们后台是直接上传的文件，所以我就基于Alamofire封装了一个带有文件参数的网络请求方法
+//MARK:-----------file请求-------------//
+   ...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/2/" title="Alamofire上传文件">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Alamofire上传文件">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
 	
 
-</div>
+		
+
+			<!-- comment gitalk -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <script type="text/javascript">
-	/* Show Comment */
-	var Annie_Comment = function() {
-		function Show_Hidden(obj) {
-			obj.style.display = 'block';
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
 		}
-		
-		//var obutton = $('#annie-comment-button');
-		//var obutton = $('#annie-comment-container');
-		var obutton = document.getElementById("annie-comment-button" || "0");
-		var odiv = document.getElementById("annie-comment-container");
-		if( 'obutton' ) {
-			obutton.onclick = function() {
-				Show_Hidden(odiv);
-				$("#annie-comment-button").css("display", 'none');
-				return false;
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
 			}
 		}
 	};
 
-	(function Annie_Init() {
-		Annie_Comment();
-	})();
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: '47712093a2b95c0b5bf5',
+		clientSecret: 'ea0d8e7e5eac1f09ca7e8600150db27c9509d44c',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'eyesoffish.github.io',
+		owner: 'eyesoffish.github.io',
+		admin: 'eyesoffish.github.io',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
 </script>
+
 		
-		<!--
-	时间：2018-09-24
-	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
--->
-
-	
-		<aside class="post-widget">
-			<nav class="post-toc-wrap" id="post-toc">
-				
-					<strong>文章目录</strong>
-				
-				
-				<!--toc(post.content)-->
-				<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#音频剪切"><span class="post-toc-text">音频剪切</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-音频剪切比较简单传入音频文件和剪切的时间段就可以了"><span class="post-toc-text">1.音频剪切比较简单传入音频文件和剪切的时间段就可以了</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#音频的合成"><span class="post-toc-text">音频的合成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"><span class="post-toc-text">1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#音频的淡入淡出"><span class="post-toc-text">音频的淡入淡出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"><span class="post-toc-text">1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。</span></a></li></ol></li></ol></li></ol>
-			</nav>
-			<div class="post-toc-bar"><div>
-		</aside>
+		
 	
 
+</div>
+			</div>
+		</div>	
 	</div>
 </div>
-		</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
+            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+<script>
+	//Refer to https://xinyo.org/archives/66226, thanks xinyo!
+	function codeCopy() {
+		var copyContainerId = 'copy-nav';
+						
+		$("pre").before(" <nav class=' " + copyContainerId + " '><i class='code-language'></i></nav> ");
+		
+		$('.' + copyContainerId).append("<i class='fa fa-clipboard copy-btn' aria-hidden='true'></i>");
+		
+		$('#article-content').find('pre').each( function () {
+			var language = $(this).children('code').attr('class').substr(9);//why 9? Need to check language?
+			$(this).prev().find('.code-language').text( language );	
+		});
+				
+		//为复制按钮添加click事件
+		$('.copy-btn').on("click", function() {
+			//初始化
+			$("textarea").remove("#targetId");
+			
+			//获取对应的代码
+			var codePre = $(this).parent().next(),
+				codeText = codePre[0].textContent,
+				target = document.createElement("textarea");
+			target.style.position = "absolute";
+			target.style.left = "-9999px";
+			target.style.top = "0";
+			target.id = "targetId";
+			codePre.append(target);
+			target.textContent = codeText;
+
+			//选中textarea内的代码
+			target.focus();
+			target.setSelectionRange(0, target.value.length);
+
+			// 复制选中的内容
+			document.execCommand("copy");
+			
+			//删除添加的节点
+			$("textarea").remove("#targetId");
+			
+			var thisCopied = $(this);
+			thisCopied.addClass('copy-status');	
+			setTimeout( function() {
+				thisCopied.removeClass('copy-status');
+			}, 2000)
+		});	
+	}
+	
+	if( $('.layout-post').length )	{
+		codeCopy();
+	}
+</script>
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	
 		</main>
 		
 		<!--footer-->
 		<footer>
-	<div class="blog-text-center">
-		<div class="theme-annie-social">
-				
-				
-					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
-				
-				
-					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
-						
-				
-		</div>
-	</div>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
 
-	<div  class="blog-text-center">
-		<div class="theme-annie-copyright">
-			
-				&copy; 2017 - 2019, content by 目生鱼. All Rights Reserved.			       	
-			
-		</div>
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
 	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+			
+			
+			
 
-	<div class="blog-text-center">
-		<div class="theme-annie-copyright">
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
-		</div>
-	</div>
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
 </footer>
-		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
-
-<script>
-	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
-</script>
-
-<style>
-	.motto {
-		color: #000000;
-		font-size: 20px;
-		margin: 100px 25% 0;
-		width: 50%;
-		line-height: 1.4;
-		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-		text-align: center;
-	}
-	@media(max-width: 890px) {
-		.motto {	
-			margin: 100px 10% 0;
-			width: 80%;
-		}
-	}
-	@media(max-width: 890px) {
-		.motto {
-			margin: 100px 5% 0;
-			width: 90%;
-		}
-	}
-</style>
-
+		
+    <!-- set '1' to show motto in all pages! -->
 
 	<script src="/js/motto.js"></script>
 	<script type="text/javascript">
-		$(".motto").html(getMingYanContent());
+		$(".motto").html( getMingYanContent() );
 	</script>	
 
 
@@ -388,53 +983,25 @@
 
 
 
-
-	<script type="text/javascript" src="/js/toc.js"></script>
-
-
-<script type="text/javascript" src="/js/main.js"></script>
-
-<script type="text/javascript">
-	//generate a random img that pre_name 'from 0 to 110'
-	var random_bg = Math.floor(Math.random() * 109 + 1);
-
-	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
-	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
-
-	$("#header-bg-2").css("background-image", bg);
-</script>
-		
-		<!--back to top-->
-        <style type="text/css">
-	#totop {
-		background: white;
-		border-radius: 50%;
-		position: fixed;
-		right: 5.4%;
-		bottom: 80px;
-		cursor: pointer;
-	}
-	
-	#totop a {
-		color: #474747;
-		background-color: transparent;
-		padding: 10px;
-		text-decoration: none;
-	}
-	
-	@media(max-width:512px) {
-		#totop {
-			display: none;
-			visibility: hidden;
-		}
-	}
-</style>
+    <script src="/js/love.js"></script>
 
 
+<!--back to top-->
+
+    
 	<div id="totop">
-  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
+	<div id="tobuttom">
+		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
+	</div>
+ 
 
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
 	</body>
 	</html>
-
