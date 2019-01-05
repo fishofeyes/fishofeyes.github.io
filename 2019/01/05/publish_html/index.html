@@ -61,7 +61,7 @@
 	
 	<!-- others: such as change-bg, time... -->
 	<p class="page-name-other">
-		12/28/2018 
+		1/5/2019 
 		<style type="text/css">
 	header:after {
 		content: '';
@@ -160,7 +160,7 @@
 					
 					
 	
-		<a href="/2018/12/28/publish_html/" itemprop="url">		
+		<a href="/2019/01/05/publish_html/" itemprop="url">		
 			Docker Nginx 静态资源部署		
 		</a>
 	
@@ -170,9 +170,9 @@
 				<p class="am-article-meta blog-text-center">
 					<span>
 						<i class="fa fa-clock-o"></i> 
-						<a href="/2018/12/28/publish_html/" itemprop="url">
-	<time datetime="2018-12-28T12:50:19.020Z" itemprop="datePublished">
-  		2018-12-28
+						<a href="/2019/01/05/publish_html/" itemprop="url">
+	<time datetime="2019-01-05T03:02:02.232Z" itemprop="datePublished">
+  		2019-01-05
   </time>
 </a>    
 &nbsp;
@@ -193,6 +193,7 @@
 <p>###3.列出已下载的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
 <h3 id="4-列出运行中的容器"><a href="#4-列出运行中的容器" class="headerlink" title="4.列出运行中的容器"></a>4.列出运行中的容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 使用 docker ps -a 命令列出所有（包括已停止）的容器</span><br><span class="line">docker ps -a</span><br><span class="line"># 删除容器</span><br><span class="line">docker rm &lt;容器的唯一标示&gt;</span><br><span class="line"></span><br><span class="line"># 停止正在运行的容器</span><br><span class="line">docker stop &lt;容器名称&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="5-启动跑个静态网页测试nginx容器"><a href="#5-启动跑个静态网页测试nginx容器" class="headerlink" title="5.启动跑个静态网页测试nginx容器"></a>5.启动跑个静态网页测试nginx容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --name nginxTest -d -p 80:80 -v /usr/docker/nginx/html:/usr/share/nginx/html nginx</span><br><span class="line"></span><br><span class="line"># 文件移动</span><br><span class="line">mv &lt;文件或者文件名路径&gt; &lt;目标目录&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="6-服务器其他相关命令"><a href="#6-服务器其他相关命令" class="headerlink" title="6.服务器其他相关命令"></a>6.服务器其他相关命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 查看服务器系统版本</span><br><span class="line">lsb_release -a</span><br><span class="line"></span><br><span class="line"># 停止nginx服务</span><br><span class="line">pkill -9 nginx</span><br><span class="line"></span><br><span class="line"># docker重启nginx</span><br><span class="line">docker restart &lt;镜像名称&gt;</span><br><span class="line"></span><br><span class="line"># 查看特定的进程</span><br><span class="line">ps -ef|grep nginx</span><br><span class="line"># 查看所有进程</span><br><span class="line">ps -ef</span><br><span class="line"></span><br><span class="line"># docker配置nginx静态资源路径，要修改docker，修改nginx没有用</span><br></pre></td></tr></table></figure>
 <p><a href="https://my.oschina.net/u/3375733/blog/1591091" target="_blank" rel="noopener">参考文章</a></p>
 
 					
@@ -296,7 +297,7 @@
 				
 				
 				<!--toc(post.content)-->
-				<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-查看docker仓库中的nginx命令"><span class="post-toc-text">1. 查看docker仓库中的nginx命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-为选定需要pull到系统重的官方Nginx镜像"><span class="post-toc-text">2.为选定需要pull到系统重的官方Nginx镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-列出运行中的容器"><span class="post-toc-text">4.列出运行中的容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-启动跑个静态网页测试nginx容器"><span class="post-toc-text">5.启动跑个静态网页测试nginx容器</span></a></li></ol>
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-查看docker仓库中的nginx命令"><span class="post-toc-text">1. 查看docker仓库中的nginx命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-为选定需要pull到系统重的官方Nginx镜像"><span class="post-toc-text">2.为选定需要pull到系统重的官方Nginx镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-列出运行中的容器"><span class="post-toc-text">4.列出运行中的容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-启动跑个静态网页测试nginx容器"><span class="post-toc-text">5.启动跑个静态网页测试nginx容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-服务器其他相关命令"><span class="post-toc-text">6.服务器其他相关命令</span></a></li></ol>
 			</nav>
 			<div class="post-toc-bar"><div>
 		</aside>
@@ -334,7 +335,7 @@
 	<div  class="blog-text-center">
 		<div class="theme-annie-copyright">
 			
-				&copy; 2017 - 2018, content by 目生鱼. All Rights Reserved.			       	
+				&copy; 2017 - 2019, content by 目生鱼. All Rights Reserved.			       	
 			
 		</div>
 	</div>
