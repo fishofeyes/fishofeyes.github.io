@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Alamofire上传文件 | 目生鱼博客
+      Docker Nginx 静态资源部署 | 目生鱼博客
     
   </title>
   <meta name="author" content="目生鱼">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《Alamofire上传文件》
+						当前文章&nbsp;:&nbsp;《Docker Nginx 静态资源部署》
 					
 				</p>
 				<!-- Progress bar -->
@@ -270,8 +270,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2018/10/14/2/" itemprop="url">
-		Alamofire上传文件
+	<a href="/2019/01/09/publish_html/" itemprop="url">
+		Docker Nginx 静态资源部署
 	</a>
 
 	</div>
@@ -280,17 +280,17 @@
 		<span>
 			
 	发布于
-	<a href="/2018/10/14/2/" itemprop="url">
-		<time datetime="2018-10-14T07:58:29.538Z" itemprop="datePublished">
-	  		2018-10-14
+	<a href="/2019/01/09/publish_html/" itemprop="url">
+		<time datetime="2019-01-09T09:03:26.488Z" itemprop="datePublished">
+	  		2019-01-09
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2018/10/14/2/" itemprop="url">
-		<time datetime="2018-10-14T07:58:29.538Z" itemprop="dateUpdated">
-	  		2018-10-14
+	<a href="/2019/01/09/publish_html/" itemprop="url">
+		<time datetime="2019-01-09T09:03:26.488Z" itemprop="dateUpdated">
+	  		2019-01-09
 	  </time>
 	</a> 	
 
@@ -303,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2018/10/14/2/_visitors" data-url="/2018/10/14/2/" data-title="Alamofire上传文件">
+    <span class="leancloud_visitors" id="/2019/01/09/publish_html/_visitors" data-url="/2019/01/09/publish_html/" data-title="Docker Nginx 静态资源部署">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -312,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2018/10/14/2/_likes" data-url="/2018/10/14/2/" data-title="Alamofire上传文件" rel="unlike">
+    <span class="leancloud_likes" id="/2019/01/09/publish_html/_likes" data-url="/2019/01/09/publish_html/" data-title="Docker Nginx 静态资源部署" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -321,79 +321,44 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h4 id="请求的接口"><a href="#请求的接口" class="headerlink" title="请求的接口"></a>请求的接口</h4><p><img src="https://user-gold-cdn.xitu.io/2018/1/18/16108626ec8ccc95?w=1554&amp;h=444&amp;f=jpeg&amp;s=70220" alt="参数图"></p>
-<p>一般用户修改头像都是修改的头像的连接，这里我们后台是直接上传的文件，所以我就基于Alamofire封装了一个带有文件参数的网络请求方法</p>
-<pre class="line-numbers language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//MARK:-----------file请求-------------//</span>
-    <span class="token keyword">class</span> <span class="token class-name">func</span> <span class="token function">requestFile</span><span class="token punctuation">(</span>urlString<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>params<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">:</span><span class="token builtin">Any</span><span class="token punctuation">]</span><span class="token punctuation">,</span> method<span class="token punctuation">:</span><span class="token builtin">HTTPMethod</span><span class="token punctuation">,</span>success<span class="token punctuation">:</span>@<span class="token function">escaping</span><span class="token punctuation">(</span><span class="token number">_</span> response<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">:</span><span class="token builtin">Any</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//这里是接口和参数</span>
-        <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span><span class="token constant">BASE_URL</span><span class="token delimiter variable">)</span></span><span class="token interpolation"><span class="token delimiter variable">\(</span>api_common_mid<span class="token delimiter variable">)</span></span><span class="token interpolation"><span class="token delimiter variable">\(</span>urlString<span class="token delimiter variable">)</span></span>"</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>url<span class="token delimiter variable">)</span></span>\n<span class="token interpolation"><span class="token delimiter variable">\(</span>params<span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span>
+		<h3 id="1-查看docker仓库中的nginx命令"><a href="#1-查看docker仓库中的nginx命令" class="headerlink" title="1. 查看docker仓库中的nginx命令"></a>1. 查看docker仓库中的nginx命令</h3><pre class="line-numbers language-yml"><code class="language-yml">docker search nginx
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-为选定需要pull到系统重的官方Nginx镜像"><a href="#2-为选定需要pull到系统重的官方Nginx镜像" class="headerlink" title="2.为选定需要pull到系统重的官方Nginx镜像"></a>2.为选定需要pull到系统重的官方Nginx镜像</h3><pre class="line-numbers language-yml"><code class="language-yml">docker pull nginx
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这个过程需要时间，需要耐心等待一下。<br>看到这个图就是成功了。<br><img src="https://user-gold-cdn.xitu.io/2018/12/28/167f4cf3718a076b?w=1284&amp;h=229&amp;f=png&amp;s=34659" alt=""></p>
+<p>###3.列出已下载的镜像</p>
+<pre class="line-numbers language-yml"><code class="language-yml">docker images
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="4-列出运行中的容器"><a href="#4-列出运行中的容器" class="headerlink" title="4.列出运行中的容器"></a>4.列出运行中的容器</h3><pre class="line-numbers language-yml"><code class="language-yml"># 使用 docker ps -a 命令列出所有（包括已停止）的容器
+docker ps -a
+# 删除容器
+docker rm <容器的唯一标示>
 
-        <span class="token comment" spellcheck="true">//</span>
-        <span class="token builtin">Alamofire</span><span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span>multipartFormData<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>formdata<span class="token punctuation">)</span> <span class="token keyword">in</span>
+# 停止正在运行的容器
+docker stop <容器名称>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-启动跑个静态网页测试nginx容器"><a href="#5-启动跑个静态网页测试nginx容器" class="headerlink" title="5.启动跑个静态网页测试nginx容器"></a>5.启动跑个静态网页测试nginx容器</h3><pre class="line-numbers language-yml"><code class="language-yml">docker run --name nginxTest -d -p 8080:80 -v /usr/docker/nginx/html:/usr/share/nginx/html nginx
 
-            <span class="token comment" spellcheck="true">//这里因为不同接口的参数名肯定不一样，所以就用你传的参数名。</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span> <span class="token keyword">in</span> params<span class="token punctuation">{</span>
+# 文件移动
+mv <文件或者文件名路径> <目标目录>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="6-服务器其他相关命令"><a href="#6-服务器其他相关命令" class="headerlink" title="6.服务器其他相关命令"></a>6.服务器其他相关命令</h3><pre class="line-numbers language-yml"><code class="language-yml"># 查看服务器系统版本
+lsb_release -a
 
-                <span class="token comment" spellcheck="true">//然后formdata只接受Data所以这里转换一下</span>
-                <span class="token keyword">if</span> <span class="token keyword">let</span> content <span class="token operator">=</span> value <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
-                    formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>using<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">.</span><span class="token builtin">Encoding</span><span class="token punctuation">.</span>utf8<span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span> withName<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
+# 停止nginx服务
+pkill -9 nginx
 
-                <span class="token comment" spellcheck="true">// 如果是图片的话吧图片转化成Data</span>
-                <span class="token keyword">if</span> <span class="token keyword">let</span> content <span class="token operator">=</span> value <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">UIImage</span><span class="token punctuation">{</span>
-                    formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> withName<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
+# docker重启nginx
+docker restart <镜像名称>
 
-            <span class="token punctuation">}</span>
+# 查看特定的进程
+ps -ef|grep nginx
+# 查看所有进程
+ps -ef
 
-        <span class="token punctuation">}</span><span class="token punctuation">,</span> to<span class="token punctuation">:</span> url<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token keyword">in</span>
-            <span class="token keyword">switch</span> result <span class="token punctuation">{</span>
-            <span class="token keyword">case</span> <span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">let</span> upload<span class="token punctuation">,</span> <span class="token number">_</span><span class="token punctuation">,</span> <span class="token number">_</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                upload<span class="token punctuation">.</span>responseJSON <span class="token punctuation">{</span> response <span class="token keyword">in</span>
-                    <span class="token comment" spellcheck="true">//自己封装的处理请求返回的结果</span>
-                    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">responseApply</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> success<span class="token punctuation">:</span> success<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
-            <span class="token keyword">case</span> <span class="token punctuation">.</span><span class="token function">failure</span><span class="token punctuation">(</span><span class="token keyword">let</span> encodingError<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token function">print</span><span class="token punctuation">(</span>encodingError<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><pre class="line-numbers language-swift"><code class="language-swift"><span class="token builtin">NetworkTool</span><span class="token punctuation">.</span><span class="token function">requestFile</span><span class="token punctuation">(</span>urlString<span class="token punctuation">:</span> api_my_modification<span class="token punctuation">,</span>params<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"uid"</span><span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">:</span><span class="token string">"xxxx"</span><span class="token punctuation">,</span><span class="token string">"file"</span><span class="token punctuation">:</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"xxx.png"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> method<span class="token punctuation">:</span> <span class="token punctuation">.</span>post<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token keyword">in</span>
-            <span class="token keyword">if</span> <span class="token keyword">let</span> res <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span> res <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">{</span>
-                    <span class="token function">showSuccess</span><span class="token punctuation">(</span><span class="token string">"修改成功"</span><span class="token punctuation">)</span>
-                    <span class="token keyword">self</span><span class="token punctuation">.</span>ischangedImage <span class="token operator">=</span> <span class="token boolean">false</span>
-                    <span class="token comment" spellcheck="true">//跟新用户信息</span>
-                    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">update_request</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                    <span class="token keyword">return</span>
-                <span class="token punctuation">}</span>
-                <span class="token function">showError</span><span class="token punctuation">(</span><span class="token string">"修改失败"</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-                <span class="token function">showError</span><span class="token punctuation">(</span><span class="token string">"修改失败"</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了"><a href="#注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了" class="headerlink" title="注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了"></a>注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了</h5><pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">extension</span> <span class="token builtin">UIImage</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//MARK:-----------图片转data-------------//</span>
-    <span class="token keyword">func</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Data</span><span class="token punctuation">{</span>
-        <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token function">UIImageJPEGRepresentation</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">getNewImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.9</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> data<span class="token operator">!</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//MARK:-----------重新绘制一下图形-------------//</span>
-    fileprivate <span class="token keyword">func</span> <span class="token function">getNewImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">UIImage</span><span class="token punctuation">{</span>
-        <span class="token keyword">let</span> w <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>size<span class="token punctuation">.</span>width
-        <span class="token keyword">let</span> h <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>size<span class="token punctuation">.</span>height
-
-        <span class="token function">UIGraphicsBeginImageContext</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>size<span class="token punctuation">)</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token keyword">in</span><span class="token punctuation">:</span> <span class="token function">CGRect</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> w<span class="token punctuation">,</span> height<span class="token punctuation">:</span> h<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">let</span> newImage <span class="token operator">=</span> <span class="token function">UIGraphicsGetImageFromCurrentImageContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token function">UIGraphicsEndImageContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> newImage<span class="token operator">!</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# docker配置nginx静态资源路径，要修改docker，修改nginx没有用
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://my.oschina.net/u/3375733/blog/1591091" target="_blank" rel="noopener">参考文章</a></p>
 	
 	</div>
 	
@@ -411,10 +376,10 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2018/10/14/3/" title="UICollectionView header 使用" rel="prev">
-				&laquo;上一篇
-			</a>
 		
+			<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出" rel="next">
+				下一篇&raquo;
+			</a>
 			
 	</span>
       		
@@ -427,27 +392,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/01/09/publish_html/" title="Docker Nginx 静态资源部署">
-							Docker Nginx 静态资源部署
-						</a>
-						<p>
-							1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
-这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
-...
-						</p>
-					</div>
-
-					<a href="/2019/01/09/publish_html/" title="Docker Nginx 静态资源部署">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -590,6 +534,25 @@ class WorkManagerHeade...
 
 					<a href="/2018/10/14/3/" title="UICollectionView header 使用">				
 						<img src="/img/cart_cover.jpg" class="relateImg" alt="UICollectionView header 使用">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/14/2/" title="Alamofire上传文件">
+							Alamofire上传文件
+						</a>
+						<p>
+							请求的接口
+一般用户修改头像都是修改的头像的连接，这里我们后台是直接上传的文件，所以我就基于Alamofire封装了一个带有文件参数的网络请求方法
+//MARK:-----------file请求-------------//
+   ...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/2/" title="Alamofire上传文件">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Alamofire上传文件">
 					</a>
 				</li>											
 		
