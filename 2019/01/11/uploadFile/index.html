@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      iOS原生调用ReatNative | 目生鱼博客
+      SCP文件上传下载 | 目生鱼博客
     
   </title>
   <meta name="author" content="目生鱼">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《iOS原生调用ReatNative》
+						当前文章&nbsp;:&nbsp;《SCP文件上传下载》
 					
 				</p>
 				<!-- Progress bar -->
@@ -270,8 +270,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2018/10/20/8/" itemprop="url">
-		iOS原生调用ReatNative
+	<a href="/2019/01/11/uploadFile/" itemprop="url">
+		SCP文件上传下载
 	</a>
 
 	</div>
@@ -280,17 +280,17 @@
 		<span>
 			
 	发布于
-	<a href="/2018/10/20/8/" itemprop="url">
-		<time datetime="2018-10-20T04:21:01.369Z" itemprop="datePublished">
-	  		2018-10-20
+	<a href="/2019/01/11/uploadFile/" itemprop="url">
+		<time datetime="2019-01-11T02:12:06.118Z" itemprop="datePublished">
+	  		2019-01-11
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2018/10/20/8/" itemprop="url">
-		<time datetime="2018-10-20T04:21:01.369Z" itemprop="dateUpdated">
-	  		2018-10-20
+	<a href="/2019/01/11/uploadFile/" itemprop="url">
+		<time datetime="2019-01-11T02:12:06.118Z" itemprop="dateUpdated">
+	  		2019-01-11
 	  </time>
 	</a> 	
 
@@ -303,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2018/10/20/8/_visitors" data-url="/2018/10/20/8/" data-title="iOS原生调用ReatNative">
+    <span class="leancloud_visitors" id="/2019/01/11/uploadFile/_visitors" data-url="/2019/01/11/uploadFile/" data-title="SCP文件上传下载">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -312,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2018/10/20/8/_likes" data-url="/2018/10/20/8/" data-title="iOS原生调用ReatNative" rel="unlike">
+    <span class="leancloud_likes" id="/2019/01/11/uploadFile/_likes" data-url="/2019/01/11/uploadFile/" data-title="SCP文件上传下载" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -321,58 +321,23 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<blockquote>
-<p>有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。</p>
-</blockquote>
-<h3 id="iOS调用RN"><a href="#iOS调用RN" class="headerlink" title="iOS调用RN"></a>iOS调用RN</h3><h4 id="1-创建一个交互通信的类。"><a href="#1-创建一个交互通信的类。" class="headerlink" title="1.创建一个交互通信的类。"></a>1.创建一个交互通信的类。</h4><pre class="line-numbers language-objc"><code class="language-objc">#import <React/RCTEventEmitter.h>
-#import <React/RCTBridgeModule.h>
-@interface RNNotification : RCTEventEmitter <RCTBridgeModule>
-@end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="2-在-m需注册通知，并且向rn发送消息"><a href="#2-在-m需注册通知，并且向rn发送消息" class="headerlink" title="2.在.m需注册通知，并且向rn发送消息"></a>2.在.m需注册通知，并且向rn发送消息</h4><pre class="line-numbers language-objc"><code class="language-objc">#import "RNNotification.h"
+		<h3 id="从服务器获取文件"><a href="#从服务器获取文件" class="headerlink" title="从服务器获取文件"></a>从服务器获取文件</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="上传文件到服务器"><a href="#上传文件到服务器" class="headerlink" title="上传文件到服务器"></a>上传文件到服务器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="从服务器获取文件夹"><a href="#从服务器获取文件夹" class="headerlink" title="从服务器获取文件夹"></a>从服务器获取文件夹</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="上传文件夹到服务器"><a href="#上传文件夹到服务器" class="headerlink" title="上传文件夹到服务器"></a>上传文件夹到服务器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看系统版本信息</span>
+lsh_release -a
 
-@implementation RNNotification
-
-RCT_EXPORT_MODULE();
-
--(id)init{
-  self = [super init];
-  if (self) {
-    /** 注册通知 */
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(change_tag_action:) name:@"EventReminder" object:nil];
-  }
-  return self;
-}
-
-/** 调用rn */
-- (void)change_tag_action:(NSNotification *)notification{
-  /** Name是RN监听的方法名称的 */
-  [self sendEventWithName:@"EventReminder" body:notification.object];
-}
-
-/** 设置返回所监听的方法集合 */
-- (NSArray<NSString *> *)supportedEvents{
-  return @[@"EventReminder"];
-}
-
-@end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"><a href="#3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。" class="headerlink" title="3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"></a>3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。</h4><pre class="line-numbers language-objc"><code class="language-objc">- (void) viewDidLoad {
-  [super viewDidLoad];
-  NSURL *jsCodeLocation;
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"yanzhi"
-                                               initialProperties:nil
-                                                   launchOptions:nil];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-  self.view = rootView;
-
-  /** iOS 调用RN跳转 */
-  [[RNNotification alloc] init].bridge = rootView.bridge;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="报错：-bridge-is-not-set-This-is-probably-because-you’ve-explicitly-synthesized-the-bridge-in-even-though-it’s-inherited-from-RCTEventEmitter"><a href="#报错：-bridge-is-not-set-This-is-probably-because-you’ve-explicitly-synthesized-the-bridge-in-even-though-it’s-inherited-from-RCTEventEmitter" class="headerlink" title=" 报错： bridge is not set. This is probably because you’ve explicitly synthesized the bridge in %@, even though it’s inherited from RCTEventEmitter."></a><font color="red"> 报错： bridge is not set. This is probably because you’ve explicitly synthesized the bridge in %@, even though it’s inherited from RCTEventEmitter.</font></h4><h2 id="解决方案就是直接在RN初始化的时候把bridge赋值过去"><a href="#解决方案就是直接在RN初始化的时候把bridge赋值过去" class="headerlink" title="解决方案就是直接在RN初始化的时候把bridge赋值过去"></a>解决方案就是直接在RN初始化的时候把bridge赋值过去</h2>	
+<span class="token comment" spellcheck="true"># 查看端口使用情况</span>
+<span class="token function">lsof</span> -i
+<span class="token comment" spellcheck="true"># 查看端口使用情况</span>
+<span class="token function">netstat</span> -anp<span class="token operator">|</span><span class="token function">grep</span> 80
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -389,12 +354,8 @@ RCT_EXPORT_MODULE();
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2018/10/29/first/" title="swift 做一个答题的功能" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2018/10/14/7/" title="Gvoice 实时语音接入" rel="next">
+			<a href="/2019/01/09/publish_html/" title="Docker Nginx 静态资源部署" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -409,24 +370,6 @@ RCT_EXPORT_MODULE();
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/01/11/uploadFile/" title="SCP文件上传下载">
-							SCP文件上传下载
-						</a>
-						<p>
-							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
-						</p>
-					</div>
-
-					<a href="/2019/01/11/uploadFile/" title="SCP文件上传下载">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="SCP文件上传下载">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -481,6 +424,27 @@ RCT_EXPORT_MODULE();
 
 					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
 						<img src="/img/cart_cover.jpg" class="relateImg" alt="swift 做一个答题的功能">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+							iOS原生调用ReatNative
+						</a>
+						<p>
+							
+有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
+
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+						</p>
+					</div>
+
+					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="iOS原生调用ReatNative">
 					</a>
 				</li>											
 		
