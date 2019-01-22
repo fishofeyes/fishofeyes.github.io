@@ -270,7 +270,7 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/01/11/uploadFile/" itemprop="url">
+	<a href="/2019/01/22/uploadFile/" itemprop="url">
 		SCP文件上传下载
 	</a>
 
@@ -280,17 +280,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/01/11/uploadFile/" itemprop="url">
-		<time datetime="2019-01-11T02:12:06.118Z" itemprop="datePublished">
-	  		2019-01-11
+	<a href="/2019/01/22/uploadFile/" itemprop="url">
+		<time datetime="2019-01-22T09:48:24.176Z" itemprop="datePublished">
+	  		2019-01-22
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/01/11/uploadFile/" itemprop="url">
-		<time datetime="2019-01-11T02:12:06.118Z" itemprop="dateUpdated">
-	  		2019-01-11
+	<a href="/2019/01/22/uploadFile/" itemprop="url">
+		<time datetime="2019-01-22T09:48:24.176Z" itemprop="dateUpdated">
+	  		2019-01-22
 	  </time>
 	</a> 	
 
@@ -303,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/01/11/uploadFile/_visitors" data-url="/2019/01/11/uploadFile/" data-title="SCP文件上传下载">
+    <span class="leancloud_visitors" id="/2019/01/22/uploadFile/_visitors" data-url="/2019/01/22/uploadFile/" data-title="SCP文件上传下载">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -312,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/01/11/uploadFile/_likes" data-url="/2019/01/11/uploadFile/" data-title="SCP文件上传下载" rel="unlike">
+    <span class="leancloud_likes" id="/2019/01/22/uploadFile/_likes" data-url="/2019/01/22/uploadFile/" data-title="SCP文件上传下载" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -336,7 +336,11 @@ lsh_release -a
 <span class="token function">lsof</span> -i
 <span class="token comment" spellcheck="true"># 查看端口使用情况</span>
 <span class="token function">netstat</span> -anp<span class="token operator">|</span><span class="token function">grep</span> 80
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">netstat</span> -lntp
+
+<span class="token comment" spellcheck="true"># 查找文件(-700小于700，+700大于700)</span>
+<span class="token function">find</span> / -name index.html -size -700c<span class="token punctuation">(</span>c:字节,w:双字,k:KB,M:MB,G:GB<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 	
 	</div>
 	
