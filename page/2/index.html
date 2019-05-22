@@ -59,7 +59,7 @@
 			<div id="logo-S">
 				
 					<a href="/">
-						<img src="/img/logo.png" alt="Logo">
+						fishofeyes
 					</a>
 				
 			</div>
@@ -269,38 +269,50 @@
 
 
 
-	<!--cart style-->
-	<div class="layout-cart">
-	<div id="layout-cart">
-		
+	<!--pure style-->
+	<div class="layout-pure">
+	<div id="layout-pure">	
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2018/11/19/audio/" title=" 音频剪切、合成、淡入淡出 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					十一月 19日, 2018
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2018/11/19/audio/" itemprop="url">
 		音频剪切、合成、淡入淡出
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径"...
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件路径";
+    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];
+    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error:NULL];
+
+    /** 初始化要剪切的音频文件 */
+    A...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2018/11/19/audio/" itemprop="url">
+		<time datetime="2018-11-19T14:54:14.342Z" itemprop="datePublished">
+	  		2018-11-19
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2018/11/19/audio/_visitors" data-url="/2018/11/19/audio/" data-title="音频剪切、合成、淡入淡出">
@@ -350,39 +362,56 @@
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2018/11/19/audio/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2018/10/29/first/" title=" swift 做一个答题的功能 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					十月 29日, 2018
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2018/10/29/first/" itemprop="url">
 		swift 做一个答题的功能
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
 
-思路：1...
+思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。class OnlineTestDetailModel: HandyJSON {
+    /** 题的ID */
+    var id:String?
+    /** 问题 */
+    var question:String?
+    /** 答案选项 */
+    var answe...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2018/10/29/first/" itemprop="url">
+		<time datetime="2018-10-29T14:07:49.130Z" itemprop="datePublished">
+	  		2018-10-29
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2018/10/29/first/_visitors" data-url="/2018/10/29/first/" data-title="swift 做一个答题的功能">
@@ -432,40 +461,65 @@
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2018/10/29/first/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2018/10/20/8/" title=" iOS原生调用ReatNative ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					十月 20日, 2018
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2018/10/20/8/" itemprop="url">
 		iOS原生调用ReatNative
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import...
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : RCTEventEmitter 
+@end
+
+2.在.m需注册通知，并且向rn发送消息#import "RNNotification.h"
+
+@implementation RNNotification
+
+RCT_EXPORT_MODULE();
+
+-(id)init{
+  self = [super init];
+  if (self) {
+    /** ...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2018/10/20/8/" itemprop="url">
+		<time datetime="2018-10-20T04:21:01.369Z" itemprop="datePublished">
+	  		2018-10-20
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2018/10/20/8/_visitors" data-url="/2018/10/20/8/" data-title="iOS原生调用ReatNative">
@@ -515,37 +569,52 @@ iOS调用RN1.创建一个交互通信的类。#import...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2018/10/20/8/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2018/10/14/7/" title=" Gvoice 实时语音接入 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					十月 14日, 2018
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2018/10/14/7/" itemprop="url">
 		Gvoice 实时语音接入
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
-							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268...
+							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的demo下载，然后把APPID（gameID） 和 APPkey 替换，代码直接搬过来用就行了。在这里值得一说的是，在接入语音遇到的问题
+
+测试时候语音有回音，只需要把两台设备离远点就没有了。
+在GVoice开启Mic的时候可能导致程序崩溃,是因为设备没有开启权限。解决办法直接做一个mic的权限判断，如果没有开启权限就不要去调用开启mic的方法。
+在实力化GVoi...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2018/10/14/7/" itemprop="url">
+		<time datetime="2018-10-14T08:19:16.399Z" itemprop="datePublished">
+	  		2018-10-14
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2018/10/14/7/_visitors" data-url="/2018/10/14/7/" data-title="Gvoice 实时语音接入">
@@ -595,39 +664,55 @@ iOS调用RN1.创建一个交互通信的类。#import...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2018/10/14/7/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2018/10/14/6/" title=" ARDemo ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					十月 14日, 2018
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2018/10/14/6/" title="ARDemo">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2018/10/14/6/" itemprop="url">
 		ARDemo
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
 #####注：demo借鉴的泊学上的
-#####g...
+#####github地址
+2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。
+// MARK: - ARSKViewDelegate
+
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        // Create and config...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2018/10/14/6/" itemprop="url">
+		<time datetime="2018-10-14T08:16:51.879Z" itemprop="datePublished">
+	  		2018-10-14
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2018/10/14/6/_visitors" data-url="/2018/10/14/6/" data-title="ARDemo">
@@ -677,12 +762,17 @@ iOS调用RN1.创建一个交互通信的类。#import...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2018/10/14/6/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
-	</div>
 	
+	</div>
+
 	
 	<div id="pagination">
 		
@@ -691,7 +781,7 @@ iOS调用RN1.创建一个交互通信的类。#import...
 	</div>
 
 </div>
-	
+
 
 		</main>
 		

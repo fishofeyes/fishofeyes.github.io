@@ -59,7 +59,7 @@
 			<div id="logo-S">
 				
 					<a href="/">
-						<img src="/img/logo.png" alt="Logo">
+						fishofeyes
 					</a>
 				
 			</div>
@@ -269,40 +269,55 @@
 
 
 
-	<!--cart style-->
-	<div class="layout-cart">
-	<div id="layout-cart">
-		
+	<!--pure style-->
+	<div class="layout-pure">
+	<div id="layout-pure">	
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2019/05/22/delete_all/" title=" Shell删除所有苹果证书 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					五月 22日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/05/22/delete_all/" itemprop="url">
 		Shell删除所有苹果证书
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							#!/bin/bash
 
 expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字...
+if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
+then
+    echo "No expired certificates, we're all good"
+else
+    echo "Deleting expired certs"
+    for uuid in $expired
+    do
+        if [ ${#uuid} -eq 40 ]
+        then
+            security delete-cer...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/05/22/delete_all/" itemprop="url">
+		<time datetime="2019-05-22T02:48:53.105Z" itemprop="datePublished">
+	  		2019-05-22
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2019/05/22/delete_all/_visitors" data-url="/2019/05/22/delete_all/" data-title="Shell删除所有苹果证书">
@@ -352,39 +367,54 @@ if [ -z "$expired" ]    #-z判断字...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2019/05/22/delete_all/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2019/05/08/language/" title=" Swift语言国际化 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					五月 8日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/05/08/language/" title="Swift语言国际化">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/05/08/language/" itemprop="url">
 		Swift语言国际化
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							第一步在工程设置里面添加对应国际化的语言
 第二步添加Localizble.strings
-第三步选择Localizble.strings文件，然后选择Lo...
+第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizble.string文件多了一个小箭头符号，然后我们把它展开，添加需要翻译。
+
+第四步给string添加一个扩展属性用来做国际化的。然后所有的文字都需要调用这个myLocalizedString属性。例如：”收藏”.myLocalizedString/** 国际化的拓展 */
+extension String{
+    var myLocalizedString...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/05/08/language/" itemprop="url">
+		<time datetime="2019-05-08T07:22:02.097Z" itemprop="datePublished">
+	  		2019-05-08
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2019/05/08/language/_visitors" data-url="/2019/05/08/language/" data-title="Swift语言国际化">
@@ -434,39 +464,63 @@ if [ -z "$expired" ]    #-z判断字...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2019/05/08/language/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2019/03/04/publish_html/" title=" Docker Nginx 静态资源部署 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					三月 4日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/03/04/publish_html/" itemprop="url">
 		Docker Nginx 静态资源部署
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							1. 查看docker仓库中的nginx命令docker search nginx
 
-2.为选定需要pull到系统重的官方Nginx镜像docker pu...
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
+这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
+3.列出已下载的镜像docker images
+
+4.列出运行中的容器# 使用 docker ps -a 命令列出所有（包括已停止）的容器
+docker ps -a
+# 删除容器
+docker rm &lt;容器的唯一标示>
+
+# 停止正在运行的容器
+docker stop &lt;容器名称>
+
+5.启动跑个静态网页测试nginx容器docker run -...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/03/04/publish_html/" itemprop="url">
+		<time datetime="2019-03-04T03:46:14.831Z" itemprop="datePublished">
+	  		2019-03-04
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2019/03/04/publish_html/_visitors" data-url="/2019/03/04/publish_html/" data-title="Docker Nginx 静态资源部署">
@@ -516,40 +570,62 @@ if [ -z "$expired" ]    #-z判断字...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2019/03/04/publish_html/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2019/03/04/nginxPublish/" title=" Nginx vue打包部署 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					三月 4日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/03/04/nginxPublish/" itemprop="url">
 		Nginx vue打包部署
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在con...
+1.在conf.d文件下添加一个新的配置文件,server {
+    #说明监听80端口
+    listen       8089;
+    #访问的域名，多个域名用空格隔开
+    server_name  locahost;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/log/host.access.log  main;
+
+    charset utf8;
+
+    loca...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/03/04/nginxPublish/" itemprop="url">
+		<time datetime="2019-03-04T03:34:04.301Z" itemprop="datePublished">
+	  		2019-03-04
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2019/03/04/nginxPublish/_visitors" data-url="/2019/03/04/nginxPublish/" data-title="Nginx vue打包部署">
@@ -599,39 +675,57 @@ if [ -z "$expired" ]    #-z判断字...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2019/03/04/nginxPublish/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
+	
 		<div class="post" id="post">
-			<a class="post-cover" href="/2019/01/22/uploadFile/" title=" SCP文件上传下载 ">
-				<img src="/img/cart_cover.jpg">
-			</a>
-
 			<div class="post-text">
-				<p class="post-time">
-					一月 22日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/01/22/uploadFile/" itemprop="url">
 		SCP文件上传下载
 	</a>
 
-					</a>
-				</h3>
-				<p class="post-content">
+				</div>
+
+				<div class="post-content">
 					
 						
 							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
 
-上传文件到服务器sc...
+上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
+
+从服务器获取文件夹scp -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
+
+上传文件夹到服务器scp -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
+
+其他命令# 查看系统版本信息
+lsh_re...
 						
 					
-				</p>
-				<p class="post-meta">
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/01/22/uploadFile/" itemprop="url">
+		<time datetime="2019-01-22T09:48:24.176Z" itemprop="datePublished">
+	  		2019-01-22
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
 					
 
     <span class="leancloud_visitors" id="/2019/01/22/uploadFile/_visitors" data-url="/2019/01/22/uploadFile/" data-title="SCP文件上传下载">
@@ -681,12 +775,17 @@ if [ -z "$expired" ]    #-z判断字...
 
 
  
-				</p>
+					
+						<span class="right">      	
+							<a href="/2019/01/22/uploadFile/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
 			</div>
 		</div>
-		
-	</div>
 	
+	</div>
+
 	
 	<div id="pagination">
 		
@@ -695,7 +794,7 @@ if [ -z "$expired" ]    #-z判断字...
 	</div>
 
 </div>
-	
+
 
 		</main>
 		
