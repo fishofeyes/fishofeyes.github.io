@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      iOS原生调用ReatNative | 目生鱼博客
+      iOS AAC音频转WAV | 目生鱼博客
     
   </title>
   <meta name="author" content="目生鱼">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《iOS原生调用ReatNative》
+						当前文章&nbsp;:&nbsp;《iOS AAC音频转WAV》
 					
 				</p>
 				<!-- Progress bar -->
@@ -270,8 +270,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2018/10/20/8/" itemprop="url">
-		iOS原生调用ReatNative
+	<a href="/2019/06/06/aac_to_lpcm/" itemprop="url">
+		iOS AAC音频转WAV
 	</a>
 
 	</div>
@@ -280,17 +280,17 @@
 		<span>
 			
 	发布于
-	<a href="/2018/10/20/8/" itemprop="url">
-		<time datetime="2018-10-20T04:21:01.369Z" itemprop="datePublished">
-	  		2018-10-20
+	<a href="/2019/06/06/aac_to_lpcm/" itemprop="url">
+		<time datetime="2019-06-06T07:10:58.285Z" itemprop="datePublished">
+	  		2019-06-06
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2018/10/20/8/" itemprop="url">
-		<time datetime="2018-10-20T04:21:01.369Z" itemprop="dateUpdated">
-	  		2018-10-20
+	<a href="/2019/06/06/aac_to_lpcm/" itemprop="url">
+		<time datetime="2019-06-06T07:10:58.285Z" itemprop="dateUpdated">
+	  		2019-06-06
 	  </time>
 	</a> 	
 
@@ -303,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2018/10/20/8/_visitors" data-url="/2018/10/20/8/" data-title="iOS原生调用ReatNative">
+    <span class="leancloud_visitors" id="/2019/06/06/aac_to_lpcm/_visitors" data-url="/2019/06/06/aac_to_lpcm/" data-title="iOS AAC音频转WAV">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -312,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2018/10/20/8/_likes" data-url="/2018/10/20/8/" data-title="iOS原生调用ReatNative" rel="unlike">
+    <span class="leancloud_likes" id="/2019/06/06/aac_to_lpcm/_likes" data-url="/2019/06/06/aac_to_lpcm/" data-title="iOS AAC音频转WAV" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -321,58 +321,68 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<blockquote>
-<p>有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。</p>
-</blockquote>
-<h3 id="iOS调用RN"><a href="#iOS调用RN" class="headerlink" title="iOS调用RN"></a>iOS调用RN</h3><h4 id="1-创建一个交互通信的类。"><a href="#1-创建一个交互通信的类。" class="headerlink" title="1.创建一个交互通信的类。"></a>1.创建一个交互通信的类。</h4><pre class="line-numbers language-objc"><code class="language-objc">#import <React/RCTEventEmitter.h>
-#import <React/RCTBridgeModule.h>
-@interface RNNotification : RCTEventEmitter <RCTBridgeModule>
-@end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="2-在-m需注册通知，并且向rn发送消息"><a href="#2-在-m需注册通知，并且向rn发送消息" class="headerlink" title="2.在.m需注册通知，并且向rn发送消息"></a>2.在.m需注册通知，并且向rn发送消息</h4><pre class="line-numbers language-objc"><code class="language-objc">#import "RNNotification.h"
+		<h4 id="iOS-AAC音频格式转wav找了很多资料都，东拼西凑才解决这个问题"><a href="#iOS-AAC音频格式转wav找了很多资料都，东拼西凑才解决这个问题" class="headerlink" title="iOS AAC音频格式转wav找了很多资料都，东拼西凑才解决这个问题"></a>iOS AAC音频格式转wav找了很多资料都，东拼西凑才解决这个问题</h4><pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token builtin">Bundle</span><span class="token punctuation">.</span>main<span class="token punctuation">.</span><span class="token function">path</span><span class="token punctuation">(</span>forResource<span class="token punctuation">:</span> <span class="token string">"a.aac"</span><span class="token punctuation">,</span> ofType<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span><span class="token operator">!</span>
+        <span class="token keyword">do</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">try</span> <span class="token function">Data</span><span class="token punctuation">(</span>contentsOf<span class="token punctuation">:</span> <span class="token function">URL</span><span class="token punctuation">(</span>fileURLWithPath<span class="token punctuation">:</span> path<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">let</span> buffer <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">decodeCompressedPacket</span><span class="token punctuation">(</span>packet<span class="token punctuation">:</span> data<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> outpath <span class="token operator">=</span> <span class="token function">get_audio_name</span><span class="token punctuation">(</span><span class="token string">".wav"</span><span class="token punctuation">)</span>
+            <span class="token keyword">do</span> <span class="token punctuation">{</span>
+                <span class="token keyword">let</span> recordingSetting<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">:</span> <span class="token builtin">Any</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVSampleRateKey</span><span class="token punctuation">:</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">44100</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//采样率</span>
 
-@implementation RNNotification
+                    <span class="token builtin">AVFormatIDKey</span><span class="token punctuation">:</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token constant">kAudioFormatLinearPCM</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//音频格式</span>
 
-RCT_EXPORT_MODULE();
+                    <span class="token builtin">AVLinearPCMBitDepthKey</span><span class="token punctuation">:</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//采样位数</span>
 
--(id)init{
-  self = [super init];
-  if (self) {
-    /** 注册通知 */
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(change_tag_action:) name:@"EventReminder" object:nil];
-  }
-  return self;
-}
+                    <span class="token builtin">AVNumberOfChannelsKey</span><span class="token punctuation">:</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//通道数</span>
 
-/** 调用rn */
-- (void)change_tag_action:(NSNotification *)notification{
-  /** Name是RN监听的方法名称的 */
-  [self sendEventWithName:@"EventReminder" body:notification.object];
-}
+                    <span class="token builtin">AVEncoderAudioQualityKey</span><span class="token punctuation">:</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token builtin">AVAudioQuality</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">.</span>rawValue<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//录音质量</span>
 
-/** 设置返回所监听的方法集合 */
-- (NSArray<NSString *> *)supportedEvents{
-  return @[@"EventReminder"];
-}
+                <span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">let</span> audioFile <span class="token operator">=</span> <span class="token keyword">try</span> <span class="token function">AVAudioFile</span><span class="token punctuation">(</span>forWriting<span class="token punctuation">:</span> <span class="token function">URL</span><span class="token punctuation">(</span>fileURLWithPath<span class="token punctuation">:</span> outpath<span class="token punctuation">)</span><span class="token punctuation">,</span> settings<span class="token punctuation">:</span> recordingSetting<span class="token punctuation">)</span>
+                <span class="token keyword">try</span> audioFile<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>from<span class="token punctuation">:</span> buffer<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">{</span>
+                <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"write error = <span class="token interpolation"><span class="token delimiter variable">\(</span>error<span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>buffer<span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">{</span>
+            <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"get data = <span class="token interpolation"><span class="token delimiter variable">\(</span>error<span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
 
-@end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"><a href="#3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。" class="headerlink" title="3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"></a>3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。</h4><pre class="line-numbers language-objc"><code class="language-objc">- (void) viewDidLoad {
-  [super viewDidLoad];
-  NSURL *jsCodeLocation;
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"yanzhi"
-                                               initialProperties:nil
-                                                   launchOptions:nil];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-  self.view = rootView;
+    <span class="token punctuation">}</span>
 
-  /** iOS 调用RN跳转 */
-  [[RNNotification alloc] init].bridge = rootView.bridge;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="报错：-bridge-is-not-set-This-is-probably-because-you’ve-explicitly-synthesized-the-bridge-in-even-though-it’s-inherited-from-RCTEventEmitter"><a href="#报错：-bridge-is-not-set-This-is-probably-because-you’ve-explicitly-synthesized-the-bridge-in-even-though-it’s-inherited-from-RCTEventEmitter" class="headerlink" title=" 报错： bridge is not set. This is probably because you’ve explicitly synthesized the bridge in %@, even though it’s inherited from RCTEventEmitter."></a><font color="red"> 报错： bridge is not set. This is probably because you’ve explicitly synthesized the bridge in %@, even though it’s inherited from RCTEventEmitter.</font></h4><h2 id="解决方案就是直接在RN初始化的时候把bridge赋值过去"><a href="#解决方案就是直接在RN初始化的时候把bridge赋值过去" class="headerlink" title="解决方案就是直接在RN初始化的时候把bridge赋值过去"></a>解决方案就是直接在RN初始化的时候把bridge赋值过去</h2>	
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">decodeCompressedPacket</span><span class="token punctuation">(</span>packet<span class="token punctuation">:</span> <span class="token builtin">Data</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">AVAudioPCMBuffer</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> streamDescription<span class="token punctuation">:</span> <span class="token builtin">AudioStreamBasicDescription</span> <span class="token operator">=</span> <span class="token function">AudioStreamBasicDescription</span><span class="token punctuation">(</span>mSampleRate<span class="token punctuation">:</span> <span class="token number">44100</span><span class="token punctuation">,</span> mFormatID<span class="token punctuation">:</span> kAudioFormatMPEG4AAC<span class="token punctuation">,</span> mFormatFlags<span class="token punctuation">:</span> <span class="token function">UInt32</span><span class="token punctuation">(</span><span class="token builtin">MPEG4ObjectID</span><span class="token punctuation">.</span><span class="token constant">AAC_LC</span><span class="token punctuation">.</span>rawValue<span class="token punctuation">)</span><span class="token punctuation">,</span> mBytesPerPacket<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> mFramesPerPacket<span class="token punctuation">:</span> <span class="token number">1024</span><span class="token punctuation">,</span> mBytesPerFrame<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> mChannelsPerFrame<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> mBitsPerChannel<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> mReserved<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> audioFormat <span class="token operator">=</span> <span class="token function">AVAudioFormat</span><span class="token punctuation">(</span>streamDescription<span class="token punctuation">:</span> <span class="token operator">&amp;</span>streamDescription<span class="token punctuation">)</span>
+        <span class="token keyword">let</span> compressedBuffer <span class="token operator">=</span> <span class="token function">AVAudioCompressedBuffer</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span> audioFormat<span class="token operator">!</span><span class="token punctuation">,</span> packetCapacity<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> maximumPacketSize<span class="token punctuation">:</span> <span class="token number">1024</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> byte <span class="token keyword">in</span> packet <span class="token punctuation">{</span>
+            <span class="token function">memset</span><span class="token punctuation">(</span>compressedBuffer<span class="token punctuation">.</span>mutableAudioBufferList<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mBuffers<span class="token punctuation">.</span>mData<span class="token punctuation">,</span> <span class="token function">Int32</span><span class="token punctuation">(</span>byte<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">MemoryLayout</span><span class="token operator">&lt;</span><span class="token builtin">UInt8</span><span class="token operator">></span><span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">uncompress</span><span class="token punctuation">(</span>inBuffer<span class="token punctuation">:</span> compressedBuffer<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">uncompress</span><span class="token punctuation">(</span>inBuffer <span class="token punctuation">:</span> <span class="token builtin">AVAudioCompressedBuffer</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">AVAudioPCMBuffer</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> format <span class="token operator">=</span> <span class="token builtin">AVAudioFormat</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>commonFormat<span class="token punctuation">:</span> <span class="token builtin">AVAudioCommonFormat</span><span class="token punctuation">.</span>pcmFormatFloat32<span class="token punctuation">,</span> sampleRate<span class="token punctuation">:</span> <span class="token number">16000</span><span class="token punctuation">,</span> channels<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> interleaved<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> inputFormat <span class="token operator">=</span> inBuffer<span class="token punctuation">.</span>format
+        <span class="token keyword">let</span> outputFormat <span class="token operator">=</span> format
+
+        <span class="token keyword">let</span> converter <span class="token operator">=</span> <span class="token function">AVAudioConverter</span><span class="token punctuation">(</span>from<span class="token punctuation">:</span> inputFormat<span class="token punctuation">,</span> to<span class="token punctuation">:</span> outputFormat<span class="token operator">!</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> inputBlock <span class="token punctuation">:</span> <span class="token builtin">AVAudioConverterInputBlock</span> <span class="token operator">=</span> <span class="token punctuation">{</span> inNumPackets<span class="token punctuation">,</span> outStatus <span class="token keyword">in</span>
+            outStatus<span class="token punctuation">.</span>pointee <span class="token operator">=</span> <span class="token builtin">AVAudioConverterInputStatus</span><span class="token punctuation">.</span>haveData
+            <span class="token keyword">return</span> inBuffer
+        <span class="token punctuation">}</span>
+        <span class="token keyword">var</span> error <span class="token punctuation">:</span> <span class="token builtin">NSError</span><span class="token operator">?</span>
+        <span class="token keyword">let</span> outBuffer<span class="token punctuation">:</span> <span class="token builtin">AVAudioPCMBuffer</span> <span class="token operator">=</span> <span class="token function">AVAudioPCMBuffer</span><span class="token punctuation">(</span>pcmFormat<span class="token punctuation">:</span> outputFormat<span class="token operator">!</span><span class="token punctuation">,</span> frameCapacity<span class="token punctuation">:</span> <span class="token number">1600</span><span class="token punctuation">)</span><span class="token operator">!</span>
+        converter<span class="token operator">!</span><span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span>to<span class="token punctuation">:</span> outBuffer<span class="token punctuation">,</span> error<span class="token punctuation">:</span> <span class="token operator">&amp;</span>error<span class="token punctuation">,</span> withInputFrom<span class="token punctuation">:</span> inputBlock<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> outBuffer
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -389,12 +399,8 @@ RCT_EXPORT_MODULE();
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2018/10/29/first/" title="swift 做一个答题的功能" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2018/10/14/7/" title="Gvoice 实时语音接入" rel="next">
+			<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -409,23 +415,6 @@ RCT_EXPORT_MODULE();
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/06/aac_to_lpcm/" title="iOS AAC音频转WAV">
-							iOS AAC音频转WAV
-						</a>
-						<p>
-							iOS AAC音频格式转wav找了很多资料都，东拼西凑才解决这个问题static func test() {
-        let path = Bundle.main.path(forResource: "a.aac", ofTy...
-						</p>
-					</div>
-
-					<a href="/2019/06/06/aac_to_lpcm/" title="iOS AAC音频转WAV">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="iOS AAC音频转WAV">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -558,6 +547,27 @@ then
 
 					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
 						<img src="/img/cart_cover.jpg" class="relateImg" alt="swift 做一个答题的功能">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+							iOS原生调用ReatNative
+						</a>
+						<p>
+							
+有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
+
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+						</p>
+					</div>
+
+					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="iOS原生调用ReatNative">
 					</a>
 				</li>											
 		
