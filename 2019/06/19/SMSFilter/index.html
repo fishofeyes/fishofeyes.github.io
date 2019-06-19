@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      SCP文件上传下载 | 目生鱼博客
+      Message Filtter Extension 短信过滤 | 目生鱼博客
     
   </title>
   <meta name="author" content="目生鱼">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《SCP文件上传下载》
+						当前文章&nbsp;:&nbsp;《Message Filtter Extension 短信过滤》
 					
 				</p>
 				<!-- Progress bar -->
@@ -270,8 +270,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/01/22/uploadFile/" itemprop="url">
-		SCP文件上传下载
+	<a href="/2019/06/19/SMSFilter/" itemprop="url">
+		Message Filtter Extension 短信过滤
 	</a>
 
 	</div>
@@ -280,17 +280,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/01/22/uploadFile/" itemprop="url">
-		<time datetime="2019-01-22T09:48:24.176Z" itemprop="datePublished">
-	  		2019-01-22
+	<a href="/2019/06/19/SMSFilter/" itemprop="url">
+		<time datetime="2019-06-19T08:37:46.930Z" itemprop="datePublished">
+	  		2019-06-19
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/01/22/uploadFile/" itemprop="url">
-		<time datetime="2019-01-22T09:48:24.176Z" itemprop="dateUpdated">
-	  		2019-01-22
+	<a href="/2019/06/19/SMSFilter/" itemprop="url">
+		<time datetime="2019-06-19T08:37:46.930Z" itemprop="dateUpdated">
+	  		2019-06-19
 	  </time>
 	</a> 	
 
@@ -303,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/01/22/uploadFile/_visitors" data-url="/2019/01/22/uploadFile/" data-title="SCP文件上传下载">
+    <span class="leancloud_visitors" id="/2019/06/19/SMSFilter/_visitors" data-url="/2019/06/19/SMSFilter/" data-title="Message Filtter Extension 短信过滤">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -312,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/01/22/uploadFile/_likes" data-url="/2019/01/22/uploadFile/" data-title="SCP文件上传下载" rel="unlike">
+    <span class="leancloud_likes" id="/2019/06/19/SMSFilter/_likes" data-url="/2019/06/19/SMSFilter/" data-title="Message Filtter Extension 短信过滤" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -321,30 +321,66 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="从服务器获取文件"><a href="#从服务器获取文件" class="headerlink" title="从服务器获取文件"></a>从服务器获取文件</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+		<blockquote>
+<p>手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension</p>
+</blockquote>
+<h3 id="1-首先创建一个空的工程，然后创建好了之后添加一个target。"><a href="#1-首先创建一个空的工程，然后创建好了之后添加一个target。" class="headerlink" title="1.首先创建一个空的工程，然后创建好了之后添加一个target。"></a>1.首先创建一个空的工程，然后创建好了之后添加一个target。</h3><pre class="line-numbers language-bash"><code class="language-bash">选中工程-<span class="token operator">></span>Editor-<span class="token operator">></span>Add Target-<span class="token operator">></span>选择iOS-<span class="token operator">></span>添加Message Filtter Extension
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="上传文件到服务器"><a href="#上传文件到服务器" class="headerlink" title="上传文件到服务器"></a>上传文件到服务器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="从服务器获取文件夹"><a href="#从服务器获取文件夹" class="headerlink" title="从服务器获取文件夹"></a>从服务器获取文件夹</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="上传文件夹到服务器"><a href="#上传文件夹到服务器" class="headerlink" title="上传文件夹到服务器"></a>上传文件夹到服务器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看系统版本信息</span>
-lsh_release -a
+<h3 id="2-添加好了之后选择设置，项目工程和target都要开启AppGroup-点击左下角的加号添加一个AppGroup的标示"><a href="#2-添加好了之后选择设置，项目工程和target都要开启AppGroup-点击左下角的加号添加一个AppGroup的标示" class="headerlink" title="2.添加好了之后选择设置，项目工程和target都要开启AppGroup,点击左下角的加号添加一个AppGroup的标示"></a>2.添加好了之后选择设置，项目工程和target都要开启AppGroup,点击左下角的加号添加一个AppGroup的标示</h3><p><img src="/img/messageFilter/WeChat306d2070b2eeec59a3f7d131a6013bfe.png" alt="图片"></p>
+<p><em>注意：项目工程和自己添加的target必须要一致，这个标示是用来共享数据的</em></p>
+<h3 id="3-工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group-com-message-fliter标示用userdefault来存储"><a href="#3-工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group-com-message-fliter标示用userdefault来存储" class="headerlink" title="3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group.com.message.fliter标示用userdefault来存储"></a>3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的<em>group.com.message.fliter</em>标示用userdefault来存储</h3><pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">let</span> <span class="token constant">KEY_ARRAY</span> <span class="token operator">=</span> <span class="token string">"group.com.message.fliter"</span>
+<span class="token keyword">var</span> dataSource<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"百家乐"</span><span class="token punctuation">,</span><span class="token string">"电子游艺"</span><span class="token punctuation">,</span><span class="token string">"捕鱼游艺"</span><span class="token punctuation">,</span><span class="token string">"游艺"</span><span class="token punctuation">,</span><span class="token string">"竞技比赛"</span><span class="token punctuation">,</span><span class="token string">"顶级平台"</span><span class="token punctuation">,</span><span class="token string">"现金礼券"</span><span class="token punctuation">,</span><span class="token string">"千万"</span><span class="token punctuation">,</span><span class="token string">"千万秒提"</span><span class="token punctuation">,</span><span class="token string">"24小时娱乐"</span><span class="token punctuation">,</span><span class="token string">"真人"</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+        <span class="token keyword">didSet</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> standard <span class="token operator">=</span> <span class="token function">UserDefaults</span><span class="token punctuation">(</span>suiteName<span class="token punctuation">:</span> <span class="token constant">KEY_ARRAY</span><span class="token punctuation">)</span>
+            standard<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token constant">KEY_ARRAY</span><span class="token punctuation">)</span>
+            standard<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">synchronize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token atrule">@IBOutlet</span> <span class="token keyword">weak</span> <span class="token keyword">var</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token operator">!</span>
+    <span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">UIBarButtonItem</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">AlertTool</span><span class="token punctuation">.</span><span class="token function">createInputText</span><span class="token punctuation">(</span><span class="token string">"输入关键词"</span><span class="token punctuation">,</span> detail<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token keyword">weak</span> <span class="token keyword">self</span><span class="token punctuation">]</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token keyword">self</span><span class="token operator">?</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 查看端口使用情况</span>
-<span class="token function">lsof</span> -i
-<span class="token comment" spellcheck="true"># 查看端口使用情况</span>
-<span class="token function">netstat</span> -anp<span class="token operator">|</span><span class="token function">grep</span> 80
-<span class="token function">netstat</span> -lntp
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span>delegate <span class="token operator">=</span> <span class="token keyword">self</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span>dataSource <span class="token operator">=</span> <span class="token keyword">self</span>
 
-<span class="token comment" spellcheck="true"># 查找文件(-700小于700，+700大于700)</span>
-<span class="token function">find</span> / -name index.html -size -700c<span class="token punctuation">(</span>c:字节,w:双字,k:KB,M:MB,G:GB<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token builtin">UITableViewCell</span><span class="token punctuation">.</span><span class="token function">classForCoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell"</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> temp <span class="token operator">=</span> <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> <span class="token constant">KEY_ARRAY</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>contentsOf<span class="token punctuation">:</span> temp <span class="token operator">?</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-在Message-Filtter-Extension实现关键词过滤-而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。"><a href="#4-在Message-Filtter-Extension实现关键词过滤-而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。" class="headerlink" title="4.在Message Filtter Extension实现关键词过滤,而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。"></a>4.在Message Filtter Extension实现关键词过滤,而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。</h3><pre class="line-numbers language-swift"><code class="language-swift">
+<span class="token keyword">var</span> words<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> standard <span class="token operator">=</span> <span class="token function">UserDefaults</span><span class="token punctuation">(</span>suiteName<span class="token punctuation">:</span> <span class="token string">"group.com.message.fliter"</span><span class="token punctuation">)</span>
+            <span class="token keyword">let</span> temp <span class="token operator">=</span> standard<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> <span class="token string">"group.com.message.fliter"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span>
+            <span class="token keyword">return</span> temp <span class="token operator">?</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">offlineAction</span><span class="token punctuation">(</span><span class="token keyword">for</span> queryRequest<span class="token punctuation">:</span> <span class="token builtin">ILMessageFilterQueryRequest</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">ILMessageFilterAction</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Replace with logic to perform offline check whether to filter first (if possible).</span>
+        <span class="token keyword">guard</span> <span class="token keyword">let</span> msg <span class="token operator">=</span> queryRequest<span class="token punctuation">.</span>messageBody <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">.</span><span class="token keyword">none</span> <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> word <span class="token keyword">in</span> <span class="token keyword">self</span><span class="token punctuation">.</span>words <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> msg<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token punctuation">.</span><span class="token builtin">filter</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token punctuation">.</span>allow
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="这边添加了一个简书的关键词"><a href="#这边添加了一个简书的关键词" class="headerlink" title="这边添加了一个简书的关键词"></a>这边添加了一个<em>简书</em>的关键词</h3><p><img src="/img/messageFilter/IMG_3546.PNG" alt="效果图"></p>
+<p><img src="/img/messageFilter/IMG_3547.PNG" alt="效果图"></p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+	<div id="current-post-cover" data-scr="https://source.unsplash.com/collection/954550/1920x1080"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -358,12 +394,8 @@ lsh_release -a
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出" rel="next">
+			<a href="/2019/06/06/aac_to_lpcm/" title="iOS AAC音频转WAV" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -378,25 +410,6 @@ lsh_release -a
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
-							Message Filtter Extension 短信过滤
-						</a>
-						<p>
-							
-手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
-
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
-						</p>
-					</div>
-
-					<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
-						<img src="https://source.unsplash.com/collection/954550/1920x1080" class="relateImg" alt="Message Filtter Extension 短信过滤">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -492,6 +505,24 @@ then
 
 					<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
 						<img src="/img/cart_cover.jpg" class="relateImg" alt="Nginx vue打包部署">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
+							SCP文件上传下载
+						</a>
+						<p>
+							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+
+上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+						</p>
+					</div>
+
+					<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="SCP文件上传下载">
 					</a>
 				</li>											
 		
