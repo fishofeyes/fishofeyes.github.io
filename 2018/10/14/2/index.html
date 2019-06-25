@@ -3,9 +3,8 @@
 	时间：2018-09-25
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
+<!DOCTYPE html>
+<html class="html-loading">
 		
 
 <head>
@@ -17,35 +16,32 @@
       Alamofire上传文件 | 目生鱼博客
     
   </title>
-  <meta name="author" content="目生鱼">
+  <meta name="author" content="">
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
 
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -55,109 +51,82 @@
 <!-- header -->
 <header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
 	<div class="mask">
+		<!-- Logo and navigation -->
 		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
+			<div id="logo">
+				<a href="/">
+					
 						fishofeyes
-					</a>
-				
+					
+				</a>
 			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
+			
+			<div id="navigation-show">
 				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-					
-				</ul>			
+	
+</ul>
 			</div>				
 		</div>
 
+		<!-- motto -->
 		<div class="h-body">	
-			<!-- motto -->
 			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
+				<p class="motto"></p>
 			
-
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						当前文章&nbsp;:&nbsp;《Alamofire上传文件》
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
-
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
 		</div>
 		
 		<!-- others: such as time... -->			
 		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
 <style type="text/css">
 	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
 		position: absolute;
-		left: 40px;
-		bottom: 30px;
+		bottom: 5px;
+		right: 1rem;
 		writing-mode: tb-rl;
-		font-size: 36px;
 	}	
+	
 	.header-date a {
 		border-bottom: none;
 	}
+
 	@media only screen and (max-width: 768 ) {
 		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
+			font-size: 1rem;
 		}			
 	}
 </style>
@@ -174,13 +143,32 @@
 		}
 	});
 </script>
+			
+		</div>
+	</div>
 </header>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
-</a>
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
 
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《Alamofire上传文件》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<h3>Navigation</h3>
@@ -188,87 +176,106 @@
 	</div>
 	<div class="nav-body">
 		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-			
-		</ul>
+	
+</ul>
 	</div>
-
 	<div class="nav-footer">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 </nav>
-
-		
+			
 		<!--main-->
 		<main>
-			<div class="layout-post">
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
 	
-	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
 	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
 	<a href="/2018/10/14/2/" itemprop="url">
 		Alamofire上传文件
@@ -278,43 +285,60 @@
 
 	<div class="article-meta">
 		<span>
+			<i class="fa fa-calendar"></i>
 			
+
+
 	发布于
+
 	<a href="/2018/10/14/2/" itemprop="url">
 		<time datetime="2018-10-14T07:58:29.538Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 
+	</a>
+	&nbsp;
 
-	/
+
+
+
+
+			
+
+
+
+
 	更新于
+
 	<a href="/2018/10/14/2/" itemprop="url">
 		<time datetime="2018-10-14T07:58:29.538Z" itemprop="dateUpdated">
 	  		2019-06-25
 	  </time>
-	</a> 	
+	</a> 
+
+
 
 		</span>
-		/
 		<span>
 			<i class="fa fa-tags"></i>
 					
 		</span>
-		/
+		
 		
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/2/_visitors" data-url="/2018/10/14/2/" data-title="Alamofire上传文件">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/2/_likes" data-url="/2018/10/14/2/" data-title="Alamofire上传文件" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -322,9 +346,78 @@
 
 	<div class="article-content" id="article-content">
 		<h4 id="请求的接口"><a href="#请求的接口" class="headerlink" title="请求的接口"></a>请求的接口</h4><p><img src="https://user-gold-cdn.xitu.io/2018/1/18/16108626ec8ccc95?w=1554&amp;h=444&amp;f=jpeg&amp;s=70220" alt="参数图"></p>
-<p>一般用户修改头像都是修改的头像的连接，这里我们后台是直接上传的文件，所以我就基于Alamofire封装了一个带有文件参数的网络请求方法<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------file请求-------------//</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">requestFile</span>(<span class="title">urlString</span>:<span class="title">String</span>,<span class="title">params</span>:[<span class="title">String</span>:<span class="title">Any</span>], <span class="title">method</span>:<span class="title">HTTPMethod</span>,<span class="title">success</span>:@<span class="title">escaping</span>(<span class="title">_</span> <span class="title">response</span>:[<span class="title">String</span>:<span class="title">Any</span>])-&gt;())</span>&#123;</span><br><span class="line">        <span class="comment">//这里是接口和参数</span></span><br><span class="line">        <span class="keyword">let</span> url = <span class="string">"<span class="subst">\(BASE_URL)</span><span class="subst">\(api_common_mid)</span><span class="subst">\(urlString)</span>"</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(url)</span>\n<span class="subst">\(params)</span>"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="type">Alamofire</span>.upload(multipartFormData: &#123; (formdata) <span class="keyword">in</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//这里因为不同接口的参数名肯定不一样，所以就用你传的参数名。</span></span><br><span class="line">            <span class="keyword">for</span> (key,value) <span class="keyword">in</span> params&#123;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">//然后formdata只接受Data所以这里转换一下</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> content = value <span class="keyword">as</span>? <span class="type">String</span> &#123;</span><br><span class="line">                    formdata.append(content.data(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8)!, withName: key)</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 如果是图片的话吧图片转化成Data</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> content = value <span class="keyword">as</span>? <span class="type">UIImage</span>&#123;</span><br><span class="line">                    formdata.append(content.getData(), withName: key)</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;, to: url) &#123; (result) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">switch</span> result &#123;</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> upload, <span class="number">_</span>, <span class="number">_</span>):</span><br><span class="line">                upload.responseJSON &#123; response <span class="keyword">in</span></span><br><span class="line">                    <span class="comment">//自己封装的处理请求返回的结果</span></span><br><span class="line">                    <span class="keyword">self</span>.responseApply(response, success: success)</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="keyword">let</span> encodingError):</span><br><span class="line">                <span class="built_in">print</span>(encodingError)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NetworkTool</span>.requestFile(urlString: api_my_modification,params: [<span class="string">"uid"</span>:<span class="string">"1"</span>,<span class="string">"username"</span>:<span class="string">"xxxx"</span>,<span class="string">"file"</span>:<span class="type">UIImage</span>(named:<span class="string">"xxx.png"</span>)], method: .post) &#123; (response) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> res = response[<span class="string">"data"</span>] <span class="keyword">as</span>? <span class="type">Int</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> res == <span class="number">1</span> &#123;</span><br><span class="line">                    showSuccess(<span class="string">"修改成功"</span>)</span><br><span class="line">                    <span class="keyword">self</span>.ischangedImage = <span class="literal">false</span></span><br><span class="line">                    <span class="comment">//跟新用户信息</span></span><br><span class="line">                    <span class="keyword">self</span>.update_request()</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                &#125;</span><br><span class="line">                showError(<span class="string">"修改失败"</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                showError(<span class="string">"修改失败"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h5 id="注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了"><a href="#注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了" class="headerlink" title="注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了"></a>注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIImage</span></span>&#123;</span><br><span class="line">    <span class="comment">//MARK:-----------图片转data-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getData</span><span class="params">()</span></span> -&gt; <span class="type">Data</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> data = <span class="type">UIImageJPEGRepresentation</span>(<span class="keyword">self</span>.getNewImage(), <span class="number">0.9</span>)</span><br><span class="line">        <span class="keyword">return</span> data!</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//MARK:-----------重新绘制一下图形-------------//</span></span><br><span class="line">    <span class="keyword">fileprivate</span> <span class="function"><span class="keyword">func</span> <span class="title">getNewImage</span><span class="params">()</span></span> -&gt; <span class="type">UIImage</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> w = <span class="keyword">self</span>.size.width</span><br><span class="line">        <span class="keyword">let</span> h = <span class="keyword">self</span>.size.height</span><br><span class="line">        </span><br><span class="line">        <span class="type">UIGraphicsBeginImageContext</span>(<span class="keyword">self</span>.size)</span><br><span class="line">        <span class="keyword">self</span>.draw(<span class="keyword">in</span>: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: w, height: h))</span><br><span class="line">        <span class="keyword">let</span> newImage = <span class="type">UIGraphicsGetImageFromCurrentImageContext</span>()</span><br><span class="line">        <span class="type">UIGraphicsEndImageContext</span>()</span><br><span class="line">        <span class="keyword">return</span> newImage!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般用户修改头像都是修改的头像的连接，这里我们后台是直接上传的文件，所以我就基于Alamofire封装了一个带有文件参数的网络请求方法</p>
+<pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//MARK:-----------file请求-------------//</span>
+    <span class="token keyword">class</span> <span class="token class-name">func</span> <span class="token function">requestFile</span><span class="token punctuation">(</span>urlString<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>params<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">:</span><span class="token builtin">Any</span><span class="token punctuation">]</span><span class="token punctuation">,</span> method<span class="token punctuation">:</span><span class="token builtin">HTTPMethod</span><span class="token punctuation">,</span>success<span class="token punctuation">:</span>@<span class="token function">escaping</span><span class="token punctuation">(</span><span class="token number">_</span> response<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">:</span><span class="token builtin">Any</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//这里是接口和参数</span>
+        <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span><span class="token constant">BASE_URL</span><span class="token delimiter variable">)</span></span><span class="token interpolation"><span class="token delimiter variable">\(</span>api_common_mid<span class="token delimiter variable">)</span></span><span class="token interpolation"><span class="token delimiter variable">\(</span>urlString<span class="token delimiter variable">)</span></span>"</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>url<span class="token delimiter variable">)</span></span>\n<span class="token interpolation"><span class="token delimiter variable">\(</span>params<span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">//</span>
+        <span class="token builtin">Alamofire</span><span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span>multipartFormData<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>formdata<span class="token punctuation">)</span> <span class="token keyword">in</span>
+
+            <span class="token comment" spellcheck="true">//这里因为不同接口的参数名肯定不一样，所以就用你传的参数名。</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span> <span class="token keyword">in</span> params<span class="token punctuation">{</span>
+
+                <span class="token comment" spellcheck="true">//然后formdata只接受Data所以这里转换一下</span>
+                <span class="token keyword">if</span> <span class="token keyword">let</span> content <span class="token operator">=</span> value <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+                    formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>using<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">.</span><span class="token builtin">Encoding</span><span class="token punctuation">.</span>utf8<span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span> withName<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token comment" spellcheck="true">// 如果是图片的话吧图片转化成Data</span>
+                <span class="token keyword">if</span> <span class="token keyword">let</span> content <span class="token operator">=</span> value <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">UIImage</span><span class="token punctuation">{</span>
+                    formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> withName<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> to<span class="token punctuation">:</span> url<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token keyword">switch</span> result <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">let</span> upload<span class="token punctuation">,</span> <span class="token number">_</span><span class="token punctuation">,</span> <span class="token number">_</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                upload<span class="token punctuation">.</span>responseJSON <span class="token punctuation">{</span> response <span class="token keyword">in</span>
+                    <span class="token comment" spellcheck="true">//自己封装的处理请求返回的结果</span>
+                    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">responseApply</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> success<span class="token punctuation">:</span> success<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token keyword">case</span> <span class="token punctuation">.</span><span class="token function">failure</span><span class="token punctuation">(</span><span class="token keyword">let</span> encodingError<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token function">print</span><span class="token punctuation">(</span>encodingError<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><pre class=" language-swift"><code class="language-swift"><span class="token builtin">NetworkTool</span><span class="token punctuation">.</span><span class="token function">requestFile</span><span class="token punctuation">(</span>urlString<span class="token punctuation">:</span> api_my_modification<span class="token punctuation">,</span>params<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"uid"</span><span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">:</span><span class="token string">"xxxx"</span><span class="token punctuation">,</span><span class="token string">"file"</span><span class="token punctuation">:</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"xxx.png"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> method<span class="token punctuation">:</span> <span class="token punctuation">.</span>post<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token keyword">if</span> <span class="token keyword">let</span> res <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> res <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">{</span>
+                    <span class="token function">showSuccess</span><span class="token punctuation">(</span><span class="token string">"修改成功"</span><span class="token punctuation">)</span>
+                    <span class="token keyword">self</span><span class="token punctuation">.</span>ischangedImage <span class="token operator">=</span> <span class="token boolean">false</span>
+                    <span class="token comment" spellcheck="true">//跟新用户信息</span>
+                    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">update_request</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span>
+                <span class="token punctuation">}</span>
+                <span class="token function">showError</span><span class="token punctuation">(</span><span class="token string">"修改失败"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token function">showError</span><span class="token punctuation">(</span><span class="token string">"修改失败"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+</code></pre>
+<h5 id="注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了"><a href="#注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了" class="headerlink" title="注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了"></a>注：图片转Data有可能会为空，解决办法是把要转换的图片重新绘制下就行了</h5><pre class=" language-swift"><code class="language-swift"><span class="token keyword">extension</span> <span class="token builtin">UIImage</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//MARK:-----------图片转data-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Data</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token function">UIImageJPEGRepresentation</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">getNewImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.9</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> data<span class="token operator">!</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//MARK:-----------重新绘制一下图形-------------//</span>
+    fileprivate <span class="token keyword">func</span> <span class="token function">getNewImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">UIImage</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> w <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>size<span class="token punctuation">.</span>width
+        <span class="token keyword">let</span> h <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>size<span class="token punctuation">.</span>height
+
+        <span class="token function">UIGraphicsBeginImageContext</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token keyword">in</span><span class="token punctuation">:</span> <span class="token function">CGRect</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> w<span class="token punctuation">,</span> height<span class="token punctuation">:</span> h<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> newImage <span class="token operator">=</span> <span class="token function">UIGraphicsGetImageFromCurrentImageContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">UIGraphicsEndImageContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> newImage<span class="token operator">!</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 	
 	</div>
 	
@@ -336,6 +429,7 @@
 			<div class="investment-title-1">
 				<div class="on">相关文章</div>
 				<div>评论</div>
+				<div>分享</div>
 			</div>
 			<div class="investment-title-2">	            
 				
@@ -348,6 +442,8 @@
 		
 			
 	</span>
+
+
       		
 			</div>	
 		</div>
@@ -357,186 +453,277 @@
 				
 
 <div class="relate-post">
-	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
-							AAC音频转WAV
-						</a>
-						<p>
-							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
-						</p>
-					</div>
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
+								AAC音频转WAV			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 25日, 2019				
+							</p>
+							<p class="relate-post-content">
+								将aac编码格式的音频转为lpcm编码的音频
+/**
+ 把.m4a转为.caf格式
+ @param originalUrlStr .m4a文件路径
+ @param destUrlStr .wav文件路径
+ @param complet...
+							</p>
+						</div>
 
-					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
-						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
-							Message Filtter Extension 短信过滤
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="AAC音频转WAV"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
+								Message Filtter Extension 短信过滤			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
-						</p>
-					</div>
+1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+							</p>
+						</div>
 
-					<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
-						<img src="/img/back.jpg" class="relateImg" alt="Message Filtter Extension 短信过滤">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
-							Shell删除所有苹果证书
-						</a>
-						<p>
-							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Message Filtter Extension 短信过滤"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
+								Shell删除所有苹果证书			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								#!/bin/bash
 
-					<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
-						<img src="/img/back.jpg" class="relateImg" alt="Shell删除所有苹果证书">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/08/language/" title="Swift语言国际化">
-							Swift语言国际化
-						</a>
-						<p>
-							第一步在工程设置里面添加对应国际化的语言
+expired=$(security find-identity)
+if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
+then
+    echo "No expi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Shell删除所有苹果证书"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/08/language/" title="Swift语言国际化">
+								Swift语言国际化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一步在工程设置里面添加对应国际化的语言
 第二步添加Localizble.strings
 第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizbl...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/05/08/language/" title="Swift语言国际化">				
-						<img src="/img/back.jpg" class="relateImg" alt="Swift语言国际化">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
-							Docker Nginx 静态资源部署
-						</a>
-						<p>
-							1. 查看docker仓库中的nginx命令1docker search nginx
-2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
+						<div class="relate-post-cover">
+							<a href="/2019/05/08/language/" title="Swift语言国际化">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Swift语言国际化"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
+								Docker Nginx 静态资源部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
-							Nginx vue打包部署
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Docker Nginx 静态资源部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
+								Nginx vue打包部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
-						</p>
-					</div>
+1.在conf.d文件下添加一个新的配置文件,server {
+    #说明监听80端口
+...
+							</p>
+						</div>
 
-					<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Nginx vue打包部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
-							SCP文件上传下载
-						</a>
-						<p>
-							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Nginx vue打包部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
+								SCP文件上传下载			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
 
-					<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
-						<img src="/img/back.jpg" class="relateImg" alt="SCP文件上传下载">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
-							音频剪切、合成、淡入淡出
-						</a>
-						<p>
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
-						</p>
-					</div>
+上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							</p>
+						</div>
 
-					<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
-						<img src="/img/back.jpg" class="relateImg" alt="音频剪切、合成、淡入淡出">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/29/first/" title="swift 做一个答题的功能">
-							swift 做一个答题的功能
-						</a>
-						<p>
-							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
+						<div class="relate-post-cover">
+							<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="SCP文件上传下载"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
+								音频剪切、合成、淡入淡出			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 19日, 2018				
+							</p>
+							<p class="relate-post-content">
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="音频剪切、合成、淡入淡出"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/29/first/" title="swift 做一个答题的功能">
+								swift 做一个答题的功能			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 29日, 2018				
+							</p>
+							<p class="relate-post-content">
+								实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
 
 思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
-						<img src="/img/back.jpg" class="relateImg" alt="swift 做一个答题的功能">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
-							iOS原生调用ReatNative
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="swift 做一个答题的功能"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+								iOS原生调用ReatNative			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 20日, 2018				
+							</p>
+							<p class="relate-post-content">
+								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
-						</p>
-					</div>
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+							</p>
+						</div>
 
-					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
-						<img src="/img/back.jpg" class="relateImg" alt="iOS原生调用ReatNative">
-					</a>
-				</li>											
-		
-		
-	</ul>
+						<div class="relate-post-cover">
+							<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="iOS原生调用ReatNative"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
 </div>	
 			</div>
 			<div class="investment-content-list">
@@ -546,7 +733,7 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		
 
-			<!-- comment gitalk -->
+			<!-- gitalk comment -->
 			<!-- show gitalk comment -->
 <div id="gitalk-container"></div>
 
@@ -619,7 +806,29 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 </div>
 			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
 		</div>	
+	</div>
 	</div>
 </div>
 
@@ -653,103 +862,111 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 	</script>
     
 
+	
 
- 
 
 <!-- show math formula -->
 
 
 
+	
 
-<!-- TODO: There seems to be a bug when you close the post gallery! -->
-<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
-<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
-<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
 
 <script type="text/javascript">
-	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
-	$('.article-content img').each(function() {
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
 		var imgPath = $(this).attr('src'),
 			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
 	});
 
-	$('.article-content').lightGallery({
-		mode: 'lg-slide',
-		selector: '.img-responsive',
-		share: false,
-		zoom: false,
-		download: false
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
 	});
-	//TODO：支持video
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
 </script>
-
-<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-		
-
-		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
-	
 		</main>
-		
+
 		<!--footer-->
 		<footer>
 	<div class="social">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 		
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+				&copy;2017 - 2019, content by 目生鱼博客. All Rights Reserved.
 			
 			
 			
@@ -772,14 +989,17 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		</p>
 		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
 		</p>
 	</div>		
 </footer>
 		
-    <!-- set '1' to show motto in all pages! -->
+	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/js/motto.js"></script>
+	<script src="/plugin/motto/motto.js"></script>
+	
 	<script type="text/javascript">
 		$(".motto").html( getMingYanContent() );
 	</script>	
@@ -788,26 +1008,38 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 
 
+<!-- love effect -->
 
-    <script src="/js/love.js"></script>
+	<script src="/plugin/love/love.js"></script>
 
 
-<!--back to top-->
+<!-- back to top -->
 
-    
+	
 	<div id="totop">
   		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
-	<div id="tobuttom">
-		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
-	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
  
 
-
- 
-
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-	</body>
-	</html>
+	</body>	
+</html>

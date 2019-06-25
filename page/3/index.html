@@ -3,9 +3,8 @@
 	时间：2018-09-25
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
+<!DOCTYPE html>
+<html class="html-loading">
 		
 
 <head>
@@ -17,35 +16,32 @@
       目生鱼博客
     
   </title>
-  <meta name="author" content="目生鱼">
+  <meta name="author" content="">
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
 
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -55,109 +51,82 @@
 <!-- header -->
 <header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
 	<div class="mask">
+		<!-- Logo and navigation -->
 		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
+			<div id="logo">
+				<a href="/">
+					
 						fishofeyes
-					</a>
-				
+					
+				</a>
 			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
+			
+			<div id="navigation-show">
 				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-					
-				</ul>			
+	
+</ul>
 			</div>				
 		</div>
 
+		<!-- motto -->
 		<div class="h-body">	
-			<!-- motto -->
 			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
+				<p class="motto"></p>
 			
-
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						主页
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
-
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
 		</div>
 		
 		<!-- others: such as time... -->			
 		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
 <style type="text/css">
 	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
 		position: absolute;
-		left: 40px;
-		bottom: 30px;
+		bottom: 5px;
+		right: 1rem;
 		writing-mode: tb-rl;
-		font-size: 36px;
 	}	
+	
 	.header-date a {
 		border-bottom: none;
 	}
+
 	@media only screen and (max-width: 768 ) {
 		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
+			font-size: 1rem;
 		}			
 	}
 </style>
@@ -174,13 +143,32 @@
 		}
 	});
 </script>
+			
+		</div>
+	</div>
 </header>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
-</a>
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
 
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			主页
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<h3>Navigation</h3>
@@ -188,81 +176,79 @@
 	</div>
 	<div class="nav-body">
 		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-			
-		</ul>
+	
+</ul>
 	</div>
-
 	<div class="nav-footer">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 </nav>
-
-		
+			
 		<!--main-->
 		<main>
 			
@@ -286,13 +272,11 @@
 
 				<div class="post-content">
 					
-						
-							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的demo下载，然后把APPID（gameID） 和 APPkey 替换，代码直接搬过来用就行了。在这里值得一说的是，在接入语音遇到的问题
+						 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的demo下载，然后把APPID（gameID） 和 APPkey 替换，代码直接搬过来用就行了。在这里值得一说的是，在接入语音遇到的问题
 
 测试时候语音有回音，只需要把两台设备离远点就没有了。
 在GVoice开启Mic的时候可能导致程序崩溃,是因为设备没有开启权限。解决办法直接做一个mic的权限判断，如果没有开启权限就不要去调用开启mic的方法。
 在实力化GVoi...
-						
 					
 				</div>
 				
@@ -301,29 +285,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2018/10/14/7/" itemprop="url">
 		<time datetime="2018-10-14T08:19:16.399Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/7/_visitors" data-url="/2018/10/14/7/" data-title="Gvoice 实时语音接入">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/7/_likes" data-url="/2018/10/14/7/" data-title="Gvoice 实时语音接入" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -357,8 +349,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2018/10/14/7/" title="阅读全文">阅读全文</a>	
@@ -381,12 +373,14 @@
 
 				<div class="post-content">
 					
-						
-							#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
+						#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
 #####注：demo借鉴的泊学上的
 #####github地址
-2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。123456// MARK: - ARSKViewDelegate        func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -&gt; SKNode? &#123;        // Cre...
-						
+2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。
+// MARK: - ARSKViewDelegate
+
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        // Create and config...
 					
 				</div>
 				
@@ -395,29 +389,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2018/10/14/6/" itemprop="url">
 		<time datetime="2018-10-14T08:16:51.879Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/6/_visitors" data-url="/2018/10/14/6/" data-title="ARDemo">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/6/_likes" data-url="/2018/10/14/6/" data-title="ARDemo" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -451,8 +453,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2018/10/14/6/" title="阅读全文">阅读全文</a>	
@@ -475,11 +477,16 @@
 
 				<div class="post-content">
 					
-						
-							最近项目当中需要用到图标，然后在上查了下，找到了这个，感觉应该比较好用。github地址
+						最近项目当中需要用到图标，然后在上查了下，找到了这个，感觉应该比较好用。github地址
 
-饼图1.倒入Charts,然后实历化饼状图的类PieChartView1234567891011121314151617181920212223242526272829303132import Chartsclass WorkManagerHeaderView: UICollectionReusableView &#123;        let lableTitle:UILabel = &#123;        return UILabel.label(font: fontVaue)    &...
-						
+饼图1.倒入Charts,然后实历化饼状图的类PieChartViewimport Charts
+class WorkManagerHeaderView: UICollectionReusableView {
+
+    let lableTitle:UILabel = {
+        return UILabel.label(font: fontVaue)
+    }()
+    //饼状图的数据
+    var months = ["1-9", "10-19", "20-29", "30-3...
 					
 				</div>
 				
@@ -488,29 +495,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2018/10/14/5/" itemprop="url">
 		<time datetime="2018-10-14T08:11:41.938Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/5/_visitors" data-url="/2018/10/14/5/" data-title="Charts（swift） 饼状图、柱状图使用">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/5/_likes" data-url="/2018/10/14/5/" data-title="Charts（swift） 饼状图、柱状图使用" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -544,8 +559,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2018/10/14/5/" title="阅读全文">阅读全文</a>	
@@ -569,12 +584,14 @@
 				<div class="post-content">
 					
 						
-							
 事情还得从用Python写爬虫开始说起，当时在freebuf看了几篇爬虫得文章    然后又遇到项目中要用很多图片，就现学现用在网上爬了很多图片下来。因为当时爬下来的都是表情的图片，所以前几天的时候本来想把爬下来的所有的表情图片添加到qq表情包里面的，结果每页表情最多放300多张，这就尴尬了。我爬的图片每个文件夹大部分都超过了300张。所以后来想用python把大量的图片分别放到不同的文件夹里面。
 
 好吧。上代码吧。原理还是多简单的主要就是shutil.move()和os.mkdir()的使用
-###代码：1234567891011121314151617181920212223242...
-						
+###代码：
+import os
+import os.path
+import shutil
+...
 					
 				</div>
 				
@@ -583,29 +600,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2018/10/14/4/" itemprop="url">
 		<time datetime="2018-10-14T08:10:59.936Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/4/_visitors" data-url="/2018/10/14/4/" data-title="Python 管理批量文件">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/4/_likes" data-url="/2018/10/14/4/" data-title="Python 管理批量文件" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -639,8 +664,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2018/10/14/4/" title="阅读全文">阅读全文</a>	
@@ -664,11 +689,9 @@
 				<div class="post-content">
 					
 						
-							
 在项目中看到有使用多种collectionViewCell，和header的情况，感觉用起来还是比较方便。之前遇到类似的界面，都没有想到😂.看下效果图吧：先说下思路，这整个一块是一个collectionView，然后分为3组第一组：十点便宜图片是图+一个label为headerA，然后cellA的个数返回0第二组：详细信息的label为headerB，然后cellB返回10个。第三组：推荐为headerC，然后cellC返回50个。当然其中的透视图和cell都是自定义的，这里我用的xib比较快可以达到我想要的效果。
 
 1.再来看看实现的过程，首先是实例化collectionView，...
-						
 					
 				</div>
 				
@@ -677,29 +700,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2018/10/14/3/" itemprop="url">
 		<time datetime="2018-10-14T08:02:34.482Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/3/_visitors" data-url="/2018/10/14/3/" data-title="UICollectionView header 使用">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/3/_likes" data-url="/2018/10/14/3/" data-title="UICollectionView header 使用" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -733,8 +764,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2018/10/14/3/" title="阅读全文">阅读全文</a>	
@@ -753,60 +784,62 @@
 		
 	</div>
 
+	
+
 </div>
 
 
 		</main>
-		
+
 		<!--footer-->
 		<footer>
 	<div class="social">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 		
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+				&copy;2017 - 2019, content by 目生鱼博客. All Rights Reserved.
 			
 			
 			
@@ -833,14 +866,17 @@
 
 		</p>
 		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
 		</p>
 	</div>		
 </footer>
 		
-    <!-- set '1' to show motto in all pages! -->
+	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/js/motto.js"></script>
+	<script src="/plugin/motto/motto.js"></script>
+	
 	<script type="text/javascript">
 		$(".motto").html( getMingYanContent() );
 	</script>	
@@ -849,26 +885,38 @@
 
 
 
+<!-- love effect -->
 
-    <script src="/js/love.js"></script>
+	<script src="/plugin/love/love.js"></script>
 
 
-<!--back to top-->
+<!-- back to top -->
 
-    
+	
 	<div id="totop">
   		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
-	<div id="tobuttom">
-		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
-	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
  
 
-
- 
-
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-	</body>
-	</html>
+	</body>	
+</html>

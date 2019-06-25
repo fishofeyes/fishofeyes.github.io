@@ -3,9 +3,8 @@
 	时间：2018-09-25
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
+<!DOCTYPE html>
+<html class="html-loading">
 		
 
 <head>
@@ -17,35 +16,32 @@
       Charts（swift） 饼状图、柱状图使用 | 目生鱼博客
     
   </title>
-  <meta name="author" content="目生鱼">
+  <meta name="author" content="">
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
 
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -55,109 +51,82 @@
 <!-- header -->
 <header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
 	<div class="mask">
+		<!-- Logo and navigation -->
 		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
+			<div id="logo">
+				<a href="/">
+					
 						fishofeyes
-					</a>
-				
+					
+				</a>
 			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
+			
+			<div id="navigation-show">
 				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-					
-				</ul>			
+	
+</ul>
 			</div>				
 		</div>
 
+		<!-- motto -->
 		<div class="h-body">	
-			<!-- motto -->
 			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
+				<p class="motto"></p>
 			
-
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						当前文章&nbsp;:&nbsp;《Charts（swift） 饼状图、柱状图使用》
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
-
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
 		</div>
 		
 		<!-- others: such as time... -->			
 		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
 <style type="text/css">
 	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
 		position: absolute;
-		left: 40px;
-		bottom: 30px;
+		bottom: 5px;
+		right: 1rem;
 		writing-mode: tb-rl;
-		font-size: 36px;
 	}	
+	
 	.header-date a {
 		border-bottom: none;
 	}
+
 	@media only screen and (max-width: 768 ) {
 		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
+			font-size: 1rem;
 		}			
 	}
 </style>
@@ -174,13 +143,32 @@
 		}
 	});
 </script>
+			
+		</div>
+	</div>
 </header>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
-</a>
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
 
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《Charts（swift） 饼状图、柱状图使用》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<h3>Navigation</h3>
@@ -188,87 +176,106 @@
 	</div>
 	<div class="nav-body">
 		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-			
-		</ul>
+	
+</ul>
 	</div>
-
 	<div class="nav-footer">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 </nav>
-
-		
+			
 		<!--main-->
 		<main>
-			<div class="layout-post">
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
 	
-	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
 	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
 	<a href="/2018/10/14/5/" itemprop="url">
 		Charts（swift） 饼状图、柱状图使用
@@ -278,43 +285,60 @@
 
 	<div class="article-meta">
 		<span>
+			<i class="fa fa-calendar"></i>
 			
+
+
 	发布于
+
 	<a href="/2018/10/14/5/" itemprop="url">
 		<time datetime="2018-10-14T08:11:41.938Z" itemprop="datePublished">
 	  		2018-10-14
 	  </time>
-	</a> 
+	</a>
+	&nbsp;
 
-	/
+
+
+
+
+			
+
+
+
+
 	更新于
+
 	<a href="/2018/10/14/5/" itemprop="url">
 		<time datetime="2018-10-14T08:11:41.938Z" itemprop="dateUpdated">
 	  		2019-06-25
 	  </time>
-	</a> 	
+	</a> 
+
+
 
 		</span>
-		/
 		<span>
 			<i class="fa fa-tags"></i>
 					
 		</span>
-		/
+		
 		
 
+	
     <span class="leancloud_visitors" id="/2018/10/14/5/_visitors" data-url="/2018/10/14/5/" data-title="Charts（swift） 饼状图、柱状图使用">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/14/5/_likes" data-url="/2018/10/14/5/" data-title="Charts（swift） 饼状图、柱状图使用" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -323,18 +347,250 @@
 	<div class="article-content" id="article-content">
 		<p>最近项目当中需要用到图标，然后在上查了下，找到了这个，感觉应该比较好用。<a href="https://github.com/danielgindi/Charts" target="_blank" rel="noopener">github地址</a></p>
 <p><img src="https://user-gold-cdn.xitu.io/2017/12/26/160921e3ae47ac4f?w=750&amp;h=1334&amp;f=png&amp;s=134813" alt="饼状图"></p>
-<h1 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h1><h2 id="1-倒入Charts-然后实历化饼状图的类PieChartView"><a href="#1-倒入Charts-然后实历化饼状图的类PieChartView" class="headerlink" title="1.倒入Charts,然后实历化饼状图的类PieChartView"></a>1.倒入Charts,然后实历化饼状图的类PieChartView</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Charts</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WorkManagerHeaderView</span>: <span class="title">UICollectionReusableView</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> lableTitle:<span class="type">UILabel</span> = &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">UILabel</span>.label(font: fontVaue)</span><br><span class="line">    &#125;()</span><br><span class="line">    <span class="comment">//饼状图的数据</span></span><br><span class="line">    <span class="keyword">var</span> months = [<span class="string">"1-9"</span>, <span class="string">"10-19"</span>, <span class="string">"20-29"</span>, <span class="string">"30-39"</span>,<span class="string">"40-49"</span>]</span><br><span class="line">    <span class="keyword">var</span> unitsSold = [<span class="number">30.0</span>, <span class="number">100.0</span>, <span class="number">108.0</span>, <span class="number">60.0</span>, <span class="number">50.0</span>]</span><br><span class="line">    <span class="comment">//饼状图</span></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> pieChartView: <span class="type">PieChartView</span> = &#123;</span><br><span class="line">        <span class="keyword">let</span> pieChartView = <span class="type">PieChartView</span>()</span><br><span class="line">        pieChartView.backgroundColor = <span class="type">UIColor</span>.white</span><br><span class="line">        <span class="keyword">return</span> pieChartView</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">        <span class="keyword">self</span>.backgroundColor = <span class="type">UIColor</span>.clear</span><br><span class="line">        <span class="comment">//添加控件</span></span><br><span class="line">        addSubView(pieChartView)</span><br><span class="line">        <span class="comment">//layout</span></span><br><span class="line">        <span class="keyword">self</span>.pieChartView.snp.makeConstraints &#123; (make) <span class="keyword">in</span></span><br><span class="line">            make.<span class="keyword">left</span>.equalTo(<span class="keyword">self</span>)</span><br><span class="line">            make.top.equalTo(<span class="keyword">self</span>.).offset(<span class="number">10</span>)</span><br><span class="line">            make.<span class="keyword">right</span>.equalTo(<span class="keyword">self</span>)</span><br><span class="line">            make.height.equalTo(<span class="number">250</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置饼状图数据</span></span><br><span class="line">        setChart(dataPoints: months, values: unitsSold)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-设置饼状图的数据"><a href="#2-设置饼状图的数据" class="headerlink" title="2.设置饼状图的数据"></a>2.设置饼状图的数据</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setChart</span><span class="params">(dataPoints: [String], values: [Double])</span></span> &#123;</span><br><span class="line">        <span class="keyword">var</span> dataEntries: [<span class="type">ChartDataEntry</span>] = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;dataPoints.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> entry = <span class="type">PieChartDataEntry</span>(value: values[i], label: <span class="string">"<span class="subst">\(dataPoints[i])</span>"</span>) <span class="comment">//设置数据 title和对应的值</span></span><br><span class="line">            </span><br><span class="line">            dataEntries.append(entry)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> pichartDataSet = <span class="type">PieChartDataSet</span>(values: dataEntries, label: <span class="string">""</span>) <span class="comment">//设置表示</span></span><br><span class="line">        <span class="comment">//设置饼状图字体配置</span></span><br><span class="line">        setPieChartDataSetConfig(pichartDataSet: pichartDataSet)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> pieChartData = <span class="type">PieChartData</span>(dataSet: pichartDataSet)</span><br><span class="line">        <span class="comment">//设置饼状图字体样式</span></span><br><span class="line">        setPieChartDataConfig(pieChartData: pieChartData)</span><br><span class="line">        pieChartView.data = pieChartData <span class="comment">//将配置及数据添加到表中</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//设置饼状图样式</span></span><br><span class="line">        setDrawHoleState()</span><br><span class="line">        pichartDataSet.colors = [<span class="type">MYCOlOR</span>(r: <span class="number">50</span>, g: <span class="number">161</span>, b: <span class="number">127</span>, a: <span class="number">1.0</span>),<span class="type">MYCOlOR</span>(r: <span class="number">45</span>, g: <span class="number">90</span>, b: <span class="number">160</span>, a: <span class="number">1.0</span>),<span class="type">MYCOlOR</span>(r: <span class="number">206</span>, g: <span class="number">89</span>, b: <span class="number">90</span>, a: <span class="number">1.0</span>)]<span class="comment">//设置区块颜色</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-设置饼状图每一个块对应的数据的属性"><a href="#3-设置饼状图每一个块对应的数据的属性" class="headerlink" title="3.设置饼状图每一个块对应的数据的属性"></a>3.设置饼状图每一个块对应的数据的属性</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置饼状图字体配置</span></span><br><span class="line">   <span class="function"><span class="keyword">func</span> <span class="title">setPieChartDataSetConfig</span><span class="params">(pichartDataSet: PieChartDataSet)</span></span>&#123;</span><br><span class="line">       pichartDataSet.sliceSpace = <span class="number">0</span> <span class="comment">//相邻区块之间的间距</span></span><br><span class="line">       pichartDataSet.selectionShift = <span class="number">1</span> <span class="comment">//选中区块时, 放大的半径</span></span><br><span class="line">       pichartDataSet.xValuePosition = .insideSlice <span class="comment">//名称位置</span></span><br><span class="line">       pichartDataSet.yValuePosition = .outsideSlice <span class="comment">//数据位置</span></span><br><span class="line">       <span class="comment">//数据与区块之间的用于指示的折线样式</span></span><br><span class="line">       pichartDataSet.valueLinePart1OffsetPercentage = <span class="number">0.85</span> <span class="comment">//折线中第一段起始位置相对于区块的偏移量, 数值越大, 折线距离区块越远</span></span><br><span class="line">       pichartDataSet.valueLinePart1Length = <span class="number">0.5</span> <span class="comment">//折线中第一段长度占比</span></span><br><span class="line">       pichartDataSet.valueLinePart2Length = <span class="number">0.4</span> <span class="comment">//折线中第二段长度最大占比</span></span><br><span class="line">       pichartDataSet.valueLineWidth = <span class="number">1</span> <span class="comment">//折线的粗细</span></span><br><span class="line">       pichartDataSet.valueLineColor = <span class="type">UIColor</span>.lightGray <span class="comment">//折线颜色</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-设置百分比数据的属性-这里自定义了一个类DigitValueFormatter-只要实现了他的协议就行了"><a href="#4-设置百分比数据的属性-这里自定义了一个类DigitValueFormatter-只要实现了他的协议就行了" class="headerlink" title="4.设置百分比数据的属性,这里自定义了一个类DigitValueFormatter(),只要实现了他的协议就行了"></a>4.设置百分比数据的属性,这里自定义了一个类DigitValueFormatter(),只要实现了他的协议就行了</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置饼状图字体样式</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">setPieChartDataConfig</span><span class="params">(pieChartData: PieChartData)</span></span>&#123;</span><br><span class="line">        pieChartData.setValueFormatter(<span class="type">DigitValueFormatter</span>())<span class="comment">//设置百分比</span></span><br><span class="line">        pieChartData.setValueTextColor(<span class="type">UIColor</span>.gray) <span class="comment">//字体颜色为白色</span></span><br><span class="line">        pieChartData.setValueFont(<span class="type">UIFont</span>.systemFont(ofSize: <span class="number">10</span>))<span class="comment">//字体大小</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment">//数值转化成百分比</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DigitValueFormatter</span>: <span class="title">NSObject</span>, <span class="title">IValueFormatter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">stringForValue</span><span class="params">(<span class="number">_</span> value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> valueWithoutDecimalPart = <span class="type">String</span>(format: <span class="string">"%.2f%%"</span>, value)</span><br><span class="line">        <span class="keyword">return</span> valueWithoutDecimalPart</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-最后是整个饼状图视图的属性设置"><a href="#5-最后是整个饼状图视图的属性设置" class="headerlink" title="5.最后是整个饼状图视图的属性设置"></a>5.最后是整个饼状图视图的属性设置</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置饼状图中心文本</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setDrawHoleState</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">///饼状图距离边缘的间隙</span></span><br><span class="line">    pieChartView.setExtraOffsets(<span class="keyword">left</span>: <span class="number">30</span>, top: <span class="number">0</span>, <span class="keyword">right</span>: <span class="number">30</span>, bottom: <span class="number">0</span>)</span><br><span class="line">    <span class="comment">//拖拽饼状图后是否有惯性效果</span></span><br><span class="line">    pieChartView.dragDecelerationEnabled = <span class="literal">false</span></span><br><span class="line">    <span class="comment">//是否显示区块文本</span></span><br><span class="line">    pieChartView.drawSlicesUnderHoleEnabled = <span class="literal">true</span></span><br><span class="line">    <span class="comment">//是否根据所提供的数据, 将显示数据转换为百分比格式</span></span><br><span class="line">    pieChartView.usePercentValuesEnabled = <span class="literal">true</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置饼状图描述</span></span><br><span class="line">    pieChartView.chartDescription?.text = <span class="string">"本年度项目情况"</span></span><br><span class="line">    pieChartView.chartDescription?.font = <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">10</span>)</span><br><span class="line">    pieChartView.chartDescription?.textColor = <span class="type">UIColor</span>.gray</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置饼状图图例样式</span></span><br><span class="line">    pieChartView.legend.maxSizePercent = <span class="number">0.9</span> <span class="comment">//图例在饼状图中的大小占比, 这会影响图例的宽高</span></span><br><span class="line">    pieChartView.legend.formToTextSpace = <span class="number">5</span> <span class="comment">//文本间隔</span></span><br><span class="line">    pieChartView.legend.font = <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">10</span>) <span class="comment">//字体大小</span></span><br><span class="line">    pieChartView.legend.textColor = <span class="type">UIColor</span>.gray <span class="comment">//字体颜色</span></span><br><span class="line">    pieChartView.legend.verticalAlignment = .bottom <span class="comment">//图例在饼状图中的位置</span></span><br><span class="line">    pieChartView.legend.form = .circle <span class="comment">//图示样式: 方形、线条、圆形</span></span><br><span class="line">    pieChartView.legend.formSize = <span class="number">12</span> <span class="comment">//图示大小</span></span><br><span class="line">    pieChartView.legend.orientation = .horizontal</span><br><span class="line">    pieChartView.legend.horizontalAlignment = .center</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">///设置饼状图中心的文本</span></span><br><span class="line">    <span class="keyword">if</span> pieChartView.isDrawHoleEnabled &#123;</span><br><span class="line">        <span class="comment">///设置饼状图中间的空心样式</span></span><br><span class="line">        pieChartView.drawHoleEnabled = <span class="literal">true</span> <span class="comment">//饼状图是否是空心</span></span><br><span class="line">        pieChartView.holeRadiusPercent = <span class="number">0.3</span> <span class="comment">//空心半径占比</span></span><br><span class="line">        pieChartView.holeColor = <span class="type">UIColor</span>.white <span class="comment">//空心颜色</span></span><br><span class="line">        pieChartView.transparentCircleRadiusPercent = <span class="number">0.32</span> <span class="comment">//半透明空心半径占比</span></span><br><span class="line">        <span class="comment">//半透明空心的颜色</span></span><br><span class="line">        pieChartView.transparentCircleColor = <span class="type">MYCOlOR</span>(r: <span class="number">210</span>, g: <span class="number">145</span>, b: <span class="number">165</span>, a: <span class="number">0.3</span>)</span><br><span class="line">        pieChartView.drawCenterTextEnabled = <span class="literal">false</span> <span class="comment">//是否显示中间文字</span></span><br><span class="line">        <span class="comment">//普通文本</span></span><br><span class="line">        pieChartView.centerText = <span class="string">"平均库龄"</span></span><br><span class="line">        <span class="comment">//富文本</span></span><br><span class="line">        <span class="comment">//         let attributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(15.0)), NSForegroundColorAttributeName: UIColor.red]</span></span><br><span class="line">        <span class="comment">//         let centerTextAttribute = NSAttributedString(string: "平均库龄", attributes: attributes)</span></span><br><span class="line">        <span class="comment">//         pieChartView.centerAttributedText = centerTextAttribute</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">    pieChartView.setNeedsDisplay()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h1><h2 id="1-倒入Charts-然后实历化饼状图的类PieChartView"><a href="#1-倒入Charts-然后实历化饼状图的类PieChartView" class="headerlink" title="1.倒入Charts,然后实历化饼状图的类PieChartView"></a>1.倒入Charts,然后实历化饼状图的类PieChartView</h2><pre class=" language-swift"><code class="language-swift"><span class="token keyword">import</span> <span class="token builtin">Charts</span>
+<span class="token keyword">class</span> <span class="token class-name">WorkManagerHeaderView</span><span class="token punctuation">:</span> <span class="token builtin">UICollectionReusableView</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">let</span> lableTitle<span class="token punctuation">:</span><span class="token builtin">UILabel</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token builtin">UILabel</span><span class="token punctuation">.</span><span class="token function">label</span><span class="token punctuation">(</span>font<span class="token punctuation">:</span> fontVaue<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//饼状图的数据</span>
+    <span class="token keyword">var</span> months <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"1-9"</span><span class="token punctuation">,</span> <span class="token string">"10-19"</span><span class="token punctuation">,</span> <span class="token string">"20-29"</span><span class="token punctuation">,</span> <span class="token string">"30-39"</span><span class="token punctuation">,</span><span class="token string">"40-49"</span><span class="token punctuation">]</span>
+    <span class="token keyword">var</span> unitsSold <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">30.0</span><span class="token punctuation">,</span> <span class="token number">100.0</span><span class="token punctuation">,</span> <span class="token number">108.0</span><span class="token punctuation">,</span> <span class="token number">60.0</span><span class="token punctuation">,</span> <span class="token number">50.0</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true">//饼状图</span>
+    <span class="token keyword">lazy</span> <span class="token keyword">var</span> pieChartView<span class="token punctuation">:</span> <span class="token builtin">PieChartView</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> pieChartView <span class="token operator">=</span> <span class="token function">PieChartView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        pieChartView<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span>white
+        <span class="token keyword">return</span> pieChartView
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">override</span> <span class="token keyword">init</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> <span class="token builtin">CGRect</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> frame<span class="token punctuation">)</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span>clear
+        <span class="token comment" spellcheck="true">//添加控件</span>
+        <span class="token function">addSubView</span><span class="token punctuation">(</span>pieChartView<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//layout</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>pieChartView<span class="token punctuation">.</span>snp<span class="token punctuation">.</span>makeConstraints <span class="token punctuation">{</span> <span class="token punctuation">(</span>make<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            make<span class="token punctuation">.</span><span class="token keyword">left</span><span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span>
+            make<span class="token punctuation">.</span>top<span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+            make<span class="token punctuation">.</span><span class="token keyword">right</span><span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span>
+            make<span class="token punctuation">.</span>height<span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//设置饼状图数据</span>
+        <span class="token function">setChart</span><span class="token punctuation">(</span>dataPoints<span class="token punctuation">:</span> months<span class="token punctuation">,</span> values<span class="token punctuation">:</span> unitsSold<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+</code></pre>
+<h2 id="2-设置饼状图的数据"><a href="#2-设置饼状图的数据" class="headerlink" title="2.设置饼状图的数据"></a>2.设置饼状图的数据</h2><pre class=" language-swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">setChart</span><span class="token punctuation">(</span>dataPoints<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">,</span> values<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Double</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> dataEntries<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">ChartDataEntry</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>dataPoints<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> entry <span class="token operator">=</span> <span class="token function">PieChartDataEntry</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> values<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>dataPoints<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//设置数据 title和对应的值</span>
+
+            dataEntries<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>entry<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+
+        <span class="token keyword">let</span> pichartDataSet <span class="token operator">=</span> <span class="token function">PieChartDataSet</span><span class="token punctuation">(</span>values<span class="token punctuation">:</span> dataEntries<span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//设置表示</span>
+        <span class="token comment" spellcheck="true">//设置饼状图字体配置</span>
+        <span class="token function">setPieChartDataSetConfig</span><span class="token punctuation">(</span>pichartDataSet<span class="token punctuation">:</span> pichartDataSet<span class="token punctuation">)</span>
+
+
+        <span class="token keyword">let</span> pieChartData <span class="token operator">=</span> <span class="token function">PieChartData</span><span class="token punctuation">(</span>dataSet<span class="token punctuation">:</span> pichartDataSet<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//设置饼状图字体样式</span>
+        <span class="token function">setPieChartDataConfig</span><span class="token punctuation">(</span>pieChartData<span class="token punctuation">:</span> pieChartData<span class="token punctuation">)</span>
+        pieChartView<span class="token punctuation">.</span>data <span class="token operator">=</span> pieChartData <span class="token comment" spellcheck="true">//将配置及数据添加到表中</span>
+
+
+        <span class="token comment" spellcheck="true">//设置饼状图样式</span>
+        <span class="token function">setDrawHoleState</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        pichartDataSet<span class="token punctuation">.</span>colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">MYCOlOR</span><span class="token punctuation">(</span>r<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span> g<span class="token punctuation">:</span> <span class="token number">161</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">127</span><span class="token punctuation">,</span> a<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MYCOlOR</span><span class="token punctuation">(</span>r<span class="token punctuation">:</span> <span class="token number">45</span><span class="token punctuation">,</span> g<span class="token punctuation">:</span> <span class="token number">90</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">160</span><span class="token punctuation">,</span> a<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MYCOlOR</span><span class="token punctuation">(</span>r<span class="token punctuation">:</span> <span class="token number">206</span><span class="token punctuation">,</span> g<span class="token punctuation">:</span> <span class="token number">89</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">90</span><span class="token punctuation">,</span> a<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">//设置区块颜色</span>
+    <span class="token punctuation">}</span>
+
+</code></pre>
+<h2 id="3-设置饼状图每一个块对应的数据的属性"><a href="#3-设置饼状图每一个块对应的数据的属性" class="headerlink" title="3.设置饼状图每一个块对应的数据的属性"></a>3.设置饼状图每一个块对应的数据的属性</h2><pre class=" language-swift"><code class="language-swift"> <span class="token comment" spellcheck="true">//设置饼状图字体配置</span>
+    <span class="token keyword">func</span> <span class="token function">setPieChartDataSetConfig</span><span class="token punctuation">(</span>pichartDataSet<span class="token punctuation">:</span> <span class="token builtin">PieChartDataSet</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        pichartDataSet<span class="token punctuation">.</span>sliceSpace <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment" spellcheck="true">//相邻区块之间的间距</span>
+        pichartDataSet<span class="token punctuation">.</span>selectionShift <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">//选中区块时, 放大的半径</span>
+        pichartDataSet<span class="token punctuation">.</span>xValuePosition <span class="token operator">=</span> <span class="token punctuation">.</span>insideSlice <span class="token comment" spellcheck="true">//名称位置</span>
+        pichartDataSet<span class="token punctuation">.</span>yValuePosition <span class="token operator">=</span> <span class="token punctuation">.</span>outsideSlice <span class="token comment" spellcheck="true">//数据位置</span>
+        <span class="token comment" spellcheck="true">//数据与区块之间的用于指示的折线样式</span>
+        pichartDataSet<span class="token punctuation">.</span>valueLinePart1OffsetPercentage <span class="token operator">=</span> <span class="token number">0.85</span> <span class="token comment" spellcheck="true">//折线中第一段起始位置相对于区块的偏移量, 数值越大, 折线距离区块越远</span>
+        pichartDataSet<span class="token punctuation">.</span>valueLinePart1Length <span class="token operator">=</span> <span class="token number">0.5</span> <span class="token comment" spellcheck="true">//折线中第一段长度占比</span>
+        pichartDataSet<span class="token punctuation">.</span>valueLinePart2Length <span class="token operator">=</span> <span class="token number">0.4</span> <span class="token comment" spellcheck="true">//折线中第二段长度最大占比</span>
+        pichartDataSet<span class="token punctuation">.</span>valueLineWidth <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">//折线的粗细</span>
+        pichartDataSet<span class="token punctuation">.</span>valueLineColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span>lightGray <span class="token comment" spellcheck="true">//折线颜色</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="4-设置百分比数据的属性-这里自定义了一个类DigitValueFormatter-只要实现了他的协议就行了"><a href="#4-设置百分比数据的属性-这里自定义了一个类DigitValueFormatter-只要实现了他的协议就行了" class="headerlink" title="4.设置百分比数据的属性,这里自定义了一个类DigitValueFormatter(),只要实现了他的协议就行了"></a>4.设置百分比数据的属性,这里自定义了一个类DigitValueFormatter(),只要实现了他的协议就行了</h2><pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//设置饼状图字体样式</span>
+    <span class="token keyword">func</span> <span class="token function">setPieChartDataConfig</span><span class="token punctuation">(</span>pieChartData<span class="token punctuation">:</span> <span class="token builtin">PieChartData</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        pieChartData<span class="token punctuation">.</span><span class="token function">setValueFormatter</span><span class="token punctuation">(</span><span class="token function">DigitValueFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//设置百分比</span>
+        pieChartData<span class="token punctuation">.</span><span class="token function">setValueTextColor</span><span class="token punctuation">(</span><span class="token builtin">UIColor</span><span class="token punctuation">.</span>gray<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//字体颜色为白色</span>
+        pieChartData<span class="token punctuation">.</span><span class="token function">setValueFont</span><span class="token punctuation">(</span><span class="token builtin">UIFont</span><span class="token punctuation">.</span><span class="token function">systemFont</span><span class="token punctuation">(</span>ofSize<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//字体大小</span>
+    <span class="token punctuation">}</span>
+
+
+<span class="token comment" spellcheck="true">//数值转化成百分比</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DigitValueFormatter</span><span class="token punctuation">:</span> <span class="token builtin">NSObject</span><span class="token punctuation">,</span> <span class="token builtin">IValueFormatter</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">func</span> <span class="token function">stringForValue</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> entry<span class="token punctuation">:</span> <span class="token builtin">ChartDataEntry</span><span class="token punctuation">,</span> dataSetIndex<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> viewPortHandler<span class="token punctuation">:</span> <span class="token builtin">ViewPortHandler</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> valueWithoutDecimalPart <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span> <span class="token string">"%.2f%%"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> valueWithoutDecimalPart
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h2 id="5-最后是整个饼状图视图的属性设置"><a href="#5-最后是整个饼状图视图的属性设置" class="headerlink" title="5.最后是整个饼状图视图的属性设置"></a>5.最后是整个饼状图视图的属性设置</h2><pre class=" language-swift"><code class="language-swift">    <span class="token comment" spellcheck="true">//设置饼状图中心文本</span>
+    <span class="token keyword">func</span> <span class="token function">setDrawHoleState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">///饼状图距离边缘的间隙</span>
+        pieChartView<span class="token punctuation">.</span><span class="token function">setExtraOffsets</span><span class="token punctuation">(</span><span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//拖拽饼状图后是否有惯性效果</span>
+        pieChartView<span class="token punctuation">.</span>dragDecelerationEnabled <span class="token operator">=</span> <span class="token boolean">false</span>
+        <span class="token comment" spellcheck="true">//是否显示区块文本</span>
+        pieChartView<span class="token punctuation">.</span>drawSlicesUnderHoleEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+        <span class="token comment" spellcheck="true">//是否根据所提供的数据, 将显示数据转换为百分比格式</span>
+        pieChartView<span class="token punctuation">.</span>usePercentValuesEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+
+        <span class="token comment" spellcheck="true">// 设置饼状图描述</span>
+        pieChartView<span class="token punctuation">.</span>chartDescription<span class="token operator">?</span><span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"本年度项目情况"</span>
+        pieChartView<span class="token punctuation">.</span>chartDescription<span class="token operator">?</span><span class="token punctuation">.</span>font <span class="token operator">=</span> <span class="token builtin">UIFont</span><span class="token punctuation">.</span><span class="token function">systemFont</span><span class="token punctuation">(</span>ofSize<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        pieChartView<span class="token punctuation">.</span>chartDescription<span class="token operator">?</span><span class="token punctuation">.</span>textColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span>gray
+
+        <span class="token comment" spellcheck="true">// 设置饼状图图例样式</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>maxSizePercent <span class="token operator">=</span> <span class="token number">0.9</span> <span class="token comment" spellcheck="true">//图例在饼状图中的大小占比, 这会影响图例的宽高</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>formToTextSpace <span class="token operator">=</span> <span class="token number">5</span> <span class="token comment" spellcheck="true">//文本间隔</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>font <span class="token operator">=</span> <span class="token builtin">UIFont</span><span class="token punctuation">.</span><span class="token function">systemFont</span><span class="token punctuation">(</span>ofSize<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//字体大小</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>textColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span>gray <span class="token comment" spellcheck="true">//字体颜色</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>verticalAlignment <span class="token operator">=</span> <span class="token punctuation">.</span>bottom <span class="token comment" spellcheck="true">//图例在饼状图中的位置</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>form <span class="token operator">=</span> <span class="token punctuation">.</span>circle <span class="token comment" spellcheck="true">//图示样式: 方形、线条、圆形</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>formSize <span class="token operator">=</span> <span class="token number">12</span> <span class="token comment" spellcheck="true">//图示大小</span>
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>orientation <span class="token operator">=</span> <span class="token punctuation">.</span>horizontal
+        pieChartView<span class="token punctuation">.</span>legend<span class="token punctuation">.</span>horizontalAlignment <span class="token operator">=</span> <span class="token punctuation">.</span>center
+
+
+        <span class="token comment" spellcheck="true">///设置饼状图中心的文本</span>
+        <span class="token keyword">if</span> pieChartView<span class="token punctuation">.</span>isDrawHoleEnabled <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">///设置饼状图中间的空心样式</span>
+            pieChartView<span class="token punctuation">.</span>drawHoleEnabled <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">//饼状图是否是空心</span>
+            pieChartView<span class="token punctuation">.</span>holeRadiusPercent <span class="token operator">=</span> <span class="token number">0.3</span> <span class="token comment" spellcheck="true">//空心半径占比</span>
+            pieChartView<span class="token punctuation">.</span>holeColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span>white <span class="token comment" spellcheck="true">//空心颜色</span>
+            pieChartView<span class="token punctuation">.</span>transparentCircleRadiusPercent <span class="token operator">=</span> <span class="token number">0.32</span> <span class="token comment" spellcheck="true">//半透明空心半径占比</span>
+            <span class="token comment" spellcheck="true">//半透明空心的颜色</span>
+            pieChartView<span class="token punctuation">.</span>transparentCircleColor <span class="token operator">=</span> <span class="token function">MYCOlOR</span><span class="token punctuation">(</span>r<span class="token punctuation">:</span> <span class="token number">210</span><span class="token punctuation">,</span> g<span class="token punctuation">:</span> <span class="token number">145</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">165</span><span class="token punctuation">,</span> a<span class="token punctuation">:</span> <span class="token number">0.3</span><span class="token punctuation">)</span>
+            pieChartView<span class="token punctuation">.</span>drawCenterTextEnabled <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">//是否显示中间文字</span>
+            <span class="token comment" spellcheck="true">//普通文本</span>
+            pieChartView<span class="token punctuation">.</span>centerText <span class="token operator">=</span> <span class="token string">"平均库龄"</span>
+            <span class="token comment" spellcheck="true">//富文本</span>
+            <span class="token comment" spellcheck="true">//         let attributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(15.0)), NSForegroundColorAttributeName: UIColor.red]</span>
+            <span class="token comment" spellcheck="true">//         let centerTextAttribute = NSAttributedString(string: "平均库龄", attributes: attributes)</span>
+            <span class="token comment" spellcheck="true">//         pieChartView.centerAttributedText = centerTextAttribute</span>
+        <span class="token punctuation">}</span>
+
+
+        pieChartView<span class="token punctuation">.</span><span class="token function">setNeedsDisplay</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    <span class="token punctuation">}</span>
+</code></pre>
 <h1 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h1><p><img src="https://user-gold-cdn.xitu.io/2017/12/26/1609294ef5a09df1?w=750&amp;h=1334&amp;f=png&amp;s=94903" alt="柱状图"></p>
 <blockquote>
 <p>柱状图和饼状图稍微不一样，我这里是做的3个一组的柱状图，看了一下午的demo终于稍微明白到底咋搞的老。</p>
 </blockquote>
-<h2 id="1-实历化柱状图-在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类"><a href="#1-实历化柱状图-在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类" class="headerlink" title="1.实历化柱状图,在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类"></a>1.实历化柱状图,在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chartView:<span class="type">BarChartView</span> = &#123;</span><br><span class="line">        <span class="keyword">let</span> chartView = <span class="type">BarChartView</span>(frame: <span class="type">CGRect</span>.zero)</span><br><span class="line">        <span class="comment">///饼状图距离边缘的间隙</span></span><br><span class="line">        chartView.setExtraOffsets(<span class="keyword">left</span>: <span class="number">10</span>, top: <span class="number">10</span>, <span class="keyword">right</span>: <span class="number">30</span>, bottom: <span class="number">0</span>)</span><br><span class="line">        <span class="comment">//拖拽饼状图后是否有惯性效果</span></span><br><span class="line">        chartView.dragEnabled = <span class="literal">false</span></span><br><span class="line">        <span class="comment">//设置是否支持缩放</span></span><br><span class="line">        chartView.setScaleEnabled(<span class="literal">false</span>)</span><br><span class="line">        <span class="comment">// 设置饼状图描述</span></span><br><span class="line"><span class="comment">//        chartView.chartDescription?.text = "本年度项目情况"</span></span><br><span class="line"><span class="comment">//        chartView.chartDescription?.font = UIFont.systemFont(ofSize: 10)</span></span><br><span class="line"><span class="comment">//        chartView.chartDescription?.textColor = UIColor.gray</span></span><br><span class="line">        chartView.chartDescription?.enabled = <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//设置x坐标数据样式</span></span><br><span class="line">        <span class="keyword">let</span> xAxis = chartView.xAxis</span><br><span class="line">        xAxis.labelPosition = .bottom</span><br><span class="line">        xAxis.labelFont = .systemFont(ofSize: <span class="number">10</span>)</span><br><span class="line">        xAxis.valueFormatter = <span class="type">DayAxisValueFormatter</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//设置y坐标数据样式</span></span><br><span class="line">        <span class="keyword">let</span> leftAxis = chartView.leftAxis</span><br><span class="line">        leftAxis.labelFont = .systemFont(ofSize: <span class="number">10</span>)</span><br><span class="line">        leftAxis.labelCount = <span class="number">8</span></span><br><span class="line">        leftAxis.valueFormatter = <span class="type">MoneyAxisValueFormatter</span>()</span><br><span class="line">        <span class="comment">//设置字体显示在图表之外</span></span><br><span class="line">        leftAxis.labelPosition = .outsideChart</span><br><span class="line">        <span class="comment">//从坐标原点开始</span></span><br><span class="line">        leftAxis.axisMinimum = <span class="number">0</span> <span class="comment">// <span class="doctag">FIXME:</span> HUH?? this replaces startAtZero = YES</span></span><br><span class="line">        <span class="comment">//设置右边坐标不显示</span></span><br><span class="line">        chartView.rightAxis.enabled = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">return</span> chartView</span><br><span class="line">    &#125;()</span><br></pre></td></tr></table></figure>
-<h2 id="2-横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了"><a href="#2-横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了" class="headerlink" title="2.横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了"></a>2.横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DayAxisValueFormatter</span>: <span class="title">NSObject</span>, <span class="title">IAxisValueFormatter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">stringForValue</span><span class="params">(<span class="number">_</span> value: Double, axis: AxisBase?)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="comment">//这里的int不一定返回的是1，2，3所以显示的数据可能有误。</span></span><br><span class="line">        <span class="keyword">let</span> days = <span class="type">Int</span>(value)</span><br><span class="line">        <span class="keyword">return</span> <span class="type">String</span>(format:<span class="string">"201<span class="subst">\(<span class="number">7</span>+days)</span>年"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyAxisValueFormatter</span>: <span class="title">NSObject</span>, <span class="title">IAxisValueFormatter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">stringForValue</span><span class="params">(<span class="number">_</span> value: Double, axis: AxisBase?)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> days = <span class="type">Int</span>(value) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="type">String</span>(format:<span class="string">"<span class="subst">\(days)</span>¥"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-设置柱状图的数据"><a href="#3-设置柱状图的数据" class="headerlink" title="3.设置柱状图的数据"></a>3.设置柱状图的数据</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">setDataCount</span><span class="params">(<span class="number">_</span> <span class="built_in">count</span>: Int, range: UInt32)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> groupSpace = <span class="number">0.2</span></span><br><span class="line">        <span class="keyword">let</span> barSpace = <span class="number">0</span></span><br><span class="line">        <span class="keyword">let</span> barWidth = <span class="number">0.2</span></span><br><span class="line">        <span class="comment">// (0.2 + 0) * 4 + 0.2 = 1.00 -&gt; interval per "group"</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//柱状图显示的数据值</span></span><br><span class="line">        <span class="keyword">let</span> randomMultiplier = range * <span class="number">100</span></span><br><span class="line">        <span class="keyword">let</span> startYear = <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> block: (<span class="type">Int</span>) -&gt; <span class="type">BarChartDataEntry</span> = &#123; (i) -&gt; <span class="type">BarChartDataEntry</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">return</span> <span class="type">BarChartDataEntry</span>(x: <span class="type">Double</span>(i), y: <span class="type">Double</span>(arc4random_uniform(randomMultiplier)))</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//这里暂时给的临时数据里面的值是没有意义的因为没有用到</span></span><br><span class="line">        <span class="keyword">let</span> yVals1 = ([<span class="number">500</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]).<span class="built_in">map</span>(block)</span><br><span class="line">        <span class="keyword">let</span> yVals2 = ([<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]).<span class="built_in">map</span>(block)</span><br><span class="line">        <span class="keyword">let</span> yVals3 = ([<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]).<span class="built_in">map</span>(block)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> set1 = <span class="type">BarChartDataSet</span>(values: yVals1, label: <span class="string">"项目数"</span>)</span><br><span class="line">        set1.setColor(<span class="type">ZLGreenColor</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> set2 = <span class="type">BarChartDataSet</span>(values: yVals2, label: <span class="string">"总分"</span>)</span><br><span class="line">        set2.setColor(<span class="type">MainColor</span>())</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> set3 = <span class="type">BarChartDataSet</span>(values: yVals3, label: <span class="string">"平均分"</span>)</span><br><span class="line">        set3.setColor(<span class="type">ZLRedColor</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> data = <span class="type">BarChartData</span>(dataSets: [set1, set2, set3])</span><br><span class="line">        data.setValueFont(.systemFont(ofSize: <span class="number">10</span>, weight: .light))</span><br><span class="line">        <span class="comment">//设置数据显示的格式</span></span><br><span class="line">        data.setValueFormatter(<span class="type">DigitValueFormatter</span>())</span><br><span class="line">        <span class="comment">// specify the width each bar should have</span></span><br><span class="line">        data.barWidth = barWidth</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//设置图形的起始坐标注意起始坐标和你的数据相关</span></span><br><span class="line">        chartView.xAxis.axisMinimum = <span class="type">Double</span>(startYear)</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        // groupWidthWithGroupSpace(...) is a helper that calculates the width each group needs based on the provided parameters，计算图形x方向坐标的最大值，如果不计算的话，x坐标跑到很大，你的图形就看不到了。</span></span><br><span class="line"><span class="comment">//        chartView.xAxis.axisMaximum = Double(startYear) + data.groupWidth(groupSpace: groupSpace, barSpace: Double(barSpace)) * Double(groupCount)</span></span><br><span class="line">        <span class="comment">//设置x方向的最大横坐标,因为我的柱状图不需要缩放，所以就直接给他横向坐标的最大数。</span></span><br><span class="line">        chartView.xAxis.axisMaximum = <span class="number">5</span></span><br><span class="line">        </span><br><span class="line">        data.groupBars(fromX: <span class="type">Double</span>(startYear), groupSpace: groupSpace, barSpace: <span class="type">Double</span>(barSpace))</span><br><span class="line">        chartView.data = data</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-实历化柱状图-在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类"><a href="#1-实历化柱状图-在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类" class="headerlink" title="1.实历化柱状图,在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类"></a>1.实历化柱状图,在写柱状图的过程中发现属性设置也可以在初始化的时候设置，另外还新定义了横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类</h2><pre class=" language-swift"><code class="language-swift"><span class="token keyword">var</span> chartView<span class="token punctuation">:</span><span class="token builtin">BarChartView</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> chartView <span class="token operator">=</span> <span class="token function">BarChartView</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> <span class="token builtin">CGRect</span><span class="token punctuation">.</span>zero<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">///饼状图距离边缘的间隙</span>
+        chartView<span class="token punctuation">.</span><span class="token function">setExtraOffsets</span><span class="token punctuation">(</span><span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> top<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//拖拽饼状图后是否有惯性效果</span>
+        chartView<span class="token punctuation">.</span>dragEnabled <span class="token operator">=</span> <span class="token boolean">false</span>
+        <span class="token comment" spellcheck="true">//设置是否支持缩放</span>
+        chartView<span class="token punctuation">.</span><span class="token function">setScaleEnabled</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// 设置饼状图描述</span>
+<span class="token comment" spellcheck="true">//        chartView.chartDescription?.text = "本年度项目情况"</span>
+<span class="token comment" spellcheck="true">//        chartView.chartDescription?.font = UIFont.systemFont(ofSize: 10)</span>
+<span class="token comment" spellcheck="true">//        chartView.chartDescription?.textColor = UIColor.gray</span>
+        chartView<span class="token punctuation">.</span>chartDescription<span class="token operator">?</span><span class="token punctuation">.</span>enabled <span class="token operator">=</span> <span class="token boolean">false</span>
+
+        <span class="token comment" spellcheck="true">//设置x坐标数据样式</span>
+        <span class="token keyword">let</span> xAxis <span class="token operator">=</span> chartView<span class="token punctuation">.</span>xAxis
+        xAxis<span class="token punctuation">.</span>labelPosition <span class="token operator">=</span> <span class="token punctuation">.</span>bottom
+        xAxis<span class="token punctuation">.</span>labelFont <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token function">systemFont</span><span class="token punctuation">(</span>ofSize<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        xAxis<span class="token punctuation">.</span>valueFormatter <span class="token operator">=</span> <span class="token function">DayAxisValueFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">//设置y坐标数据样式</span>
+        <span class="token keyword">let</span> leftAxis <span class="token operator">=</span> chartView<span class="token punctuation">.</span>leftAxis
+        leftAxis<span class="token punctuation">.</span>labelFont <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token function">systemFont</span><span class="token punctuation">(</span>ofSize<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        leftAxis<span class="token punctuation">.</span>labelCount <span class="token operator">=</span> <span class="token number">8</span>
+        leftAxis<span class="token punctuation">.</span>valueFormatter <span class="token operator">=</span> <span class="token function">MoneyAxisValueFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//设置字体显示在图表之外</span>
+        leftAxis<span class="token punctuation">.</span>labelPosition <span class="token operator">=</span> <span class="token punctuation">.</span>outsideChart
+        <span class="token comment" spellcheck="true">//从坐标原点开始</span>
+        leftAxis<span class="token punctuation">.</span>axisMinimum <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment" spellcheck="true">// FIXME: HUH?? this replaces startAtZero = YES</span>
+        <span class="token comment" spellcheck="true">//设置右边坐标不显示</span>
+        chartView<span class="token punctuation">.</span>rightAxis<span class="token punctuation">.</span>enabled <span class="token operator">=</span> <span class="token boolean">false</span>
+        <span class="token keyword">return</span> chartView
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="2-横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了"><a href="#2-横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了" class="headerlink" title="2.横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了"></a>2.横向（DayAxisValueFormatter）和纵向（MoneyAxisValueFormatter）的格式化的类也很简单实现一个协议就好了</h2><pre class=" language-swift"><code class="language-swift"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DayAxisValueFormatter</span><span class="token punctuation">:</span> <span class="token builtin">NSObject</span><span class="token punctuation">,</span> <span class="token builtin">IAxisValueFormatter</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">func</span> <span class="token function">stringForValue</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> axis<span class="token punctuation">:</span> <span class="token builtin">AxisBase</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//这里的int不一定返回的是1，2，3所以显示的数据可能有误。</span>
+        <span class="token keyword">let</span> days <span class="token operator">=</span> <span class="token function">Int</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token function">String</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span><span class="token string">"201<span class="token interpolation"><span class="token delimiter variable">\(</span><span class="token number">7</span><span class="token operator">+</span>days<span class="token delimiter variable">)</span></span>年"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MoneyAxisValueFormatter</span><span class="token punctuation">:</span> <span class="token builtin">NSObject</span><span class="token punctuation">,</span> <span class="token builtin">IAxisValueFormatter</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">func</span> <span class="token function">stringForValue</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> axis<span class="token punctuation">:</span> <span class="token builtin">AxisBase</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> days <span class="token operator">=</span> <span class="token function">Int</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> <span class="token function">String</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span><span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>days<span class="token delimiter variable">)</span></span>¥"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="3-设置柱状图的数据"><a href="#3-设置柱状图的数据" class="headerlink" title="3.设置柱状图的数据"></a>3.设置柱状图的数据</h2><pre class=" language-swift"><code class="language-swift">    <span class="token keyword">func</span> <span class="token function">setDataCount</span><span class="token punctuation">(</span><span class="token number">_</span> <span class="token builtin">count</span><span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> range<span class="token punctuation">:</span> <span class="token builtin">UInt32</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> groupSpace <span class="token operator">=</span> <span class="token number">0.2</span>
+        <span class="token keyword">let</span> barSpace <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">let</span> barWidth <span class="token operator">=</span> <span class="token number">0.2</span>
+        <span class="token comment" spellcheck="true">// (0.2 + 0) * 4 + 0.2 = 1.00 -> interval per "group"</span>
+
+        <span class="token comment" spellcheck="true">//柱状图显示的数据值</span>
+        <span class="token keyword">let</span> randomMultiplier <span class="token operator">=</span> range <span class="token operator">*</span> <span class="token number">100</span>
+        <span class="token keyword">let</span> startYear <span class="token operator">=</span> <span class="token number">1</span>
+
+        <span class="token keyword">let</span> block<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">BarChartDataEntry</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">BarChartDataEntry</span> <span class="token keyword">in</span>
+            <span class="token keyword">return</span> <span class="token function">BarChartDataEntry</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token function">Double</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token function">Double</span><span class="token punctuation">(</span><span class="token function">arc4random_uniform</span><span class="token punctuation">(</span>randomMultiplier<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//这里暂时给的临时数据里面的值是没有意义的因为没有用到</span>
+        <span class="token keyword">let</span> yVals1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span>
+        <span class="token keyword">let</span> yVals2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span>
+        <span class="token keyword">let</span> yVals3 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> set1 <span class="token operator">=</span> <span class="token function">BarChartDataSet</span><span class="token punctuation">(</span>values<span class="token punctuation">:</span> yVals1<span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"项目数"</span><span class="token punctuation">)</span>
+        set1<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span><span class="token builtin">ZLGreenColor</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> set2 <span class="token operator">=</span> <span class="token function">BarChartDataSet</span><span class="token punctuation">(</span>values<span class="token punctuation">:</span> yVals2<span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"总分"</span><span class="token punctuation">)</span>
+        set2<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span><span class="token function">MainColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> set3 <span class="token operator">=</span> <span class="token function">BarChartDataSet</span><span class="token punctuation">(</span>values<span class="token punctuation">:</span> yVals3<span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"平均分"</span><span class="token punctuation">)</span>
+        set3<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span><span class="token builtin">ZLRedColor</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token function">BarChartData</span><span class="token punctuation">(</span>dataSets<span class="token punctuation">:</span> <span class="token punctuation">[</span>set1<span class="token punctuation">,</span> set2<span class="token punctuation">,</span> set3<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        data<span class="token punctuation">.</span><span class="token function">setValueFont</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token function">systemFont</span><span class="token punctuation">(</span>ofSize<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> weight<span class="token punctuation">:</span> <span class="token punctuation">.</span>light<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//设置数据显示的格式</span>
+        data<span class="token punctuation">.</span><span class="token function">setValueFormatter</span><span class="token punctuation">(</span><span class="token function">DigitValueFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// specify the width each bar should have</span>
+        data<span class="token punctuation">.</span>barWidth <span class="token operator">=</span> barWidth
+
+        <span class="token comment" spellcheck="true">//设置图形的起始坐标注意起始坐标和你的数据相关</span>
+        chartView<span class="token punctuation">.</span>xAxis<span class="token punctuation">.</span>axisMinimum <span class="token operator">=</span> <span class="token function">Double</span><span class="token punctuation">(</span>startYear<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">//        // groupWidthWithGroupSpace(...) is a helper that calculates the width each group needs based on the provided parameters，计算图形x方向坐标的最大值，如果不计算的话，x坐标跑到很大，你的图形就看不到了。</span>
+<span class="token comment" spellcheck="true">//        chartView.xAxis.axisMaximum = Double(startYear) + data.groupWidth(groupSpace: groupSpace, barSpace: Double(barSpace)) * Double(groupCount)</span>
+        <span class="token comment" spellcheck="true">//设置x方向的最大横坐标,因为我的柱状图不需要缩放，所以就直接给他横向坐标的最大数。</span>
+        chartView<span class="token punctuation">.</span>xAxis<span class="token punctuation">.</span>axisMaximum <span class="token operator">=</span> <span class="token number">5</span>
+
+        data<span class="token punctuation">.</span><span class="token function">groupBars</span><span class="token punctuation">(</span>fromX<span class="token punctuation">:</span> <span class="token function">Double</span><span class="token punctuation">(</span>startYear<span class="token punctuation">)</span><span class="token punctuation">,</span> groupSpace<span class="token punctuation">:</span> groupSpace<span class="token punctuation">,</span> barSpace<span class="token punctuation">:</span> <span class="token function">Double</span><span class="token punctuation">(</span>barSpace<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        chartView<span class="token punctuation">.</span>data <span class="token operator">=</span> data
+    <span class="token punctuation">}</span>
+
+</code></pre>
 	
 	</div>
 	
@@ -346,6 +602,7 @@
 			<div class="investment-title-1">
 				<div class="on">相关文章</div>
 				<div>评论</div>
+				<div>分享</div>
 			</div>
 			<div class="investment-title-2">	            
 				
@@ -362,6 +619,8 @@
 			</a>
 			
 	</span>
+
+
       		
 			</div>	
 		</div>
@@ -371,186 +630,277 @@
 				
 
 <div class="relate-post">
-	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
-							AAC音频转WAV
-						</a>
-						<p>
-							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
-						</p>
-					</div>
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
+								AAC音频转WAV			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 25日, 2019				
+							</p>
+							<p class="relate-post-content">
+								将aac编码格式的音频转为lpcm编码的音频
+/**
+ 把.m4a转为.caf格式
+ @param originalUrlStr .m4a文件路径
+ @param destUrlStr .wav文件路径
+ @param complet...
+							</p>
+						</div>
 
-					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
-						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
-							Message Filtter Extension 短信过滤
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="AAC音频转WAV"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
+								Message Filtter Extension 短信过滤			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
-						</p>
-					</div>
+1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+							</p>
+						</div>
 
-					<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
-						<img src="/img/back.jpg" class="relateImg" alt="Message Filtter Extension 短信过滤">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
-							Shell删除所有苹果证书
-						</a>
-						<p>
-							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Message Filtter Extension 短信过滤"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
+								Shell删除所有苹果证书			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								#!/bin/bash
 
-					<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
-						<img src="/img/back.jpg" class="relateImg" alt="Shell删除所有苹果证书">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/08/language/" title="Swift语言国际化">
-							Swift语言国际化
-						</a>
-						<p>
-							第一步在工程设置里面添加对应国际化的语言
+expired=$(security find-identity)
+if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
+then
+    echo "No expi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Shell删除所有苹果证书"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/08/language/" title="Swift语言国际化">
+								Swift语言国际化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一步在工程设置里面添加对应国际化的语言
 第二步添加Localizble.strings
 第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizbl...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/05/08/language/" title="Swift语言国际化">				
-						<img src="/img/back.jpg" class="relateImg" alt="Swift语言国际化">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
-							Docker Nginx 静态资源部署
-						</a>
-						<p>
-							1. 查看docker仓库中的nginx命令1docker search nginx
-2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
+						<div class="relate-post-cover">
+							<a href="/2019/05/08/language/" title="Swift语言国际化">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Swift语言国际化"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
+								Docker Nginx 静态资源部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
-							Nginx vue打包部署
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Docker Nginx 静态资源部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
+								Nginx vue打包部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
-						</p>
-					</div>
+1.在conf.d文件下添加一个新的配置文件,server {
+    #说明监听80端口
+...
+							</p>
+						</div>
 
-					<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Nginx vue打包部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
-							SCP文件上传下载
-						</a>
-						<p>
-							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Nginx vue打包部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
+								SCP文件上传下载			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
 
-					<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
-						<img src="/img/back.jpg" class="relateImg" alt="SCP文件上传下载">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
-							音频剪切、合成、淡入淡出
-						</a>
-						<p>
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
-						</p>
-					</div>
+上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							</p>
+						</div>
 
-					<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
-						<img src="/img/back.jpg" class="relateImg" alt="音频剪切、合成、淡入淡出">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/29/first/" title="swift 做一个答题的功能">
-							swift 做一个答题的功能
-						</a>
-						<p>
-							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
+						<div class="relate-post-cover">
+							<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="SCP文件上传下载"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
+								音频剪切、合成、淡入淡出			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 19日, 2018				
+							</p>
+							<p class="relate-post-content">
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="音频剪切、合成、淡入淡出"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/29/first/" title="swift 做一个答题的功能">
+								swift 做一个答题的功能			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 29日, 2018				
+							</p>
+							<p class="relate-post-content">
+								实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
 
 思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
-						<img src="/img/back.jpg" class="relateImg" alt="swift 做一个答题的功能">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
-							iOS原生调用ReatNative
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="swift 做一个答题的功能"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+								iOS原生调用ReatNative			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 20日, 2018				
+							</p>
+							<p class="relate-post-content">
+								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
-						</p>
-					</div>
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+							</p>
+						</div>
 
-					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
-						<img src="/img/back.jpg" class="relateImg" alt="iOS原生调用ReatNative">
-					</a>
-				</li>											
-		
-		
-	</ul>
+						<div class="relate-post-cover">
+							<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="iOS原生调用ReatNative"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
 </div>	
 			</div>
 			<div class="investment-content-list">
@@ -560,7 +910,7 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		
 
-			<!-- comment gitalk -->
+			<!-- gitalk comment -->
 			<!-- show gitalk comment -->
 <div id="gitalk-container"></div>
 
@@ -633,7 +983,29 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 </div>
 			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
 		</div>	
+	</div>
 	</div>
 </div>
 
@@ -667,103 +1039,111 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 	</script>
     
 
+	
 
- 
 
 <!-- show math formula -->
 
 
 
+	
 
-<!-- TODO: There seems to be a bug when you close the post gallery! -->
-<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
-<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
-<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
 
 <script type="text/javascript">
-	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
-	$('.article-content img').each(function() {
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
 		var imgPath = $(this).attr('src'),
 			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
 	});
 
-	$('.article-content').lightGallery({
-		mode: 'lg-slide',
-		selector: '.img-responsive',
-		share: false,
-		zoom: false,
-		download: false
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
 	});
-	//TODO：支持video
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
 </script>
-
-<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-		
-
-		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
-	
 		</main>
-		
+
 		<!--footer-->
 		<footer>
 	<div class="social">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 		
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+				&copy;2017 - 2019, content by 目生鱼博客. All Rights Reserved.
 			
 			
 			
@@ -786,14 +1166,17 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		</p>
 		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
 		</p>
 	</div>		
 </footer>
 		
-    <!-- set '1' to show motto in all pages! -->
+	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/js/motto.js"></script>
+	<script src="/plugin/motto/motto.js"></script>
+	
 	<script type="text/javascript">
 		$(".motto").html( getMingYanContent() );
 	</script>	
@@ -802,26 +1185,38 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 
 
+<!-- love effect -->
 
-    <script src="/js/love.js"></script>
+	<script src="/plugin/love/love.js"></script>
 
 
-<!--back to top-->
+<!-- back to top -->
 
-    
+	
 	<div id="totop">
   		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
-	<div id="tobuttom">
-		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
-	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
  
 
-
- 
-
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-	</body>
-	</html>
+	</body>	
+</html>

@@ -3,9 +3,8 @@
 	时间：2018-09-25
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
+<!DOCTYPE html>
+<html class="html-loading">
 		
 
 <head>
@@ -17,35 +16,32 @@
       swift 做一个答题的功能 | 目生鱼博客
     
   </title>
-  <meta name="author" content="目生鱼">
+  <meta name="author" content="">
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
 
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -55,109 +51,82 @@
 <!-- header -->
 <header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
 	<div class="mask">
+		<!-- Logo and navigation -->
 		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
+			<div id="logo">
+				<a href="/">
+					
 						fishofeyes
-					</a>
-				
+					
+				</a>
 			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
+			
+			<div id="navigation-show">
 				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-					
-				</ul>			
+	
+</ul>
 			</div>				
 		</div>
 
+		<!-- motto -->
 		<div class="h-body">	
-			<!-- motto -->
 			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
+				<p class="motto"></p>
 			
-
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						当前文章&nbsp;:&nbsp;《swift 做一个答题的功能》
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
-
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
 		</div>
 		
 		<!-- others: such as time... -->			
 		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
 <style type="text/css">
 	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
 		position: absolute;
-		left: 40px;
-		bottom: 30px;
+		bottom: 5px;
+		right: 1rem;
 		writing-mode: tb-rl;
-		font-size: 36px;
 	}	
+	
 	.header-date a {
 		border-bottom: none;
 	}
+
 	@media only screen and (max-width: 768 ) {
 		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
+			font-size: 1rem;
 		}			
 	}
 </style>
@@ -174,13 +143,32 @@
 		}
 	});
 </script>
+			
+		</div>
+	</div>
 </header>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
-</a>
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
 
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《swift 做一个答题的功能》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<h3>Navigation</h3>
@@ -188,87 +176,106 @@
 	</div>
 	<div class="nav-body">
 		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-			
-		</ul>
+	
+</ul>
 	</div>
-
 	<div class="nav-footer">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 </nav>
-
-		
+			
 		<!--main-->
 		<main>
-			<div class="layout-post">
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
 	
-	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
 	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
 	<a href="/2018/10/29/first/" itemprop="url">
 		swift 做一个答题的功能
@@ -278,43 +285,60 @@
 
 	<div class="article-meta">
 		<span>
+			<i class="fa fa-calendar"></i>
 			
+
+
 	发布于
+
 	<a href="/2018/10/29/first/" itemprop="url">
 		<time datetime="2018-10-29T14:07:49.130Z" itemprop="datePublished">
 	  		2018-10-29
 	  </time>
-	</a> 
+	</a>
+	&nbsp;
 
-	/
+
+
+
+
+			
+
+
+
+
 	更新于
+
 	<a href="/2018/10/29/first/" itemprop="url">
 		<time datetime="2018-10-29T14:07:49.130Z" itemprop="dateUpdated">
 	  		2019-06-25
 	  </time>
-	</a> 	
+	</a> 
+
+
 
 		</span>
-		/
 		<span>
 			<i class="fa fa-tags"></i>
 					
 		</span>
-		/
+		
 		
 
+	
     <span class="leancloud_visitors" id="/2018/10/29/first/_visitors" data-url="/2018/10/29/first/" data-title="swift 做一个答题的功能">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2018/10/29/first/_likes" data-url="/2018/10/29/first/" data-title="swift 做一个答题的功能" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -323,12 +347,340 @@
 	<div class="article-content" id="article-content">
 		<h3 id="实现的效果是："><a href="#实现的效果是：" class="headerlink" title="实现的效果是："></a>实现的效果是：</h3><h4 id="1-点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。"><a href="#1-点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。" class="headerlink" title="1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。"></a>1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。</h4><h4 id="2-可以查看上一题的答题情况。"><a href="#2-可以查看上一题的答题情况。" class="headerlink" title="2.可以查看上一题的答题情况。"></a>2.可以查看上一题的答题情况。</h4><p>看下效果图吧</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/1/24/16127e2f3ef161eb?w=281&amp;h=500&amp;f=gif&amp;s=1077680" alt=""></p>
-<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><h4 id="1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"><a href="#1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。" class="headerlink" title="1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"></a>1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OnlineTestDetailModel</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** 题的ID */</span></span><br><span class="line">    <span class="keyword">var</span> id:<span class="type">String</span>?</span><br><span class="line">    <span class="comment">/** 问题 */</span></span><br><span class="line">    <span class="keyword">var</span> question:<span class="type">String</span>?</span><br><span class="line">    <span class="comment">/** 答案选项 */</span></span><br><span class="line">    <span class="keyword">var</span> answers:[<span class="type">String</span>]?</span><br><span class="line">    <span class="comment">//正确答案索引</span></span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">right</span>:<span class="type">String</span>?</span><br><span class="line">    <span class="comment">/** 当前选择的答案 */</span></span><br><span class="line">    <span class="keyword">var</span> choose_answer:<span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"><a href="#2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。" class="headerlink" title="2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"></a>2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。</h4><p>数据返回两组一组显示题和答案，一组显示上一题和下一题。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------注册cell-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">registCell</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 问题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineTestDetailCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell"</span>)</span><br><span class="line">        <span class="comment">/** 上一题和下一题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"LastAndNextCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell2"</span>)</span><br><span class="line">        <span class="comment">/** 答案选项cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineAnswerCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell3"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> section == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">                <span class="keyword">let</span> <span class="built_in">count</span> = model.answers?.<span class="built_in">count</span> ?? <span class="number">0</span></span><br><span class="line">                <span class="comment">//这里+1是加了题目的数量</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">count</span> + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//否则就返回上一题和下一题的cell数量</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-用户点击答案cell的时候就判断是否正确然后改变按钮的image"><a href="#3-用户点击答案cell的时候就判断是否正确然后改变按钮的image" class="headerlink" title="3.用户点击答案cell的时候就判断是否正确然后改变按钮的image"></a>3.用户点击答案cell的时候就判断是否正确然后改变按钮的image</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, didSelectRowAt indexPath: IndexPath)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/** 如果用户已经选择过答案了 */</span></span><br><span class="line">      <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">      <span class="keyword">if</span> model.choose_answer != <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">      <span class="comment">/** 如果用户没有选择答案 */</span></span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">let</span> cell = tableView.cellForRow(at: indexPath) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span>&#123;</span><br><span class="line">          <span class="keyword">self</span>.choose_answer = indexPath.row</span><br><span class="line">          <span class="comment">/** current_cell 是用来判断用户是否选择了答案如果没有选择答案，就为nil */</span></span><br><span class="line">          <span class="keyword">self</span>.current_cell = cell</span><br><span class="line">          check_answer()</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">self</span>.current_cell = <span class="literal">nil</span></span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-检查答案是否正确"><a href="#4-检查答案是否正确" class="headerlink" title="4.检查答案是否正确"></a>4.检查答案是否正确</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------判断用户选择是否正确-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">check_answer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 判断用户是否选择了答案 */</span></span><br><span class="line">        <span class="keyword">if</span> current_cell == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="comment">/** 记录用户选择的答案 */</span></span><br><span class="line">        model.choose_answer = choose_answer</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">right</span> = <span class="type">Int</span>(model.<span class="keyword">right</span> ?? <span class="string">"0"</span>)!</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer == <span class="keyword">right</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了对的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了错误的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"错"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">            <span class="keyword">let</span> cell2 = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: <span class="keyword">right</span>, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell2?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果选择到了最后一道题就显示交卷按钮</span></span><br><span class="line">        finish_changeBtn()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"><a href="#5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。" class="headerlink" title="5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"></a>5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK:-----------下一题-------------//</span></span><br><span class="line">   <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_next_action</span><span class="params">(sender:UIButton)</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">//交卷</span></span><br><span class="line">       <span class="keyword">if</span> sender.titleLabel?.text == <span class="string">"完成交卷"</span> &#123; request_submit_finish();<span class="keyword">return</span> &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">/** 如果没有选择答案就不做处理 */</span></span><br><span class="line">       <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">       <span class="keyword">if</span> model.choose_answer == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> answerIndex + <span class="number">1</span> &gt;= <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">       answerIndex = answerIndex + <span class="number">1</span></span><br><span class="line">       <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//MARK:-----------上一题-------------//</span></span><br><span class="line">   <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_last_action</span><span class="params">()</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> answerIndex - <span class="number">1</span> &lt; <span class="number">0</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">       answerIndex = answerIndex - <span class="number">1</span></span><br><span class="line">       <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="全部代码"><a href="#全部代码" class="headerlink" title="全部代码"></a>全部代码</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OnlineTestDetailVC</span>: <span class="title">CommentTableViewVC</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> currentAnwserCell:<span class="type">OnlineTestDetailCell</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> arrayData:[<span class="type">OnlineTestDetailModel</span>] = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 判断是第几道题的 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> answerIndex:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 选择的是第几道题 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> choose_answer:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 当前选择的cell */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> current_cell:<span class="type">OnlineAnswerCell</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 答题分类的id */</span></span><br><span class="line">    <span class="keyword">var</span> questionID:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.navigationItem.title = <span class="string">"在线测试"</span></span><br><span class="line">        tableView.delegate = <span class="keyword">self</span></span><br><span class="line">        tableView.dataSource = <span class="keyword">self</span></span><br><span class="line">        tableView.mj_header = <span class="literal">nil</span></span><br><span class="line">        <span class="comment">//MARK:-----------注册cell-------------//</span></span><br><span class="line">        registCell()</span><br><span class="line">        <span class="comment">//请求每一道题</span></span><br><span class="line">        request_question_list()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------请求每一道题-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request_question_list</span><span class="params">()</span></span>&#123;</span><br><span class="line">        showStaus(<span class="string">"正在请求..."</span>)</span><br><span class="line">        <span class="type">NetworkTool</span>.requestData(urlString: api_start_testing,params: [<span class="string">"classify"</span>:questionID], method: .post) &#123; (res) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> model = <span class="type">OnlineTestArrayDetailModel</span>.deserialize(from: res)&#123;</span><br><span class="line">                <span class="keyword">guard</span> <span class="keyword">let</span> array = model.data <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">                <span class="keyword">self</span>.arrayData = array</span><br><span class="line">                <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------注册cell-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">registCell</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 问题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineTestDetailCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell"</span>)</span><br><span class="line">        <span class="comment">/** 上一题和下一题cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"LastAndNextCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell2"</span>)</span><br><span class="line">        <span class="comment">/** 答案选项cell */</span></span><br><span class="line">        tableView.register(<span class="type">UINib</span>(nibName:<span class="string">"OnlineAnswerCell"</span>,bundle:<span class="literal">nil</span>), forCellReuseIdentifier: <span class="string">"cell3"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------交卷请求-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request_submit_finish</span><span class="params">()</span></span>&#123;</span><br><span class="line">        showStaus(<span class="string">"请稍后..."</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> qIDs = <span class="keyword">self</span>.arrayData.flatMap&#123; $<span class="number">0</span>.id &#125;</span><br><span class="line">        <span class="keyword">let</span> answers = <span class="keyword">self</span>.arrayData.flatMap&#123; $<span class="number">0</span>.choose_answer &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">NetworkTool</span>.requestData(urlString: api_submit_an_answer,params: [<span class="string">"uid"</span>:<span class="type">UserMananager</span>.manager.uid ?? <span class="string">""</span>,<span class="string">"question"</span>:qIDs,<span class="string">"answer"</span>:answers,<span class="string">"classify"</span>:questionID], method: .post) &#123; (res) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> code = res[<span class="string">"code"</span>] <span class="keyword">as</span>? <span class="type">Int</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> code == <span class="number">200</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">let</span> model = <span class="type">OnlineTestRecordModel</span>.deserialize(from: res[<span class="string">"info"</span>] <span class="keyword">as</span>? [<span class="type">String</span>:<span class="type">Any</span>])&#123;</span><br><span class="line">                        <span class="keyword">let</span> vc = <span class="type">OnlineTestRecordDetailVC</span>()</span><br><span class="line">                        vc.answerModel = model</span><br><span class="line">                        vc.arrayQuestionData = <span class="keyword">self</span>.arrayData</span><br><span class="line">                        <span class="keyword">self</span>.push_vc(sender: vc)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------下一题-------------//</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_next_action</span><span class="params">(sender:UIButton)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//交卷</span></span><br><span class="line">        <span class="keyword">if</span> sender.titleLabel?.text == <span class="string">"完成交卷"</span> &#123; request_submit_finish();<span class="keyword">return</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/** 如果没有选择答案就不做处理 */</span></span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> answerIndex + <span class="number">1</span> &gt;= <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        answerIndex = answerIndex + <span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//MARK:-----------上一题-------------//</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">btn_last_action</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> answerIndex - <span class="number">1</span> &lt; <span class="number">0</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        answerIndex = answerIndex - <span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------判断用户选择是否正确-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">check_answer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/** 判断用户是否选择了答案 */</span></span><br><span class="line">        <span class="keyword">if</span> current_cell == <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="comment">/** 记录用户选择的答案 */</span></span><br><span class="line">        model.choose_answer = choose_answer</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">right</span> = <span class="type">Int</span>(model.<span class="keyword">right</span> ?? <span class="string">"0"</span>)!</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer == <span class="keyword">right</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了对的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">/** 如果选择了错误的答案 */</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: model.choose_answer!, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"错"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">            <span class="keyword">let</span> cell2 = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: <span class="keyword">right</span>, section: <span class="number">0</span>)) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell2?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果选择到了最后一道题就显示交卷按钮</span></span><br><span class="line">        finish_changeBtn()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK:-----------完成交卷-------------//</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">finish_changeBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//MARK:-----------如果用户做到了最后一题，就显示提交试卷-------------//</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> cell = tableView.cellForRow(at: <span class="type">IndexPath</span>(row: <span class="number">0</span>, section: <span class="number">1</span>)) <span class="keyword">as</span>? <span class="type">LastAndNextCell</span>, answerIndex + <span class="number">1</span> &gt;= <span class="keyword">self</span>.arrayData.<span class="built_in">count</span>&#123;</span><br><span class="line">            cell.btnlast.isHidden = <span class="literal">true</span></span><br><span class="line">            cell.btnNext.snp.remakeConstraints(&#123; (make) <span class="keyword">in</span></span><br><span class="line">                make.width.equalTo(<span class="number">150</span>)</span><br><span class="line">                make.height.equalTo(<span class="number">50</span>)</span><br><span class="line">                make.top.equalTo(<span class="number">50</span>)</span><br><span class="line">                make.centerX.equalToSuperview()</span><br><span class="line">            &#125;)</span><br><span class="line">            cell.btnNext.setTitle(<span class="string">"完成交卷"</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">OnlineTestDetailVC</span>:<span class="title">UITableViewDelegate</span>,<span class="title">UITableViewDataSource</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> section == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.arrayData.<span class="built_in">count</span> != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">                <span class="keyword">let</span> <span class="built_in">count</span> = model.answers?.<span class="built_in">count</span> ?? <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">count</span> + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, heightForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> indexPath.section == <span class="number">1</span> &#123; <span class="keyword">return</span> <span class="number">300</span> &#125;</span><br><span class="line">        <span class="keyword">if</span> indexPath.row == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">            <span class="keyword">let</span> text = model.question ?? <span class="string">""</span></span><br><span class="line">            <span class="keyword">return</span> text.get_heightForComment(fontSize: fontMid, width: <span class="type">SCREEN_WIDTH</span> - <span class="number">40</span>) + <span class="number">80</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">60</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> indexPath.section == <span class="number">1</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell2"</span>) <span class="keyword">as</span>? <span class="type">LastAndNextCell</span></span><br><span class="line">            cell?.btnlast.addTarget(<span class="keyword">self</span>, action: #selector(btn_last_action), <span class="keyword">for</span>: .touchUpInside)</span><br><span class="line">            cell?.btnNext.addTarget(<span class="keyword">self</span>, action: #selector(btn_next_action(sender:)), <span class="keyword">for</span>: .touchUpInside)</span><br><span class="line">            <span class="keyword">return</span> cell!</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//MARK:-----------问题模型-------------//</span></span><br><span class="line">            <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">            <span class="keyword">if</span> indexPath.row == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell"</span>) <span class="keyword">as</span>? <span class="type">OnlineTestDetailCell</span></span><br><span class="line">                cell?.model = model</span><br><span class="line">                <span class="comment">/** 第几道题 */</span></span><br><span class="line">                cell?.labelIndex.text = <span class="string">"第<span class="subst">\(answerIndex+<span class="number">1</span>)</span>题"</span></span><br><span class="line">                <span class="keyword">return</span> cell!</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//MARK:-----------答案记录-------------//</span></span><br><span class="line">            <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell3"</span>) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span></span><br><span class="line">            cell?.labelAnswer.setTitle(<span class="string">" <span class="subst">\(model.answers![indexPath.row - <span class="number">1</span>])</span>"</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">            <span class="comment">//MARK:-----------如果用户点击上一题，或者下一题需要刷新选择的题-------------//</span></span><br><span class="line">            <span class="keyword">if</span> model.choose_answer == <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="comment">/** 如果其他题没有选择就隐藏对错的图片 */</span></span><br><span class="line">                cell?.labelAnswer.setImage(<span class="literal">nil</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">/** 获取正确的答案 */</span></span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">right</span> = <span class="type">Int</span>(model.<span class="keyword">right</span> ?? <span class="string">"0"</span>)!</span><br><span class="line">                <span class="keyword">if</span> indexPath.row == <span class="keyword">right</span>&#123;</span><br><span class="line">                    <span class="comment">/** 如果选择了对的答案 */</span></span><br><span class="line">                    cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"对勾"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> indexPath.row == model.choose_answer&#123;</span><br><span class="line">                    cell?.labelAnswer.setImage(<span class="type">UIImage</span>(named:<span class="string">"错"</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    cell?.labelAnswer.setImage(<span class="literal">nil</span>, <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> cell!</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, didSelectRowAt indexPath: IndexPath)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** 如果用户已经选择过答案了 */</span></span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.arrayData[answerIndex]</span><br><span class="line">        <span class="keyword">if</span> model.choose_answer != <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="comment">/** 如果用户没有选择答案 */</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> cell = tableView.cellForRow(at: indexPath) <span class="keyword">as</span>? <span class="type">OnlineAnswerCell</span>&#123;</span><br><span class="line">            <span class="keyword">self</span>.choose_answer = indexPath.row</span><br><span class="line">            <span class="comment">/** current_cell 是用来判断用户是否选择了答案如果没有选择答案，就为nil */</span></span><br><span class="line">            <span class="keyword">self</span>.current_cell = cell</span><br><span class="line">            check_answer()</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">self</span>.current_cell = <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><h4 id="1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"><a href="#1-看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引-1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。" class="headerlink" title="1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。"></a>1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。</h4><pre class=" language-swift"><code class="language-swift"><span class="token keyword">class</span> <span class="token class-name">OnlineTestDetailModel</span><span class="token punctuation">:</span> <span class="token builtin">HandyJSON</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/** 题的ID */</span>
+    <span class="token keyword">var</span> id<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token operator">?</span>
+    <span class="token comment" spellcheck="true">/** 问题 */</span>
+    <span class="token keyword">var</span> question<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token operator">?</span>
+    <span class="token comment" spellcheck="true">/** 答案选项 */</span>
+    <span class="token keyword">var</span> answers<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token operator">?</span>
+    <span class="token comment" spellcheck="true">//正确答案索引</span>
+    <span class="token keyword">var</span> <span class="token keyword">right</span><span class="token punctuation">:</span><span class="token builtin">String</span><span class="token operator">?</span>
+    <span class="token comment" spellcheck="true">/** 当前选择的答案 */</span>
+    <span class="token keyword">var</span> choose_answer<span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token operator">?</span>
+    <span class="token keyword">required</span> <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"><a href="#2-整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。" class="headerlink" title="2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。"></a>2.整个是用的tableView来做的。问题是一种cell，答案是一种cell，然后cell里面放一个按钮，在用户做出选择之后改变按钮的图片（✅或者❌）。</h4><p>数据返回两组一组显示题和答案，一组显示上一题和下一题。</p>
+<pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//MARK:-----------注册cell-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">registCell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/** 问题cell */</span>
+        tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token function">UINib</span><span class="token punctuation">(</span>nibName<span class="token punctuation">:</span><span class="token string">"OnlineTestDetailCell"</span><span class="token punctuation">,</span>bundle<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">/** 上一题和下一题cell */</span>
+        tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token function">UINib</span><span class="token punctuation">(</span>nibName<span class="token punctuation">:</span><span class="token string">"LastAndNextCell"</span><span class="token punctuation">,</span>bundle<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell2"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">/** 答案选项cell */</span>
+        tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token function">UINib</span><span class="token punctuation">(</span>nibName<span class="token punctuation">:</span><span class="token string">"OnlineAnswerCell"</span><span class="token punctuation">,</span>bundle<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell3"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">numberOfSections</span><span class="token punctuation">(</span><span class="token keyword">in</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">2</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> numberOfRowsInSection section<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> section <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+                <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+                <span class="token keyword">let</span> <span class="token builtin">count</span> <span class="token operator">=</span> model<span class="token punctuation">.</span>answers<span class="token operator">?</span><span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">0</span>
+                <span class="token comment" spellcheck="true">//这里+1是加了题目的数量</span>
+                <span class="token keyword">return</span> <span class="token builtin">count</span> <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//否则就返回上一题和下一题的cell数量</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+
+</code></pre>
+<h4 id="3-用户点击答案cell的时候就判断是否正确然后改变按钮的image"><a href="#3-用户点击答案cell的时候就判断是否正确然后改变按钮的image" class="headerlink" title="3.用户点击答案cell的时候就判断是否正确然后改变按钮的image"></a>3.用户点击答案cell的时候就判断是否正确然后改变按钮的image</h4><pre class=" language-swift"><code class="language-swift">  <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> didSelectRowAt indexPath<span class="token punctuation">:</span> <span class="token builtin">IndexPath</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">/** 如果用户已经选择过答案了 */</span>
+        <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">!=</span> <span class="token constant">nil</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">/** 如果用户没有选择答案 */</span>
+        <span class="token keyword">if</span> <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> indexPath<span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span><span class="token punctuation">{</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>choose_answer <span class="token operator">=</span> indexPath<span class="token punctuation">.</span>row
+            <span class="token comment" spellcheck="true">/** current_cell 是用来判断用户是否选择了答案如果没有选择答案，就为nil */</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>current_cell <span class="token operator">=</span> cell
+            <span class="token function">check_answer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>current_cell <span class="token operator">=</span> <span class="token constant">nil</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+</code></pre>
+<h4 id="4-检查答案是否正确"><a href="#4-检查答案是否正确" class="headerlink" title="4.检查答案是否正确"></a>4.检查答案是否正确</h4><pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//MARK:-----------判断用户选择是否正确-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">check_answer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/** 判断用户是否选择了答案 */</span>
+        <span class="token keyword">if</span> current_cell <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true">/** 记录用户选择的答案 */</span>
+        model<span class="token punctuation">.</span>choose_answer <span class="token operator">=</span> choose_answer
+        <span class="token keyword">let</span> <span class="token keyword">right</span> <span class="token operator">=</span> <span class="token function">Int</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span><span class="token keyword">right</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">"0"</span><span class="token punctuation">)</span><span class="token operator">!</span>
+        <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">==</span> <span class="token keyword">right</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/** 如果选择了对的答案 */</span>
+            <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> model<span class="token punctuation">.</span>choose_answer<span class="token operator">!</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"对勾"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/** 如果选择了错误的答案 */</span>
+            <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> model<span class="token punctuation">.</span>choose_answer<span class="token operator">!</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"错"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> cell2 <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> <span class="token keyword">right</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell2<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"对勾"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//如果选择到了最后一道题就显示交卷按钮</span>
+        <span class="token function">finish_changeBtn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h4 id="5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"><a href="#5-上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。" class="headerlink" title="5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。"></a>5.上一题和下一题就直接模型数组的索引进行加减，然后对边界做一下简单的判断处理就行了。</h4><pre class=" language-swift"><code class="language-swift"> <span class="token comment" spellcheck="true">//MARK:-----------下一题-------------//</span>
+    <span class="token atrule">@objc</span> <span class="token keyword">func</span> <span class="token function">btn_next_action</span><span class="token punctuation">(</span>sender<span class="token punctuation">:</span><span class="token builtin">UIButton</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//交卷</span>
+        <span class="token keyword">if</span> sender<span class="token punctuation">.</span>titleLabel<span class="token operator">?</span><span class="token punctuation">.</span>text <span class="token operator">==</span> <span class="token string">"完成交卷"</span> <span class="token punctuation">{</span> <span class="token function">request_submit_finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/** 如果没有选择答案就不做处理 */</span>
+        <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> answerIndex <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">>=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        answerIndex <span class="token operator">=</span> answerIndex <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//MARK:-----------上一题-------------//</span>
+    <span class="token atrule">@objc</span> <span class="token keyword">func</span> <span class="token function">btn_last_action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> answerIndex <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        answerIndex <span class="token operator">=</span> answerIndex <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+</code></pre>
+<h3 id="全部代码"><a href="#全部代码" class="headerlink" title="全部代码"></a>全部代码</h3><pre class=" language-swift"><code class="language-swift"><span class="token keyword">class</span> <span class="token class-name">OnlineTestDetailVC</span><span class="token punctuation">:</span> <span class="token builtin">CommentTableViewVC</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">var</span> currentAnwserCell<span class="token punctuation">:</span><span class="token builtin">OnlineTestDetailCell</span><span class="token operator">!</span>
+
+    <span class="token keyword">var</span> arrayData<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token builtin">OnlineTestDetailModel</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true">/** 判断是第几道题的 */</span>
+    <span class="token keyword">private</span> <span class="token keyword">var</span> answerIndex<span class="token punctuation">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token comment" spellcheck="true">/** 选择的是第几道题 */</span>
+    <span class="token keyword">private</span> <span class="token keyword">var</span> choose_answer<span class="token punctuation">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token comment" spellcheck="true">/** 当前选择的cell */</span>
+    <span class="token keyword">private</span> <span class="token keyword">var</span> current_cell<span class="token punctuation">:</span><span class="token builtin">OnlineAnswerCell</span><span class="token operator">?</span>
+
+    <span class="token comment" spellcheck="true">/** 答题分类的id */</span>
+    <span class="token keyword">var</span> questionID<span class="token punctuation">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">self</span><span class="token punctuation">.</span>navigationItem<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"在线测试"</span>
+        tableView<span class="token punctuation">.</span>delegate <span class="token operator">=</span> <span class="token keyword">self</span>
+        tableView<span class="token punctuation">.</span>dataSource <span class="token operator">=</span> <span class="token keyword">self</span>
+        tableView<span class="token punctuation">.</span>mj_header <span class="token operator">=</span> <span class="token constant">nil</span>
+        <span class="token comment" spellcheck="true">//MARK:-----------注册cell-------------//</span>
+        <span class="token function">registCell</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//请求每一道题</span>
+        <span class="token function">request_question_list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//MARK:-----------请求每一道题-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">request_question_list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">showStaus</span><span class="token punctuation">(</span><span class="token string">"正在请求..."</span><span class="token punctuation">)</span>
+        <span class="token builtin">NetworkTool</span><span class="token punctuation">.</span><span class="token function">requestData</span><span class="token punctuation">(</span>urlString<span class="token punctuation">:</span> api_start_testing<span class="token punctuation">,</span>params<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"classify"</span><span class="token punctuation">:</span>questionID<span class="token punctuation">]</span><span class="token punctuation">,</span> method<span class="token punctuation">:</span> <span class="token punctuation">.</span>post<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token keyword">if</span> <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token builtin">OnlineTestArrayDetailModel</span><span class="token punctuation">.</span><span class="token function">deserialize</span><span class="token punctuation">(</span>from<span class="token punctuation">:</span> res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">guard</span> <span class="token keyword">let</span> array <span class="token operator">=</span> model<span class="token punctuation">.</span>data <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+                <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData <span class="token operator">=</span> array
+                <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//MARK:-----------注册cell-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">registCell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/** 问题cell */</span>
+        tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token function">UINib</span><span class="token punctuation">(</span>nibName<span class="token punctuation">:</span><span class="token string">"OnlineTestDetailCell"</span><span class="token punctuation">,</span>bundle<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">/** 上一题和下一题cell */</span>
+        tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token function">UINib</span><span class="token punctuation">(</span>nibName<span class="token punctuation">:</span><span class="token string">"LastAndNextCell"</span><span class="token punctuation">,</span>bundle<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell2"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">/** 答案选项cell */</span>
+        tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token function">UINib</span><span class="token punctuation">(</span>nibName<span class="token punctuation">:</span><span class="token string">"OnlineAnswerCell"</span><span class="token punctuation">,</span>bundle<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell3"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//MARK:-----------交卷请求-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">request_submit_finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">showStaus</span><span class="token punctuation">(</span><span class="token string">"请稍后..."</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> qIDs <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span>flatMap<span class="token punctuation">{</span> $<span class="token number">0</span><span class="token punctuation">.</span>id <span class="token punctuation">}</span>
+        <span class="token keyword">let</span> answers <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span>flatMap<span class="token punctuation">{</span> $<span class="token number">0</span><span class="token punctuation">.</span>choose_answer <span class="token punctuation">}</span>
+
+        <span class="token builtin">NetworkTool</span><span class="token punctuation">.</span><span class="token function">requestData</span><span class="token punctuation">(</span>urlString<span class="token punctuation">:</span> api_submit_an_answer<span class="token punctuation">,</span>params<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"uid"</span><span class="token punctuation">:</span><span class="token builtin">UserMananager</span><span class="token punctuation">.</span>manager<span class="token punctuation">.</span>uid <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">""</span><span class="token punctuation">,</span><span class="token string">"question"</span><span class="token punctuation">:</span>qIDs<span class="token punctuation">,</span><span class="token string">"answer"</span><span class="token punctuation">:</span>answers<span class="token punctuation">,</span><span class="token string">"classify"</span><span class="token punctuation">:</span>questionID<span class="token punctuation">]</span><span class="token punctuation">,</span> method<span class="token punctuation">:</span> <span class="token punctuation">.</span>post<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token keyword">if</span> <span class="token keyword">let</span> code <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">"code"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> code <span class="token operator">==</span> <span class="token number">200</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token builtin">OnlineTestRecordModel</span><span class="token punctuation">.</span><span class="token function">deserialize</span><span class="token punctuation">(</span>from<span class="token punctuation">:</span> res<span class="token punctuation">[</span><span class="token string">"info"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">:</span><span class="token builtin">Any</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">let</span> vc <span class="token operator">=</span> <span class="token function">OnlineTestRecordDetailVC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                        vc<span class="token punctuation">.</span>answerModel <span class="token operator">=</span> model
+                        vc<span class="token punctuation">.</span>arrayQuestionData <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData
+                        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">push_vc</span><span class="token punctuation">(</span>sender<span class="token punctuation">:</span> vc<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//MARK:-----------下一题-------------//</span>
+    <span class="token atrule">@objc</span> <span class="token keyword">func</span> <span class="token function">btn_next_action</span><span class="token punctuation">(</span>sender<span class="token punctuation">:</span><span class="token builtin">UIButton</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//交卷</span>
+        <span class="token keyword">if</span> sender<span class="token punctuation">.</span>titleLabel<span class="token operator">?</span><span class="token punctuation">.</span>text <span class="token operator">==</span> <span class="token string">"完成交卷"</span> <span class="token punctuation">{</span> <span class="token function">request_submit_finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/** 如果没有选择答案就不做处理 */</span>
+        <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> answerIndex <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">>=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        answerIndex <span class="token operator">=</span> answerIndex <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//MARK:-----------上一题-------------//</span>
+    <span class="token atrule">@objc</span> <span class="token keyword">func</span> <span class="token function">btn_last_action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> answerIndex <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        answerIndex <span class="token operator">=</span> answerIndex <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//MARK:-----------判断用户选择是否正确-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">check_answer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/** 判断用户是否选择了答案 */</span>
+        <span class="token keyword">if</span> current_cell <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true">/** 记录用户选择的答案 */</span>
+        model<span class="token punctuation">.</span>choose_answer <span class="token operator">=</span> choose_answer
+        <span class="token keyword">let</span> <span class="token keyword">right</span> <span class="token operator">=</span> <span class="token function">Int</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span><span class="token keyword">right</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">"0"</span><span class="token punctuation">)</span><span class="token operator">!</span>
+        <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">==</span> <span class="token keyword">right</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/** 如果选择了对的答案 */</span>
+            <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> model<span class="token punctuation">.</span>choose_answer<span class="token operator">!</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"对勾"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/** 如果选择了错误的答案 */</span>
+            <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> model<span class="token punctuation">.</span>choose_answer<span class="token operator">!</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"错"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> cell2 <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> <span class="token keyword">right</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell2<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"对勾"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">//如果选择到了最后一道题就显示交卷按钮</span>
+        <span class="token function">finish_changeBtn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//MARK:-----------完成交卷-------------//</span>
+    <span class="token keyword">func</span> <span class="token function">finish_changeBtn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//MARK:-----------如果用户做到了最后一题，就显示提交试卷-------------//</span>
+        <span class="token keyword">if</span> <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token function">IndexPath</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> section<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">LastAndNextCell</span><span class="token punctuation">,</span> answerIndex <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">>=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span><span class="token builtin">count</span><span class="token punctuation">{</span>
+            cell<span class="token punctuation">.</span>btnlast<span class="token punctuation">.</span>isHidden <span class="token operator">=</span> <span class="token boolean">true</span>
+            cell<span class="token punctuation">.</span>btnNext<span class="token punctuation">.</span>snp<span class="token punctuation">.</span><span class="token function">remakeConstraints</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token punctuation">(</span>make<span class="token punctuation">)</span> <span class="token keyword">in</span>
+                make<span class="token punctuation">.</span>width<span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">)</span>
+                make<span class="token punctuation">.</span>height<span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+                make<span class="token punctuation">.</span>top<span class="token punctuation">.</span><span class="token function">equalTo</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+                make<span class="token punctuation">.</span>centerX<span class="token punctuation">.</span><span class="token function">equalToSuperview</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            cell<span class="token punctuation">.</span>btnNext<span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token string">"完成交卷"</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">extension</span> <span class="token builtin">OnlineTestDetailVC</span><span class="token punctuation">:</span><span class="token builtin">UITableViewDelegate</span><span class="token punctuation">,</span><span class="token builtin">UITableViewDataSource</span><span class="token punctuation">{</span>
+    <span class="token keyword">func</span> <span class="token function">numberOfSections</span><span class="token punctuation">(</span><span class="token keyword">in</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">2</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> numberOfRowsInSection section<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> section <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+                <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+                <span class="token keyword">let</span> <span class="token builtin">count</span> <span class="token operator">=</span> model<span class="token punctuation">.</span>answers<span class="token operator">?</span><span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">0</span>
+                <span class="token keyword">return</span> <span class="token builtin">count</span> <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> heightForRowAt indexPath<span class="token punctuation">:</span> <span class="token builtin">IndexPath</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">CGFloat</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> indexPath<span class="token punctuation">.</span>section <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">300</span> <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> indexPath<span class="token punctuation">.</span>row <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+            <span class="token keyword">let</span> text <span class="token operator">=</span> model<span class="token punctuation">.</span>question <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">""</span>
+            <span class="token keyword">return</span> text<span class="token punctuation">.</span><span class="token function">get_heightForComment</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> fontMid<span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token constant">SCREEN_WIDTH</span> <span class="token operator">-</span> <span class="token number">40</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">80</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">60</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> cellForRowAt indexPath<span class="token punctuation">:</span> <span class="token builtin">IndexPath</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">UITableViewCell</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> indexPath<span class="token punctuation">.</span>section <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">{</span>
+            <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">dequeueReusableCell</span><span class="token punctuation">(</span>withIdentifier<span class="token punctuation">:</span> <span class="token string">"cell2"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">LastAndNextCell</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>btnlast<span class="token punctuation">.</span><span class="token function">addTarget</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">,</span> action<span class="token punctuation">:</span> #<span class="token function">selector</span><span class="token punctuation">(</span>btn_last_action<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>touchUpInside<span class="token punctuation">)</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>btnNext<span class="token punctuation">.</span><span class="token function">addTarget</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">,</span> action<span class="token punctuation">:</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token function">btn_next_action</span><span class="token punctuation">(</span>sender<span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>touchUpInside<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> cell<span class="token operator">!</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//MARK:-----------问题模型-------------//</span>
+            <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> indexPath<span class="token punctuation">.</span>row <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+                <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">dequeueReusableCell</span><span class="token punctuation">(</span>withIdentifier<span class="token punctuation">:</span> <span class="token string">"cell"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineTestDetailCell</span>
+                cell<span class="token operator">?</span><span class="token punctuation">.</span>model <span class="token operator">=</span> model
+                <span class="token comment" spellcheck="true">/** 第几道题 */</span>
+                cell<span class="token operator">?</span><span class="token punctuation">.</span>labelIndex<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"第<span class="token interpolation"><span class="token delimiter variable">\(</span>answerIndex<span class="token operator">+</span><span class="token number">1</span><span class="token delimiter variable">)</span></span>题"</span>
+                <span class="token keyword">return</span> cell<span class="token operator">!</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//MARK:-----------答案记录-------------//</span>
+            <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">dequeueReusableCell</span><span class="token punctuation">(</span>withIdentifier<span class="token punctuation">:</span> <span class="token string">"cell3"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span>
+            cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token string">" <span class="token interpolation"><span class="token delimiter variable">\(</span>model<span class="token punctuation">.</span>answers<span class="token operator">!</span><span class="token punctuation">[</span>indexPath<span class="token punctuation">.</span>row <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">//MARK:-----------如果用户点击上一题，或者下一题需要刷新选择的题-------------//</span>
+            <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">/** 如果其他题没有选择就隐藏对错的图片 */</span>
+                cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token constant">nil</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">/** 获取正确的答案 */</span>
+                <span class="token keyword">let</span> <span class="token keyword">right</span> <span class="token operator">=</span> <span class="token function">Int</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span><span class="token keyword">right</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">"0"</span><span class="token punctuation">)</span><span class="token operator">!</span>
+                <span class="token keyword">if</span> indexPath<span class="token punctuation">.</span>row <span class="token operator">==</span> <span class="token keyword">right</span><span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">/** 如果选择了对的答案 */</span>
+                    cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"对勾"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> indexPath<span class="token punctuation">.</span>row <span class="token operator">==</span> model<span class="token punctuation">.</span>choose_answer<span class="token punctuation">{</span>
+                    cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span><span class="token string">"错"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    cell<span class="token operator">?</span><span class="token punctuation">.</span>labelAnswer<span class="token punctuation">.</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token constant">nil</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>normal<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">return</span> cell<span class="token operator">!</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> didSelectRowAt indexPath<span class="token punctuation">:</span> <span class="token builtin">IndexPath</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">/** 如果用户已经选择过答案了 */</span>
+        <span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>arrayData<span class="token punctuation">[</span>answerIndex<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> model<span class="token punctuation">.</span>choose_answer <span class="token operator">!=</span> <span class="token constant">nil</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">/** 如果用户没有选择答案 */</span>
+        <span class="token keyword">if</span> <span class="token keyword">let</span> cell <span class="token operator">=</span> tableView<span class="token punctuation">.</span><span class="token function">cellForRow</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> indexPath<span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">OnlineAnswerCell</span><span class="token punctuation">{</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>choose_answer <span class="token operator">=</span> indexPath<span class="token punctuation">.</span>row
+            <span class="token comment" spellcheck="true">/** current_cell 是用来判断用户是否选择了答案如果没有选择答案，就为nil */</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>current_cell <span class="token operator">=</span> cell
+            <span class="token function">check_answer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>current_cell <span class="token operator">=</span> <span class="token constant">nil</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
 	
 	</div>
 	
@@ -340,6 +692,7 @@
 			<div class="investment-title-1">
 				<div class="on">相关文章</div>
 				<div>评论</div>
+				<div>分享</div>
 			</div>
 			<div class="investment-title-2">	            
 				
@@ -356,6 +709,8 @@
 			</a>
 			
 	</span>
+
+
       		
 			</div>	
 		</div>
@@ -365,184 +720,275 @@
 				
 
 <div class="relate-post">
-	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
-							AAC音频转WAV
-						</a>
-						<p>
-							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
-						</p>
-					</div>
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
+								AAC音频转WAV			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 25日, 2019				
+							</p>
+							<p class="relate-post-content">
+								将aac编码格式的音频转为lpcm编码的音频
+/**
+ 把.m4a转为.caf格式
+ @param originalUrlStr .m4a文件路径
+ @param destUrlStr .wav文件路径
+ @param complet...
+							</p>
+						</div>
 
-					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
-						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
-							Message Filtter Extension 短信过滤
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="AAC音频转WAV"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
+								Message Filtter Extension 短信过滤			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
-						</p>
-					</div>
+1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+							</p>
+						</div>
 
-					<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
-						<img src="/img/back.jpg" class="relateImg" alt="Message Filtter Extension 短信过滤">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
-							Shell删除所有苹果证书
-						</a>
-						<p>
-							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Message Filtter Extension 短信过滤"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
+								Shell删除所有苹果证书			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								#!/bin/bash
 
-					<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
-						<img src="/img/back.jpg" class="relateImg" alt="Shell删除所有苹果证书">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/08/language/" title="Swift语言国际化">
-							Swift语言国际化
-						</a>
-						<p>
-							第一步在工程设置里面添加对应国际化的语言
+expired=$(security find-identity)
+if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
+then
+    echo "No expi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Shell删除所有苹果证书"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/08/language/" title="Swift语言国际化">
+								Swift语言国际化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一步在工程设置里面添加对应国际化的语言
 第二步添加Localizble.strings
 第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizbl...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/05/08/language/" title="Swift语言国际化">				
-						<img src="/img/back.jpg" class="relateImg" alt="Swift语言国际化">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
-							Docker Nginx 静态资源部署
-						</a>
-						<p>
-							1. 查看docker仓库中的nginx命令1docker search nginx
-2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
+						<div class="relate-post-cover">
+							<a href="/2019/05/08/language/" title="Swift语言国际化">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Swift语言国际化"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
+								Docker Nginx 静态资源部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
-							Nginx vue打包部署
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Docker Nginx 静态资源部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
+								Nginx vue打包部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
-						</p>
-					</div>
+1.在conf.d文件下添加一个新的配置文件,server {
+    #说明监听80端口
+...
+							</p>
+						</div>
 
-					<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Nginx vue打包部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
-							SCP文件上传下载
-						</a>
-						<p>
-							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Nginx vue打包部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
+								SCP文件上传下载			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
 
-					<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
-						<img src="/img/back.jpg" class="relateImg" alt="SCP文件上传下载">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
-							音频剪切、合成、淡入淡出
-						</a>
-						<p>
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
-						</p>
-					</div>
+上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							</p>
+						</div>
 
-					<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
-						<img src="/img/back.jpg" class="relateImg" alt="音频剪切、合成、淡入淡出">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
-							iOS原生调用ReatNative
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="SCP文件上传下载"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
+								音频剪切、合成、淡入淡出			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 19日, 2018				
+							</p>
+							<p class="relate-post-content">
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="音频剪切、合成、淡入淡出"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+								iOS原生调用ReatNative			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 20日, 2018				
+							</p>
+							<p class="relate-post-content">
+								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
-						</p>
-					</div>
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+							</p>
+						</div>
 
-					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
-						<img src="/img/back.jpg" class="relateImg" alt="iOS原生调用ReatNative">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">
-							Gvoice 实时语音接入
-						</a>
-						<p>
-							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="iOS原生调用ReatNative"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/14/7/" title="Gvoice 实时语音接入">
+								Gvoice 实时语音接入			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 14日, 2018				
+							</p>
+							<p class="relate-post-content">
+								 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
+							</p>
+						</div>
 
-					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
-						<img src="/img/back.jpg" class="relateImg" alt="Gvoice 实时语音接入">
-					</a>
-				</li>											
-		
-		
-	</ul>
+						<div class="relate-post-cover">
+							<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Gvoice 实时语音接入"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
 </div>	
 			</div>
 			<div class="investment-content-list">
@@ -552,7 +998,7 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		
 
-			<!-- comment gitalk -->
+			<!-- gitalk comment -->
 			<!-- show gitalk comment -->
 <div id="gitalk-container"></div>
 
@@ -625,7 +1071,29 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 </div>
 			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
 		</div>	
+	</div>
 	</div>
 </div>
 
@@ -659,103 +1127,111 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 	</script>
     
 
+	
 
- 
 
 <!-- show math formula -->
 
 
 
+	
 
-<!-- TODO: There seems to be a bug when you close the post gallery! -->
-<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
-<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
-<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
 
 <script type="text/javascript">
-	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
-	$('.article-content img').each(function() {
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
 		var imgPath = $(this).attr('src'),
 			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
 	});
 
-	$('.article-content').lightGallery({
-		mode: 'lg-slide',
-		selector: '.img-responsive',
-		share: false,
-		zoom: false,
-		download: false
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
 	});
-	//TODO：支持video
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
 </script>
-
-<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-		
-
-		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
-	
 		</main>
-		
+
 		<!--footer-->
 		<footer>
 	<div class="social">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 		
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+				&copy;2017 - 2019, content by 目生鱼博客. All Rights Reserved.
 			
 			
 			
@@ -778,14 +1254,17 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		</p>
 		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
 		</p>
 	</div>		
 </footer>
 		
-    <!-- set '1' to show motto in all pages! -->
+	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/js/motto.js"></script>
+	<script src="/plugin/motto/motto.js"></script>
+	
 	<script type="text/javascript">
 		$(".motto").html( getMingYanContent() );
 	</script>	
@@ -794,26 +1273,38 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 
 
+<!-- love effect -->
 
-    <script src="/js/love.js"></script>
+	<script src="/plugin/love/love.js"></script>
 
 
-<!--back to top-->
+<!-- back to top -->
 
-    
+	
 	<div id="totop">
   		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
-	<div id="tobuttom">
-		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
-	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
  
 
-
- 
-
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-	</body>
-	</html>
+	</body>	
+</html>

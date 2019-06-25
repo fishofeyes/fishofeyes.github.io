@@ -3,9 +3,8 @@
 	时间：2018-09-25
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
+<!DOCTYPE html>
+<html class="html-loading">
 		
 
 <head>
@@ -17,35 +16,32 @@
       AAC音频转WAV | 目生鱼博客
     
   </title>
-  <meta name="author" content="目生鱼">
+  <meta name="author" content="">
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
 
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -55,109 +51,82 @@
 <!-- header -->
 <header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
 	<div class="mask">
+		<!-- Logo and navigation -->
 		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
+			<div id="logo">
+				<a href="/">
+					
 						fishofeyes
-					</a>
-				
+					
+				</a>
 			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
+			
+			<div id="navigation-show">
 				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-					
-				</ul>			
+	
+</ul>
 			</div>				
 		</div>
 
+		<!-- motto -->
 		<div class="h-body">	
-			<!-- motto -->
 			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
+				<p class="motto"></p>
 			
-
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						当前文章&nbsp;:&nbsp;《AAC音频转WAV》
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
-
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
 		</div>
 		
 		<!-- others: such as time... -->			
 		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
 <style type="text/css">
 	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
 		position: absolute;
-		left: 40px;
-		bottom: 30px;
+		bottom: 5px;
+		right: 1rem;
 		writing-mode: tb-rl;
-		font-size: 36px;
 	}	
+	
 	.header-date a {
 		border-bottom: none;
 	}
+
 	@media only screen and (max-width: 768 ) {
 		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
+			font-size: 1rem;
 		}			
 	}
 </style>
@@ -174,13 +143,32 @@
 		}
 	});
 </script>
+			
+		</div>
+	</div>
 </header>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
-</a>
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
 
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《AAC音频转WAV》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<h3>Navigation</h3>
@@ -188,87 +176,106 @@
 	</div>
 	<div class="nav-body">
 		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-			
-		</ul>
+	
+</ul>
 	</div>
-
 	<div class="nav-footer">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 </nav>
-
-		
+			
 		<!--main-->
 		<main>
-			<div class="layout-post">
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
 	
-	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
 	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
 	<a href="/2019/06/25/aacTowav/" itemprop="url">
 		AAC音频转WAV
@@ -278,50 +285,176 @@
 
 	<div class="article-meta">
 		<span>
+			<i class="fa fa-calendar"></i>
 			
+
+
 	发布于
+
 	<a href="/2019/06/25/aacTowav/" itemprop="url">
 		<time datetime="2019-06-25T02:27:40.729Z" itemprop="datePublished">
 	  		2019-06-25
 	  </time>
-	</a> 
+	</a>
+	&nbsp;
 
-	/
+
+
+
+
+			
+
+
+
+
 	更新于
+
 	<a href="/2019/06/25/aacTowav/" itemprop="url">
 		<time datetime="2019-06-25T02:27:40.729Z" itemprop="dateUpdated">
 	  		2019-06-25
 	  </time>
-	</a> 	
+	</a> 
+
+
 
 		</span>
-		/
 		<span>
 			<i class="fa fa-tags"></i>
 					
 		</span>
-		/
+		
 		
 
+	
     <span class="leancloud_visitors" id="/2019/06/25/aacTowav/_visitors" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2019/06/25/aacTowav/_likes" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="将aac编码格式的音频转为lpcm编码的音频"><a href="#将aac编码格式的音频转为lpcm编码的音频" class="headerlink" title="将aac编码格式的音频转为lpcm编码的音频"></a>将aac编码格式的音频转为lpcm编码的音频</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 把.m4a转为.caf格式</span></span><br><span class="line"><span class="comment"> @param originalUrlStr .m4a文件路径</span></span><br><span class="line"><span class="comment"> @param destUrlStr .wav文件路径</span></span><br><span class="line"><span class="comment"> @param completed 转化完成的block</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (void)convetM4aToWav:(<span class="type">NSURL</span> *)originalUrlStr</span><br><span class="line">               destUrl:(<span class="type">NSString</span> *)destUrlStr</span><br><span class="line">             completed:(void (^)(<span class="type">NSError</span> *error)) completed &#123;</span><br><span class="line">    <span class="keyword">if</span> ([[<span class="type">NSFileManager</span> defaultManager] fileExistsAtPath:destUrlStr]) &#123;</span><br><span class="line">        [[<span class="type">NSFileManager</span> defaultManager] removeItemAtPath:destUrlStr error:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">NSURL</span> *originalUrl = originalUrlStr;</span><br><span class="line">    <span class="type">NSURL</span> *destUrl     = [<span class="type">NSURL</span> fileURLWithPath:destUrlStr];</span><br><span class="line">    <span class="type">AVURLAsset</span> *songAsset = [<span class="type">AVURLAsset</span> <span class="type">URLAssetWithURL</span>:originalUrl options:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//读取原始文件信息</span></span><br><span class="line">    <span class="type">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    <span class="type">AVAssetReader</span> *assetReader = [<span class="type">AVAssetReader</span> assetReaderWithAsset:songAsset error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"error: %@"</span>, error);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">AVAssetReaderOutput</span> *assetReaderOutput = [<span class="type">AVAssetReaderAudioMixOutput</span></span><br><span class="line">                                              assetReaderAudioMixOutputWithAudioTracks:songAsset.tracks</span><br><span class="line">                                              audioSettings: <span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">if</span> (![assetReader canAddOutput:assetReaderOutput]) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"can't add reader output... die!"</span>);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [assetReader addOutput:assetReaderOutput];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetWriter</span> *assetWriter = [<span class="type">AVAssetWriter</span> assetWriterWithURL:destUrl</span><br><span class="line">                                                          fileType:<span class="type">AVFileTypeCoreAudioFormat</span></span><br><span class="line">                                                             error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"error: %@"</span>, error);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">AudioChannelLayout</span> channelLayout;</span><br><span class="line">    memset(&amp;channelLayout, <span class="number">0</span>, <span class="built_in">sizeof</span>(<span class="type">AudioChannelLayout</span>));</span><br><span class="line">    channelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;</span><br><span class="line">    <span class="type">NSDictionary</span> *outputSettings = [<span class="type">NSDictionary</span> dictionaryWithObjectsAndKeys:</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:kAudioFormatLinearPCM], <span class="type">AVFormatIDKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">44100</span>], <span class="type">AVSampleRateKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:<span class="number">2</span>], <span class="type">AVNumberOfChannelsKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:<span class="number">16</span>], <span class="type">AVLinearPCMBitDepthKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>], <span class="type">AVLinearPCMIsNonInterleaved</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>],<span class="type">AVLinearPCMIsFloatKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>], <span class="type">AVLinearPCMIsBigEndianKey</span>,</span><br><span class="line">                                    <span class="literal">nil</span>];</span><br><span class="line">    <span class="type">AVAssetWriterInput</span> *assetWriterInput = [<span class="type">AVAssetWriterInput</span> assetWriterInputWithMediaType:<span class="type">AVMediaTypeAudio</span></span><br><span class="line">                                                                              outputSettings:outputSettings];</span><br><span class="line">    <span class="keyword">if</span> ([assetWriter canAddInput:assetWriterInput]) &#123;</span><br><span class="line">        [assetWriter addInput:assetWriterInput];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"can't add asset writer input... die!"</span>);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    assetWriterInput.expectsMediaDataInRealTime = <span class="type">NO</span>;</span><br><span class="line">    </span><br><span class="line">    [assetWriter startWriting];</span><br><span class="line">    [assetReader startReading];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetTrack</span> *soundTrack = [songAsset.tracks objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    <span class="type">CMTime</span> startTime = <span class="type">CMTimeMake</span> (<span class="number">0</span>, soundTrack.naturalTimeScale);</span><br><span class="line">    [assetWriter startSessionAtSourceTime:startTime];</span><br><span class="line">    </span><br><span class="line">    __block <span class="type">UInt64</span> convertedByteCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    dispatch_queue_t mediaInputQueue = dispatch_queue_create(<span class="string">"mediaInputQueue"</span>, <span class="type">NULL</span>);</span><br><span class="line">    [assetWriterInput requestMediaDataWhenReadyOnQueue:mediaInputQueue</span><br><span class="line">                                            usingBlock: ^</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">while</span> (assetWriterInput.readyForMoreMediaData) &#123;</span><br><span class="line">             <span class="type">CMSampleBufferRef</span> nextBuffer = [assetReaderOutput copyNextSampleBuffer];</span><br><span class="line">             <span class="keyword">if</span> (nextBuffer) &#123;</span><br><span class="line">                 <span class="comment">// append buffer</span></span><br><span class="line">                 [assetWriterInput appendSampleBuffer: nextBuffer];</span><br><span class="line">                 <span class="type">NSLog</span> (@<span class="string">"appended a buffer (%zu bytes)"</span>,</span><br><span class="line">                        <span class="type">CMSampleBufferGetTotalSampleSize</span> (nextBuffer));</span><br><span class="line">                 convertedByteCount += <span class="type">CMSampleBufferGetTotalSampleSize</span> (nextBuffer);</span><br><span class="line">                 </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 [assetWriterInput markAsFinished];</span><br><span class="line">                 [assetWriter finishWritingWithCompletionHandler:^&#123;</span><br><span class="line">                     </span><br><span class="line">                 &#125;];</span><br><span class="line">                 [assetReader cancelReading];</span><br><span class="line">                 completed(<span class="literal">nil</span>);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line">             <span class="comment">//释放内存</span></span><br><span class="line">             <span class="type">CMSampleBufferInvalidate</span>(nextBuffer);</span><br><span class="line">             <span class="type">CFRelease</span>(nextBuffer);</span><br><span class="line">             nextBuffer = <span class="type">NULL</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>	
+		<h3 id="将aac编码格式的音频转为lpcm编码的音频"><a href="#将aac编码格式的音频转为lpcm编码的音频" class="headerlink" title="将aac编码格式的音频转为lpcm编码的音频"></a>将aac编码格式的音频转为lpcm编码的音频</h3><pre class=" language-swift"><code class="language-swift">
+<span class="token comment" spellcheck="true">/**
+ 把.m4a转为.caf格式
+ @param originalUrlStr .m4a文件路径
+ @param destUrlStr .wav文件路径
+ @param completed 转化完成的block
+ */</span>
+<span class="token operator">-</span> <span class="token punctuation">(</span>void<span class="token punctuation">)</span>convetM4aToWav<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token constant">NSURL</span> <span class="token operator">*</span><span class="token punctuation">)</span>originalUrlStr
+               destUrl<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token builtin">NSString</span> <span class="token operator">*</span><span class="token punctuation">)</span>destUrlStr
+             completed<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token function">void</span> <span class="token punctuation">(</span><span class="token operator">^</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token builtin">NSError</span> <span class="token operator">*</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span> completed <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token builtin">NSFileManager</span> defaultManager<span class="token punctuation">]</span> fileExistsAtPath<span class="token punctuation">:</span>destUrlStr<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token builtin">NSFileManager</span> defaultManager<span class="token punctuation">]</span> removeItemAtPath<span class="token punctuation">:</span>destUrlStr error<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token constant">NSURL</span> <span class="token operator">*</span>originalUrl <span class="token operator">=</span> originalUrlStr<span class="token punctuation">;</span>
+    <span class="token constant">NSURL</span> <span class="token operator">*</span>destUrl     <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token constant">NSURL</span> fileURLWithPath<span class="token punctuation">:</span>destUrlStr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token builtin">AVURLAsset</span> <span class="token operator">*</span>songAsset <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVURLAsset</span> <span class="token builtin">URLAssetWithURL</span><span class="token punctuation">:</span>originalUrl options<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//读取原始文件信息</span>
+    <span class="token builtin">NSError</span> <span class="token operator">*</span>error <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+    <span class="token builtin">AVAssetReader</span> <span class="token operator">*</span>assetReader <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetReader</span> assetReaderWithAsset<span class="token punctuation">:</span>songAsset error<span class="token punctuation">:</span><span class="token operator">&amp;</span>error<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"error: %@"</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token builtin">AVAssetReaderOutput</span> <span class="token operator">*</span>assetReaderOutput <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetReaderAudioMixOutput</span>
+                                              assetReaderAudioMixOutputWithAudioTracks<span class="token punctuation">:</span>songAsset<span class="token punctuation">.</span>tracks
+                                              audioSettings<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">[</span>assetReader canAddOutput<span class="token punctuation">:</span>assetReaderOutput<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"can't add reader output... die!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">[</span>assetReader addOutput<span class="token punctuation">:</span>assetReaderOutput<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token builtin">AVAssetWriter</span> <span class="token operator">*</span>assetWriter <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetWriter</span> assetWriterWithURL<span class="token punctuation">:</span>destUrl
+                                                          fileType<span class="token punctuation">:</span><span class="token builtin">AVFileTypeCoreAudioFormat</span>
+                                                             error<span class="token punctuation">:</span><span class="token operator">&amp;</span>error<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"error: %@"</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token builtin">AudioChannelLayout</span> channelLayout<span class="token punctuation">;</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>channelLayout<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">sizeof</span><span class="token punctuation">(</span><span class="token builtin">AudioChannelLayout</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    channelLayout<span class="token punctuation">.</span>mChannelLayoutTag <span class="token operator">=</span> <span class="token constant">kAudioChannelLayoutTag_Stereo</span><span class="token punctuation">;</span>
+    <span class="token builtin">NSDictionary</span> <span class="token operator">*</span>outputSettings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">NSDictionary</span> dictionaryWithObjectsAndKeys<span class="token punctuation">:</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithInt<span class="token punctuation">:</span><span class="token constant">kAudioFormatLinearPCM</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVFormatIDKey</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithFloat<span class="token punctuation">:</span><span class="token number">44100</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVSampleRateKey</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithInt<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVNumberOfChannelsKey</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithInt<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVLinearPCMBitDepthKey</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithBool<span class="token punctuation">:</span><span class="token constant">NO</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVLinearPCMIsNonInterleaved</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithBool<span class="token punctuation">:</span><span class="token constant">NO</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token builtin">AVLinearPCMIsFloatKey</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithBool<span class="token punctuation">:</span><span class="token constant">NO</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVLinearPCMIsBigEndianKey</span><span class="token punctuation">,</span>
+                                    <span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token builtin">AVAssetWriterInput</span> <span class="token operator">*</span>assetWriterInput <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetWriterInput</span> assetWriterInputWithMediaType<span class="token punctuation">:</span><span class="token builtin">AVMediaTypeAudio</span>
+                                                                              outputSettings<span class="token punctuation">:</span>outputSettings<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>assetWriter canAddInput<span class="token punctuation">:</span>assetWriterInput<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>assetWriter addInput<span class="token punctuation">:</span>assetWriterInput<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"can't add asset writer input... die!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    assetWriterInput<span class="token punctuation">.</span>expectsMediaDataInRealTime <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">[</span>assetWriter startWriting<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span>assetReader startReading<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token builtin">AVAssetTrack</span> <span class="token operator">*</span>soundTrack <span class="token operator">=</span> <span class="token punctuation">[</span>songAsset<span class="token punctuation">.</span>tracks objectAtIndex<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token builtin">CMTime</span> startTime <span class="token operator">=</span> <span class="token function">CMTimeMake</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> soundTrack<span class="token punctuation">.</span>naturalTimeScale<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span>assetWriter startSessionAtSourceTime<span class="token punctuation">:</span>startTime<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    __block <span class="token builtin">UInt64</span> convertedByteCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    dispatch_queue_t mediaInputQueue <span class="token operator">=</span> <span class="token function">dispatch_queue_create</span><span class="token punctuation">(</span><span class="token string">"mediaInputQueue"</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span>assetWriterInput requestMediaDataWhenReadyOnQueue<span class="token punctuation">:</span>mediaInputQueue
+                                            usingBlock<span class="token punctuation">:</span> <span class="token operator">^</span>
+     <span class="token punctuation">{</span>
+         <span class="token keyword">while</span> <span class="token punctuation">(</span>assetWriterInput<span class="token punctuation">.</span>readyForMoreMediaData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token builtin">CMSampleBufferRef</span> nextBuffer <span class="token operator">=</span> <span class="token punctuation">[</span>assetReaderOutput copyNextSampleBuffer<span class="token punctuation">]</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token comment" spellcheck="true">// append buffer</span>
+                 <span class="token punctuation">[</span>assetWriterInput appendSampleBuffer<span class="token punctuation">:</span> nextBuffer<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"appended a buffer (%zu bytes)"</span><span class="token punctuation">,</span>
+                        <span class="token function">CMSampleBufferGetTotalSampleSize</span> <span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 convertedByteCount <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">CMSampleBufferGetTotalSampleSize</span> <span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                 <span class="token punctuation">[</span>assetWriterInput markAsFinished<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 <span class="token punctuation">[</span>assetWriter finishWritingWithCompletionHandler<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+
+                 <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 <span class="token punctuation">[</span>assetReader cancelReading<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 <span class="token function">completed</span><span class="token punctuation">(</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+
+             <span class="token comment" spellcheck="true">//释放内存</span>
+             <span class="token function">CMSampleBufferInvalidate</span><span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token function">CFRelease</span><span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             nextBuffer <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -332,6 +465,7 @@
 			<div class="investment-title-1">
 				<div class="on">相关文章</div>
 				<div>评论</div>
+				<div>分享</div>
 			</div>
 			<div class="investment-title-2">	            
 				
@@ -344,6 +478,8 @@
 			</a>
 			
 	</span>
+
+
       		
 			</div>	
 		</div>
@@ -353,186 +489,272 @@
 				
 
 <div class="relate-post">
-	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
-							Message Filtter Extension 短信过滤
-						</a>
-						<p>
-							
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
+								Message Filtter Extension 短信过滤			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
-						</p>
-					</div>
+1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+							</p>
+						</div>
 
-					<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
-						<img src="/img/back.jpg" class="relateImg" alt="Message Filtter Extension 短信过滤">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
-							Shell删除所有苹果证书
-						</a>
-						<p>
-							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Message Filtter Extension 短信过滤"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">
+								Shell删除所有苹果证书			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								#!/bin/bash
 
-					<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
-						<img src="/img/back.jpg" class="relateImg" alt="Shell删除所有苹果证书">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/08/language/" title="Swift语言国际化">
-							Swift语言国际化
-						</a>
-						<p>
-							第一步在工程设置里面添加对应国际化的语言
+expired=$(security find-identity)
+if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
+then
+    echo "No expi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/22/delete_all/" title="Shell删除所有苹果证书">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Shell删除所有苹果证书"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/08/language/" title="Swift语言国际化">
+								Swift语言国际化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一步在工程设置里面添加对应国际化的语言
 第二步添加Localizble.strings
 第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizbl...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/05/08/language/" title="Swift语言国际化">				
-						<img src="/img/back.jpg" class="relateImg" alt="Swift语言国际化">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
-							Docker Nginx 静态资源部署
-						</a>
-						<p>
-							1. 查看docker仓库中的nginx命令1docker search nginx
-2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
+						<div class="relate-post-cover">
+							<a href="/2019/05/08/language/" title="Swift语言国际化">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Swift语言国际化"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">
+								Docker Nginx 静态资源部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Docker Nginx 静态资源部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
-							Nginx vue打包部署
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/publish_html/" title="Docker Nginx 静态资源部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Docker Nginx 静态资源部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">
+								Nginx vue打包部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
-						</p>
-					</div>
+1.在conf.d文件下添加一个新的配置文件,server {
+    #说明监听80端口
+...
+							</p>
+						</div>
 
-					<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
-						<img src="/img/back.jpg" class="relateImg" alt="Nginx vue打包部署">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
-							SCP文件上传下载
-						</a>
-						<p>
-							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2019/03/04/nginxPublish/" title="Nginx vue打包部署">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Nginx vue打包部署"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/01/22/uploadFile/" title="SCP文件上传下载">
+								SCP文件上传下载			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
 
-					<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
-						<img src="/img/back.jpg" class="relateImg" alt="SCP文件上传下载">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
-							音频剪切、合成、淡入淡出
-						</a>
-						<p>
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
-						</p>
-					</div>
+上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							</p>
+						</div>
 
-					<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
-						<img src="/img/back.jpg" class="relateImg" alt="音频剪切、合成、淡入淡出">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/29/first/" title="swift 做一个答题的功能">
-							swift 做一个答题的功能
-						</a>
-						<p>
-							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
+						<div class="relate-post-cover">
+							<a href="/2019/01/22/uploadFile/" title="SCP文件上传下载">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="SCP文件上传下载"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">
+								音频剪切、合成、淡入淡出			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 19日, 2018				
+							</p>
+							<p class="relate-post-content">
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
+    NSString *url = "音频源文件路径";
+    NSString *outPutPath = "音频前切完成输出文件...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/11/19/audio/" title="音频剪切、合成、淡入淡出">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="音频剪切、合成、淡入淡出"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/29/first/" title="swift 做一个答题的功能">
+								swift 做一个答题的功能			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 29日, 2018				
+							</p>
+							<p class="relate-post-content">
+								实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
 
 思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+...
-						</p>
-					</div>
+							</p>
+						</div>
 
-					<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
-						<img src="/img/back.jpg" class="relateImg" alt="swift 做一个答题的功能">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">
-							iOS原生调用ReatNative
-						</a>
-						<p>
-							
+						<div class="relate-post-cover">
+							<a href="/2018/10/29/first/" title="swift 做一个答题的功能">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="swift 做一个答题的功能"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/20/8/" title="iOS原生调用ReatNative">
+								iOS原生调用ReatNative			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 20日, 2018				
+							</p>
+							<p class="relate-post-content">
+								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
-						</p>
-					</div>
+iOS调用RN1.创建一个交互通信的类。#import 
+#import 
+@interface RNNotification : R...
+							</p>
+						</div>
 
-					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
-						<img src="/img/back.jpg" class="relateImg" alt="iOS原生调用ReatNative">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">
-							Gvoice 实时语音接入
-						</a>
-						<p>
-							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
-						</p>
-					</div>
+						<div class="relate-post-cover">
+							<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="iOS原生调用ReatNative"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/10/14/7/" title="Gvoice 实时语音接入">
+								Gvoice 实时语音接入			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 14日, 2018				
+							</p>
+							<p class="relate-post-content">
+								 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
+							</p>
+						</div>
 
-					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
-						<img src="/img/back.jpg" class="relateImg" alt="Gvoice 实时语音接入">
-					</a>
-				</li>											
-		
-		
-	</ul>
+						<div class="relate-post-cover">
+							<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
+								
+								<img class="lazy" src="" data-src="/img/back.jpg" alt="Gvoice 实时语音接入"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
 </div>	
 			</div>
 			<div class="investment-content-list">
@@ -542,7 +764,7 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		
 
-			<!-- comment gitalk -->
+			<!-- gitalk comment -->
 			<!-- show gitalk comment -->
 <div id="gitalk-container"></div>
 
@@ -615,7 +837,29 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 </div>
 			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
 		</div>	
+	</div>
 	</div>
 </div>
 
@@ -649,103 +893,111 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 	</script>
     
 
+	
 
- 
 
 <!-- show math formula -->
 
 
 
+	
 
-<!-- TODO: There seems to be a bug when you close the post gallery! -->
-<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
-<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
-<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
 
 <script type="text/javascript">
-	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
-	$('.article-content img').each(function() {
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
 		var imgPath = $(this).attr('src'),
 			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
 	});
 
-	$('.article-content').lightGallery({
-		mode: 'lg-slide',
-		selector: '.img-responsive',
-		share: false,
-		zoom: false,
-		download: false
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
 	});
-	//TODO：支持video
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
 </script>
-
-<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-		
-
-		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
-	
 		</main>
-		
+
 		<!--footer-->
 		<footer>
 	<div class="social">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 		
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+				&copy;2017 - 2019, content by 目生鱼博客. All Rights Reserved.
 			
 			
 			
@@ -768,14 +1020,17 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 		</p>
 		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
 		</p>
 	</div>		
 </footer>
 		
-    <!-- set '1' to show motto in all pages! -->
+	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/js/motto.js"></script>
+	<script src="/plugin/motto/motto.js"></script>
+	
 	<script type="text/javascript">
 		$(".motto").html( getMingYanContent() );
 	</script>	
@@ -784,26 +1039,38 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 
 
 
+<!-- love effect -->
 
-    <script src="/js/love.js"></script>
+	<script src="/plugin/love/love.js"></script>
 
 
-<!--back to top-->
+<!-- back to top -->
 
-    
+	
 	<div id="totop">
   		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
-	<div id="tobuttom">
-		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
-	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
  
 
-
- 
-
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-	</body>
-	</html>
+	</body>	
+</html>

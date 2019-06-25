@@ -3,9 +3,8 @@
 	时间：2018-09-25
 	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
 -->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
+<!DOCTYPE html>
+<html class="html-loading">
 		
 
 <head>
@@ -17,35 +16,32 @@
       目生鱼博客
     
   </title>
-  <meta name="author" content="目生鱼">
+  <meta name="author" content="">
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
   
-
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
 
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -55,109 +51,82 @@
 <!-- header -->
 <header class="fixbackground" data-img-mode="random" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="/img/Random-img/">
 	<div class="mask">
+		<!-- Logo and navigation -->
 		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
+			<div id="logo">
+				<a href="/">
+					
 						fishofeyes
-					</a>
-				
+					
+				</a>
 			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
+			
+			<div id="navigation-show">
 				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-					
-				</ul>			
+	
+</ul>
 			</div>				
 		</div>
 
+		<!-- motto -->
 		<div class="h-body">	
-			<!-- motto -->
 			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
+				<p class="motto"></p>
 			
-
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						主页
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
-
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
 		</div>
 		
 		<!-- others: such as time... -->			
 		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
 <style type="text/css">
 	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
 		position: absolute;
-		left: 40px;
-		bottom: 30px;
+		bottom: 5px;
+		right: 1rem;
 		writing-mode: tb-rl;
-		font-size: 36px;
 	}	
+	
 	.header-date a {
 		border-bottom: none;
 	}
+
 	@media only screen and (max-width: 768 ) {
 		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
+			font-size: 1rem;
 		}			
 	}
 </style>
@@ -174,13 +143,32 @@
 		}
 	});
 </script>
+			
+		</div>
+	</div>
 </header>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
-</a>
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
 
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			主页
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<h3>Navigation</h3>
@@ -188,81 +176,79 @@
 	</div>
 	<div class="nav-body">
 		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
 
-			
-		</ul>
+	
+</ul>
 	</div>
-
 	<div class="nav-footer">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 </nav>
-
-		
+			
 		<!--main-->
 		<main>
 			
@@ -286,9 +272,17 @@
 
 				<div class="post-content">
 					
-						
-							将aac编码格式的音频转为lpcm编码的音频123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107/** 把.m4a转为.caf格式 @param originalUrlStr .m4a文件路径 @param destUr...
-						
+						将aac编码格式的音频转为lpcm编码的音频
+/**
+ 把.m4a转为.caf格式
+ @param originalUrlStr .m4a文件路径
+ @param destUrlStr .wav文件路径
+ @param completed 转化完成的block
+ */
+- (void)convetM4aToWav:(NSURL *)originalUrlStr
+               destUrl:(NSString *)destUrlStr
+             completed:(void (^)(NSError *error)) completed {
+    if ...
 					
 				</div>
 				
@@ -297,29 +291,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2019/06/25/aacTowav/" itemprop="url">
 		<time datetime="2019-06-25T02:27:40.729Z" itemprop="datePublished">
 	  		2019-06-25
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2019/06/25/aacTowav/_visitors" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2019/06/25/aacTowav/_likes" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -353,8 +355,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2019/06/25/aacTowav/" title="阅读全文">阅读全文</a>	
@@ -378,14 +380,13 @@
 				<div class="post-content">
 					
 						
-							
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&gt;Add Target-&gt;选择iOS-&gt;添加Message Filtter Extension
+1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add Target->选择iOS->添加Message Filtter Extension
+
 2.添加好了之后选择设置，项目工程和target都要开启AppGroup,点击左下角的加号添加一个AppGroup的标示
 注意：项目工程和自己添加的target必须要一致，这个标示是用来共享数据的
-3.工程这边做一个简单的列表用来添加屏蔽关键词，然后...
-						
+3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加...
 					
 				</div>
 				
@@ -394,29 +395,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2019/06/19/SMSFilter/" itemprop="url">
 		<time datetime="2019-06-19T08:37:46.930Z" itemprop="datePublished">
 	  		2019-06-19
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2019/06/19/SMSFilter/_visitors" data-url="/2019/06/19/SMSFilter/" data-title="Message Filtter Extension 短信过滤">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2019/06/19/SMSFilter/_likes" data-url="/2019/06/19/SMSFilter/" data-title="Message Filtter Extension 短信过滤" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -450,8 +459,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2019/06/19/SMSFilter/" title="阅读全文">阅读全文</a>	
@@ -474,9 +483,19 @@
 
 				<div class="post-content">
 					
-						
-							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回truethen    echo "No expired certificates, we're all good"else    echo "Deleting expired certs"    for uuid in $expired    do        if [ $&#123;#uuid&#125; -eq 40 ]        then      ...
-						
+						#!/bin/bash
+
+expired=$(security find-identity)
+if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
+then
+    echo "No expired certificates, we're all good"
+else
+    echo "Deleting expired certs"
+    for uuid in $expired
+    do
+        if [ ${#uuid} -eq 40 ]
+        then
+            security delete-cer...
 					
 				</div>
 				
@@ -485,29 +504,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2019/05/22/delete_all/" itemprop="url">
 		<time datetime="2019-05-22T02:48:53.105Z" itemprop="datePublished">
 	  		2019-05-22
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2019/05/22/delete_all/_visitors" data-url="/2019/05/22/delete_all/" data-title="Shell删除所有苹果证书">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2019/05/22/delete_all/_likes" data-url="/2019/05/22/delete_all/" data-title="Shell删除所有苹果证书" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -541,8 +568,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2019/05/22/delete_all/" title="阅读全文">阅读全文</a>	
@@ -565,13 +592,13 @@
 
 				<div class="post-content">
 					
-						
-							第一步在工程设置里面添加对应国际化的语言
+						第一步在工程设置里面添加对应国际化的语言
 第二步添加Localizble.strings
 第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizble.string文件多了一个小箭头符号，然后我们把它展开，添加需要翻译。
 
-第四步给string添加一个扩展属性用来做国际化的。然后所有的文字都需要调用这个myLocalizedString属性。例如：”收藏”.myLocalizedString12345678/** 国际化的拓展 */extension String&#123;    var myLoca...
-						
+第四步给string添加一个扩展属性用来做国际化的。然后所有的文字都需要调用这个myLocalizedString属性。例如：”收藏”.myLocalizedString/** 国际化的拓展 */
+extension String{
+    var myLocalizedString...
 					
 				</div>
 				
@@ -580,29 +607,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2019/05/08/language/" itemprop="url">
 		<time datetime="2019-05-08T07:22:02.097Z" itemprop="datePublished">
 	  		2019-05-08
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2019/05/08/language/_visitors" data-url="/2019/05/08/language/" data-title="Swift语言国际化">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2019/05/08/language/_likes" data-url="/2019/05/08/language/" data-title="Swift语言国际化" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -636,8 +671,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2019/05/08/language/" title="阅读全文">阅读全文</a>	
@@ -660,14 +695,22 @@
 
 				<div class="post-content">
 					
-						
-							1. 查看docker仓库中的nginx命令1docker search nginx
-2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
+						1. 查看docker仓库中的nginx命令docker search nginx
+
+2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
+
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
-3.列出已下载的镜像1docker images
-4.列出运行中的容器1234567# 使用 docker ps -a 命令列出所有（包括已停止）的容器docker ps -a# 删除容器docker rm &lt;容器的唯一标示&gt;# 停止正在运行的容器docker stop &lt;容器名称&gt;
-5.启动跑个静态网页测试nginx容器1234do...
-						
+3.列出已下载的镜像docker images
+
+4.列出运行中的容器# 使用 docker ps -a 命令列出所有（包括已停止）的容器
+docker ps -a
+# 删除容器
+docker rm &lt;容器的唯一标示>
+
+# 停止正在运行的容器
+docker stop &lt;容器名称>
+
+5.启动跑个静态网页测试nginx容器docker run -...
 					
 				</div>
 				
@@ -676,29 +719,37 @@
 						发布于
 						<i>
 							
+
+
+
+
+
+
 	<a href="/2019/03/04/publish_html/" itemprop="url">
 		<time datetime="2019-03-04T03:46:14.831Z" itemprop="datePublished">
 	  		2019-03-04
 	  </time>
-	</a> 		
+	</a> 
 
 						</i>
 					</span>
-					/
+					
 					
 
+	
     <span class="leancloud_visitors" id="/2019/03/04/publish_html/_visitors" data-url="/2019/03/04/publish_html/" data-title="Docker Nginx 静态资源部署">
-        热度
+       	<i class="fa fa-eye"></i>
+       	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
     
-    /
 
 
 
+	
     <span class="leancloud_likes" id="/2019/03/04/publish_html/_likes" data-url="/2019/03/04/publish_html/" data-title="Docker Nginx 静态资源部署" rel="unlike">
-        喜欢
         <i class="fa fa-heart"></i>
+        喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
     </span>
 
@@ -732,8 +783,8 @@
 	</script>
     
 
+	
 
- 
 					
 						<span class="right">      	
 							<a href="/2019/03/04/publish_html/" title="阅读全文">阅读全文</a>	
@@ -752,60 +803,62 @@
 		
 	</div>
 
+	
+
 </div>
 
 
 		</main>
-		
+
 		<!--footer-->
 		<footer>
 	<div class="social">
 		<ul>
 	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
-
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/" target="_blank">
+				<i class=""></i>
+			</a>
+		</li>
+			
 </ul>
+
 	</div>
 		
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by 目生鱼. All Rights Reserved.
+				&copy;2017 - 2019, content by 目生鱼博客. All Rights Reserved.
 			
 			
 			
@@ -832,14 +885,17 @@
 
 		</p>
 		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
 		</p>
 	</div>		
 </footer>
 		
-    <!-- set '1' to show motto in all pages! -->
+	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/js/motto.js"></script>
+	<script src="/plugin/motto/motto.js"></script>
+	
 	<script type="text/javascript">
 		$(".motto").html( getMingYanContent() );
 	</script>	
@@ -848,26 +904,38 @@
 
 
 
+<!-- love effect -->
 
-    <script src="/js/love.js"></script>
+	<script src="/plugin/love/love.js"></script>
 
 
-<!--back to top-->
+<!-- back to top -->
 
-    
+	
 	<div id="totop">
   		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
 	</div>
-	<div id="tobuttom">
-		<a href="javascript:;"  name="TOBUTTOM" class="fa fa-arrow-down" ></a>
-	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
  
 
-
- 
-
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
 <script src="/js/main.js"></script>
-	</body>
-	</html>
+	</body>	
+</html>
