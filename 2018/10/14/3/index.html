@@ -348,114 +348,9 @@
 		<blockquote>
 <p>在项目中看到有使用多种collectionViewCell，和header的情况，感觉用起来还是比较方便。之前遇到类似的界面，都没有想到😂.<br>看下效果图吧：<br><img src="http://upload-images.jianshu.io/upload_images/5077173-98f54d2fc0c962ff.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tu.gif"><br>先说下思路，这整个一块是一个collectionView，然后分为3组<br>第一组：十点便宜图片是图+一个label为headerA，然后cellA的个数返回0<br>第二组：详细信息的label为headerB，然后cellB返回10个。<br>第三组：推荐为headerC，然后cellC返回50个。<br>当然其中的透视图和cell都是自定义的，这里我用的xib比较快可以达到我想要的效果。</p>
 </blockquote>
-<h3 id="1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"><a href="#1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。" class="headerlink" title="1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"></a>1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。</h3><pre><code>let flow:UICollectionViewFlowLayout = {
-        let flow = UICollectionViewFlowLayout()
-        flow.itemSize = CGSize(width: 50, height: 50)
-        flow.minimumLineSpacing = 1;
-        flow.minimumInteritemSpacing = 1;
-        flow.scrollDirection = .vertical;
-        return flow
-    }()
-    var collection:UICollectionView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-        //初始化
-        collection = UICollectionView(frame: view.bounds, collectionViewLayout: flow)
-        collection.dataSource = self;
-        collection.delegate = self;
-        collection.backgroundColor = UIColor.white
-        view.addSubview(collection)
-
-        //MARK:-----------注册cell-------------//
-        collection.register(UINib(nibName: &quot;CellA&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellA&quot;)
-        collection.register(UINib(nibName: &quot;CellB&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellB&quot;)
-        collection.register(UINib(nibName: &quot;CellC&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellC&quot;)
-
-        //MARK:-----------注册Header-------------//
-        collection.register(UINib(nibName: &quot;HeaderA&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headA&quot;)
-        collection.register(UINib(nibName: &quot;HeaderB&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headB&quot;)
-        collection.register(UINib(nibName: &quot;HeaderC&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headC&quot;)
-    }
-</code></pre><h3 id="2-再到我们的拓展里面来实现代理，这里要注意的是要遵守"><a href="#2-再到我们的拓展里面来实现代理，这里要注意的是要遵守" class="headerlink" title="2.再到我们的拓展里面来实现代理，这里要注意的是要遵守"></a>2.再到我们的拓展里面来实现代理，这里要注意的是要遵守</h3><h4 id="UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"><a href="#UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。" class="headerlink" title="UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"></a>UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。</h4><pre><code>extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-
-    //布局的代理
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize {
-        switch indexPath.section {
-        case 0:
-            return CGSize.zero
-        case 1:
-            return CGSize(width: 100, height: 50)
-        case 2:
-            return CGSize(width: (UIScreen.main.bounds.width-30) / 2.0, height: 100)
-        default:
-            return CGSize.zero
-        }
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -&gt; UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -&gt; CGSize {
-        switch section {
-        case 0:
-            return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.0)
-        case 1:
-            return CGSize(width: UIScreen.main.bounds.width, height: 50)
-        case 2:
-            return CGSize(width: UIScreen.main.bounds.width, height: 100)
-        default:
-            return CGSize.zero
-        }
-    }
-    //自定义头头
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -&gt; UICollectionReusableView {
-        switch indexPath.section {
-        case 0:
-            let headA = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headA&quot;, for: indexPath)
-            headA.backgroundColor = UIColor.cyan
-            return headA;
-        case 1:
-            let headB = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headB&quot;, for: indexPath)
-            headB.backgroundColor = UIColor.gray
-            return headB;
-        default:
-            let headC = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headC&quot;, for: indexPath)
-            headC.backgroundColor = UIColor.brown
-            return headC;
-        }
-
-
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell {
-
-        switch indexPath.section {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellA&quot;, for: indexPath)
-            return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellB&quot;, for: indexPath)
-            return cell
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellC&quot;, for: indexPath)
-            return cell
-        }
-
-
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {
-        if section == 0 { return 0 }
-        if section == 1 { return 10 }
-        return 20
-    }
-
-    func numberOfSections(in collectionView: UICollectionView) -&gt; Int {
-        return 3
-    }
-}
-</code></pre>	
+<h3 id="1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"><a href="#1-再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。" class="headerlink" title="1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。"></a>1.再来看看实现的过程，首先是实例化collectionView，然后给他一个默认的布局方式。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">let flow:UICollectionViewFlowLayout = &#123;</span><br><span class="line">        let flow = UICollectionViewFlowLayout()</span><br><span class="line">        flow.itemSize = CGSize(width: 50, height: 50)</span><br><span class="line">        flow.minimumLineSpacing = 1;</span><br><span class="line">        flow.minimumInteritemSpacing = 1;</span><br><span class="line">        flow.scrollDirection = .vertical;</span><br><span class="line">        return flow</span><br><span class="line">    &#125;()</span><br><span class="line">    var collection:UICollectionView!</span><br><span class="line">    </span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line">        view.backgroundColor = UIColor.white</span><br><span class="line">        //初始化</span><br><span class="line">        collection = UICollectionView(frame: view.bounds, collectionViewLayout: flow)</span><br><span class="line">        collection.dataSource = self;</span><br><span class="line">        collection.delegate = self;</span><br><span class="line">        collection.backgroundColor = UIColor.white</span><br><span class="line">        view.addSubview(collection)</span><br><span class="line">        </span><br><span class="line">        //MARK:-----------注册cell-------------//</span><br><span class="line">        collection.register(UINib(nibName: &quot;CellA&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellA&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;CellB&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellB&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;CellC&quot;, bundle: nil), forCellWithReuseIdentifier: &quot;cellC&quot;)</span><br><span class="line">        </span><br><span class="line">        //MARK:-----------注册Header-------------//</span><br><span class="line">        collection.register(UINib(nibName: &quot;HeaderA&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headA&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;HeaderB&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headB&quot;)</span><br><span class="line">        collection.register(UINib(nibName: &quot;HeaderC&quot;, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: &quot;headC&quot;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-再到我们的拓展里面来实现代理，这里要注意的是要遵守"><a href="#2-再到我们的拓展里面来实现代理，这里要注意的是要遵守" class="headerlink" title="2.再到我们的拓展里面来实现代理，这里要注意的是要遵守"></a>2.再到我们的拓展里面来实现代理，这里要注意的是要遵守</h3><h4 id="UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"><a href="#UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。" class="headerlink" title="UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。"></a>UICollectionViewDelegateFlowLayout代理，然后才能进行自定义的布局的cell大小、header的宽高、cell之间的边距。然后就是根据不同的组返回不同的cell和header了。还是比较简单。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout&#123;</span><br><span class="line">    </span><br><span class="line">    //布局的代理</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize &#123;</span><br><span class="line">        switch indexPath.section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            return CGSize.zero</span><br><span class="line">        case 1:</span><br><span class="line">            return CGSize(width: 100, height: 50)</span><br><span class="line">        case 2:</span><br><span class="line">            return CGSize(width: (UIScreen.main.bounds.width-30) / 2.0, height: 100)</span><br><span class="line">        default:</span><br><span class="line">            return CGSize.zero</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -&gt; UIEdgeInsets &#123;</span><br><span class="line">        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)</span><br><span class="line">    &#125;</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -&gt; CGSize &#123;</span><br><span class="line">        switch section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.0)</span><br><span class="line">        case 1:</span><br><span class="line">            return CGSize(width: UIScreen.main.bounds.width, height: 50)</span><br><span class="line">        case 2:</span><br><span class="line">            return CGSize(width: UIScreen.main.bounds.width, height: 100)</span><br><span class="line">        default:</span><br><span class="line">            return CGSize.zero</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //自定义头头</span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -&gt; UICollectionReusableView &#123;</span><br><span class="line">        switch indexPath.section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            let headA = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headA&quot;, for: indexPath)</span><br><span class="line">            headA.backgroundColor = UIColor.cyan</span><br><span class="line">            return headA;</span><br><span class="line">        case 1:</span><br><span class="line">            let headB = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headB&quot;, for: indexPath)</span><br><span class="line">            headB.backgroundColor = UIColor.gray</span><br><span class="line">            return headB;</span><br><span class="line">        default:</span><br><span class="line">            let headC = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: &quot;headC&quot;, for: indexPath)</span><br><span class="line">            headC.backgroundColor = UIColor.brown</span><br><span class="line">            return headC;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell &#123;</span><br><span class="line">        </span><br><span class="line">        switch indexPath.section &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellA&quot;, for: indexPath)</span><br><span class="line">            return cell</span><br><span class="line">        case 1:</span><br><span class="line">            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellB&quot;, for: indexPath)</span><br><span class="line">            return cell</span><br><span class="line">        default:</span><br><span class="line">            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cellC&quot;, for: indexPath)</span><br><span class="line">            return cell</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        if section == 0 &#123; return 0 &#125;</span><br><span class="line">        if section == 1 &#123; return 10 &#125;</span><br><span class="line">        return 20</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func numberOfSections(in collectionView: UICollectionView) -&gt; Int &#123;</span><br><span class="line">        return 3</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -507,11 +402,7 @@
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -537,7 +428,7 @@
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -560,12 +451,7 @@
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -613,10 +499,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -644,9 +528,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -669,9 +551,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -694,9 +575,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -747,9 +626,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -909,7 +786,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

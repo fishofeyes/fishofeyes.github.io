@@ -376,11 +376,7 @@
 						#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
 #####注：demo借鉴的泊学上的
 #####github地址
-2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。
-// MARK: - ARSKViewDelegate
-
-    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        // Create and config...
+2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。123456// MARK: - ARSKViewDelegate        func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -&gt; SKNode? &#123;        // Cre...
 					
 				</div>
 				
@@ -479,14 +475,7 @@
 					
 						最近项目当中需要用到图标，然后在上查了下，找到了这个，感觉应该比较好用。github地址
 
-饼图1.倒入Charts,然后实历化饼状图的类PieChartViewimport Charts
-class WorkManagerHeaderView: UICollectionReusableView {
-
-    let lableTitle:UILabel = {
-        return UILabel.label(font: fontVaue)
-    }()
-    //饼状图的数据
-    var months = ["1-9", "10-19", "20-29", "30-3...
+饼图1.倒入Charts,然后实历化饼状图的类PieChartView1234567891011121314151617181920212223242526272829303132import Chartsclass WorkManagerHeaderView: UICollectionReusableView &#123;        let lableTitle:UILabel = &#123;        return UILabel.label(font: fontVaue)    &...
 					
 				</div>
 				
@@ -587,11 +576,7 @@ class WorkManagerHeaderView: UICollectionReusableView {
 事情还得从用Python写爬虫开始说起，当时在freebuf看了几篇爬虫得文章    然后又遇到项目中要用很多图片，就现学现用在网上爬了很多图片下来。因为当时爬下来的都是表情的图片，所以前几天的时候本来想把爬下来的所有的表情图片添加到qq表情包里面的，结果每页表情最多放300多张，这就尴尬了。我爬的图片每个文件夹大部分都超过了300张。所以后来想用python把大量的图片分别放到不同的文件夹里面。
 
 好吧。上代码吧。原理还是多简单的主要就是shutil.move()和os.mkdir()的使用
-###代码：
-import os
-import os.path
-import shutil
-...
+###代码：1234567891011121314151617181920212223242...
 					
 				</div>
 				

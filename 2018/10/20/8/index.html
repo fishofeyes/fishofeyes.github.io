@@ -348,54 +348,9 @@
 		<blockquote>
 <p>有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。</p>
 </blockquote>
-<h3 id="iOS调用RN"><a href="#iOS调用RN" class="headerlink" title="iOS调用RN"></a>iOS调用RN</h3><h4 id="1-创建一个交互通信的类。"><a href="#1-创建一个交互通信的类。" class="headerlink" title="1.创建一个交互通信的类。"></a>1.创建一个交互通信的类。</h4><pre class=" language-objc"><code class="language-objc">#import <React/RCTEventEmitter.h>
-#import <React/RCTBridgeModule.h>
-@interface RNNotification : RCTEventEmitter <RCTBridgeModule>
-@end
-</code></pre>
-<h4 id="2-在-m需注册通知，并且向rn发送消息"><a href="#2-在-m需注册通知，并且向rn发送消息" class="headerlink" title="2.在.m需注册通知，并且向rn发送消息"></a>2.在.m需注册通知，并且向rn发送消息</h4><pre class=" language-objc"><code class="language-objc">#import "RNNotification.h"
-
-@implementation RNNotification
-
-RCT_EXPORT_MODULE();
-
--(id)init{
-  self = [super init];
-  if (self) {
-    /** 注册通知 */
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(change_tag_action:) name:@"EventReminder" object:nil];
-  }
-  return self;
-}
-
-/** 调用rn */
-- (void)change_tag_action:(NSNotification *)notification{
-  /** Name是RN监听的方法名称的 */
-  [self sendEventWithName:@"EventReminder" body:notification.object];
-}
-
-/** 设置返回所监听的方法集合 */
-- (NSArray<NSString *> *)supportedEvents{
-  return @[@"EventReminder"];
-}
-
-@end
-</code></pre>
-<h4 id="3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"><a href="#3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。" class="headerlink" title="3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"></a>3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。</h4><pre class=" language-objc"><code class="language-objc">- (void) viewDidLoad {
-  [super viewDidLoad];
-  NSURL *jsCodeLocation;
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"yanzhi"
-                                               initialProperties:nil
-                                                   launchOptions:nil];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-  self.view = rootView;
-
-  /** iOS 调用RN跳转 */
-  [[RNNotification alloc] init].bridge = rootView.bridge;
-}
-</code></pre>
+<h3 id="iOS调用RN"><a href="#iOS调用RN" class="headerlink" title="iOS调用RN"></a>iOS调用RN</h3><h4 id="1-创建一个交互通信的类。"><a href="#1-创建一个交互通信的类。" class="headerlink" title="1.创建一个交互通信的类。"></a>1.创建一个交互通信的类。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;React/RCTEventEmitter.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;React/RCTBridgeModule.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">RNNotification</span> : <span class="title">RCTEventEmitter</span> &lt;<span class="title">RCTBridgeModule</span>&gt;</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-在-m需注册通知，并且向rn发送消息"><a href="#2-在-m需注册通知，并且向rn发送消息" class="headerlink" title="2.在.m需注册通知，并且向rn发送消息"></a>2.在.m需注册通知，并且向rn发送消息</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"RNNotification.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">RNNotification</span></span></span><br><span class="line"></span><br><span class="line">RCT_EXPORT_MODULE();</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">id</span>)init&#123;</span><br><span class="line">  <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">    <span class="comment">/** 注册通知 */</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(change_tag_action:) name:<span class="string">@"EventReminder"</span> object:<span class="literal">nil</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 调用rn */</span></span><br><span class="line">- (<span class="keyword">void</span>)change_tag_action:(<span class="built_in">NSNotification</span> *)notification&#123;</span><br><span class="line">  <span class="comment">/** Name是RN监听的方法名称的 */</span></span><br><span class="line">  [<span class="keyword">self</span> sendEventWithName:<span class="string">@"EventReminder"</span> body:notification.object];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 设置返回所监听的方法集合 */</span></span><br><span class="line">- (<span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)supportedEvents&#123;</span><br><span class="line">  <span class="keyword">return</span> @[<span class="string">@"EventReminder"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"><a href="#3-然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。" class="headerlink" title="3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。"></a>3.然后在RN初始化的地方初始化这个通知类，也就相当于注册通知了。不然你发通知的时候收不到消息。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) viewDidLoad &#123;</span><br><span class="line">  [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">  <span class="built_in">NSURL</span> *jsCodeLocation;</span><br><span class="line">  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:<span class="string">@"index"</span> fallbackResource:<span class="literal">nil</span>];</span><br><span class="line">  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation</span><br><span class="line">                                                      moduleName:<span class="string">@"yanzhi"</span></span><br><span class="line">                                               initialProperties:<span class="literal">nil</span></span><br><span class="line">                                                   launchOptions:<span class="literal">nil</span>];</span><br><span class="line">  rootView.backgroundColor = [[<span class="built_in">UIColor</span> alloc] initWithRed:<span class="number">1.0</span>f green:<span class="number">1.0</span>f blue:<span class="number">1.0</span>f alpha:<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">self</span>.view = rootView;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/** iOS 调用RN跳转 */</span></span><br><span class="line">  [[RNNotification alloc] init].bridge = rootView.bridge;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="报错：-bridge-is-not-set-This-is-probably-because-you’ve-explicitly-synthesized-the-bridge-in-even-though-it’s-inherited-from-RCTEventEmitter"><a href="#报错：-bridge-is-not-set-This-is-probably-because-you’ve-explicitly-synthesized-the-bridge-in-even-though-it’s-inherited-from-RCTEventEmitter" class="headerlink" title=" 报错： bridge is not set. This is probably because you’ve explicitly synthesized the bridge in %@, even though it’s inherited from RCTEventEmitter."></a><font color="red"> 报错： bridge is not set. This is probably because you’ve explicitly synthesized the bridge in %@, even though it’s inherited from RCTEventEmitter.</font></h4><h2 id="解决方案就是直接在RN初始化的时候把bridge赋值过去"><a href="#解决方案就是直接在RN初始化的时候把bridge赋值过去" class="headerlink" title="解决方案就是直接在RN初始化的时候把bridge赋值过去"></a>解决方案就是直接在RN初始化的时候把bridge赋值过去</h2>	
 	</div>
 	
@@ -448,11 +403,7 @@ RCT_EXPORT_MODULE();
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -478,7 +429,7 @@ RCT_EXPORT_MODULE();
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -501,12 +452,7 @@ RCT_EXPORT_MODULE();
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -554,10 +500,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -585,9 +529,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -610,9 +552,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -635,9 +576,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -845,7 +784,82 @@ then
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

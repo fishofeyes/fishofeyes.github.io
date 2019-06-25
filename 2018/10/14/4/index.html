@@ -337,33 +337,7 @@
 <p>事情还得从用Python写爬虫开始说起，当时在freebuf看了几篇爬虫得文章<br>    然后又遇到项目中要用很多图片，就现学现用在网上爬了很多图片下来。<br>因为当时爬下来的都是表情的图片，所以前几天的时候本来想把爬下来的所有的表情图片添加到qq表情包里面的，结果每页表情最多放300多张，这就尴尬了。<br>我爬的图片每个文件夹大部分都超过了300张。所以后来想用python把大量的图片分别放到不同的文件夹里面。</p>
 </blockquote>
 <p>好吧。上代码吧。原理还是多简单的主要就是shutil.move()和os.mkdir()的使用</p>
-<p>###代码：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
-<span class="token keyword">import</span> os<span class="token punctuation">.</span>path
-<span class="token keyword">import</span> shutil
-<span class="token keyword">import</span> sys
-
-
-root <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># file path</span>
-count <span class="token operator">=</span> int<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#file count</span>
-
-num <span class="token operator">=</span> <span class="token number">0</span>
-ismove<span class="token operator">=</span><span class="token number">0</span>
-<span class="token keyword">for</span> parent<span class="token punctuation">,</span>dirnames<span class="token punctuation">,</span>filenames <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    r <span class="token operator">=</span> len<span class="token punctuation">(</span>filenames<span class="token punctuation">)</span> <span class="token operator">/</span> count
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p <span class="token operator">=</span> root<span class="token operator">+</span><span class="token string">"/"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> filename <span class="token keyword">in</span> filenames<span class="token punctuation">:</span>
-        num <span class="token operator">=</span> num <span class="token operator">+</span> <span class="token number">1</span>
-        <span class="token keyword">if</span> num <span class="token operator">/</span> count <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            ismove <span class="token operator">=</span> ismove <span class="token operator">+</span> <span class="token number">1</span>
-            num<span class="token operator">=</span><span class="token number">0</span>
-        p <span class="token operator">=</span> root <span class="token operator">+</span><span class="token string">"/"</span><span class="token operator">+</span> str<span class="token punctuation">(</span>ismove<span class="token punctuation">)</span>
-        path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>parent<span class="token punctuation">,</span>filename<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>path<span class="token operator">+</span><span class="token string">"==="</span><span class="token operator">+</span>p<span class="token punctuation">)</span>
-        shutil<span class="token punctuation">.</span>move<span class="token punctuation">(</span>path<span class="token punctuation">,</span>p<span class="token punctuation">)</span>
-</code></pre>
+<p>###代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root = sys.argv[<span class="number">1</span>] <span class="comment"># file path</span></span><br><span class="line">count = int(sys.argv[<span class="number">2</span>]) <span class="comment">#file count</span></span><br><span class="line"></span><br><span class="line">num = <span class="number">0</span></span><br><span class="line">ismove=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> parent,dirnames,filenames <span class="keyword">in</span> os.walk(root):</span><br><span class="line">	r = len(filenames) / count</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(r+<span class="number">1</span>):</span><br><span class="line">		p = root+<span class="string">"/"</span>+str(i)</span><br><span class="line">		os.mkdir(p)</span><br><span class="line">	<span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">		num = num + <span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> num / count == <span class="number">1</span>:</span><br><span class="line">			ismove = ismove + <span class="number">1</span></span><br><span class="line">			num=<span class="number">0</span></span><br><span class="line">		p = root +<span class="string">"/"</span>+ str(ismove)</span><br><span class="line">		path = os.path.join(parent,filename)</span><br><span class="line">		print(path+<span class="string">"==="</span>+p)</span><br><span class="line">		shutil.move(path,p)</span><br></pre></td></tr></table></figure></p>
 <p>使用方法：<code>#使用方法 python xxxx.py 文件路径 分类数量</code></p>
 	
 	</div>
@@ -417,11 +391,7 @@ ismove<span class="token operator">=</span><span class="token number">0</span>
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -447,7 +417,7 @@ ismove<span class="token operator">=</span><span class="token number">0</span>
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -470,12 +440,7 @@ ismove<span class="token operator">=</span><span class="token number">0</span>
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -523,10 +488,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -554,9 +517,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -579,9 +540,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -604,9 +564,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -657,9 +615,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -819,7 +775,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

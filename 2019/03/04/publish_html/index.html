@@ -345,125 +345,14 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="1-查看docker仓库中的nginx命令"><a href="#1-查看docker仓库中的nginx命令" class="headerlink" title="1. 查看docker仓库中的nginx命令"></a>1. 查看docker仓库中的nginx命令</h3><pre class=" language-bash"><code class="language-bash">docker search nginx
-</code></pre>
-<h3 id="2-为选定需要pull到系统重的官方Nginx镜像"><a href="#2-为选定需要pull到系统重的官方Nginx镜像" class="headerlink" title="2.为选定需要pull到系统重的官方Nginx镜像"></a>2.为选定需要pull到系统重的官方Nginx镜像</h3><pre class=" language-bash"><code class="language-bash">docker pull nginx
-</code></pre>
+		<h3 id="1-查看docker仓库中的nginx命令"><a href="#1-查看docker仓库中的nginx命令" class="headerlink" title="1. 查看docker仓库中的nginx命令"></a>1. 查看docker仓库中的nginx命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search nginx</span><br></pre></td></tr></table></figure>
+<h3 id="2-为选定需要pull到系统重的官方Nginx镜像"><a href="#2-为选定需要pull到系统重的官方Nginx镜像" class="headerlink" title="2.为选定需要pull到系统重的官方Nginx镜像"></a>2.为选定需要pull到系统重的官方Nginx镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
 <p>这个过程需要时间，需要耐心等待一下。<br>看到这个图就是成功了。<br><img src="https://user-gold-cdn.xitu.io/2018/12/28/167f4cf3718a076b?w=1284&amp;h=229&amp;f=png&amp;s=34659" alt=""></p>
-<h3 id="3-列出已下载的镜像"><a href="#3-列出已下载的镜像" class="headerlink" title="3.列出已下载的镜像"></a>3.列出已下载的镜像</h3><pre class=" language-bash"><code class="language-bash">docker images
-</code></pre>
-<h3 id="4-列出运行中的容器"><a href="#4-列出运行中的容器" class="headerlink" title="4.列出运行中的容器"></a>4.列出运行中的容器</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 使用 docker ps -a 命令列出所有（包括已停止）的容器</span>
-docker <span class="token function">ps</span> -a
-<span class="token comment" spellcheck="true"># 删除容器</span>
-docker <span class="token function">rm</span> <span class="token operator">&lt;</span>容器的唯一标示<span class="token operator">></span>
-
-<span class="token comment" spellcheck="true"># 停止正在运行的容器</span>
-docker stop <span class="token operator">&lt;</span>容器名称<span class="token operator">></span>
-</code></pre>
-<h3 id="5-启动跑个静态网页测试nginx容器"><a href="#5-启动跑个静态网页测试nginx容器" class="headerlink" title="5.启动跑个静态网页测试nginx容器"></a>5.启动跑个静态网页测试nginx容器</h3><pre class=" language-bash"><code class="language-bash">docker run --name nginxTest -d -p 8080:80 -v /usr/docker/nginx/html:/usr/share/nginx/html nginx
-
-<span class="token comment" spellcheck="true"># 文件移动</span>
-<span class="token function">mv</span> <span class="token operator">&lt;</span>文件或者文件名路径<span class="token operator">></span> <span class="token operator">&lt;</span>目标目录<span class="token operator">></span>
-</code></pre>
-<h3 id="6-注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建"><a href="#6-注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建" class="headerlink" title="6.注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建"></a>6.注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 进入docker的默认配置</span>
-docker <span class="token function">exec</span> -it default-nginx <span class="token function">bash</span>
-
-<span class="token comment" spellcheck="true"># 查看默认配置</span>
-<span class="token function">cat</span> /etc/nginx/nginx.conf
-user  nginx<span class="token punctuation">;</span>
-worker_processes  1<span class="token punctuation">;</span>
-error_log  /var/log/nginx/error.log warn<span class="token punctuation">;</span>
-pid        /var/run/nginx.pid<span class="token punctuation">;</span>
-events <span class="token punctuation">{</span>
-    worker_connections  1024<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-http <span class="token punctuation">{</span>
-    include       /etc/nginx/mime.types<span class="token punctuation">;</span>
-    default_type  application/octet-stream<span class="token punctuation">;</span>
-
-    log_format  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local</span>] "<span class="token variable">$request</span>" '</span>
-                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> "<span class="token variable">$http_referer</span>" '</span>
-                      <span class="token string">'"<span class="token variable">$http_user_agent</span>" "<span class="token variable">$http_x_forwarded_for</span>"'</span><span class="token punctuation">;</span>
-
-    access_log  /var/log/nginx/access.log  main<span class="token punctuation">;</span>
-
-    sendfile        on<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">#tcp_nopush     on;</span>
-
-    keepalive_timeout  65<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">#gzip  on;</span>
-
-    include /etc/nginx/conf.d/*.conf<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true"># 可以看到docker指向的默认路径是/etc/nginx/，所以我们在etc/nginx创建这个路径和相应的文件就好了。</span>
-<span class="token function">cat</span> /etc/nginx/conf.d/default.conf
-server <span class="token punctuation">{</span>
-    listen       80<span class="token punctuation">;</span>
-    server_name  localhost<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">#charset koi8-r;</span>
-    <span class="token comment" spellcheck="true">#access_log  /var/log/nginx/host.access.log  main;</span>
-
-    location / <span class="token punctuation">{</span>
-        root   /usr/share/nginx/html<span class="token punctuation">;</span>
-        index  index.html index.htm<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">#error_page  404              /404.html;</span>
-
-    <span class="token comment" spellcheck="true"># redirect server error pages to the static page /50x.html</span>
-    <span class="token comment" spellcheck="true">#</span>
-    error_page   500 502 503 504  /50x.html<span class="token punctuation">;</span>
-    location <span class="token operator">=</span> /50x.html <span class="token punctuation">{</span>
-        root   /usr/share/nginx/html<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
-    <span class="token comment" spellcheck="true">#</span>
-    <span class="token comment" spellcheck="true">#location ~ \.php$ {</span>
-    <span class="token comment" spellcheck="true">#    proxy_pass   http://127.0.0.1;</span>
-    <span class="token comment" spellcheck="true">#}</span>
-
-    <span class="token comment" spellcheck="true"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
-    <span class="token comment" spellcheck="true">#</span>
-    <span class="token comment" spellcheck="true">#location ~ \.php$ {</span>
-    <span class="token comment" spellcheck="true">#    root           html;</span>
-    <span class="token comment" spellcheck="true">#    fastcgi_pass   127.0.0.1:9000;</span>
-    <span class="token comment" spellcheck="true">#    fastcgi_index  index.php;</span>
-    <span class="token comment" spellcheck="true">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
-    <span class="token comment" spellcheck="true">#    include        fastcgi_params;</span>
-    <span class="token comment" spellcheck="true">#}</span>
-
-    <span class="token comment" spellcheck="true"># deny access to .htaccess files, if Apache's document root</span>
-    <span class="token comment" spellcheck="true"># concurs with nginx's one</span>
-    <span class="token comment" spellcheck="true">#</span>
-    <span class="token comment" spellcheck="true">#location ~ /\.ht {</span>
-    <span class="token comment" spellcheck="true">#    deny  all;</span>
-    <span class="token comment" spellcheck="true">#}</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true"># 退出容器</span>
-<span class="token keyword">exit</span>
-
-</code></pre>
-<h3 id="服务器其他相关命令"><a href="#服务器其他相关命令" class="headerlink" title="服务器其他相关命令"></a>服务器其他相关命令</h3><pre class=" language-yml"><code class="language-yml"># 查看服务器系统版本
-lsb_release -a
-
-# 停止nginx服务
-pkill -9 nginx
-
-# docker重启nginx
-docker restart <镜像名称>
-
-# 查看特定的进程
-ps -ef|grep nginx
-# 查看所有进程
-ps -ef
-
-# docker配置nginx静态资源路径，要修改docker，修改nginx没有用
-</code></pre>
+<h3 id="3-列出已下载的镜像"><a href="#3-列出已下载的镜像" class="headerlink" title="3.列出已下载的镜像"></a>3.列出已下载的镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<h3 id="4-列出运行中的容器"><a href="#4-列出运行中的容器" class="headerlink" title="4.列出运行中的容器"></a>4.列出运行中的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 docker ps -a 命令列出所有（包括已停止）的容器</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">docker rm &lt;容器的唯一标示&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止正在运行的容器</span></span><br><span class="line">docker stop &lt;容器名称&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5-启动跑个静态网页测试nginx容器"><a href="#5-启动跑个静态网页测试nginx容器" class="headerlink" title="5.启动跑个静态网页测试nginx容器"></a>5.启动跑个静态网页测试nginx容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --name nginxTest -d -p 8080:80 -v /usr/docker/nginx/html:/usr/share/nginx/html nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件移动</span></span><br><span class="line">mv &lt;文件或者文件名路径&gt; &lt;目标目录&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="6-注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建"><a href="#6-注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建" class="headerlink" title="6.注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建"></a>6.注意docker的默认配置，如果docker的nginx没有默认配置，需要自行创建</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入docker的默认配置</span></span><br><span class="line">docker <span class="built_in">exec</span> -it default-nginx bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看默认配置</span></span><br><span class="line">cat /etc/nginx/nginx.conf</span><br><span class="line">user  nginx;</span><br><span class="line">worker_processes  1;</span><br><span class="line">error_log  /var/<span class="built_in">log</span>/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    log_format  main  <span class="string">'$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line">                      <span class="string">'$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">                      <span class="string">'"$http_user_agent" "$http_x_forwarded_for"'</span>;</span><br><span class="line"></span><br><span class="line">    access_log  /var/<span class="built_in">log</span>/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">    include /etc/nginx/conf.d/*.conf;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以看到docker指向的默认路径是/etc/nginx/，所以我们在etc/nginx创建这个路径和相应的文件就好了。</span></span><br><span class="line">cat /etc/nginx/conf.d/default.conf</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  /var/log/nginx/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    root           html;</span></span><br><span class="line">    <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">    <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">    <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">    <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line">    <span class="comment"># concurs with nginx's one</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">    <span class="comment">#    deny  all;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出容器</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h3 id="服务器其他相关命令"><a href="#服务器其他相关命令" class="headerlink" title="服务器其他相关命令"></a>服务器其他相关命令</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看服务器系统版本</span></span><br><span class="line"><span class="string">lsb_release</span> <span class="bullet">-a</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止nginx服务</span></span><br><span class="line"><span class="string">pkill</span> <span class="bullet">-9</span> <span class="string">nginx</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># docker重启nginx</span></span><br><span class="line"><span class="string">docker</span> <span class="string">restart</span> <span class="string">&lt;镜像名称&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看特定的进程</span></span><br><span class="line"><span class="string">ps</span> <span class="bullet">-ef|grep</span> <span class="string">nginx</span></span><br><span class="line"><span class="comment"># 查看所有进程</span></span><br><span class="line"><span class="string">ps</span> <span class="bullet">-ef</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># docker配置nginx静态资源路径，要修改docker，修改nginx没有用</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://my.oschina.net/u/3375733/blog/1591091" target="_blank" rel="noopener">参考文章</a></p>
 	
 	</div>
@@ -517,11 +406,7 @@ ps -ef
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -547,7 +432,7 @@ ps -ef
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -570,12 +455,7 @@ ps -ef
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -626,9 +506,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -651,9 +529,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -676,9 +553,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -729,9 +604,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -914,7 +787,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

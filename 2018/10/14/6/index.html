@@ -336,110 +336,11 @@
 		<p>#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。</p>
 <p>#####注：demo借鉴的<a href="https://boxueio.com" target="_blank" rel="noopener">泊学</a>上的</p>
 <p>#####<a href="https://github.com/eyesoffish/ARFind" target="_blank" rel="noopener">github地址</a></p>
-<p>2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。</p>
-<pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">// MARK: - ARSKViewDelegate</span>
-
-    <span class="token keyword">func</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token number">_</span> view<span class="token punctuation">:</span> <span class="token builtin">ARSKView</span><span class="token punctuation">,</span> nodeFor anchor<span class="token punctuation">:</span> <span class="token builtin">ARAnchor</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">SKNode</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Create and configure a node for the anchor added to the view's session.</span>
-        <span class="token keyword">return</span> <span class="token function">SKSpriteNode</span><span class="token punctuation">(</span>imageNamed<span class="token punctuation">:</span> <span class="token string">"money.png"</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-</code></pre>
-<p>3.有关AR逻辑和交互的处理是放在scene.swift里面的。所以剩下的代码写在scene.swift里面就行了。</p>
-<pre class=" language-swift"><code class="language-swift">    <span class="token keyword">let</span> labelTitleNode <span class="token operator">=</span> <span class="token function">SKLabelNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//用于显示当前有多少node存在</span>
-
-    <span class="token keyword">var</span> createNodeCount <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">var</span> currentNodeCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">{</span>
-        <span class="token keyword">didSet</span><span class="token punctuation">{</span>
-            labelTitleNode<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"<span class="token interpolation"><span class="token delimiter variable">\(</span>currentNodeCount<span class="token delimiter variable">)</span></span> in your room"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> myTimer<span class="token punctuation">:</span><span class="token builtin">Timer</span><span class="token operator">?</span><span class="token comment" spellcheck="true">//定时器，定时创建node</span>
-
-<span class="token comment" spellcheck="true">//属性初始化</span>
-    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">didMove</span><span class="token punctuation">(</span>to view<span class="token punctuation">:</span> <span class="token builtin">SKView</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Setup your scene here</span>
-
-        labelTitleNode<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token number">25</span>
-        labelTitleNode<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token punctuation">.</span>white
-        labelTitleNode<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token function">CGPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> view<span class="token punctuation">.</span>frame<span class="token punctuation">.</span>midY <span class="token operator">-</span> <span class="token number">50</span><span class="token punctuation">)</span>
-        <span class="token function">addChild</span><span class="token punctuation">(</span>labelTitleNode<span class="token punctuation">)</span>
-        currentNodeCount <span class="token operator">=</span> <span class="token number">0</span>
-
-        myTimer <span class="token operator">=</span> <span class="token builtin">Timer</span><span class="token punctuation">.</span><span class="token function">scheduledTimer</span><span class="token punctuation">(</span>withTimeInterval<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> repeats<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> block<span class="token punctuation">:</span> <span class="token punctuation">{</span> timer <span class="token keyword">in</span>
-            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">createNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-</code></pre>
-<p>4.创建node</p>
-<pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//定时生成对象</span>
-    <span class="token keyword">func</span> <span class="token function">createNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span> currentNodeCount <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">{</span>
-            myTimer<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">invalidate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            myTimer <span class="token operator">=</span> <span class="token constant">nil</span>
-            <span class="token keyword">return</span>
-        <span class="token punctuation">}</span>
-
-        currentNodeCount <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-        createNodeCount <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-
-        <span class="token comment" spellcheck="true">//----------生成对象</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> sceneView <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>view <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">ARSKView</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">//生成随机位置</span>
-        <span class="token keyword">let</span> randNumber <span class="token operator">=</span> <span class="token builtin">GKRandomSource</span><span class="token punctuation">.</span><span class="token function">sharedRandom</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true">//生成x轴的旋转矩阵</span>
-        <span class="token keyword">let</span> xRotation <span class="token operator">=</span> <span class="token function">simd_float4x4</span><span class="token punctuation">(</span><span class="token function">SCNMatrix4MakeRotation</span><span class="token punctuation">(</span>randNumber<span class="token punctuation">.</span><span class="token function">nextUniform</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token builtin">Float</span><span class="token punctuation">.</span>pi <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">let</span> yRotation <span class="token operator">=</span> <span class="token function">simd_float4x4</span><span class="token punctuation">(</span><span class="token function">SCNMatrix4MakeRotation</span><span class="token punctuation">(</span>randNumber<span class="token punctuation">.</span><span class="token function">nextUniform</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token builtin">Float</span><span class="token punctuation">.</span>pi <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true">//合成坐标</span>
-        <span class="token keyword">let</span> rotation <span class="token operator">=</span> <span class="token function">simd_mul</span><span class="token punctuation">(</span>xRotation<span class="token punctuation">,</span> yRotation<span class="token punctuation">)</span>
-        <span class="token keyword">var</span> translation <span class="token operator">=</span> matrix_identity_float4x4
-        translation<span class="token punctuation">.</span>columns<span class="token punctuation">.</span><span class="token number">3</span><span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token comment" spellcheck="true">//摄像头前面一米</span>
-
-        <span class="token keyword">let</span> transform <span class="token operator">=</span> <span class="token function">simd_mul</span><span class="token punctuation">(</span>rotation<span class="token punctuation">,</span> translation<span class="token punctuation">)</span>
-
-        <span class="token keyword">let</span> anchor <span class="token operator">=</span> <span class="token function">ARAnchor</span><span class="token punctuation">(</span>transform<span class="token punctuation">:</span> transform<span class="token punctuation">)</span>
-        sceneView<span class="token punctuation">.</span>session<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>anchor<span class="token punctuation">:</span> anchor<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-</code></pre>
-<p>5.处理node交互</p>
-<pre><code>   //AR场景交互
-    override func touchesBegan(_ touches: Set&lt;UITouch&gt;, with event: UIEvent?) {
-//        guard let sceneView = self.view as? ARSKView else {
-//            return
-//        }
-//        // Create anchor using the camera&#39;s current position
-//        if let currentFrame = sceneView.session.currentFrame {
-//
-//            // Create a transform with a translation of 0.2 meters in front of the camera
-//            var translation = matrix_identity_float4x4
-//            translation.columns.3.z = -0.2//在距离镜头墙两厘米位置设置了一个对象
-//            let transform = simd_mul(currentFrame.camera.transform, translation)
-//
-//            // Add a new anchor to the session
-//            let anchor = ARAnchor(transform: transform)
-//            sceneView.session.add(anchor: anchor)
-//        }
-
-        //ar交互
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-        let currentNodes = nodes(at: location)
-        if let node = currentNodes.first{
-            currentNodeCount -= 1
-            //放大渐变消失
-            let scaleOut = SKAction.scale(by: 2, duration: 0.2)
-            let fadeOut = SKAction.fadeOut(withDuration: 0.2)
-            let group = SKAction.group([scaleOut, fadeOut])
-            let sequence = SKAction.sequence([group, SKAction.removeFromParent()])
-
-            node.run(sequence)
-
-            if currentNodeCount == 0, createNodeCount == 10{
-                labelTitleNode.removeFromParent()
-                self.addChild(SKSpriteNode(imageNamed: &quot;game_over&quot;))
-            }
-        }
-    }
-</code></pre>	
+<p>2.项目创建成功之后进入到ViewController.swift里面。里面不需要改什么只需要在ARSKViewDelegate里面返回自己需要的Node对象就行了。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - ARSKViewDelegate</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">view</span><span class="params">(<span class="number">_</span> view: ARSKView, nodeFor anchor: ARAnchor)</span></span> -&gt; <span class="type">SKNode</span>? &#123;</span><br><span class="line">        <span class="comment">// Create and configure a node for the anchor added to the view's session.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="type">SKSpriteNode</span>(imageNamed: <span class="string">"money.png"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.有关AR逻辑和交互的处理是放在scene.swift里面的。所以剩下的代码写在scene.swift里面就行了。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">let</span> labelTitleNode = <span class="type">SKLabelNode</span>()<span class="comment">//用于显示当前有多少node存在</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> createNodeCount = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> currentNodeCount = <span class="number">0</span>&#123;</span><br><span class="line">        <span class="keyword">didSet</span>&#123;</span><br><span class="line">            labelTitleNode.text = <span class="string">"<span class="subst">\(currentNodeCount)</span> in your room"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> myTimer:<span class="type">Timer</span>?<span class="comment">//定时器，定时创建node</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//属性初始化</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didMove</span><span class="params">(to view: SKView)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Setup your scene here</span></span><br><span class="line">        </span><br><span class="line">        labelTitleNode.fontSize = <span class="number">25</span></span><br><span class="line">        labelTitleNode.color = .white</span><br><span class="line">        labelTitleNode.position = <span class="type">CGPoint</span>(x: <span class="number">0</span>, y: view.frame.midY - <span class="number">50</span>)</span><br><span class="line">        addChild(labelTitleNode)</span><br><span class="line">        currentNodeCount = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        myTimer = <span class="type">Timer</span>.scheduledTimer(withTimeInterval: <span class="number">1</span>, repeats: <span class="literal">true</span>, block: &#123; timer <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.createNode()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.创建node<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定时生成对象</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">createNode</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> currentNodeCount == <span class="number">10</span>&#123;</span><br><span class="line">            myTimer?.invalidate()</span><br><span class="line">            myTimer = <span class="literal">nil</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        currentNodeCount += <span class="number">1</span></span><br><span class="line">        createNodeCount += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//----------生成对象</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> sceneView = <span class="keyword">self</span>.view <span class="keyword">as</span>? <span class="type">ARSKView</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="comment">//生成随机位置</span></span><br><span class="line">        <span class="keyword">let</span> randNumber = <span class="type">GKRandomSource</span>.sharedRandom()</span><br><span class="line">        <span class="comment">//生成x轴的旋转矩阵</span></span><br><span class="line">        <span class="keyword">let</span> xRotation = simd_float4x4(<span class="type">SCNMatrix4MakeRotation</span>(randNumber.nextUniform() * <span class="type">Float</span>.pi * <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">let</span> yRotation = simd_float4x4(<span class="type">SCNMatrix4MakeRotation</span>(randNumber.nextUniform() * <span class="type">Float</span>.pi * <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="comment">//合成坐标</span></span><br><span class="line">        <span class="keyword">let</span> rotation = simd_mul(xRotation, yRotation)</span><br><span class="line">        <span class="keyword">var</span> translation = matrix_identity_float4x4</span><br><span class="line">        translation.columns.<span class="number">3</span>.z = -<span class="number">1</span><span class="comment">//摄像头前面一米</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> transform = simd_mul(rotation, translation)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> anchor = <span class="type">ARAnchor</span>(transform: transform)</span><br><span class="line">        sceneView.session.add(anchor: anchor)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>5.处理node交互<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">   //AR场景交互</span><br><span class="line">    override func touchesBegan(_ touches: Set&lt;UITouch&gt;, with event: UIEvent?) &#123;</span><br><span class="line">//        guard let sceneView = self.view as? ARSKView else &#123;</span><br><span class="line">//            return</span><br><span class="line">//        &#125;</span><br><span class="line">//        // Create anchor using the camera&apos;s current position</span><br><span class="line">//        if let currentFrame = sceneView.session.currentFrame &#123;</span><br><span class="line">//</span><br><span class="line">//            // Create a transform with a translation of 0.2 meters in front of the camera</span><br><span class="line">//            var translation = matrix_identity_float4x4</span><br><span class="line">//            translation.columns.3.z = -0.2//在距离镜头墙两厘米位置设置了一个对象</span><br><span class="line">//            let transform = simd_mul(currentFrame.camera.transform, translation)</span><br><span class="line">//</span><br><span class="line">//            // Add a new anchor to the session</span><br><span class="line">//            let anchor = ARAnchor(transform: transform)</span><br><span class="line">//            sceneView.session.add(anchor: anchor)</span><br><span class="line">//        &#125;</span><br><span class="line">        </span><br><span class="line">        //ar交互</span><br><span class="line">        guard let touch = touches.first else &#123; return &#125;</span><br><span class="line">        let location = touch.location(in: self)</span><br><span class="line">        let currentNodes = nodes(at: location)</span><br><span class="line">        if let node = currentNodes.first&#123;</span><br><span class="line">            currentNodeCount -= 1</span><br><span class="line">            //放大渐变消失</span><br><span class="line">            let scaleOut = SKAction.scale(by: 2, duration: 0.2)</span><br><span class="line">            let fadeOut = SKAction.fadeOut(withDuration: 0.2)</span><br><span class="line">            let group = SKAction.group([scaleOut, fadeOut])</span><br><span class="line">            let sequence = SKAction.sequence([group, SKAction.removeFromParent()])</span><br><span class="line">            </span><br><span class="line">            node.run(sequence)</span><br><span class="line">            </span><br><span class="line">            if currentNodeCount == 0, createNodeCount == 10&#123;</span><br><span class="line">                labelTitleNode.removeFromParent()</span><br><span class="line">                self.addChild(SKSpriteNode(imageNamed: &quot;game_over&quot;))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -491,11 +392,7 @@
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -521,7 +418,7 @@
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -544,12 +441,7 @@
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -597,10 +489,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -628,9 +518,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -653,9 +541,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -678,9 +565,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -731,9 +616,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -893,7 +776,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

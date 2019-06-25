@@ -348,60 +348,9 @@
 		<blockquote>
 <p>最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。</p>
 </blockquote>
-<h3 id="1-在conf-d文件下添加一个新的配置文件"><a href="#1-在conf-d文件下添加一个新的配置文件" class="headerlink" title="1.在conf.d文件下添加一个新的配置文件,"></a>1.在conf.d文件下添加一个新的配置文件,</h3><pre class=" language-bash"><code class="language-bash">server <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">#说明监听80端口</span>
-    listen       8089<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">#访问的域名，多个域名用空格隔开</span>
-    server_name  locahost<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">#charset koi8-r;</span>
-    <span class="token comment" spellcheck="true">#access_log  /var/log/nginx/log/host.access.log  main;</span>
-
-    charset utf8<span class="token punctuation">;</span>
-
-    location / <span class="token punctuation">{</span>
-        root /usr/docker/nginx/HHRL<span class="token punctuation">;</span>//打包文件路径
-        index index.html index.htm<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">#error_page  404              /404.html;</span>
-
-    <span class="token comment" spellcheck="true"># redirect server error pages to the static page /50x.html</span>
-    <span class="token comment" spellcheck="true">#</span>
-    error_page   500 502 503 504  /50x.html<span class="token punctuation">;</span>
-    location <span class="token operator">=</span> /50x.html <span class="token punctuation">{</span>
-        root   /usr/share/nginx/html<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    location ~ /.ht <span class="token punctuation">{</span>
-        deny  all<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="2-如果有配置的域名"><a href="#2-如果有配置的域名" class="headerlink" title="2.如果有配置的域名"></a>2.如果有配置的域名</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># cat /etc/redhat_release</span>
-server <span class="token punctuation">{</span>
-    listen       80<span class="token punctuation">;</span>
-    server_name  huahuitest.xxx.com<span class="token punctuation">;</span>
-    root   /usr/docker/nginx/huahui<span class="token punctuation">;</span>
-    index  index.html index.htm<span class="token punctuation">;</span>
-
-    location / <span class="token punctuation">{</span>
-        try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    location ~ /\.ht <span class="token punctuation">{</span>
-        deny  all<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="3-其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）"><a href="#3-其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）" class="headerlink" title="3.其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）"></a>3.其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">cat</span> /etc/redhat_release <span class="token comment" spellcheck="true">#查看系统版本</span>
-
-<span class="token comment" spellcheck="true"># nginx 重启</span>
-<span class="token function">service</span> nginx reload
-nginx -s reload
-<span class="token comment" spellcheck="true"># 启动配置</span>
-nginx -c /etc/nginx/conf.d/
-
-</code></pre>
+<h3 id="1-在conf-d文件下添加一个新的配置文件"><a href="#1-在conf-d文件下添加一个新的配置文件" class="headerlink" title="1.在conf.d文件下添加一个新的配置文件,"></a>1.在conf.d文件下添加一个新的配置文件,</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    <span class="comment">#说明监听80端口</span></span><br><span class="line">    listen       8089;</span><br><span class="line">    <span class="comment">#访问的域名，多个域名用空格隔开</span></span><br><span class="line">    server_name  locahost;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  /var/log/nginx/log/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    charset utf8;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /usr/docker/nginx/HHRL;//打包文件路径</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ /.ht &#123;</span><br><span class="line">        deny  all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-如果有配置的域名"><a href="#2-如果有配置的域名" class="headerlink" title="2.如果有配置的域名"></a>2.如果有配置的域名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat /etc/redhat_release</span></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  huahuitest.xxx.com;</span><br><span class="line">    root   /usr/docker/nginx/huahui;</span><br><span class="line">    index  index.html index.htm;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ /\.ht &#123;</span><br><span class="line">        deny  all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）"><a href="#3-其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）" class="headerlink" title="3.其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）"></a>3.其他命令（注意的是每次修改配置文件之后需要重新启动ngixn）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat_release <span class="comment">#查看系统版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># nginx 重启</span></span><br><span class="line">service nginx reload</span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="comment"># 启动配置</span></span><br><span class="line">nginx -c /etc/nginx/conf.d/</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -454,11 +403,7 @@ nginx -c /etc/nginx/conf.d/
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -484,7 +429,7 @@ nginx -c /etc/nginx/conf.d/
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -507,12 +452,7 @@ nginx -c /etc/nginx/conf.d/
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -560,10 +500,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -588,9 +526,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -613,9 +550,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -666,9 +601,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -851,7 +784,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

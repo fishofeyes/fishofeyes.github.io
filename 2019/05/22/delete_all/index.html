@@ -333,26 +333,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-
-expired<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>security find-identity<span class="token variable">)</span></span>
-<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$expired</span>"</span> <span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#-z判断字符串长度是否为0 为0返回true</span>
-<span class="token keyword">then</span>
-    <span class="token keyword">echo</span> <span class="token string">"No expired certificates, we're all good"</span>
-<span class="token keyword">else</span>
-    <span class="token keyword">echo</span> <span class="token string">"Deleting expired certs"</span>
-    <span class="token keyword">for</span> uuid <span class="token keyword">in</span> <span class="token variable">$expired</span>
-    <span class="token keyword">do</span>
-        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">${#uuid}</span> -eq 40 <span class="token punctuation">]</span>
-        <span class="token keyword">then</span>
-            security delete-certificate -Z <span class="token variable">$expired</span>
-        <span class="token keyword">echo</span> <span class="token variable">$uuid</span>
-        <span class="token keyword">fi</span>
-    <span class="token keyword">done</span>
-<span class="token keyword">fi</span>
-<span class="token keyword">exit</span> 0
-</code></pre>
-	
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">expired=$(security find-identity)</span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$expired</span>"</span> ]    <span class="comment">#-z判断字符串长度是否为0 为0返回true</span></span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"No expired certificates, we're all good"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Deleting expired certs"</span></span><br><span class="line">    <span class="keyword">for</span> uuid <span class="keyword">in</span> <span class="variable">$expired</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$&#123;#uuid&#125;</span> -eq 40 ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">            security delete-certificate -Z <span class="variable">$expired</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$uuid</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -404,11 +385,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -434,7 +411,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -482,10 +459,8 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -513,9 +488,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -538,9 +511,8 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -563,9 +535,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -616,9 +586,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -801,7 +769,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

@@ -348,57 +348,11 @@
 		<blockquote>
 <p>手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension</p>
 </blockquote>
-<h3 id="1-首先创建一个空的工程，然后创建好了之后添加一个target。"><a href="#1-首先创建一个空的工程，然后创建好了之后添加一个target。" class="headerlink" title="1.首先创建一个空的工程，然后创建好了之后添加一个target。"></a>1.首先创建一个空的工程，然后创建好了之后添加一个target。</h3><pre class=" language-bash"><code class="language-bash">选中工程-<span class="token operator">></span>Editor-<span class="token operator">></span>Add Target-<span class="token operator">></span>选择iOS-<span class="token operator">></span>添加Message Filtter Extension
-</code></pre>
+<h3 id="1-首先创建一个空的工程，然后创建好了之后添加一个target。"><a href="#1-首先创建一个空的工程，然后创建好了之后添加一个target。" class="headerlink" title="1.首先创建一个空的工程，然后创建好了之后添加一个target。"></a>1.首先创建一个空的工程，然后创建好了之后添加一个target。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选中工程-&gt;Editor-&gt;Add Target-&gt;选择iOS-&gt;添加Message Filtter Extension</span><br></pre></td></tr></table></figure>
 <h3 id="2-添加好了之后选择设置，项目工程和target都要开启AppGroup-点击左下角的加号添加一个AppGroup的标示"><a href="#2-添加好了之后选择设置，项目工程和target都要开启AppGroup-点击左下角的加号添加一个AppGroup的标示" class="headerlink" title="2.添加好了之后选择设置，项目工程和target都要开启AppGroup,点击左下角的加号添加一个AppGroup的标示"></a>2.添加好了之后选择设置，项目工程和target都要开启AppGroup,点击左下角的加号添加一个AppGroup的标示</h3><p><img src="/img/messageFilter/WeChat306d2070b2eeec59a3f7d131a6013bfe.png" alt="图片"></p>
 <p><em>注意：项目工程和自己添加的target必须要一致，这个标示是用来共享数据的</em></p>
-<h3 id="3-工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group-com-message-fliter标示用userdefault来存储"><a href="#3-工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group-com-message-fliter标示用userdefault来存储" class="headerlink" title="3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group.com.message.fliter标示用userdefault来存储"></a>3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的<em>group.com.message.fliter</em>标示用userdefault来存储</h3><pre class=" language-swift"><code class="language-swift"><span class="token keyword">let</span> <span class="token constant">KEY_ARRAY</span> <span class="token operator">=</span> <span class="token string">"group.com.message.fliter"</span>
-<span class="token keyword">var</span> dataSource<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"百家乐"</span><span class="token punctuation">,</span><span class="token string">"电子游艺"</span><span class="token punctuation">,</span><span class="token string">"捕鱼游艺"</span><span class="token punctuation">,</span><span class="token string">"游艺"</span><span class="token punctuation">,</span><span class="token string">"竞技比赛"</span><span class="token punctuation">,</span><span class="token string">"顶级平台"</span><span class="token punctuation">,</span><span class="token string">"现金礼券"</span><span class="token punctuation">,</span><span class="token string">"千万"</span><span class="token punctuation">,</span><span class="token string">"千万秒提"</span><span class="token punctuation">,</span><span class="token string">"24小时娱乐"</span><span class="token punctuation">,</span><span class="token string">"真人"</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
-        <span class="token keyword">didSet</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> standard <span class="token operator">=</span> <span class="token function">UserDefaults</span><span class="token punctuation">(</span>suiteName<span class="token punctuation">:</span> <span class="token constant">KEY_ARRAY</span><span class="token punctuation">)</span>
-            standard<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token constant">KEY_ARRAY</span><span class="token punctuation">)</span>
-            standard<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">synchronize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token atrule">@IBOutlet</span> <span class="token keyword">weak</span> <span class="token keyword">var</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token operator">!</span>
-    <span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">UIBarButtonItem</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token builtin">AlertTool</span><span class="token punctuation">.</span><span class="token function">createInputText</span><span class="token punctuation">(</span><span class="token string">"输入关键词"</span><span class="token punctuation">,</span> detail<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token keyword">weak</span> <span class="token keyword">self</span><span class="token punctuation">]</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token keyword">in</span>
-            <span class="token keyword">self</span><span class="token operator">?</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span>delegate <span class="token operator">=</span> <span class="token keyword">self</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span>dataSource <span class="token operator">=</span> <span class="token keyword">self</span>
-
-        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token builtin">UITableViewCell</span><span class="token punctuation">.</span><span class="token function">classForCoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> forCellReuseIdentifier<span class="token punctuation">:</span> <span class="token string">"cell"</span><span class="token punctuation">)</span>
-        <span class="token keyword">let</span> temp <span class="token operator">=</span> <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> <span class="token constant">KEY_ARRAY</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>contentsOf<span class="token punctuation">:</span> temp <span class="token operator">?</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>tableView<span class="token punctuation">.</span><span class="token function">reloadData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-</code></pre>
-<h3 id="4-在Message-Filtter-Extension实现关键词过滤-而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。"><a href="#4-在Message-Filtter-Extension实现关键词过滤-而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。" class="headerlink" title="4.在Message Filtter Extension实现关键词过滤,而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。"></a>4.在Message Filtter Extension实现关键词过滤,而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。</h3><pre class=" language-swift"><code class="language-swift">
-<span class="token keyword">var</span> words<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
-        <span class="token keyword">get</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> standard <span class="token operator">=</span> <span class="token function">UserDefaults</span><span class="token punctuation">(</span>suiteName<span class="token punctuation">:</span> <span class="token string">"group.com.message.fliter"</span><span class="token punctuation">)</span>
-            <span class="token keyword">let</span> temp <span class="token operator">=</span> standard<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> <span class="token string">"group.com.message.fliter"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span>
-            <span class="token keyword">return</span> temp <span class="token operator">?</span><span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-<span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">offlineAction</span><span class="token punctuation">(</span><span class="token keyword">for</span> queryRequest<span class="token punctuation">:</span> <span class="token builtin">ILMessageFilterQueryRequest</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">ILMessageFilterAction</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Replace with logic to perform offline check whether to filter first (if possible).</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> msg <span class="token operator">=</span> queryRequest<span class="token punctuation">.</span>messageBody <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">.</span><span class="token keyword">none</span> <span class="token punctuation">}</span>
-        <span class="token keyword">for</span> word <span class="token keyword">in</span> <span class="token keyword">self</span><span class="token punctuation">.</span>words <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> msg<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token punctuation">.</span><span class="token builtin">filter</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token punctuation">.</span>allow
-    <span class="token punctuation">}</span>
-</code></pre>
+<h3 id="3-工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group-com-message-fliter标示用userdefault来存储"><a href="#3-工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group-com-message-fliter标示用userdefault来存储" class="headerlink" title="3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的group.com.message.fliter标示用userdefault来存储"></a>3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加的<em>group.com.message.fliter</em>标示用userdefault来存储</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="type">KEY_ARRAY</span> = <span class="string">"group.com.message.fliter"</span></span><br><span class="line"><span class="keyword">var</span> dataSource: [<span class="type">String</span>] = [<span class="string">"百家乐"</span>,<span class="string">"电子游艺"</span>,<span class="string">"捕鱼游艺"</span>,<span class="string">"游艺"</span>,<span class="string">"竞技比赛"</span>,<span class="string">"顶级平台"</span>,<span class="string">"现金礼券"</span>,<span class="string">"千万"</span>,<span class="string">"千万秒提"</span>,<span class="string">"24小时娱乐"</span>,<span class="string">"真人"</span>]&#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> standard = <span class="type">UserDefaults</span>(suiteName: <span class="type">KEY_ARRAY</span>)</span><br><span class="line">            standard?.setValue(<span class="keyword">self</span>.dataSource, forKey: <span class="type">KEY_ARRAY</span>)</span><br><span class="line">            standard?.synchronize()</span><br><span class="line">            <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> tableView: <span class="type">UITableView</span>!</span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">addAction</span><span class="params">(<span class="number">_</span> sender: UIBarButtonItem)</span></span> &#123;</span><br><span class="line">        <span class="type">AlertTool</span>.createInputText(<span class="string">"输入关键词"</span>, detail: <span class="string">""</span>) &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] (res) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>?.dataSource.append(res)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.tableView.delegate = <span class="keyword">self</span></span><br><span class="line">        <span class="keyword">self</span>.tableView.dataSource = <span class="keyword">self</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.tableView.register(<span class="type">UITableViewCell</span>.classForCoder(), forCellReuseIdentifier: <span class="string">"cell"</span>)</span><br><span class="line">        <span class="keyword">let</span> temp = <span class="type">UserDefaults</span>.standard.value(forKey: <span class="type">KEY_ARRAY</span>) <span class="keyword">as</span>? [<span class="type">String</span>]</span><br><span class="line">        <span class="keyword">self</span>.dataSource.append(contentsOf: temp ?? [])</span><br><span class="line">        <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-在Message-Filtter-Extension实现关键词过滤-而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。"><a href="#4-在Message-Filtter-Extension实现关键词过滤-而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。" class="headerlink" title="4.在Message Filtter Extension实现关键词过滤,而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。"></a>4.在Message Filtter Extension实现关键词过滤,而这个关键词的数据是从项目工程里拿的。这就实现了短信的过滤，不过遗憾的是没有办法可以删除垃圾短信。</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> words: [<span class="type">String</span>] &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> standard = <span class="type">UserDefaults</span>(suiteName: <span class="string">"group.com.message.fliter"</span>)</span><br><span class="line">            <span class="keyword">let</span> temp = standard?.value(forKey: <span class="string">"group.com.message.fliter"</span>) <span class="keyword">as</span>? [<span class="type">String</span>]</span><br><span class="line">            <span class="keyword">return</span> temp ?? []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">offlineAction</span><span class="params">(<span class="keyword">for</span> queryRequest: ILMessageFilterQueryRequest)</span></span> -&gt; <span class="type">ILMessageFilterAction</span> &#123;</span><br><span class="line">        <span class="comment">// Replace with logic to perform offline check whether to filter first (if possible).</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> msg = queryRequest.messageBody <span class="keyword">else</span> &#123; <span class="keyword">return</span> .<span class="keyword">none</span> &#125;</span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> <span class="keyword">self</span>.words &#123;</span><br><span class="line">            <span class="keyword">if</span> msg.<span class="built_in">contains</span>(word) &#123;</span><br><span class="line">                <span class="keyword">return</span> .<span class="built_in">filter</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> .allow</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="这边添加了一个简书的关键词"><a href="#这边添加了一个简书的关键词" class="headerlink" title="这边添加了一个简书的关键词"></a>这边添加了一个<em>简书</em>的关键词</h3><p><img src="/img/messageFilter/IMG_3546.PNG" alt="效果图"></p>
 <p><img src="/img/messageFilter/IMG_3547.PNG" alt="效果图"></p>
 	
@@ -453,11 +407,7 @@
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右
-/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件...
+								将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.1234567891011121314151617181920212223242526272829303132333435363738394041424...
 							</p>
 						</div>
 
@@ -480,12 +430,7 @@
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -533,10 +478,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -564,9 +507,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -589,9 +530,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -614,9 +554,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -667,9 +605,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -852,7 +788,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

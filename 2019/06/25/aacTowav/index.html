@@ -345,116 +345,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="将aac编码格式的音频转为lpcm编码的音频-转出来的音频会比原来大个10倍左右"><a href="#将aac编码格式的音频转为lpcm编码的音频-转出来的音频会比原来大个10倍左右" class="headerlink" title="将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右"></a>将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右</h3><pre class=" language-swift"><code class="language-swift">
-<span class="token comment" spellcheck="true">/**
- 把.m4a转为.caf格式
- @param originalUrlStr .m4a文件路径
- @param destUrlStr .wav文件路径
- @param completed 转化完成的block
- */</span>
-<span class="token operator">-</span> <span class="token punctuation">(</span>void<span class="token punctuation">)</span>convetM4aToWav<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token constant">NSURL</span> <span class="token operator">*</span><span class="token punctuation">)</span>originalUrlStr
-               destUrl<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token builtin">NSString</span> <span class="token operator">*</span><span class="token punctuation">)</span>destUrlStr
-             completed<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token function">void</span> <span class="token punctuation">(</span><span class="token operator">^</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token builtin">NSError</span> <span class="token operator">*</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span> completed <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token builtin">NSFileManager</span> defaultManager<span class="token punctuation">]</span> fileExistsAtPath<span class="token punctuation">:</span>destUrlStr<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token builtin">NSFileManager</span> defaultManager<span class="token punctuation">]</span> removeItemAtPath<span class="token punctuation">:</span>destUrlStr error<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token constant">NSURL</span> <span class="token operator">*</span>originalUrl <span class="token operator">=</span> originalUrlStr<span class="token punctuation">;</span>
-    <span class="token constant">NSURL</span> <span class="token operator">*</span>destUrl     <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token constant">NSURL</span> fileURLWithPath<span class="token punctuation">:</span>destUrlStr<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token builtin">AVURLAsset</span> <span class="token operator">*</span>songAsset <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVURLAsset</span> <span class="token builtin">URLAssetWithURL</span><span class="token punctuation">:</span>originalUrl options<span class="token punctuation">:</span><span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">//读取原始文件信息</span>
-    <span class="token builtin">NSError</span> <span class="token operator">*</span>error <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
-    <span class="token builtin">AVAssetReader</span> <span class="token operator">*</span>assetReader <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetReader</span> assetReaderWithAsset<span class="token punctuation">:</span>songAsset error<span class="token punctuation">:</span><span class="token operator">&amp;</span>error<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"error: %@"</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token builtin">AVAssetReaderOutput</span> <span class="token operator">*</span>assetReaderOutput <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetReaderAudioMixOutput</span>
-                                              assetReaderAudioMixOutputWithAudioTracks<span class="token punctuation">:</span>songAsset<span class="token punctuation">.</span>tracks
-                                              audioSettings<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">[</span>assetReader canAddOutput<span class="token punctuation">:</span>assetReaderOutput<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"can't add reader output... die!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token punctuation">[</span>assetReader addOutput<span class="token punctuation">:</span>assetReaderOutput<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    <span class="token builtin">AVAssetWriter</span> <span class="token operator">*</span>assetWriter <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetWriter</span> assetWriterWithURL<span class="token punctuation">:</span>destUrl
-                                                          fileType<span class="token punctuation">:</span><span class="token builtin">AVFileTypeCoreAudioFormat</span>
-                                                             error<span class="token punctuation">:</span><span class="token operator">&amp;</span>error<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"error: %@"</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token builtin">AudioChannelLayout</span> channelLayout<span class="token punctuation">;</span>
-    <span class="token function">memset</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>channelLayout<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">sizeof</span><span class="token punctuation">(</span><span class="token builtin">AudioChannelLayout</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    channelLayout<span class="token punctuation">.</span>mChannelLayoutTag <span class="token operator">=</span> <span class="token constant">kAudioChannelLayoutTag_Stereo</span><span class="token punctuation">;</span>
-    <span class="token builtin">NSDictionary</span> <span class="token operator">*</span>outputSettings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">NSDictionary</span> dictionaryWithObjectsAndKeys<span class="token punctuation">:</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithInt<span class="token punctuation">:</span><span class="token constant">kAudioFormatLinearPCM</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVFormatIDKey</span><span class="token punctuation">,</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithFloat<span class="token punctuation">:</span><span class="token number">44100</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVSampleRateKey</span><span class="token punctuation">,</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithInt<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVNumberOfChannelsKey</span><span class="token punctuation">,</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithInt<span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVLinearPCMBitDepthKey</span><span class="token punctuation">,</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithBool<span class="token punctuation">:</span><span class="token constant">NO</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVLinearPCMIsNonInterleaved</span><span class="token punctuation">,</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithBool<span class="token punctuation">:</span><span class="token constant">NO</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token builtin">AVLinearPCMIsFloatKey</span><span class="token punctuation">,</span>
-                                    <span class="token punctuation">[</span><span class="token builtin">NSNumber</span> numberWithBool<span class="token punctuation">:</span><span class="token constant">NO</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">AVLinearPCMIsBigEndianKey</span><span class="token punctuation">,</span>
-                                    <span class="token constant">nil</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token builtin">AVAssetWriterInput</span> <span class="token operator">*</span>assetWriterInput <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">AVAssetWriterInput</span> assetWriterInputWithMediaType<span class="token punctuation">:</span><span class="token builtin">AVMediaTypeAudio</span>
-                                                                              outputSettings<span class="token punctuation">:</span>outputSettings<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>assetWriter canAddInput<span class="token punctuation">:</span>assetWriterInput<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">[</span>assetWriter addInput<span class="token punctuation">:</span>assetWriterInput<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"can't add asset writer input... die!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">completed</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    assetWriterInput<span class="token punctuation">.</span>expectsMediaDataInRealTime <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">[</span>assetWriter startWriting<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">[</span>assetReader startReading<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    <span class="token builtin">AVAssetTrack</span> <span class="token operator">*</span>soundTrack <span class="token operator">=</span> <span class="token punctuation">[</span>songAsset<span class="token punctuation">.</span>tracks objectAtIndex<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token builtin">CMTime</span> startTime <span class="token operator">=</span> <span class="token function">CMTimeMake</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> soundTrack<span class="token punctuation">.</span>naturalTimeScale<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">[</span>assetWriter startSessionAtSourceTime<span class="token punctuation">:</span>startTime<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    __block <span class="token builtin">UInt64</span> convertedByteCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-    dispatch_queue_t mediaInputQueue <span class="token operator">=</span> <span class="token function">dispatch_queue_create</span><span class="token punctuation">(</span><span class="token string">"mediaInputQueue"</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">[</span>assetWriterInput requestMediaDataWhenReadyOnQueue<span class="token punctuation">:</span>mediaInputQueue
-                                            usingBlock<span class="token punctuation">:</span> <span class="token operator">^</span>
-     <span class="token punctuation">{</span>
-         <span class="token keyword">while</span> <span class="token punctuation">(</span>assetWriterInput<span class="token punctuation">.</span>readyForMoreMediaData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-             <span class="token builtin">CMSampleBufferRef</span> nextBuffer <span class="token operator">=</span> <span class="token punctuation">[</span>assetReaderOutput copyNextSampleBuffer<span class="token punctuation">]</span><span class="token punctuation">;</span>
-             <span class="token keyword">if</span> <span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                 <span class="token comment" spellcheck="true">// append buffer</span>
-                 <span class="token punctuation">[</span>assetWriterInput appendSampleBuffer<span class="token punctuation">:</span> nextBuffer<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                 <span class="token function">NSLog</span> <span class="token punctuation">(</span>@<span class="token string">"appended a buffer (%zu bytes)"</span><span class="token punctuation">,</span>
-                        <span class="token function">CMSampleBufferGetTotalSampleSize</span> <span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                 convertedByteCount <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">CMSampleBufferGetTotalSampleSize</span> <span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                 <span class="token punctuation">[</span>assetWriterInput markAsFinished<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                 <span class="token punctuation">[</span>assetWriter finishWritingWithCompletionHandler<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
-
-                 <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                 <span class="token punctuation">[</span>assetReader cancelReading<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                 <span class="token function">completed</span><span class="token punctuation">(</span><span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                 <span class="token keyword">break</span><span class="token punctuation">;</span>
-             <span class="token punctuation">}</span>
-
-             <span class="token comment" spellcheck="true">//释放内存</span>
-             <span class="token function">CMSampleBufferInvalidate</span><span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-             <span class="token function">CFRelease</span><span class="token punctuation">(</span>nextBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-             nextBuffer <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-     <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-</code></pre>
-	
+		<h3 id="将aac编码格式的音频转为lpcm编码的音频-转出来的音频会比原来大个10倍左右"><a href="#将aac编码格式的音频转为lpcm编码的音频-转出来的音频会比原来大个10倍左右" class="headerlink" title="将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右."></a>将aac编码格式的音频转为lpcm编码的音频,转出来的音频会比原来大个10倍左右.</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 把.m4a转为.caf格式</span></span><br><span class="line"><span class="comment"> @param originalUrlStr .m4a文件路径</span></span><br><span class="line"><span class="comment"> @param destUrlStr .wav文件路径</span></span><br><span class="line"><span class="comment"> @param completed 转化完成的block</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (void)convetM4aToWav:(<span class="type">NSURL</span> *)originalUrlStr</span><br><span class="line">               destUrl:(<span class="type">NSString</span> *)destUrlStr</span><br><span class="line">             completed:(void (^)(<span class="type">NSError</span> *error)) completed &#123;</span><br><span class="line">    <span class="keyword">if</span> ([[<span class="type">NSFileManager</span> defaultManager] fileExistsAtPath:destUrlStr]) &#123;</span><br><span class="line">        [[<span class="type">NSFileManager</span> defaultManager] removeItemAtPath:destUrlStr error:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">NSURL</span> *originalUrl = originalUrlStr;</span><br><span class="line">    <span class="type">NSURL</span> *destUrl     = [<span class="type">NSURL</span> fileURLWithPath:destUrlStr];</span><br><span class="line">    <span class="type">AVURLAsset</span> *songAsset = [<span class="type">AVURLAsset</span> <span class="type">URLAssetWithURL</span>:originalUrl options:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//读取原始文件信息</span></span><br><span class="line">    <span class="type">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    <span class="type">AVAssetReader</span> *assetReader = [<span class="type">AVAssetReader</span> assetReaderWithAsset:songAsset error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"error: %@"</span>, error);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">AVAssetReaderOutput</span> *assetReaderOutput = [<span class="type">AVAssetReaderAudioMixOutput</span></span><br><span class="line">                                              assetReaderAudioMixOutputWithAudioTracks:songAsset.tracks</span><br><span class="line">                                              audioSettings: <span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">if</span> (![assetReader canAddOutput:assetReaderOutput]) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"can't add reader output... die!"</span>);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [assetReader addOutput:assetReaderOutput];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetWriter</span> *assetWriter = [<span class="type">AVAssetWriter</span> assetWriterWithURL:destUrl</span><br><span class="line">                                                          fileType:<span class="type">AVFileTypeCoreAudioFormat</span></span><br><span class="line">                                                             error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"error: %@"</span>, error);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">AudioChannelLayout</span> channelLayout;</span><br><span class="line">    memset(&amp;channelLayout, <span class="number">0</span>, <span class="built_in">sizeof</span>(<span class="type">AudioChannelLayout</span>));</span><br><span class="line">    channelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;</span><br><span class="line">    <span class="type">NSDictionary</span> *outputSettings = [<span class="type">NSDictionary</span> dictionaryWithObjectsAndKeys:</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:kAudioFormatLinearPCM], <span class="type">AVFormatIDKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">44100</span>], <span class="type">AVSampleRateKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:<span class="number">2</span>], <span class="type">AVNumberOfChannelsKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:<span class="number">16</span>], <span class="type">AVLinearPCMBitDepthKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>], <span class="type">AVLinearPCMIsNonInterleaved</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>],<span class="type">AVLinearPCMIsFloatKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>], <span class="type">AVLinearPCMIsBigEndianKey</span>,</span><br><span class="line">                                    <span class="literal">nil</span>];</span><br><span class="line">    <span class="type">AVAssetWriterInput</span> *assetWriterInput = [<span class="type">AVAssetWriterInput</span> assetWriterInputWithMediaType:<span class="type">AVMediaTypeAudio</span></span><br><span class="line">                                                                              outputSettings:outputSettings];</span><br><span class="line">    <span class="keyword">if</span> ([assetWriter canAddInput:assetWriterInput]) &#123;</span><br><span class="line">        [assetWriter addInput:assetWriterInput];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"can't add asset writer input... die!"</span>);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    assetWriterInput.expectsMediaDataInRealTime = <span class="type">NO</span>;</span><br><span class="line">    </span><br><span class="line">    [assetWriter startWriting];</span><br><span class="line">    [assetReader startReading];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetTrack</span> *soundTrack = [songAsset.tracks objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    <span class="type">CMTime</span> startTime = <span class="type">CMTimeMake</span> (<span class="number">0</span>, soundTrack.naturalTimeScale);</span><br><span class="line">    [assetWriter startSessionAtSourceTime:startTime];</span><br><span class="line">    </span><br><span class="line">    __block <span class="type">UInt64</span> convertedByteCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    dispatch_queue_t mediaInputQueue = dispatch_queue_create(<span class="string">"mediaInputQueue"</span>, <span class="type">NULL</span>);</span><br><span class="line">    [assetWriterInput requestMediaDataWhenReadyOnQueue:mediaInputQueue</span><br><span class="line">                                            usingBlock: ^</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">while</span> (assetWriterInput.readyForMoreMediaData) &#123;</span><br><span class="line">             <span class="type">CMSampleBufferRef</span> nextBuffer = [assetReaderOutput copyNextSampleBuffer];</span><br><span class="line">             <span class="keyword">if</span> (nextBuffer) &#123;</span><br><span class="line">                 <span class="comment">// append buffer</span></span><br><span class="line">                 [assetWriterInput appendSampleBuffer: nextBuffer];</span><br><span class="line">                 <span class="type">NSLog</span> (@<span class="string">"appended a buffer (%zu bytes)"</span>,</span><br><span class="line">                        <span class="type">CMSampleBufferGetTotalSampleSize</span> (nextBuffer));</span><br><span class="line">                 convertedByteCount += <span class="type">CMSampleBufferGetTotalSampleSize</span> (nextBuffer);</span><br><span class="line">                 </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 [assetWriterInput markAsFinished];</span><br><span class="line">                 [assetWriter finishWritingWithCompletionHandler:^&#123;</span><br><span class="line">                     </span><br><span class="line">                 &#125;];</span><br><span class="line">                 [assetReader cancelReading];</span><br><span class="line">                 completed(<span class="literal">nil</span>);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line">             <span class="comment">//释放内存</span></span><br><span class="line">             <span class="type">CMSampleBufferInvalidate</span>(nextBuffer);</span><br><span class="line">             <span class="type">CFRelease</span>(nextBuffer);</span><br><span class="line">             nextBuffer = <span class="type">NULL</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -505,7 +396,7 @@
 								
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 							</p>
 						</div>
 
@@ -528,12 +419,7 @@
 								五月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+								123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 							</p>
 						</div>
 
@@ -581,10 +467,8 @@ then
 								三月 4日, 2019				
 							</p>
 							<p class="relate-post-content">
-								1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+								1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 							</p>
@@ -612,9 +496,7 @@ then
 								
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 							</p>
 						</div>
 
@@ -637,9 +519,8 @@ then
 								一月 22日, 2019				
 							</p>
 							<p class="relate-post-content">
-								从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+								从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 							</p>
 						</div>
 
@@ -662,9 +543,7 @@ then
 								十一月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+								音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 							</p>
 						</div>
 
@@ -715,9 +594,7 @@ then
 								
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 							</p>
 						</div>
 
@@ -900,7 +777,82 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 

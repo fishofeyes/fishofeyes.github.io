@@ -275,18 +275,7 @@
 						
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-    listen       8089;
-    #访问的域名，多个域名用空格隔开
-    server_name  locahost;
-
-    #charset koi8-r;
-    #access_log  /var/log/nginx/log/host.access.log  main;
-
-    charset utf8;
-
-    loca...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516171819202122232425262728server &#123;    #说明监听80端口    listen       8089;    #访问的域名，多个域名用空格隔开    server_name  locahost;    #charset koi8-r;    #access_log  /var/log/nginx/log/host.a...
 					
 				</div>
 				
@@ -383,16 +372,11 @@
 
 				<div class="post-content">
 					
-						从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
-
-从服务器获取文件夹scp -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
-
-上传文件夹到服务器scp -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
-
-其他命令# 查看系统版本信息
-lsh_re...
+						从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
+从服务器获取文件夹1scp -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
+上传文件夹到服务器1scp -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
+其他命令1234567891011# 查看...
 					
 				</div>
 				
@@ -489,14 +473,7 @@ lsh_re...
 
 				<div class="post-content">
 					
-						音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件路径";
-    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];
-    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error:NULL];
-
-    /** 初始化要剪切的音频文件 */
-    A...
+						音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径";    NSString *outPutPath = "音频前切完成输出文件路径";    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error...
 					
 				</div>
 				
@@ -595,13 +572,7 @@ lsh_re...
 					
 						实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
 
-思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。class OnlineTestDetailModel: HandyJSON {
-    /** 题的ID */
-    var id:String?
-    /** 问题 */
-    var question:String?
-    /** 答案选项 */
-    var answe...
+思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。12345678910111213class OnlineTestDetailModel: HandyJSON &#123;    /** 题的ID */    var id:String?    /** 问题 */    var question:String?    /** 答案选项...
 					
 				</div>
 				
@@ -701,21 +672,8 @@ lsh_re...
 						
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : RCTEventEmitter 
-@end
-
-2.在.m需注册通知，并且向rn发送消息#import "RNNotification.h"
-
-@implementation RNNotification
-
-RCT_EXPORT_MODULE();
-
--(id)init{
-  self = [super init];
-  if (self) {
-    /** ...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#import &lt;React/RCTBridgeModule.h&gt;@interface RNNotification : RCTEventEmitter &lt;RCTBridgeModule&gt;@end
+2.在.m需注册通知，并且向rn发送消息123456789101112131415161718192021222324252627#import ...
 					
 				</div>
 				
