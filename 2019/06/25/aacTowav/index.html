@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Python 管理批量文件 | 目生鱼博客
+      AAC音频转WAV | 目生鱼博客
     
   </title>
   <meta name="author" content="目生鱼">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《Python 管理批量文件》
+						当前文章&nbsp;:&nbsp;《AAC音频转WAV》
 					
 				</p>
 				<!-- Progress bar -->
@@ -270,8 +270,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2018/10/14/4/" itemprop="url">
-		Python 管理批量文件
+	<a href="/2019/06/25/aacTowav/" itemprop="url">
+		AAC音频转WAV
 	</a>
 
 	</div>
@@ -280,16 +280,16 @@
 		<span>
 			
 	发布于
-	<a href="/2018/10/14/4/" itemprop="url">
-		<time datetime="2018-10-14T08:10:59.936Z" itemprop="datePublished">
-	  		2018-10-14
+	<a href="/2019/06/25/aacTowav/" itemprop="url">
+		<time datetime="2019-06-25T02:27:40.729Z" itemprop="datePublished">
+	  		2019-06-25
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2018/10/14/4/" itemprop="url">
-		<time datetime="2018-10-14T08:10:59.936Z" itemprop="dateUpdated">
+	<a href="/2019/06/25/aacTowav/" itemprop="url">
+		<time datetime="2019-06-25T02:27:40.729Z" itemprop="dateUpdated">
 	  		2019-06-25
 	  </time>
 	</a> 	
@@ -303,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2018/10/14/4/_visitors" data-url="/2018/10/14/4/" data-title="Python 管理批量文件">
+    <span class="leancloud_visitors" id="/2019/06/25/aacTowav/_visitors" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -312,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2018/10/14/4/_likes" data-url="/2018/10/14/4/" data-title="Python 管理批量文件" rel="unlike">
+    <span class="leancloud_likes" id="/2019/06/25/aacTowav/_likes" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -321,13 +321,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<blockquote>
-<p>事情还得从用Python写爬虫开始说起，当时在freebuf看了几篇爬虫得文章<br>    然后又遇到项目中要用很多图片，就现学现用在网上爬了很多图片下来。<br>因为当时爬下来的都是表情的图片，所以前几天的时候本来想把爬下来的所有的表情图片添加到qq表情包里面的，结果每页表情最多放300多张，这就尴尬了。<br>我爬的图片每个文件夹大部分都超过了300张。所以后来想用python把大量的图片分别放到不同的文件夹里面。</p>
-</blockquote>
-<p>好吧。上代码吧。原理还是多简单的主要就是shutil.move()和os.mkdir()的使用</p>
-<p>###代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root = sys.argv[<span class="number">1</span>] <span class="comment"># file path</span></span><br><span class="line">count = int(sys.argv[<span class="number">2</span>]) <span class="comment">#file count</span></span><br><span class="line"></span><br><span class="line">num = <span class="number">0</span></span><br><span class="line">ismove=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> parent,dirnames,filenames <span class="keyword">in</span> os.walk(root):</span><br><span class="line">	r = len(filenames) / count</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(r+<span class="number">1</span>):</span><br><span class="line">		p = root+<span class="string">"/"</span>+str(i)</span><br><span class="line">		os.mkdir(p)</span><br><span class="line">	<span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">		num = num + <span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> num / count == <span class="number">1</span>:</span><br><span class="line">			ismove = ismove + <span class="number">1</span></span><br><span class="line">			num=<span class="number">0</span></span><br><span class="line">		p = root +<span class="string">"/"</span>+ str(ismove)</span><br><span class="line">		path = os.path.join(parent,filename)</span><br><span class="line">		print(path+<span class="string">"==="</span>+p)</span><br><span class="line">		shutil.move(path,p)</span><br></pre></td></tr></table></figure></p>
-<p>使用方法：<code>#使用方法 python xxxx.py 文件路径 分类数量</code></p>
-	
+		<h3 id="将aac编码格式的音频转为lpcm编码的音频"><a href="#将aac编码格式的音频转为lpcm编码的音频" class="headerlink" title="将aac编码格式的音频转为lpcm编码的音频"></a>将aac编码格式的音频转为lpcm编码的音频</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 把.m4a转为.caf格式</span></span><br><span class="line"><span class="comment"> @param originalUrlStr .m4a文件路径</span></span><br><span class="line"><span class="comment"> @param destUrlStr .wav文件路径</span></span><br><span class="line"><span class="comment"> @param completed 转化完成的block</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (void)convetM4aToWav:(<span class="type">NSURL</span> *)originalUrlStr</span><br><span class="line">               destUrl:(<span class="type">NSString</span> *)destUrlStr</span><br><span class="line">             completed:(void (^)(<span class="type">NSError</span> *error)) completed &#123;</span><br><span class="line">    <span class="keyword">if</span> ([[<span class="type">NSFileManager</span> defaultManager] fileExistsAtPath:destUrlStr]) &#123;</span><br><span class="line">        [[<span class="type">NSFileManager</span> defaultManager] removeItemAtPath:destUrlStr error:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">NSURL</span> *originalUrl = originalUrlStr;</span><br><span class="line">    <span class="type">NSURL</span> *destUrl     = [<span class="type">NSURL</span> fileURLWithPath:destUrlStr];</span><br><span class="line">    <span class="type">AVURLAsset</span> *songAsset = [<span class="type">AVURLAsset</span> <span class="type">URLAssetWithURL</span>:originalUrl options:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//读取原始文件信息</span></span><br><span class="line">    <span class="type">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    <span class="type">AVAssetReader</span> *assetReader = [<span class="type">AVAssetReader</span> assetReaderWithAsset:songAsset error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"error: %@"</span>, error);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">AVAssetReaderOutput</span> *assetReaderOutput = [<span class="type">AVAssetReaderAudioMixOutput</span></span><br><span class="line">                                              assetReaderAudioMixOutputWithAudioTracks:songAsset.tracks</span><br><span class="line">                                              audioSettings: <span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">if</span> (![assetReader canAddOutput:assetReaderOutput]) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"can't add reader output... die!"</span>);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [assetReader addOutput:assetReaderOutput];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetWriter</span> *assetWriter = [<span class="type">AVAssetWriter</span> assetWriterWithURL:destUrl</span><br><span class="line">                                                          fileType:<span class="type">AVFileTypeCoreAudioFormat</span></span><br><span class="line">                                                             error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"error: %@"</span>, error);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">AudioChannelLayout</span> channelLayout;</span><br><span class="line">    memset(&amp;channelLayout, <span class="number">0</span>, <span class="built_in">sizeof</span>(<span class="type">AudioChannelLayout</span>));</span><br><span class="line">    channelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;</span><br><span class="line">    <span class="type">NSDictionary</span> *outputSettings = [<span class="type">NSDictionary</span> dictionaryWithObjectsAndKeys:</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:kAudioFormatLinearPCM], <span class="type">AVFormatIDKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">44100</span>], <span class="type">AVSampleRateKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:<span class="number">2</span>], <span class="type">AVNumberOfChannelsKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithInt:<span class="number">16</span>], <span class="type">AVLinearPCMBitDepthKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>], <span class="type">AVLinearPCMIsNonInterleaved</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>],<span class="type">AVLinearPCMIsFloatKey</span>,</span><br><span class="line">                                    [<span class="type">NSNumber</span> numberWithBool:<span class="type">NO</span>], <span class="type">AVLinearPCMIsBigEndianKey</span>,</span><br><span class="line">                                    <span class="literal">nil</span>];</span><br><span class="line">    <span class="type">AVAssetWriterInput</span> *assetWriterInput = [<span class="type">AVAssetWriterInput</span> assetWriterInputWithMediaType:<span class="type">AVMediaTypeAudio</span></span><br><span class="line">                                                                              outputSettings:outputSettings];</span><br><span class="line">    <span class="keyword">if</span> ([assetWriter canAddInput:assetWriterInput]) &#123;</span><br><span class="line">        [assetWriter addInput:assetWriterInput];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">NSLog</span> (@<span class="string">"can't add asset writer input... die!"</span>);</span><br><span class="line">        completed(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    assetWriterInput.expectsMediaDataInRealTime = <span class="type">NO</span>;</span><br><span class="line">    </span><br><span class="line">    [assetWriter startWriting];</span><br><span class="line">    [assetReader startReading];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetTrack</span> *soundTrack = [songAsset.tracks objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    <span class="type">CMTime</span> startTime = <span class="type">CMTimeMake</span> (<span class="number">0</span>, soundTrack.naturalTimeScale);</span><br><span class="line">    [assetWriter startSessionAtSourceTime:startTime];</span><br><span class="line">    </span><br><span class="line">    __block <span class="type">UInt64</span> convertedByteCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    dispatch_queue_t mediaInputQueue = dispatch_queue_create(<span class="string">"mediaInputQueue"</span>, <span class="type">NULL</span>);</span><br><span class="line">    [assetWriterInput requestMediaDataWhenReadyOnQueue:mediaInputQueue</span><br><span class="line">                                            usingBlock: ^</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">while</span> (assetWriterInput.readyForMoreMediaData) &#123;</span><br><span class="line">             <span class="type">CMSampleBufferRef</span> nextBuffer = [assetReaderOutput copyNextSampleBuffer];</span><br><span class="line">             <span class="keyword">if</span> (nextBuffer) &#123;</span><br><span class="line">                 <span class="comment">// append buffer</span></span><br><span class="line">                 [assetWriterInput appendSampleBuffer: nextBuffer];</span><br><span class="line">                 <span class="type">NSLog</span> (@<span class="string">"appended a buffer (%zu bytes)"</span>,</span><br><span class="line">                        <span class="type">CMSampleBufferGetTotalSampleSize</span> (nextBuffer));</span><br><span class="line">                 convertedByteCount += <span class="type">CMSampleBufferGetTotalSampleSize</span> (nextBuffer);</span><br><span class="line">                 </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 [assetWriterInput markAsFinished];</span><br><span class="line">                 [assetWriter finishWritingWithCompletionHandler:^&#123;</span><br><span class="line">                     </span><br><span class="line">                 &#125;];</span><br><span class="line">                 [assetReader cancelReading];</span><br><span class="line">                 completed(<span class="literal">nil</span>);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line">             <span class="comment">//释放内存</span></span><br><span class="line">             <span class="type">CMSampleBufferInvalidate</span>(nextBuffer);</span><br><span class="line">             <span class="type">CFRelease</span>(nextBuffer);</span><br><span class="line">             nextBuffer = <span class="type">NULL</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -344,12 +338,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2018/10/14/5/" title="Charts（swift） 饼状图、柱状图使用" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2018/10/14/3/" title="UICollectionView header 使用" rel="next">
+			<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -364,22 +354,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
-							AAC音频转WAV
-						</a>
-						<p>
-							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
-						</p>
-					</div>
-
-					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
-						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -542,6 +516,22 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 				</li>											
 		
 		
+				<li>
+					<div>
+						<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">
+							Gvoice 实时语音接入
+						</a>
+						<p>
+							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的dem...
+						</p>
+					</div>
+
+					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
+						<img src="/img/back.jpg" class="relateImg" alt="Gvoice 实时语音接入">
+					</a>
+				</li>											
+		
+		
 	</ul>
 </div>	
 			</div>
@@ -697,6 +687,13 @@ iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmit
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		

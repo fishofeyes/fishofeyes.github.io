@@ -237,7 +237,7 @@
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>
@@ -278,6 +278,100 @@
 				<div class="post-title" id="post-title-index">			
 					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 					
+	<a href="/2019/03/04/nginxPublish/" itemprop="url">
+		Nginx vue打包部署
+	</a>
+
+				</div>
+
+				<div class="post-content">
+					
+						
+							
+最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
+
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516171819202122232425262728server &#123;    #说明监听80端口    listen       8089;    #访问的域名，多个域名用空格隔开    server_name  locahost;    #charset koi8-r;    #access_log  /var/log/nginx/log/host.a...
+						
+					
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/03/04/nginxPublish/" itemprop="url">
+		<time datetime="2019-03-04T03:34:04.301Z" itemprop="datePublished">
+	  		2019-03-04
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
+					
+
+    <span class="leancloud_visitors" id="/2019/03/04/nginxPublish/_visitors" data-url="/2019/03/04/nginxPublish/" data-title="Nginx vue打包部署">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/03/04/nginxPublish/_likes" data-url="/2019/03/04/nginxPublish/" data-title="Nginx vue打包部署" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
+            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+					
+						<span class="right">      	
+							<a href="/2019/03/04/nginxPublish/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
+			</div>
+		</div>
+	
+		<div class="post" id="post">
+			<div class="post-text">
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/01/22/uploadFile/" itemprop="url">
 		SCP文件上传下载
 	</a>
@@ -287,16 +381,11 @@
 				<div class="post-content">
 					
 						
-							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
-
-从服务器获取文件夹scp -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
-
-上传文件夹到服务器scp -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
-
-其他命令# 查看系统版本信息
-lsh_re...
+							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192.168.1.1:/usr/temp/
+从服务器获取文件夹1scp -p 8080 -r root@192.168.1.1:/usr/temp/fileDir /Desktop/
+上传文件夹到服务器1scp -p 8080 -r /Desktop/fileDir root@192.168.1.1:/usr/temp/
+其他命令1234567891011# 查看...
 						
 					
 				</div>
@@ -387,14 +476,7 @@ lsh_re...
 				<div class="post-content">
 					
 						
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件路径";
-    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];
-    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error:NULL];
-
-    /** 初始化要剪切的音频文件 */
-    A...
+							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径";    NSString *outPutPath = "音频前切完成输出文件路径";    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error...
 						
 					
 				</div>
@@ -487,13 +569,7 @@ lsh_re...
 						
 							实现的效果是：1.点击答案，判断正确，如果选择的答案错误显示出正确的答案。然后可以浏览上一题的信息。2.可以查看上一题的答题情况。看下效果图吧
 
-思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。class OnlineTestDetailModel: HandyJSON {
-    /** 题的ID */
-    var id:String?
-    /** 问题 */
-    var question:String?
-    /** 答案选项 */
-    var answe...
+思路：1.看看题的模型吧，我这里是用一个数组来装的一个类，然后点击下一题的时候数组索引+1，上一题的数组模型-1，用户选择的答案和正确答案都存在数组里面的类中。12345678910111213class OnlineTestDetailModel: HandyJSON &#123;    /** 题的ID */    var id:String?    /** 问题 */    var question:String?    /** 答案选项...
 						
 					
 				</div>
@@ -587,21 +663,8 @@ lsh_re...
 							
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : RCTEventEmitter 
-@end
-
-2.在.m需注册通知，并且向rn发送消息#import "RNNotification.h"
-
-@implementation RNNotification
-
-RCT_EXPORT_MODULE();
-
--(id)init{
-  self = [super init];
-  if (self) {
-    /** ...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#import &lt;React/RCTBridgeModule.h&gt;@interface RNNotification : RCTEventEmitter &lt;RCTBridgeModule&gt;@end
+2.在.m需注册通知，并且向rn发送消息123456789101112131415161718192021222324252627#import ...
 						
 					
 				</div>
@@ -678,101 +741,6 @@ RCT_EXPORT_MODULE();
 			</div>
 		</div>
 	
-		<div class="post" id="post">
-			<div class="post-text">
-				<div class="post-title" id="post-title-index">			
-					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-					
-	<a href="/2018/10/14/7/" itemprop="url">
-		Gvoice 实时语音接入
-	</a>
-
-				</div>
-
-				<div class="post-content">
-					
-						
-							 最近项目需要接入实时语音，然后就是接入的腾讯的Gvoice语音。接入流程请参照官网http://gcloud.qq.com/document/59268d64ff93679a05ef8271 其实GVoice接入很简单把官方的demo下载，然后把APPID（gameID） 和 APPkey 替换，代码直接搬过来用就行了。在这里值得一说的是，在接入语音遇到的问题
-
-测试时候语音有回音，只需要把两台设备离远点就没有了。
-在GVoice开启Mic的时候可能导致程序崩溃,是因为设备没有开启权限。解决办法直接做一个mic的权限判断，如果没有开启权限就不要去调用开启mic的方法。
-在实力化GVoi...
-						
-					
-				</div>
-				
-				<div class="post-meta">
-					<span>
-						发布于
-						<i>
-							
-	<a href="/2018/10/14/7/" itemprop="url">
-		<time datetime="2018-10-14T08:19:16.399Z" itemprop="datePublished">
-	  		2018-10-14
-	  </time>
-	</a> 		
-
-						</i>
-					</span>
-					/
-					
-
-    <span class="leancloud_visitors" id="/2018/10/14/7/_visitors" data-url="/2018/10/14/7/" data-title="Gvoice 实时语音接入">
-        热度
-        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-    </span>
-    
-    /
-
-
-
-    <span class="leancloud_likes" id="/2018/10/14/7/_likes" data-url="/2018/10/14/7/" data-title="Gvoice 实时语音接入" rel="unlike">
-        喜欢
-        <i class="fa fa-heart"></i>
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-
-	<script>
-		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
-            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
-        AnnieLeancloud(appid, appkey);         
-	</script>
-    
-
-
- 
-					
-						<span class="right">      	
-							<a href="/2018/10/14/7/" title="阅读全文">阅读全文</a>	
-						</span>
-					
-				</div>
-			</div>
-		</div>
-	
 	</div>
 
 	
@@ -808,7 +776,7 @@ RCT_EXPORT_MODULE();
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>

@@ -237,7 +237,7 @@
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>
@@ -326,157 +326,10 @@
 <li>测试时候语音有回音，只需要把两台设备离远点就没有了。</li>
 <li>在GVoice开启Mic的时候可能导致程序崩溃,是因为设备没有开启权限。解决办法直接做一个mic的权限判断，如果没有开启权限就不要去调用开启mic的方法。</li>
 <li>在实力化GVoice的时候需要传入一个openID，最开始我是用的登录的token，然后发现在加入房间的时候会报错，我估计是因为token的字符太长了，然后我换成用户ID就好了。</li>
-<li>注意设置服务器[[GVGCloudVoice sharedInstance] setServerInfo:GVoice_server];<br>###代码：<br><code>`</code><br>#import &lt;UIKit/UIKit.h&gt;<br>#import “GVoice.h”<br>@interface GVoiceManager : UIViewController</li>
-</ul>
-<ul>
-<li>(GVoiceManager *) shareManger;</li>
-</ul>
-<p>/*<em> 第三方初始化 必须初始化</em>/</p>
-<ul>
-<li>(void) GVoiceinite;</li>
-</ul>
-<p>/*<em> 加入房间</em>/</p>
-<ul>
-<li>(void) joinRoom:(NSString *)roomID;</li>
-</ul>
-<p>/*<em> 开始发语音，结束发语音</em>/</p>
-<ul>
-<li>(void) openMic:(BOOL)isopen;</li>
-</ul>
-<p>/*<em> 开启声音，关闭声音</em>/</p>
-<ul>
-<li>(void) openSpeaker:(BOOL) isopen;</li>
-</ul>
-<p>/*<em> 退出房间 </em>/</p>
-<ul>
-<li>(void) quitRoom;<pre><code>### 实现:
-</code></pre>#import “GVoiceManager.h”<br>#import “Tool.h”<br>#import “FaceAlertTool.h”<br>#import “UserInfoManager.h”<br>#import &lt;AVFoundation/AVFoundation.h&gt;<br>@interface GVoiceManager ()<gvgcloudvoicedelegate><br>@property (strong, nonatomic) NSTimer <em>pollTimer;<br>@property (nonatomic,strong) NSString </em>roomID;<br>@end</gvgcloudvoicedelegate></li>
-</ul>
-<p>@implementation GVoiceManager</p>
-<ul>
-<li>(GVoiceManager <em>) shareManger{<br>  static GVoiceManager </em>instance;<br>  static dispatch_once_t onceToken;<br>  dispatch_once(&amp;onceToken, ^{<pre><code>  instance = [[GVoiceManager alloc] init];
-</code></pre>  });<br>  return instance;<br>}</li>
-</ul>
-<ul>
-<li>(void) GVoiceinite{<br>//    NSString *openID = [[NSUserDefaults standardUserDefaults] valueForKey:@”access_token”];<br>  [[GVGCloudVoice sharedInstance] setAppInfo:GVoice_appid withKey:GVoice_secert andOpenID:[[UserInfoManager managerUserInfo].userID cStringUsingEncoding:NSUTF8StringEncoding]];<br>  [[GVGCloudVoice sharedInstance] initEngine];<br>  [[GVGCloudVoice sharedInstance] setServerInfo:GVoice_server];<br>}</li>
-</ul>
-<p>/*<em> 加入房间</em>/</p>
-<ul>
-<li>(void) joinRoom:(NSString <em>)roomID{<br>  self.roomID = roomID;<br>  [GVGCloudVoice sharedInstance].delegate = self;<br>  [[GVGCloudVoice sharedInstance] setMode:RealTime];<br>  [[NSUserDefaults standardUserDefaults] setValue:roomID forKey:GVoice_roomID];<br>  [[NSUserDefaults standardUserDefaults] synchronize];<br>  enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] joinTeamRoom:[roomID cStringUsingEncoding:NSUTF8StringEncoding] timeout:18000];<br>//    enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] joinNationalRoom:[roomID cStringUsingEncoding:NSUTF8StringEncoding] role:Anchor timeout:18000];<br>  NSLog(@”Voice加入房间res == %@”,@(err));<br>  _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.000/15 repeats:YES block:^(NSTimer </em> _Nonnull timer) {<pre><code>  [[GVGCloudVoice sharedInstance] poll];
-</code></pre>  }];<br>}</li>
-</ul>
-<p>/*<em> 开始发语音，结束发语音</em>/</p>
-<ul>
-<li><p>(void) openMic:(BOOL)isopen{</p>
-<p>  NSInteger flag = [self checkMic];<br>  if(flag != 2){</p>
-<pre><code>  [self authoMic];
-  return;
-</code></pre><p>  }<br>  if (isopen) {</p>
-<pre><code>  enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] openMic];
-  NSLog(@&quot;GVoice 开启Mic res == %@&quot;,@(err));
-</code></pre><p>  } else {</p>
-<pre><code>  enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] closeMic];
-  NSLog(@&quot;GVoice 关闭Mic res == %@&quot;,@(err));
-</code></pre><p>  }<br>}</p>
+<li>注意设置服务器[[GVGCloudVoice sharedInstance] setServerInfo:GVoice_server];<br>###代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">#import &quot;GVoice.h&quot;</span><br><span class="line">@interface GVoiceManager : UIViewController</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (GVoiceManager *) shareManger;</span><br><span class="line"></span><br><span class="line">/** 第三方初始化 必须初始化*/</span><br><span class="line">- (void) GVoiceinite;</span><br><span class="line"></span><br><span class="line">/** 加入房间*/</span><br><span class="line">- (void) joinRoom:(NSString *)roomID;</span><br><span class="line"></span><br><span class="line">/** 开始发语音，结束发语音*/</span><br><span class="line">- (void) openMic:(BOOL)isopen;</span><br><span class="line"></span><br><span class="line">/** 开启声音，关闭声音*/</span><br><span class="line">- (void) openSpeaker:(BOOL) isopen;</span><br><span class="line"></span><br><span class="line">/** 退出房间 */</span><br><span class="line">- (void) quitRoom;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>/*<em> 开启声音，关闭声音</em>/</p>
-<ul>
-<li><p>(void) openSpeaker:(BOOL) isopen{</p>
-<p>  //首先的判断mic有没有权限<br>  [self openMic:isopen];<br>  if (isopen) {</p>
-<pre><code>  enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] openSpeaker];
-  NSLog(@&quot;GVoice 开启Speaker res == %@&quot;,@(err));
-</code></pre><p>  } else {</p>
-<pre><code>  enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] closeSpeaker];
-
-  NSLog(@&quot;GVoice 关闭Speaker res == %@&quot;,@(err));
-</code></pre><p>  }<br>}</p>
-</li>
-</ul>
-<p>/*<em> 退出房间 </em>/</p>
-<ul>
-<li>(void) quitRoom{<br>  [[GVGCloudVoice sharedInstance] quitRoom:[[[NSUserDefaults standardUserDefaults] valueForKey:GVoice_roomID] cStringUsingEncoding:NSUTF8StringEncoding] timeout:18000];<br>}</li>
-</ul>
-<p>//MARK:——————–提示————-//</p>
-<p>#pragma mark delegate</p>
-<ul>
-<li>(void) onJoinRoom:(enum GCloudVoiceCompleteCode) code withRoomName: (const char <em> _Nullable)roomName andMemberID:(int) memberID {<br>  NSString </em>msg;<br>  if (GV_ON_JOINROOM_SUCC == code) {//加入房间回调可自己实现<pre><code>  if(self.callbackGetInRoom)self.callbackGetInRoom(YES);
-  msg = [NSString stringWithFormat:@&quot;Join Room Success&quot;];
-</code></pre>  } else {<pre><code>  if(self.callbackGetInRoom)self.callbackGetInRoom(NO);
-  msg = [NSString stringWithFormat:@&quot;加入语音房间失败 with code: %d&quot;, code];
-  [FaceAlertTool svpShowInfo:msg];
-</code></pre>  }</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onStatusUpdate:(enum GCloudVoiceCompleteCode) status withRoomName: (const char * _Nullable)roomName andMemberID:(int) memberID {</li>
-</ul>
-<p>}</p>
-<ul>
-<li><p>(void) onQuitRoom:(enum GCloudVoiceCompleteCode) code withRoomName: (const char * _Nullable)roomName {<br>  [_pollTimer invalidate];<br>}</p>
-</li>
-<li><p>(void) onMemberVoice:    (const unsigned int * _Nullable)members withCount: (int) count {<br>  for (int i=0; i&lt;count; i++) {</p>
-<pre><code>  NSLog(@&quot;Member %d status %d&quot;, *((int*)members+2*i), *((int *)members+2*i+1));
-</code></pre><p>  }<br>}</p>
-</li>
-<li><p>(void) onUploadFile: (enum GCloudVoiceCompleteCode) code withFilePath: (const char <em> _Nullable)filePath andFileID:(const char </em> _Nullable)fileID  {</p>
-</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onDownloadFile: (enum GCloudVoiceCompleteCode) code  withFilePath: (const char <em> _Nullable)filePath andFileID:(const char </em> _Nullable)fileID {</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onPlayRecordedFile:(enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath {</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onApplyMessageKey:(enum GCloudVoiceCompleteCode) code {</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onSpeechToText:(enum GCloudVoiceCompleteCode) code withFileID:(const char <em> _Nullable)fileID andResult:( const char </em> _Nullable)result {</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onRecording:(const unsigned char* _Nullable) pAudioData withLength: (unsigned int) nDataLength {</li>
-</ul>
-<p>}</p>
-<ul>
-<li>(void) onStreamSpeechToText:(enum GCloudVoiceCompleteCode) code withError:(int) error andResult:(const char *_Nullable)result {</li>
-</ul>
-<p>}</p>
-<p>//MARK:——————-判断mic权限————-//</p>
-<ul>
-<li>(NSInteger) checkMic{<br>  AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];<br>  NSInteger flag=0;<br>  switch (authStatus) {<pre><code>  case AVAuthorizationStatusNotDetermined:
-      //没有询问是否开启麦克风
-      flag = 1;
-      break;
-  case AVAuthorizationStatusRestricted:
-      //未授权，家长限制
-      flag = 0;
-      break;
-  case AVAuthorizationStatusDenied:
-      //玩家未授权
-      flag = 0;
-      break;
-  case AVAuthorizationStatusAuthorized:
-      //玩家授权
-      flag = 2;
-      break;
-  default:
-      break;
-</code></pre>  }<br>  return flag;<br>}<br>//MARK:——————–打开micphone权限————-//</li>
-<li><p>(void) authoMic{<br>  [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {</p>
-<pre><code>  if (granted){// 用户同意授权
-
-  }else {// 用户拒绝授权
-      [FaceAlertTool svpShowInfo:@&quot;请前往设置-&gt;ubaby设置麦克风权限&quot;];
-  }
-</code></pre><p>  }];<br>}<br><code>`</code></p>
-</li>
-</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现:"></a>实现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;GVoiceManager.h&quot;</span><br><span class="line">#import &quot;Tool.h&quot;</span><br><span class="line">#import &quot;FaceAlertTool.h&quot;</span><br><span class="line">#import &quot;UserInfoManager.h&quot;</span><br><span class="line">#import &lt;AVFoundation/AVFoundation.h&gt;</span><br><span class="line">@interface GVoiceManager ()&lt;GVGCloudVoiceDelegate&gt;</span><br><span class="line">@property (strong, nonatomic) NSTimer *pollTimer;</span><br><span class="line">@property (nonatomic,strong) NSString *roomID;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation GVoiceManager</span><br><span class="line"></span><br><span class="line">+ (GVoiceManager *) shareManger&#123;</span><br><span class="line">    static GVoiceManager *instance;</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        instance = [[GVoiceManager alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    return instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) GVoiceinite&#123;</span><br><span class="line">//    NSString *openID = [[NSUserDefaults standardUserDefaults] valueForKey:@&quot;access_token&quot;];</span><br><span class="line">    [[GVGCloudVoice sharedInstance] setAppInfo:GVoice_appid withKey:GVoice_secert andOpenID:[[UserInfoManager managerUserInfo].userID cStringUsingEncoding:NSUTF8StringEncoding]];</span><br><span class="line">    [[GVGCloudVoice sharedInstance] initEngine];</span><br><span class="line">    [[GVGCloudVoice sharedInstance] setServerInfo:GVoice_server];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 加入房间*/</span><br><span class="line">- (void) joinRoom:(NSString *)roomID&#123;</span><br><span class="line">    self.roomID = roomID;</span><br><span class="line">    [GVGCloudVoice sharedInstance].delegate = self;</span><br><span class="line">    [[GVGCloudVoice sharedInstance] setMode:RealTime];</span><br><span class="line">    [[NSUserDefaults standardUserDefaults] setValue:roomID forKey:GVoice_roomID];</span><br><span class="line">    [[NSUserDefaults standardUserDefaults] synchronize];</span><br><span class="line">    enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] joinTeamRoom:[roomID cStringUsingEncoding:NSUTF8StringEncoding] timeout:18000];</span><br><span class="line">//    enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] joinNationalRoom:[roomID cStringUsingEncoding:NSUTF8StringEncoding] role:Anchor timeout:18000];</span><br><span class="line">    NSLog(@&quot;Voice加入房间res == %@&quot;,@(err));</span><br><span class="line">    _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.000/15 repeats:YES block:^(NSTimer * _Nonnull timer) &#123;</span><br><span class="line">        [[GVGCloudVoice sharedInstance] poll];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 开始发语音，结束发语音*/</span><br><span class="line">- (void) openMic:(BOOL)isopen&#123;</span><br><span class="line">    </span><br><span class="line">    NSInteger flag = [self checkMic];</span><br><span class="line">    if(flag != 2)&#123;</span><br><span class="line">        [self authoMic];</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isopen) &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] openMic];</span><br><span class="line">        NSLog(@&quot;GVoice 开启Mic res == %@&quot;,@(err));</span><br><span class="line">        </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] closeMic];</span><br><span class="line">        NSLog(@&quot;GVoice 关闭Mic res == %@&quot;,@(err));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 开启声音，关闭声音*/</span><br><span class="line">- (void) openSpeaker:(BOOL) isopen&#123;</span><br><span class="line">    </span><br><span class="line">    //首先的判断mic有没有权限</span><br><span class="line">    [self openMic:isopen];</span><br><span class="line">    if (isopen) &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] openSpeaker];</span><br><span class="line">        NSLog(@&quot;GVoice 开启Speaker res == %@&quot;,@(err));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        enum GCloudVoiceErrno err = [[GVGCloudVoice sharedInstance] closeSpeaker];</span><br><span class="line">        </span><br><span class="line">        NSLog(@&quot;GVoice 关闭Speaker res == %@&quot;,@(err));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 退出房间 */</span><br><span class="line">- (void) quitRoom&#123;</span><br><span class="line">    [[GVGCloudVoice sharedInstance] quitRoom:[[[NSUserDefaults standardUserDefaults] valueForKey:GVoice_roomID] cStringUsingEncoding:NSUTF8StringEncoding] timeout:18000];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//MARK:--------------------提示-------------//</span><br><span class="line">#pragma mark delegate</span><br><span class="line"></span><br><span class="line">- (void) onJoinRoom:(enum GCloudVoiceCompleteCode) code withRoomName: (const char * _Nullable)roomName andMemberID:(int) memberID &#123;</span><br><span class="line">    NSString *msg;</span><br><span class="line">    if (GV_ON_JOINROOM_SUCC == code) &#123;//加入房间回调可自己实现</span><br><span class="line">        if(self.callbackGetInRoom)self.callbackGetInRoom(YES);</span><br><span class="line">        msg = [NSString stringWithFormat:@&quot;Join Room Success&quot;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if(self.callbackGetInRoom)self.callbackGetInRoom(NO);</span><br><span class="line">        msg = [NSString stringWithFormat:@&quot;加入语音房间失败 with code: %d&quot;, code];</span><br><span class="line">        [FaceAlertTool svpShowInfo:msg];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onStatusUpdate:(enum GCloudVoiceCompleteCode) status withRoomName: (const char * _Nullable)roomName andMemberID:(int) memberID &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onQuitRoom:(enum GCloudVoiceCompleteCode) code withRoomName: (const char * _Nullable)roomName &#123;</span><br><span class="line">    [_pollTimer invalidate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onMemberVoice:	(const unsigned int * _Nullable)members withCount: (int) count &#123;</span><br><span class="line">    for (int i=0; i&lt;count; i++) &#123;</span><br><span class="line">        NSLog(@&quot;Member %d status %d&quot;, *((int*)members+2*i), *((int *)members+2*i+1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onUploadFile: (enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID  &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onDownloadFile: (enum GCloudVoiceCompleteCode) code  withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onPlayRecordedFile:(enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onApplyMessageKey:(enum GCloudVoiceCompleteCode) code &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onSpeechToText:(enum GCloudVoiceCompleteCode) code withFileID:(const char * _Nullable)fileID andResult:( const char * _Nullable)result &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void) onRecording:(const unsigned char* _Nullable) pAudioData withLength: (unsigned int) nDataLength &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void) onStreamSpeechToText:(enum GCloudVoiceCompleteCode) code withError:(int) error andResult:(const char *_Nullable)result &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//MARK:-------------------判断mic权限-------------//</span><br><span class="line">- (NSInteger) checkMic&#123;</span><br><span class="line">    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];</span><br><span class="line">    NSInteger flag=0;</span><br><span class="line">    switch (authStatus) &#123;</span><br><span class="line">        case AVAuthorizationStatusNotDetermined:</span><br><span class="line">            //没有询问是否开启麦克风</span><br><span class="line">            flag = 1;</span><br><span class="line">            break;</span><br><span class="line">        case AVAuthorizationStatusRestricted:</span><br><span class="line">            //未授权，家长限制</span><br><span class="line">            flag = 0;</span><br><span class="line">            break;</span><br><span class="line">        case AVAuthorizationStatusDenied:</span><br><span class="line">            //玩家未授权</span><br><span class="line">            flag = 0;</span><br><span class="line">            break;</span><br><span class="line">        case AVAuthorizationStatusAuthorized:</span><br><span class="line">            //玩家授权</span><br><span class="line">            flag = 2;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    return flag;</span><br><span class="line">&#125;</span><br><span class="line">//MARK:--------------------打开micphone权限-------------//</span><br><span class="line">- (void) authoMic&#123;</span><br><span class="line">    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) &#123;</span><br><span class="line">        </span><br><span class="line">        if (granted)&#123;// 用户同意授权</span><br><span class="line">            </span><br><span class="line">        &#125;else &#123;// 用户拒绝授权</span><br><span class="line">            [FaceAlertTool svpShowInfo:@&quot;请前往设置-&gt;ubaby设置麦克风权限&quot;];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -517,6 +370,22 @@
 		
 				<li>
 					<div>
+						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
+							AAC音频转WAV
+						</a>
+						<p>
+							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
+						</p>
+					</div>
+
+					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
+						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
 							Message Filtter Extension 短信过滤
 						</a>
@@ -524,7 +393,7 @@
 							
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 						</p>
 					</div>
 
@@ -540,12 +409,7 @@
 							Shell删除所有苹果证书
 						</a>
 						<p>
-							#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 						</p>
 					</div>
 
@@ -579,10 +443,8 @@ then
 							Docker Nginx 静态资源部署
 						</a>
 						<p>
-							1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+							1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 						</p>
@@ -603,9 +465,7 @@ then
 							
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 						</p>
 					</div>
 
@@ -621,9 +481,8 @@ then
 							SCP文件上传下载
 						</a>
 						<p>
-							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 						</p>
 					</div>
 
@@ -639,9 +498,7 @@ then
 							音频剪切、合成、淡入淡出
 						</a>
 						<p>
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 						</p>
 					</div>
 
@@ -678,33 +535,12 @@ then
 							
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 						</p>
 					</div>
 
 					<a href="/2018/10/20/8/" title="iOS原生调用ReatNative">				
 						<img src="/img/back.jpg" class="relateImg" alt="iOS原生调用ReatNative">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/14/6/" title="ARDemo">
-							ARDemo
-						</a>
-						<p>
-							#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
-#####注：demo借鉴的泊学上的
-#####github地址
-2.项目创建成功之后进入到ViewController.swif...
-						</p>
-					</div>
-
-					<a href="/2018/10/14/6/" title="ARDemo">				
-						<img src="/img/back.jpg" class="relateImg" alt="ARDemo">
 					</a>
 				</li>											
 		
@@ -833,59 +669,6 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-<script>
-	//Refer to https://xinyo.org/archives/66226, thanks xinyo!
-	function codeCopy() {
-		var copyContainerId = 'copy-nav';
-						
-		$("pre").before(" <nav class=' " + copyContainerId + " '><i class='code-language'></i></nav> ");
-		
-		$('.' + copyContainerId).append("<i class='fa fa-clipboard copy-btn' aria-hidden='true'></i>");
-		
-		$('#article-content').find('pre').each( function () {
-			var language = $(this).children('code').attr('class').substr(9);//why 9? Need to check language?
-			$(this).prev().find('.code-language').text( language );	
-		});
-				
-		//为复制按钮添加click事件
-		$('.copy-btn').on("click", function() {
-			//初始化
-			$("textarea").remove("#targetId");
-			
-			//获取对应的代码
-			var codePre = $(this).parent().next(),
-				codeText = codePre[0].textContent,
-				target = document.createElement("textarea");
-			target.style.position = "absolute";
-			target.style.left = "-9999px";
-			target.style.top = "0";
-			target.id = "targetId";
-			codePre.append(target);
-			target.textContent = codeText;
-
-			//选中textarea内的代码
-			target.focus();
-			target.setSelectionRange(0, target.value.length);
-
-			// 复制选中的内容
-			document.execCommand("copy");
-			
-			//删除添加的节点
-			$("textarea").remove("#targetId");
-			
-			var thisCopied = $(this);
-			thisCopied.addClass('copy-status');	
-			setTimeout( function() {
-				thisCopied.removeClass('copy-status');
-			}, 2000)
-		});	
-	}
-	
-	if( $('.layout-post').length )	{
-		codeCopy();
-	}
-</script>
-
 
 <!-- TODO: There seems to be a bug when you close the post gallery! -->
 <link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
@@ -917,6 +700,13 @@ iOS调用RN1.创建一个交互通信的类。#import
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		
@@ -941,7 +731,7 @@ iOS调用RN1.创建一个交互通信的类。#import
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>

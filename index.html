@@ -237,7 +237,7 @@
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>
@@ -278,6 +278,97 @@
 				<div class="post-title" id="post-title-index">			
 					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 					
+	<a href="/2019/06/25/aacTowav/" itemprop="url">
+		AAC音频转WAV
+	</a>
+
+				</div>
+
+				<div class="post-content">
+					
+						
+							将aac编码格式的音频转为lpcm编码的音频123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107/** 把.m4a转为.caf格式 @param originalUrlStr .m4a文件路径 @param destUr...
+						
+					
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+	<a href="/2019/06/25/aacTowav/" itemprop="url">
+		<time datetime="2019-06-25T02:27:40.729Z" itemprop="datePublished">
+	  		2019-06-25
+	  </time>
+	</a> 		
+
+						</i>
+					</span>
+					/
+					
+
+    <span class="leancloud_visitors" id="/2019/06/25/aacTowav/_visitors" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/06/25/aacTowav/_likes" data-url="/2019/06/25/aacTowav/" data-title="AAC音频转WAV" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
+            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+					
+						<span class="right">      	
+							<a href="/2019/06/25/aacTowav/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
+			</div>
+		</div>
+	
+		<div class="post" id="post">
+			<div class="post-text">
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/06/19/SMSFilter/" itemprop="url">
 		Message Filtter Extension 短信过滤
 	</a>
@@ -290,11 +381,10 @@
 							
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add Target->选择iOS->添加Message Filtter Extension
-
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&gt;Add Target-&gt;选择iOS-&gt;添加Message Filtter Extension
 2.添加好了之后选择设置，项目工程和target都要开启AppGroup,点击左下角的加号添加一个AppGroup的标示
 注意：项目工程和自己添加的target必须要一致，这个标示是用来共享数据的
-3.工程这边做一个简单的列表用来添加屏蔽关键词，然后关键词的本地化用之前添加...
+3.工程这边做一个简单的列表用来添加屏蔽关键词，然后...
 						
 					
 				</div>
@@ -385,19 +475,7 @@
 				<div class="post-content">
 					
 						
-							#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expired certificates, we're all good"
-else
-    echo "Deleting expired certs"
-    for uuid in $expired
-    do
-        if [ ${#uuid} -eq 40 ]
-        then
-            security delete-cer...
+							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回truethen    echo "No expired certificates, we're all good"else    echo "Deleting expired certs"    for uuid in $expired    do        if [ $&#123;#uuid&#125; -eq 40 ]        then      ...
 						
 					
 				</div>
@@ -492,9 +570,7 @@ else
 第二步添加Localizble.strings
 第三步选择Localizble.strings文件，然后选择Localize…选择需要的语言，选择完了之后你就会看见刚才创建的Localizble.string文件多了一个小箭头符号，然后我们把它展开，添加需要翻译。
 
-第四步给string添加一个扩展属性用来做国际化的。然后所有的文字都需要调用这个myLocalizedString属性。例如：”收藏”.myLocalizedString/** 国际化的拓展 */
-extension String{
-    var myLocalizedString...
+第四步给string添加一个扩展属性用来做国际化的。然后所有的文字都需要调用这个myLocalizedString属性。例如：”收藏”.myLocalizedString12345678/** 国际化的拓展 */extension String&#123;    var myLoca...
 						
 					
 				</div>
@@ -585,22 +661,12 @@ extension String{
 				<div class="post-content">
 					
 						
-							1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+							1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
-3.列出已下载的镜像docker images
-
-4.列出运行中的容器# 使用 docker ps -a 命令列出所有（包括已停止）的容器
-docker ps -a
-# 删除容器
-docker rm &lt;容器的唯一标示>
-
-# 停止正在运行的容器
-docker stop &lt;容器名称>
-
-5.启动跑个静态网页测试nginx容器docker run -...
+3.列出已下载的镜像1docker images
+4.列出运行中的容器1234567# 使用 docker ps -a 命令列出所有（包括已停止）的容器docker ps -a# 删除容器docker rm &lt;容器的唯一标示&gt;# 停止正在运行的容器docker stop &lt;容器名称&gt;
+5.启动跑个静态网页测试nginx容器1234do...
 						
 					
 				</div>
@@ -677,111 +743,6 @@ docker stop &lt;容器名称>
 			</div>
 		</div>
 	
-		<div class="post" id="post">
-			<div class="post-text">
-				<div class="post-title" id="post-title-index">			
-					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-					
-	<a href="/2019/03/04/nginxPublish/" itemprop="url">
-		Nginx vue打包部署
-	</a>
-
-				</div>
-
-				<div class="post-content">
-					
-						
-							
-最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
-
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-    listen       8089;
-    #访问的域名，多个域名用空格隔开
-    server_name  locahost;
-
-    #charset koi8-r;
-    #access_log  /var/log/nginx/log/host.access.log  main;
-
-    charset utf8;
-
-    loca...
-						
-					
-				</div>
-				
-				<div class="post-meta">
-					<span>
-						发布于
-						<i>
-							
-	<a href="/2019/03/04/nginxPublish/" itemprop="url">
-		<time datetime="2019-03-04T03:34:04.301Z" itemprop="datePublished">
-	  		2019-03-04
-	  </time>
-	</a> 		
-
-						</i>
-					</span>
-					/
-					
-
-    <span class="leancloud_visitors" id="/2019/03/04/nginxPublish/_visitors" data-url="/2019/03/04/nginxPublish/" data-title="Nginx vue打包部署">
-        热度
-        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-    </span>
-    
-    /
-
-
-
-    <span class="leancloud_likes" id="/2019/03/04/nginxPublish/_likes" data-url="/2019/03/04/nginxPublish/" data-title="Nginx vue打包部署" rel="unlike">
-        喜欢
-        <i class="fa fa-heart"></i>
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-
-	<script>
-		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
-            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
-        AnnieLeancloud(appid, appkey);         
-	</script>
-    
-
-
- 
-					
-						<span class="right">      	
-							<a href="/2019/03/04/nginxPublish/" title="阅读全文">阅读全文</a>	
-						</span>
-					
-				</div>
-			</div>
-		</div>
-	
 	</div>
 
 	
@@ -817,7 +778,7 @@ docker stop &lt;容器名称>
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>

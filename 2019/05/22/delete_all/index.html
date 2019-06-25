@@ -237,7 +237,7 @@
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>
@@ -321,26 +321,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-
-expired<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>security find-identity<span class="token variable">)</span></span>
-<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$expired</span>"</span> <span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#-z判断字符串长度是否为0 为0返回true</span>
-<span class="token keyword">then</span>
-    <span class="token keyword">echo</span> <span class="token string">"No expired certificates, we're all good"</span>
-<span class="token keyword">else</span>
-    <span class="token keyword">echo</span> <span class="token string">"Deleting expired certs"</span>
-    <span class="token keyword">for</span> uuid <span class="token keyword">in</span> <span class="token variable">$expired</span>
-    <span class="token keyword">do</span>
-        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">${#uuid}</span> -eq 40 <span class="token punctuation">]</span>
-        <span class="token keyword">then</span>
-            security delete-certificate -Z <span class="token variable">$expired</span>
-        <span class="token keyword">echo</span> <span class="token variable">$uuid</span>
-        <span class="token keyword">fi</span>
-    <span class="token keyword">done</span>
-<span class="token keyword">fi</span>
-<span class="token keyword">exit</span> 0
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-	
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">expired=$(security find-identity)</span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$expired</span>"</span> ]    <span class="comment">#-z判断字符串长度是否为0 为0返回true</span></span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"No expired certificates, we're all good"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Deleting expired certs"</span></span><br><span class="line">    <span class="keyword">for</span> uuid <span class="keyword">in</span> <span class="variable">$expired</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$&#123;#uuid&#125;</span> -eq 40 ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">            security delete-certificate -Z <span class="variable">$expired</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$uuid</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/back.jpg"></div>
@@ -380,6 +361,22 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 		
 				<li>
 					<div>
+						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
+							AAC音频转WAV
+						</a>
+						<p>
+							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
+						</p>
+					</div>
+
+					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
+						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
 							Message Filtter Extension 短信过滤
 						</a>
@@ -387,7 +384,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 							
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 						</p>
 					</div>
 
@@ -421,10 +418,8 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 							Docker Nginx 静态资源部署
 						</a>
 						<p>
-							1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+							1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 						</p>
@@ -445,9 +440,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 							
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 						</p>
 					</div>
 
@@ -463,9 +456,8 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 							SCP文件上传下载
 						</a>
 						<p>
-							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 						</p>
 					</div>
 
@@ -481,9 +473,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 							音频剪切、合成、淡入淡出
 						</a>
 						<p>
-							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件...
+							音频剪切1.音频剪切比较简单传入音频文件和剪切的时间段就可以了12345678910111213141516171819202122232425/** 初始化输出文件路径 */    NSString *url = "音频源文件路径"...
 						</p>
 					</div>
 
@@ -520,9 +510,7 @@ expired<span class="token operator">=</span><span class="token variable"><span c
 							
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 						</p>
 					</div>
 
@@ -544,25 +532,6 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
 						<img src="/img/back.jpg" class="relateImg" alt="Gvoice 实时语音接入">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/14/6/" title="ARDemo">
-							ARDemo
-						</a>
-						<p>
-							#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
-#####注：demo借鉴的泊学上的
-#####github地址
-2.项目创建成功之后进入到ViewController.swif...
-						</p>
-					</div>
-
-					<a href="/2018/10/14/6/" title="ARDemo">				
-						<img src="/img/back.jpg" class="relateImg" alt="ARDemo">
 					</a>
 				</li>											
 		
@@ -691,59 +660,6 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-<script>
-	//Refer to https://xinyo.org/archives/66226, thanks xinyo!
-	function codeCopy() {
-		var copyContainerId = 'copy-nav';
-						
-		$("pre").before(" <nav class=' " + copyContainerId + " '><i class='code-language'></i></nav> ");
-		
-		$('.' + copyContainerId).append("<i class='fa fa-clipboard copy-btn' aria-hidden='true'></i>");
-		
-		$('#article-content').find('pre').each( function () {
-			var language = $(this).children('code').attr('class').substr(9);//why 9? Need to check language?
-			$(this).prev().find('.code-language').text( language );	
-		});
-				
-		//为复制按钮添加click事件
-		$('.copy-btn').on("click", function() {
-			//初始化
-			$("textarea").remove("#targetId");
-			
-			//获取对应的代码
-			var codePre = $(this).parent().next(),
-				codeText = codePre[0].textContent,
-				target = document.createElement("textarea");
-			target.style.position = "absolute";
-			target.style.left = "-9999px";
-			target.style.top = "0";
-			target.id = "targetId";
-			codePre.append(target);
-			target.textContent = codeText;
-
-			//选中textarea内的代码
-			target.focus();
-			target.setSelectionRange(0, target.value.length);
-
-			// 复制选中的内容
-			document.execCommand("copy");
-			
-			//删除添加的节点
-			$("textarea").remove("#targetId");
-			
-			var thisCopied = $(this);
-			thisCopied.addClass('copy-status');	
-			setTimeout( function() {
-				thisCopied.removeClass('copy-status');
-			}, 2000)
-		});	
-	}
-	
-	if( $('.layout-post').length )	{
-		codeCopy();
-	}
-</script>
-
 
 <!-- TODO: There seems to be a bug when you close the post gallery! -->
 <link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
@@ -799,7 +715,7 @@ iOS调用RN1.创建一个交互通信的类。#import
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>

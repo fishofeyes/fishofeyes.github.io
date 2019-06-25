@@ -237,7 +237,7 @@
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>
@@ -321,157 +321,9 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h2 id="音频剪切"><a href="#音频剪切" class="headerlink" title="音频剪切"></a>音频剪切</h2><h4 id="1-音频剪切比较简单传入音频文件和剪切的时间段就可以了"><a href="#1-音频剪切比较简单传入音频文件和剪切的时间段就可以了" class="headerlink" title="1.音频剪切比较简单传入音频文件和剪切的时间段就可以了"></a>1.音频剪切比较简单传入音频文件和剪切的时间段就可以了</h4><pre class="line-numbers language-objc"><code class="language-objc">/** 初始化输出文件路径 */
-    NSString *url = "音频源文件路径";
-    NSString *outPutPath = "音频前切完成输出文件路径";
-    NSURL *audioFileOutput = [NSURL fileURLWithPath:outPutPath];
-    [[NSFileManager defaultManager] removeItemAtURL:audioFileOutput error:NULL];
-
-    /** 初始化要剪切的音频文件 */
-    AVAsset *asset = [AVAsset assetWithURL:url];
-
-    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:asset
-                                                                            presetName:AVAssetExportPresetAppleM4A];
-    /** 剪切的时间段 */
-    CMTimeRange exportTimeRange = CMTimeRangeFromTimeToTime(startTime, endTime);
-
-    exportSession.outputURL = audioFileOutput;
-    exportSession.outputFileType = AVFileTypeAppleM4A;
-    exportSession.timeRange = exportTimeRange;
-
-    [exportSession exportAsynchronouslyWithCompletionHandler:^{
-        if (AVAssetExportSessionStatusCompleted == exportSession.status) {
-            NSLog(@" FlyElephant \n %@", outPutPath);
-        } else if (AVAssetExportSessionStatusFailed == exportSession.status) {
-            NSLog(@"FlyElephant error: %@", exportSession.error.localizedDescription);
-        }
-    }];
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="音频的合成"><a href="#音频的合成" class="headerlink" title="音频的合成"></a>音频的合成</h2><h4 id="1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"><a href="#1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。" class="headerlink" title="1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"></a>1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。</h4><pre class="line-numbers language-objc"><code class="language-objc">    NSString *exportPath = @"导出文件路径";
-    NSString *url = @"音频源文件路径";
-    //音频来源路径
-    NSURL *audioUrl = [NSURL fileURLWithPath:url];
-    NSURL *backPathUrl = [NSURL fileURLWithPath:backPath];
-    //导出路径
-    NSURL *exporAudiotPath = [NSURL fileURLWithPath:exportPath];
-    //删除相同导出路径的文件
-    unlink([exportPath UTF8String]);
-    //创建可变的音频视频组合
-    AVMutableComposition *mixComposition = [AVMutableComposition composition];
-    /** 初始化音频 */
-    AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:audioUrl options:nil];
-    AVURLAsset *audioBack = [[AVURLAsset alloc] initWithURL:backPathUrl options:nil];
-
-    /** 音乐的时间 */
-    CMTimeRange audio_timeRange = CMTimeRangeMake(kCMTimeZero,audioAsset.duration);
-
-    //获取视频或者音频中的音频轨道
-    AVAssetTrack *audioTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-    AVAssetTrack *audioBackTrack = [[audioBack tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-    //可变音视频轨道添加一个 音频通道
-    AVMutableCompositionTrack *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-    AVMutableCompositionTrack *audioCompositionBackTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-    //插入音频到容器
-    [audioCompositionTrack insertTimeRange:audio_timeRange ofTrack:audioTrack atTime:kCMTimeZero error:nil];
-    [audioCompositionBackTrack insertTimeRange:audio_timeRange ofTrack:audioBackTrack atTime:kCMTimeZero error:nil];
-
-
-    //初始化音频混合器
-    AVMutableAudioMix *exportAudioMix = [AVMutableAudioMix audioMix];
-    //获取到第二条音轨并且设置他的音量大小
-    AVAssetTrack *mixCompositionTrack = [[mixComposition tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:1];
-    //初始化音频混合器导出配置参数
-    AVMutableAudioMixInputParameters *exportAudioMixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mixCompositionTrack];
-    /** 设置第二条音轨的背景音效声音大小 */
-    [exportAudioMixInputParameters setVolumeRampFromStartVolume:0 toEndVolume:[AVAudioSession sharedInstance].outputVolume * 0.6 timeRange:audio_timeRange];
-    NSArray *audioMixParameters = @[exportAudioMixInputParameters];
-    exportAudioMix.inputParameters = audioMixParameters;
-
-
-    //创建一个输出
-    AVAssetExportSession* assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];
-    /** 导出文件的地址 */
-    assetExport.outputURL = exporAudiotPath;
-    /** 导出文件的格式 */
-    assetExport.outputFileType = @"com.apple.m4a-audio";
-    /** 网络优化 */
-    assetExport.shouldOptimizeForNetworkUse = YES;
-    assetExport.audioMix = exportAudioMix;
-    [assetExport exportAsynchronouslyWithCompletionHandler:
-     ^(void ) {
-         NSLog(@"$$$");
-         NSLog(@"完成！输出路径==%@",exportPath);
-         if(completion)completion(exportPath);
-     }];
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="音频的淡入淡出"><a href="#音频的淡入淡出" class="headerlink" title="音频的淡入淡出"></a>音频的淡入淡出</h2><h4 id="1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"><a href="#1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。" class="headerlink" title="1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"></a>1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。</h4><pre class="line-numbers language-objc"><code class="language-objc">    NSString *exportPath = @"音频导出文件路径";
-    NSString *exportPath = @"音频源文件路径";
-    //淡入时间
-    NSInteger fadeInTime = 5;
-    //淡出时间
-    NSInteger fadeOutTime = 5;
-    //音频来源路径
-    NSURL *audioUrl = [NSURL fileURLWithPath:url];
-    //导出路径
-    NSURL *exporAudiotPath = [NSURL fileURLWithPath:exportPath];
-    //删除相同导出路径的文件
-    unlink([exportPath UTF8String]);
-    //初始化开始时间
-    CMTime nextClipStartTime = kCMTimeZero;
-    //创建可变的音频视频组合
-    AVMutableComposition *mixComposition = [AVMutableComposition composition];
-    //初始化音频文件
-    AVURLAsset  *audioAsset = [[AVURLAsset alloc] initWithURL:audioUrl options:nil];
-    /** 获取音频时长 */
-    CMTimeRange audioTimeRange = CMTimeRangeMake(kCMTimeZero,audioAsset.duration);
-
-    //创建一个输出
-    AVAssetExportSession* assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];
-    assetExport.outputURL = exporAudiotPath;
-    assetExport.outputFileType = @"com.apple.m4a-audio";
-    assetExport.shouldOptimizeForNetworkUse = YES;
-    //获取音频文件中的音频轨道
-    AVAssetTrack *audioTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-    //初始化一个音频容器
-    AVMutableCompositionTrack *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-    //插入音频到容器
-    [audioCompositionTrack insertTimeRange:audioTimeRange ofTrack:audioTrack atTime:nextClipStartTime error:nil];
-
-    //初始化音频混合器
-    AVMutableAudioMix *exportAudioMix = [AVMutableAudioMix audioMix];
-    //获取混合后的音轨
-    AVAssetTrack *mixCompositionTrack = [[mixComposition tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-    //初始化音频混合器导出配置参数
-    AVMutableAudioMixInputParameters *exportAudioMixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mixCompositionTrack];
-
-    //初始化淡入淡出持续时间  这个可以根据项目需求来设置这里前5秒淡入音量从0到1.0，最后5秒淡出音量从1.0到0 大家可以根据自己需求修改
-    /** 获取当前的音频 */
-    CGFloat volume = [AVAudioSession sharedInstance].outputVolume;
-    if(fadeInTime > 0){
-        //        设置前5秒音乐淡入
-        CMTime continueFadeInTime = CMTimeMakeWithSeconds(fadeInTime, 1);
-        [exportAudioMixInputParameters setVolumeRampFromStartVolume:0 toEndVolume:volume timeRange:CMTimeRangeMake(CMTimeMakeWithSeconds(0, 1), continueFadeInTime)];
-    }
-    if(fadeOutTime > 0){
-        //        计算开始淡出的时间
-        CMTime continueFadeOutTime = CMTimeMakeWithSeconds(fadeOutTime, 1);
-        CMTime fadeOutStartTime = CMTimeSubtract(audioAsset.duration, continueFadeOutTime);
-        //        设置最后5秒音乐淡出
-        [exportAudioMixInputParameters setVolumeRampFromStartVolume:volume toEndVolume:0 timeRange:CMTimeRangeMake(fadeOutStartTime, continueFadeOutTime)];
-    }
-    //        设置音频混合器参数
-    NSArray *audioMixParameters = @[exportAudioMixInputParameters];
-    exportAudioMix.inputParameters = audioMixParameters;
-    //添加到导出配置中
-    assetExport.audioMix = exportAudioMix;
-    //开始导出
-    [assetExport exportAsynchronouslyWithCompletionHandler:
-     ^(void ) {
-         NSLog(@"$$$");
-         NSLog(@"完成！输出路径==%@",exportPath);
-         if(completion)completion(exportPath);
-     }];
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+		<h2 id="音频剪切"><a href="#音频剪切" class="headerlink" title="音频剪切"></a>音频剪切</h2><h4 id="1-音频剪切比较简单传入音频文件和剪切的时间段就可以了"><a href="#1-音频剪切比较简单传入音频文件和剪切的时间段就可以了" class="headerlink" title="1.音频剪切比较简单传入音频文件和剪切的时间段就可以了"></a>1.音频剪切比较简单传入音频文件和剪切的时间段就可以了</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 初始化输出文件路径 */</span></span><br><span class="line">    <span class="type">NSString</span> *url = <span class="string">"音频源文件路径"</span>;</span><br><span class="line">    <span class="type">NSString</span> *outPutPath = <span class="string">"音频前切完成输出文件路径"</span>;</span><br><span class="line">    <span class="type">NSURL</span> *audioFileOutput = [<span class="type">NSURL</span> fileURLWithPath:outPutPath];</span><br><span class="line">    [[<span class="type">NSFileManager</span> defaultManager] removeItemAtURL:audioFileOutput error:<span class="type">NULL</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 初始化要剪切的音频文件 */</span></span><br><span class="line">    <span class="type">AVAsset</span> *asset = [<span class="type">AVAsset</span> assetWithURL:url];</span><br><span class="line">    </span><br><span class="line">    <span class="type">AVAssetExportSession</span> *exportSession = [<span class="type">AVAssetExportSession</span> exportSessionWithAsset:asset</span><br><span class="line">                                                                            presetName:<span class="type">AVAssetExportPresetAppleM4A</span>];</span><br><span class="line">    <span class="comment">/** 剪切的时间段 */</span></span><br><span class="line">    <span class="type">CMTimeRange</span> exportTimeRange = <span class="type">CMTimeRangeFromTimeToTime</span>(startTime, endTime);</span><br><span class="line"></span><br><span class="line">    exportSession.outputURL = audioFileOutput;</span><br><span class="line">    exportSession.outputFileType = <span class="type">AVFileTypeAppleM4A</span>;</span><br><span class="line">    exportSession.timeRange = exportTimeRange;</span><br><span class="line">    </span><br><span class="line">    [exportSession exportAsynchronouslyWithCompletionHandler:^&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="type">AVAssetExportSessionStatusCompleted</span> == exportSession.status) &#123;</span><br><span class="line">            <span class="type">NSLog</span>(@<span class="string">" FlyElephant \n %@"</span>, outPutPath);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="type">AVAssetExportSessionStatusFailed</span> == exportSession.status) &#123;</span><br><span class="line">            <span class="type">NSLog</span>(@<span class="string">"FlyElephant error: %@"</span>, exportSession.error.localizedDescription);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<h2 id="音频的合成"><a href="#音频的合成" class="headerlink" title="音频的合成"></a>音频的合成</h2><h4 id="1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"><a href="#1-音频的合成这里的背景是有一段录音需要加一个背景音乐-视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。" class="headerlink" title="1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。"></a>1.音频的合成这里的背景是有一段录音需要加一个背景音乐,视频合成的也是一样的道理把音频源文件改成视频，然后相应的配置改成文件就好了。</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NSString</span> *exportPath = @<span class="string">"导出文件路径"</span>;</span><br><span class="line"><span class="type">NSString</span> *url = @<span class="string">"音频源文件路径"</span>;</span><br><span class="line"><span class="comment">//音频来源路径</span></span><br><span class="line"><span class="type">NSURL</span> *audioUrl = [<span class="type">NSURL</span> fileURLWithPath:url];</span><br><span class="line"><span class="type">NSURL</span> *backPathUrl = [<span class="type">NSURL</span> fileURLWithPath:backPath];</span><br><span class="line"><span class="comment">//导出路径</span></span><br><span class="line"><span class="type">NSURL</span> *exporAudiotPath = [<span class="type">NSURL</span> fileURLWithPath:exportPath];</span><br><span class="line"><span class="comment">//删除相同导出路径的文件</span></span><br><span class="line">unlink([exportPath <span class="type">UTF8String</span>]);</span><br><span class="line"><span class="comment">//创建可变的音频视频组合</span></span><br><span class="line"><span class="type">AVMutableComposition</span> *mixComposition = [<span class="type">AVMutableComposition</span> composition];</span><br><span class="line"><span class="comment">/** 初始化音频 */</span></span><br><span class="line"><span class="type">AVURLAsset</span> *audioAsset = [[<span class="type">AVURLAsset</span> alloc] initWithURL:audioUrl options:<span class="literal">nil</span>];</span><br><span class="line"><span class="type">AVURLAsset</span> *audioBack = [[<span class="type">AVURLAsset</span> alloc] initWithURL:backPathUrl options:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 音乐的时间 */</span></span><br><span class="line"><span class="type">CMTimeRange</span> audio_timeRange = <span class="type">CMTimeRangeMake</span>(kCMTimeZero,audioAsset.duration);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取视频或者音频中的音频轨道</span></span><br><span class="line"><span class="type">AVAssetTrack</span> *audioTrack = [[audioAsset tracksWithMediaType:<span class="type">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="type">AVAssetTrack</span> *audioBackTrack = [[audioBack tracksWithMediaType:<span class="type">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">//可变音视频轨道添加一个 音频通道</span></span><br><span class="line"><span class="type">AVMutableCompositionTrack</span> *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:<span class="type">AVMediaTypeAudio</span> preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line"><span class="type">AVMutableCompositionTrack</span> *audioCompositionBackTrack = [mixComposition addMutableTrackWithMediaType:<span class="type">AVMediaTypeAudio</span> preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line"><span class="comment">//插入音频到容器</span></span><br><span class="line">[audioCompositionTrack insertTimeRange:audio_timeRange ofTrack:audioTrack atTime:kCMTimeZero error:<span class="literal">nil</span>];</span><br><span class="line">[audioCompositionBackTrack insertTimeRange:audio_timeRange ofTrack:audioBackTrack atTime:kCMTimeZero error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化音频混合器</span></span><br><span class="line"><span class="type">AVMutableAudioMix</span> *exportAudioMix = [<span class="type">AVMutableAudioMix</span> audioMix];</span><br><span class="line"><span class="comment">//获取到第二条音轨并且设置他的音量大小</span></span><br><span class="line"><span class="type">AVAssetTrack</span> *mixCompositionTrack = [[mixComposition tracksWithMediaType:<span class="type">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">1</span>];</span><br><span class="line"><span class="comment">//初始化音频混合器导出配置参数</span></span><br><span class="line"><span class="type">AVMutableAudioMixInputParameters</span> *exportAudioMixInputParameters = [<span class="type">AVMutableAudioMixInputParameters</span> audioMixInputParametersWithTrack:mixCompositionTrack];</span><br><span class="line"><span class="comment">/** 设置第二条音轨的背景音效声音大小 */</span></span><br><span class="line">[exportAudioMixInputParameters setVolumeRampFromStartVolume:<span class="number">0</span> toEndVolume:[<span class="type">AVAudioSession</span> sharedInstance].outputVolume * <span class="number">0.6</span> timeRange:audio_timeRange];</span><br><span class="line"><span class="type">NSArray</span> *audioMixParameters = @[exportAudioMixInputParameters];</span><br><span class="line">exportAudioMix.inputParameters = audioMixParameters;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个输出</span></span><br><span class="line"><span class="type">AVAssetExportSession</span>* assetExport = [[<span class="type">AVAssetExportSession</span> alloc] initWithAsset:mixComposition presetName:<span class="type">AVAssetExportPresetAppleM4A</span>];</span><br><span class="line"><span class="comment">/** 导出文件的地址 */</span></span><br><span class="line">assetExport.outputURL = exporAudiotPath;</span><br><span class="line"><span class="comment">/** 导出文件的格式 */</span></span><br><span class="line">assetExport.outputFileType = @<span class="string">"com.apple.m4a-audio"</span>;</span><br><span class="line"><span class="comment">/** 网络优化 */</span></span><br><span class="line">assetExport.shouldOptimizeForNetworkUse = <span class="type">YES</span>;</span><br><span class="line">assetExport.audioMix = exportAudioMix;</span><br><span class="line">[assetExport exportAsynchronouslyWithCompletionHandler:</span><br><span class="line"> ^(void ) &#123;</span><br><span class="line">     <span class="type">NSLog</span>(@<span class="string">"$$$"</span>);</span><br><span class="line">     <span class="type">NSLog</span>(@<span class="string">"完成！输出路径==%@"</span>,exportPath);</span><br><span class="line">     <span class="keyword">if</span>(completion)completion(exportPath);</span><br><span class="line"> &#125;];</span><br></pre></td></tr></table></figure>
+<h2 id="音频的淡入淡出"><a href="#音频的淡入淡出" class="headerlink" title="音频的淡入淡出"></a>音频的淡入淡出</h2><h4 id="1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"><a href="#1-音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。" class="headerlink" title="1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。"></a>1.音频的淡入只需要设置音频音轨开始的音量从0到正常的音量，淡出只需要设置音轨音量从淡出时间到结束从正常音量到0就行了。</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NSString</span> *exportPath = @<span class="string">"音频导出文件路径"</span>;</span><br><span class="line"><span class="type">NSString</span> *exportPath = @<span class="string">"音频源文件路径"</span>;</span><br><span class="line"><span class="comment">//淡入时间</span></span><br><span class="line"><span class="type">NSInteger</span> fadeInTime = <span class="number">5</span>;</span><br><span class="line"><span class="comment">//淡出时间</span></span><br><span class="line"><span class="type">NSInteger</span> fadeOutTime = <span class="number">5</span>;</span><br><span class="line"><span class="comment">//音频来源路径</span></span><br><span class="line"><span class="type">NSURL</span> *audioUrl = [<span class="type">NSURL</span> fileURLWithPath:url];</span><br><span class="line"><span class="comment">//导出路径</span></span><br><span class="line"><span class="type">NSURL</span> *exporAudiotPath = [<span class="type">NSURL</span> fileURLWithPath:exportPath];</span><br><span class="line"><span class="comment">//删除相同导出路径的文件</span></span><br><span class="line">unlink([exportPath <span class="type">UTF8String</span>]);</span><br><span class="line"><span class="comment">//初始化开始时间</span></span><br><span class="line"><span class="type">CMTime</span> nextClipStartTime = kCMTimeZero;</span><br><span class="line"><span class="comment">//创建可变的音频视频组合</span></span><br><span class="line"><span class="type">AVMutableComposition</span> *mixComposition = [<span class="type">AVMutableComposition</span> composition];</span><br><span class="line"><span class="comment">//初始化音频文件</span></span><br><span class="line"><span class="type">AVURLAsset</span>  *audioAsset = [[<span class="type">AVURLAsset</span> alloc] initWithURL:audioUrl options:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">/** 获取音频时长 */</span></span><br><span class="line"><span class="type">CMTimeRange</span> audioTimeRange = <span class="type">CMTimeRangeMake</span>(kCMTimeZero,audioAsset.duration);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个输出</span></span><br><span class="line"><span class="type">AVAssetExportSession</span>* assetExport = [[<span class="type">AVAssetExportSession</span> alloc] initWithAsset:mixComposition presetName:<span class="type">AVAssetExportPresetAppleM4A</span>];</span><br><span class="line">assetExport.outputURL = exporAudiotPath;</span><br><span class="line">assetExport.outputFileType = @<span class="string">"com.apple.m4a-audio"</span>;</span><br><span class="line">assetExport.shouldOptimizeForNetworkUse = <span class="type">YES</span>;</span><br><span class="line"><span class="comment">//获取音频文件中的音频轨道</span></span><br><span class="line"><span class="type">AVAssetTrack</span> *audioTrack = [[audioAsset tracksWithMediaType:<span class="type">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">//初始化一个音频容器</span></span><br><span class="line"><span class="type">AVMutableCompositionTrack</span> *audioCompositionTrack = [mixComposition addMutableTrackWithMediaType:<span class="type">AVMediaTypeAudio</span> preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line"><span class="comment">//插入音频到容器</span></span><br><span class="line">[audioCompositionTrack insertTimeRange:audioTimeRange ofTrack:audioTrack atTime:nextClipStartTime error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化音频混合器</span></span><br><span class="line"><span class="type">AVMutableAudioMix</span> *exportAudioMix = [<span class="type">AVMutableAudioMix</span> audioMix];</span><br><span class="line"><span class="comment">//获取混合后的音轨</span></span><br><span class="line"><span class="type">AVAssetTrack</span> *mixCompositionTrack = [[mixComposition tracksWithMediaType:<span class="type">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">//初始化音频混合器导出配置参数</span></span><br><span class="line"><span class="type">AVMutableAudioMixInputParameters</span> *exportAudioMixInputParameters = [<span class="type">AVMutableAudioMixInputParameters</span> audioMixInputParametersWithTrack:mixCompositionTrack];</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化淡入淡出持续时间  这个可以根据项目需求来设置这里前5秒淡入音量从0到1.0，最后5秒淡出音量从1.0到0 大家可以根据自己需求修改</span></span><br><span class="line"><span class="comment">/** 获取当前的音频 */</span></span><br><span class="line"><span class="type">CGFloat</span> volume = [<span class="type">AVAudioSession</span> sharedInstance].outputVolume;</span><br><span class="line"><span class="keyword">if</span>(fadeInTime &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//        设置前5秒音乐淡入</span></span><br><span class="line">    <span class="type">CMTime</span> continueFadeInTime = <span class="type">CMTimeMakeWithSeconds</span>(fadeInTime, <span class="number">1</span>);</span><br><span class="line">    [exportAudioMixInputParameters setVolumeRampFromStartVolume:<span class="number">0</span> toEndVolume:volume timeRange:<span class="type">CMTimeRangeMake</span>(<span class="type">CMTimeMakeWithSeconds</span>(<span class="number">0</span>, <span class="number">1</span>), continueFadeInTime)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(fadeOutTime &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//        计算开始淡出的时间</span></span><br><span class="line">    <span class="type">CMTime</span> continueFadeOutTime = <span class="type">CMTimeMakeWithSeconds</span>(fadeOutTime, <span class="number">1</span>);</span><br><span class="line">    <span class="type">CMTime</span> fadeOutStartTime = <span class="type">CMTimeSubtract</span>(audioAsset.duration, continueFadeOutTime);</span><br><span class="line">    <span class="comment">//        设置最后5秒音乐淡出</span></span><br><span class="line">    [exportAudioMixInputParameters setVolumeRampFromStartVolume:volume toEndVolume:<span class="number">0</span> timeRange:<span class="type">CMTimeRangeMake</span>(fadeOutStartTime, continueFadeOutTime)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//        设置音频混合器参数</span></span><br><span class="line"><span class="type">NSArray</span> *audioMixParameters = @[exportAudioMixInputParameters];</span><br><span class="line">exportAudioMix.inputParameters = audioMixParameters;</span><br><span class="line"><span class="comment">//添加到导出配置中</span></span><br><span class="line">assetExport.audioMix = exportAudioMix;</span><br><span class="line"><span class="comment">//开始导出</span></span><br><span class="line">[assetExport exportAsynchronouslyWithCompletionHandler:</span><br><span class="line"> ^(void ) &#123;</span><br><span class="line">     <span class="type">NSLog</span>(@<span class="string">"$$$"</span>);</span><br><span class="line">     <span class="type">NSLog</span>(@<span class="string">"完成！输出路径==%@"</span>,exportPath);</span><br><span class="line">     <span class="keyword">if</span>(completion)completion(exportPath);</span><br><span class="line"> &#125;];</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -512,6 +364,22 @@
 		
 				<li>
 					<div>
+						<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">
+							AAC音频转WAV
+						</a>
+						<p>
+							将aac编码格式的音频转为lpcm编码的音频12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152...
+						</p>
+					</div>
+
+					<a href="/2019/06/25/aacTowav/" title="AAC音频转WAV">				
+						<img src="/img/back.jpg" class="relateImg" alt="AAC音频转WAV">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/06/19/SMSFilter/" title="Message Filtter Extension 短信过滤">
 							Message Filtter Extension 短信过滤
 						</a>
@@ -519,7 +387,7 @@
 							
 手机最近老是收到各种垃圾短信，于是想要自己写一个app来过滤垃圾短信，找到了Message Filtter Extension
 
-1.首先创建一个空的工程，然后创建好了之后添加一个target。选中工程->Editor->Add T...
+1.首先创建一个空的工程，然后创建好了之后添加一个target。1选中工程-&gt;Editor-&g...
 						</p>
 					</div>
 
@@ -535,12 +403,7 @@
 							Shell删除所有苹果证书
 						</a>
 						<p>
-							#!/bin/bash
-
-expired=$(security find-identity)
-if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回true
-then
-    echo "No expi...
+							123456789101112131415161718#!/bin/bashexpired=$(security find-identity)if [ -z "$expired" ]    #-z判断字符串长度是否为0 为0返回tru...
 						</p>
 					</div>
 
@@ -574,10 +437,8 @@ then
 							Docker Nginx 静态资源部署
 						</a>
 						<p>
-							1. 查看docker仓库中的nginx命令docker search nginx
-
-2.为选定需要pull到系统重的官方Nginx镜像docker pull nginx
-
+							1. 查看docker仓库中的nginx命令1docker search nginx
+2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
 这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
 ...
 						</p>
@@ -598,9 +459,7 @@ then
 							
 最近在弄vue的项目，完了需要打包部署到服务器，然后之前也没有弄过自己在这边一边查资料一边琢磨怎么弄。幸运的是花了一天半的时间还搞定了。
 
-1.在conf.d文件下添加一个新的配置文件,server {
-    #说明监听80端口
-...
+1.在conf.d文件下添加一个新的配置文件,12345678910111213141516...
 						</p>
 					</div>
 
@@ -616,9 +475,8 @@ then
 							SCP文件上传下载
 						</a>
 						<p>
-							从服务器获取文件scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
-
-上传文件到服务器scp -p 8080 /Desktop/uploadfile root@192.1...
+							从服务器获取文件1scp -p 8080 root@192.168.1.1:/usr/temp/file.txt /Desktop/
+上传文件到服务器1scp -p 8080 /Desktop/uploadfile root@192....
 						</p>
 					</div>
 
@@ -655,9 +513,7 @@ then
 							
 有一个RN的项目其中一个即时通讯的模块需要用原生来写所以这里面就涉及到iOS原生和RN的交互。
 
-iOS调用RN1.创建一个交互通信的类。#import 
-#import 
-@interface RNNotification : R...
+iOS调用RN1.创建一个交互通信的类。1234#import &lt;React/RCTEventEmitter.h&gt;#imp...
 						</p>
 					</div>
 
@@ -679,25 +535,6 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 					<a href="/2018/10/14/7/" title="Gvoice 实时语音接入">				
 						<img src="/img/back.jpg" class="relateImg" alt="Gvoice 实时语音接入">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/10/14/6/" title="ARDemo">
-							ARDemo
-						</a>
-						<p>
-							#####做了一个有关iOS AR的demo，功能就是找出周围的红包然后点击消失，这么一个简单的功能。
-#####注：demo借鉴的泊学上的
-#####github地址
-2.项目创建成功之后进入到ViewController.swif...
-						</p>
-					</div>
-
-					<a href="/2018/10/14/6/" title="ARDemo">				
-						<img src="/img/back.jpg" class="relateImg" alt="ARDemo">
 					</a>
 				</li>											
 		
@@ -826,59 +663,6 @@ iOS调用RN1.创建一个交互通信的类。#import
 
 
 
-<script>
-	//Refer to https://xinyo.org/archives/66226, thanks xinyo!
-	function codeCopy() {
-		var copyContainerId = 'copy-nav';
-						
-		$("pre").before(" <nav class=' " + copyContainerId + " '><i class='code-language'></i></nav> ");
-		
-		$('.' + copyContainerId).append("<i class='fa fa-clipboard copy-btn' aria-hidden='true'></i>");
-		
-		$('#article-content').find('pre').each( function () {
-			var language = $(this).children('code').attr('class').substr(9);//why 9? Need to check language?
-			$(this).prev().find('.code-language').text( language );	
-		});
-				
-		//为复制按钮添加click事件
-		$('.copy-btn').on("click", function() {
-			//初始化
-			$("textarea").remove("#targetId");
-			
-			//获取对应的代码
-			var codePre = $(this).parent().next(),
-				codeText = codePre[0].textContent,
-				target = document.createElement("textarea");
-			target.style.position = "absolute";
-			target.style.left = "-9999px";
-			target.style.top = "0";
-			target.id = "targetId";
-			codePre.append(target);
-			target.textContent = codeText;
-
-			//选中textarea内的代码
-			target.focus();
-			target.setSelectionRange(0, target.value.length);
-
-			// 复制选中的内容
-			document.execCommand("copy");
-			
-			//删除添加的节点
-			$("textarea").remove("#targetId");
-			
-			var thisCopied = $(this);
-			thisCopied.addClass('copy-status');	
-			setTimeout( function() {
-				thisCopied.removeClass('copy-status');
-			}, 2000)
-		});	
-	}
-	
-	if( $('.layout-post').length )	{
-		codeCopy();
-	}
-</script>
-
 
 <!-- TODO: There seems to be a bug when you close the post gallery! -->
 <link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
@@ -941,7 +725,7 @@ iOS调用RN1.创建一个交互通信的类。#import
 		
 		
 			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
+				<a href="/fishofeyes@gmail.com" title="Email" target="_blank">
 					<i class="fa fa-envelope-o"></i>
 				</a>
 			</li>
