@@ -264,6 +264,104 @@
 				<div class="post-title" id="post-title-index">			
 					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 					
+	<a href="/2019/06/25/movieAudio/" itemprop="url">
+		删除视频背景音乐、添加视频背景音乐
+	</a>
+
+				</div>
+
+				<div class="post-content">
+					
+						删除视频背景音乐删除视频的背景音乐其实很简单，把视频数据导入进来，然后我们的视频数据其实是有两条轨道一条是音频，另外一条是视频。由于数据的tracks（轨道包含多条音视频）是只读的，所以在这里重新创建一个混合器，然后把数据源的视频轨道拿过来。重新生成一个媒体文件，丢弃了音频，这样就将视频的音频给删除掉了。
+123456789101112131415161718192021222324252627282930313233343536373839404142/** 删除视频的音频 */    static func remove_video_audio(_ url: URL, finish:...
+					
+				</div>
+				
+				<div class="post-meta">
+					<span>
+						发布于
+						<i>
+							
+
+
+
+
+
+
+	<a href="/2019/06/25/movieAudio/" itemprop="url">
+		<time datetime="2019-06-25T10:12:06.541Z" itemprop="datePublished">
+	  		2019-06-25
+	  </time>
+	</a> 
+
+						</i>
+					</span>
+					
+					
+
+	
+    <span class="leancloud_visitors" id="/2019/06/25/movieAudio/_visitors" data-url="/2019/06/25/movieAudio/" data-title="删除视频背景音乐、添加视频背景音乐">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2019/06/25/movieAudio/_likes" data-url="/2019/06/25/movieAudio/" data-title="删除视频背景音乐、添加视频背景音乐" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
+            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+					
+						<span class="right">      	
+							<a href="/2019/06/25/movieAudio/" title="阅读全文">阅读全文</a>	
+						</span>
+					
+				</div>
+			</div>
+		</div>
+	
+		<div class="post" id="post">
+			<div class="post-text">
+				<div class="post-title" id="post-title-index">			
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+					
 	<a href="/2019/06/25/aacTowav/" itemprop="url">
 		AAC音频转WAV
 	</a>
@@ -651,108 +749,6 @@
 					
 						<span class="right">      	
 							<a href="/2019/05/08/language/" title="阅读全文">阅读全文</a>	
-						</span>
-					
-				</div>
-			</div>
-		</div>
-	
-		<div class="post" id="post">
-			<div class="post-text">
-				<div class="post-title" id="post-title-index">			
-					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-					
-	<a href="/2019/03/04/publish_html/" itemprop="url">
-		Docker Nginx 静态资源部署
-	</a>
-
-				</div>
-
-				<div class="post-content">
-					
-						1. 查看docker仓库中的nginx命令1docker search nginx
-2.为选定需要pull到系统重的官方Nginx镜像1docker pull nginx
-这个过程需要时间，需要耐心等待一下。看到这个图就是成功了。
-3.列出已下载的镜像1docker images
-4.列出运行中的容器1234567# 使用 docker ps -a 命令列出所有（包括已停止）的容器docker ps -a# 删除容器docker rm &lt;容器的唯一标示&gt;# 停止正在运行的容器docker stop &lt;容器名称&gt;
-5.启动跑个静态网页测试nginx容器1234do...
-					
-				</div>
-				
-				<div class="post-meta">
-					<span>
-						发布于
-						<i>
-							
-
-
-
-
-
-
-	<a href="/2019/03/04/publish_html/" itemprop="url">
-		<time datetime="2019-03-04T03:46:14.831Z" itemprop="datePublished">
-	  		2019-03-04
-	  </time>
-	</a> 
-
-						</i>
-					</span>
-					
-					
-
-	
-    <span class="leancloud_visitors" id="/2019/03/04/publish_html/_visitors" data-url="/2019/03/04/publish_html/" data-title="Docker Nginx 静态资源部署">
-       	<i class="fa fa-eye"></i>
-       	热度
-        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2019/03/04/publish_html/_likes" data-url="/2019/03/04/publish_html/" data-title="Docker Nginx 静态资源部署" rel="unlike">
-        <i class="fa fa-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-
-	<script>
-		var appid = 'G5bov5UFN3ooGaoh737VlJoR-gzGzoHsz',
-            appkey = 'ELho7fWsLeXcFoMpEFSSQrJJ';	  
-        AnnieLeancloud(appid, appkey);         
-	</script>
-    
-
-	
-
-					
-						<span class="right">      	
-							<a href="/2019/03/04/publish_html/" title="阅读全文">阅读全文</a>	
 						</span>
 					
 				</div>
