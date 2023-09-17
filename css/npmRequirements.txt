@@ -1,0 +1,11 @@
+zksync-crypto 
+web3 
+decimal.js 
+zksync@0.13.1 
+@metamask/eth-sig-util 
+request 
+ethers@5.7.1
+starknet
+@sei-js/core
+osmojs
+buffer
